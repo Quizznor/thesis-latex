@@ -1,0 +1,34 @@
+\documentclass{include/thesis}
+
+\title{PhD draft test title}
+\author{Paul Filip}
+\dateOfDefense{01.01.1970}
+\dateOfPrint{\date{\today}}
+
+\begin{document}
+
+    \frontmatter
+
+    \input{title/title.tex}                 % title page(s)
+    \input{abstract/abstract.tex}           % introduction(s)
+    \include{include/acronyms.tex}          % acronym list
+
+    \tableofcontents                        % table of contents
+
+    %\listoftodos                            % todo list
+    \todo[inline]{remove todos}
+    \todo[inline]{add pdf hyperref keywords}
+
+    % \listoffigures                          % list of figures                
+    % \listoftables                           % list of tables
+
+    \mainmatter
+
+    \input{chap/chapters.tex}               % main thesis body
+    
+    \backmatter
+    
+    \input{bib/bibliography.tex}            % references and more
+    \input{app/appendix.tex}                % appendices
+
+\end{document}
