@@ -43,6 +43,7 @@ echo -e $DOCSTRING9 >> "$BASE/acronyms.tex"
 
 echo -e "\\\begin{acronym}[AAAAA]" >> "$BASE/acronyms.tex" 
 echo -e "% some of the plural acros here are clearly bogus" > "$BASE/definitions.tex"
+
 while read line; do
   FIELD=($line)
   SHORT="${FIELD[0]}"

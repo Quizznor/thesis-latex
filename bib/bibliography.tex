@@ -9,9 +9,9 @@ collaboration, and are called \GAP notes. Since they contain information that is
 not freely accessible outside the Pierre Auger collaboration, they are listed in
 a special category with the prefix \textbf{\textit{G}}. Similarly, sources from 
 personal correspondence are grouped with the prefix \textbf{\textit{C}}. 
-Physical references, also containing official publications by the Pierre Auger 
-collaboration, can be found with label \textbf{\textit{P}}. All other 
-references are indexed under the label \textbf{\textit{O}}.
+Physical references, also containing publications by the Pierre Auger collaboration,
+can be found with label \textbf{\textit{P}}. All other references are indexed under 
+the label \textbf{\textit{O}}.
 
 % Auger Internal References
 \newrefcontext[labelprefix=G]
@@ -23,10 +23,10 @@ references are indexed under the label \textbf{\textit{O}}.
 
 % General Physical References
 \newrefcontext[labelprefix=P]
-\printbibliography[keyword={phys},notkeyword={GAP-Note},title={Physics References},heading=subbibliography]
+\printbibliography[keyword={phys},notkeyword={auger},title={Physics References},heading=subbibliography]
 
 % Other References
 \newrefcontext[labelprefix=O]
-\printbibliography[notkeyword={private},notkeyword={phys},notkeyword={GAP-Note},title={Other References},heading=subbibliography]
+\printbibliography[notkeyword={private},notkeyword={phys},notkeyword={auger},title={Other References},heading=subbibliography]
 
 \cleardoublepage
