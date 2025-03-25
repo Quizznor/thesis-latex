@@ -17,7 +17,7 @@
 \usepackage{subfig}
 \usepackage{mparhack}
 \usepackage{lipsum}
-\usepackage{authoraftertitle}
+\usepackage{titling}
 \usepackage[printonlyused, withpage]{acronym}
 \newcommand{\word}[2]{\acro{#1}{\textit{#2}}}
 
