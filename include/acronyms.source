@@ -1,4 +1,4 @@
-ADC	        Analog Digital Count
+﻿ADC	        Analog Digital Count
 CR          Cosmic Ray
 CO	        Coihueco
 DAQ         Data Acquisition
@@ -12,6 +12,7 @@ LM	        Los Morados
 SD          Surface Detector
 PAO         Pierre Auger Observatory
 PMT	        Photomultiplier tube
-UHECR       Ultra High Energy Cosmic Ray
+UHE		Ultra High Energy
+UHECR       UHE Cosmic Ray
 UV          ultra-violet
 WCD         Water Cherenkov Detector

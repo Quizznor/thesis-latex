@@ -6,12 +6,14 @@
 *.lot
 *.loc
 *.soc
-*.soc
 *.tdo
-*.mtc*
+*.mtc
 *.bcf
 *.ptc
-*.run.xml
+*.xml
 *.fls
 *.fdb*
 *.out
+*.log
+*.gz
+*.pdf
