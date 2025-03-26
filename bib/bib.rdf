@@ -6315,6 +6315,128 @@ Version Number: Final</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Document rdf:about="https://www.auger.org/news/news/199-how-it-all-began">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>How it all began</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Watson</foaf:surname>
+                        <foaf:givenName>A.A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_44"/>
+        <dc:title>Development of the Pierre Auger Observatory</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.auger.org/news/news/199-how-it-all-began</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:15:01</dcterms:dateSubmitted>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_44">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>How it all began</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.auger.org/news/news/199-how-it-all-began</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:15:04</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.nobelprize.org/prizes/physics/1980/cronin/facts/">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>NobelPrize.org</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Nobel Prize Outreach 2025</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_46"/>
+        <dc:title>Nobel Prize in Physics 1980</dc:title>
+        <dcterms:abstract>The Nobel Prize in Physics 1980 was awarded jointly to James Watson Cronin and Val Logsdon Fitch &quot;for the discovery of violations of fundamental symmetry principles in the decay of neutral K-mesons&quot;</dcterms:abstract>
+        <z:language>en-US</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nobelprize.org/prizes/physics/1980/cronin/facts/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:42:49</dcterms:dateSubmitted>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_46">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nobelprize.org/prizes/physics/1980/cronin/facts/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:42:55</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://doi.org/10.1111/j.1468-4004.2011.52539_3.x">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1366-8781"/>
+        <link:link rdf:resource="#item_48"/>
+        <link:link rdf:resource="#item_49"/>
+        <dc:title>Fellow wins IoP Faraday Medal</dc:title>
+        <dcterms:abstract>http://tinyurl.com/watson-faradayThe Faraday Medal recognizes outstanding achievement in experimental physics. Prof. Watson, of the University of Leeds, has led the field over the past four decades, culminating in his work with Prof. Jim Cronin of the University of Chicago to establish the Pierre Auger Observatory in Argentina. The observatory detected an anisotropy in the arrival direction of the highest energy cosmic rays, described in the medal citation as possibly “the most significant experimental discovery made to date in particle astrophysics”.</dcterms:abstract>
+        <dc:date>2011-10-01</dc:date>
+        <z:libraryCatalog>Silverchair</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://doi.org/10.1111/j.1468-4004.2011.52539_3.x</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:48:14</dcterms:dateSubmitted>
+        <bib:pages>5.39</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1366-8781">
+        <prism:volume>52</prism:volume>
+        <dc:title>Astronomy &amp; Geophysics</dc:title>
+        <dc:identifier>DOI 10.1111/j.1468-4004.2011.52539_3.x</dc:identifier>
+        <prism:number>5</prism:number>
+        <dcterms:alternative>Astronomy &amp; Geophysics</dcterms:alternative>
+        <dc:identifier>ISSN 1366-8781</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_48">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/astrogeo/article-pdf/52/5/5.39/705871/52-5-5.39c.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:48:17</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_49">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/astrogeo/article/52/5/5.39/254263?login=true</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:48:22</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -6329,6 +6451,9 @@ Version Number: Final</dc:description>
         <dc:title>Other</dc:title>
         <dcterms:hasPart rdf:resource="https://www.re3data.org/repository/r3d100010401"/>
         <dcterms:hasPart rdf:resource="https://web.iap.kit.edu/darko/auger/auger-array/"/>
+        <dcterms:hasPart rdf:resource="https://www.auger.org/news/news/199-how-it-all-began"/>
+        <dcterms:hasPart rdf:resource="https://www.nobelprize.org/prizes/physics/1980/cronin/facts/"/>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.1111/j.1468-4004.2011.52539_3.x"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_3">
         <dc:title>Physics</dc:title>
