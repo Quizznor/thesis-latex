@@ -5,8 +5,8 @@
  xmlns:foaf="http://xmlns.com/foaf/0.1/"
  xmlns:dc="http://purl.org/dc/elements/1.1/"
  xmlns:dcterms="http://purl.org/dc/terms/"
- xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
  xmlns:vcard="http://nwalsh.com/rdf/vCard#"
+ xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
  xmlns:link="http://purl.org/rss/1.0/modules/link/">
     <bib:Letter rdf:about="#item_1">
         <z:itemType>email</z:itemType>
@@ -31,41 +31,6 @@
         <z:language>en</z:language>
         <dc:title>Outcome of the Finance Board</dc:title>
     </bib:Letter>
-    <bib:Article rdf:about="#item_2">
-        <z:itemType>journalArticle</z:itemType>
-        <dcterms:isPartOf>
-            <bib:Journal>
-                <prism:volume>85</prism:volume>
-                <dc:title>Nuclear Physics B-Proceedings Supplements</dc:title>
-                <prism:number>1-3</prism:number>
-            </bib:Journal>
-        </dcterms:isPartOf>
-        <bib:authors>
-            <rdf:Seq>
-                <rdf:li>
-                    <foaf:Person>
-                        <foaf:surname>Zavrtanik</foaf:surname>
-                        <foaf:givenName>Danilo</foaf:givenName>
-                    </foaf:Person>
-                </rdf:li>
-                <rdf:li>
-                    <foaf:Person>
-                        <foaf:surname>Collaboration</foaf:surname>
-                        <foaf:givenName>P. Auger</foaf:givenName>
-                    </foaf:Person>
-                </rdf:li>
-            </rdf:Seq>
-        </bib:authors>
-        <dcterms:isReferencedBy rdf:resource="#item_3"/>
-        <dc:subject>phys</dc:subject>
-        <dc:title>The Pierre Auger Observatory</dc:title>
-        <dc:date>2000</dc:date>
-        <dc:description>Publisher: Elsevier</dc:description>
-        <bib:pages>324–331</bib:pages>
-    </bib:Article>
-    <bib:Memo rdf:about="#item_3">
-        <rdf:value>&lt;p&gt;Original whitepaper of the Pierre Auger Observatory&lt;/p&gt;</rdf:value>
-    </bib:Memo>
     <bib:BookSection rdf:about="urn:isbn:978-1-4614-6383-2%20978-1-4614-6384-9">
         <z:itemType>bookSection</z:itemType>
         <dcterms:isPartOf>
@@ -6437,6 +6402,379 @@ Version Number: Final</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Article rdf:about="https://www.sciencedirect.com/science/article/pii/S0920563200005259">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0920-5632"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zavrtanik</foaf:surname>
+                        <foaf:givenName>D</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_3"/>
+        <link:link rdf:resource="#item_51"/>
+        <dc:subject>phys</dc:subject>
+        <dc:subject>auger</dc:subject>
+        <dc:title>The Pierre Auger observatory</dc:title>
+        <dcterms:abstract>We present the scientific motivation, conceptual design and status of the P. Auger Observatory, a hybrid detector designed to measure both the longitudinal and the lateral profile of giant air-showers produced by cosmic-rays of energy above 1019 eV. Two ground arrays of water Čerenkov tanks overlooked by fluorescence detectors will cover an area of 3000 km2 each. They will be build in the Southern and Northern hemisphere to provide full sky coverage. The total aperture of 14000 km2 sr will allow to study all observable aspects of cosmic rays from below 10 EeV up to arbitrarily high energies with an unprecedented accuracy.</dcterms:abstract>
+        <dc:date>2000-05-01</dc:date>
+        <z:libraryCatalog>ScienceDirect</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0920563200005259</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-26 23:30:53</dcterms:dateSubmitted>
+        <bib:pages>324-331</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0920-5632">
+        <prism:volume>85</prism:volume>
+        <dc:title>Nuclear Physics B - Proceedings Supplements</dc:title>
+        <dc:identifier>DOI 10.1016/S0920-5632(00)00525-9</dc:identifier>
+        <prism:number>1</prism:number>
+        <dcterms:alternative>Nuclear Physics B - Proceedings Supplements</dcterms:alternative>
+        <dc:identifier>ISSN 0920-5632</dc:identifier>
+    </bib:Journal>
+    <bib:Memo rdf:about="#item_3">
+        <rdf:value>&lt;p&gt;Original whitepaper of the Pierre Auger Observatory&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_51">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>ScienceDirect Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0920563200005259</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-26 23:30:58</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_52">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>document-centre2.pdf</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2?task=download.send&amp;id=2253:2013-04-design-report&amp;catid=63</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-26 23:47:56</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://auger.org/document-centre2?task=download.send&amp;id=2253:2013-04-design-report&amp;catid=63">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_54"/>
+        <dc:title>https://auger.org/document-centre2?task=download.send&amp;id=2253:2013-04-design-report&amp;catid=63</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2?task=download.send&amp;id=2253:2013-04-design-report&amp;catid=63</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-26 23:47:58</dcterms:dateSubmitted>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_54">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>https://auger.org/document-centre2?task=download.send&amp;id=2253:2013-04-design-report&amp;catid=63</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2?task=download.send&amp;id=2253:2013-04-design-report&amp;catid=63</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-26 23:48:01</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="https://auger.org/document-centre2/download/63-general-information/2253-2013-04-design-report">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>The Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_56"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>The Pierre Auger Observatory Design Report</dc:title>
+        <z:language>English</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/63-general-information/2253-2013-04-design-report</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-26 23:48:07</dcterms:dateSubmitted>
+        <z:type>White Paper</z:type>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_56">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>2013-04 Design Report DR_2edA4_2.pdf</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/63-general-information/2253-2013-04-design-report</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-26 23:48:16</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/doi/10.5281/zenodo.4487612">
+        <z:itemType>dataset</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>The Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Pierre Auger Observatory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>auger</dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>cosmic ray</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>ultra high energy</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <prism:edition>3</prism:edition>
+        <dc:title>Pierre Auger Observatory Open Data</dc:title>
+        <dcterms:abstract>The Pierre Auger Collaboration is releasing 10% of the data recorded since 2004 using the world's largest cosmic ray detector, the Pierre Auger Observatory, located in Argentina, in the Province of Mendoza. The release also includes 100% of weather and space-weather data collected until 31 December 2020. These data are being made available publicly with the expectation that they will be used by a wide and diverse community including professional and citizen-scientists and for educational and outreach initiatives.
+
+Operation of the Pierre Auger Observatory, by a Collaboration of about 400 scientists from over 90 institutions in 18 countries across the world, has enabled the properties of the highest-energy cosmic rays to be determined with unprecedented precision. These cosmic rays are predominantly the nuclei of the common elements and reach the Earth from astrophysical sources. The data from the Observatory have been used to show that the highest-energy particles have an extra-galactic origin.
+
+Cosmic rays are observed indirectly, through extensive air-showers of secondary particles produced by the interaction of the incoming cosmic ray with the atmosphere. The Surface Detector of the Observatory covers 3000 km2 and comprises an array of ~1600 particle detectors, separated by 1500 m. The low energy extension features an array of 71 stations spread apart by 750 m and covering about 27 km2. The area is overlooked by a set of telescopes that compose the Fluorescence Detector which is sensitive to the auroral-like light emitted as the air-shower develops, while the Surface Detector is sensitive to muons, electrons and photons that reach the ground.
+
+The Open Data released here include those from these instruments. They have been subjected to the same selection and reconstruction procedures used by the Collaboration in recent publications. They amount to more than 80000 showers measured with the surface-detector arrays and more than 3000 showers recorded simultaneously by the surface and fluorescence detectors. Data are available as pseudo-raw (JSON) format and as a summary CSV file containing the reconstructed shower parameters. Simplified codes derived from the ones used for published analyses are also provided, by means of Python notebooks that have been prepared to guide the reader to an understanding of the physics results. An outreach section dedicated to the general public, and in particular to school students, is also available and includes simple tools to enjoy our data. To get more details about the Observatory and the Open Data, you can visit the dedicated website.
+
+About the Auger Open Data
+
+Downloadable datasets
+
+
+
+ Cosmic-ray data:
+
+
+
+Pseudo-raw data: for each event, a list of SD stations, with their relevant PMT traces, is available. If an event is detected simultaneously with the SD and FD it is called a hybrid event and a list of FD telescopes with a camera view is also provided. The main parameters from the SD and FD reconstruction are also given. The 'ready-to-use' Event Display is a good way to become familiar with the Open Data.
+
+Reconstructed data: for each event, only 'high-level' information is provided. Different parameters are extracted from the pseudo-raw dataset to be used in physics analysis. Examples on how to use them can be found in the Analysis page.
+
+
+
+Atmospheric data:
+
+
+
+Pseudo-raw data: the values of different atmospheric state-variables, recorded using each of the five weather stations, are available.
+
+Processed data: the values of the different atmospheric state- variables, obtained by merging the information from the different weather stations, are provided.
+
+
+
+Scaler data: the counting rate of the surface detectors over 15 minutes, averaged over the active detectors, is provided.
+
+Auxiliary data: these are additional data necessary for a full physics analysis but that are not extracted directly from the raw data. They include the position of the SD stations, the position of the FD pixels, the SD exposure, the FD acceptance.
+
+
+Pseudo-raw and reconstructed data are provided in JSON format. Reconstructed data are also available in CSV format, representing a “summary” of the JSON files and containing the information that is needed for analysis. Similarly, auxiliary data are in CSV format. Format description is available on the dedicated website.
+
+Tools
+
+
+
+Ready-to-use event display
+
+Simple software, reading the JSON and CSV files and producing examples of basic histograms of different data parameters
+
+Analysis examples, reading the reconstructed data and producing derived data and graphs
+
+
+Other Auger Open Data
+
+
+
+All Auger publications are available as Open Access. Some of them also include Open Data in the form of additional tables, plots, graphs.
+
+
+Disclaimer
+
+
+
+The Open Data are released under the (CC BY-SA 4.0) International License.
+
+All datasets have a unique DOI that you are requested to cite in any applications or publications.
+
+The Auger Collaboration does not endorse any work, scientific or otherwise, produced using these data, even if available on, or linked from, this portal.
+
+The spreadsheet-based datasets allow the user to undertake basic analyses. More complex analyses however require some knowledge of the underlying physics and of the instruments.
+
+The analysis methods, including the reconstruction of the data, have evolved over time, and will continue to evolve. The reconstructed Open Data are processed with the most up-to-date software. Updates are thus foreseen, for either the reconstructed data or the software needed to analyse them. These will be detailed in later releases.
+
+If you are interested in joining or working with the Auger Collaboration, please contact auger-join-request@auger.unam.mx.
+
+
+Policy 
+
+The policy of the Auger Collaboration on Data Release and Open Access can be found here.
+
+Contact
+
+For any question/doubt about these data, feel free to check the contact page of our website or directly write to auger-open-data@auger.unam.mx.</dcterms:abstract>
+        <dc:date>2024</dc:date>
+        <z:libraryCatalog>DOI.org (Datacite)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/doi/10.5281/zenodo.4487612</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-27 00:44:59</dcterms:dateSubmitted>
+        <dc:rights>Creative Commons Attribution Share Alike 4.0 International</dc:rights>
+        <dc:identifier>DOI 10.5281/ZENODO.4487612</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://zenodo.org/doi/10.5281/zenodo.10488964">
+        <z:itemType>dataset</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>The Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Pierre Auger Observatory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>auger</dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>cosmic ray</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>ultra high energy</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <prism:edition>3</prism:edition>
+        <dc:title>Pierre Auger Observatory Open Data</dc:title>
+        <dcterms:abstract>The Pierre Auger Collaboration is releasing 10% of the data recorded since 2004 using the world's largest cosmic ray detector, the Pierre Auger Observatory, located in Argentina, in the Province of Mendoza. The release also includes 100% of weather and space-weather data collected until 31 December 2020. These data are being made available publicly with the expectation that they will be used by a wide and diverse community including professional and citizen-scientists and for educational and outreach initiatives.
+
+Operation of the Pierre Auger Observatory, by a Collaboration of about 400 scientists from over 90 institutions in 18 countries across the world, has enabled the properties of the highest-energy cosmic rays to be determined with unprecedented precision. These cosmic rays are predominantly the nuclei of the common elements and reach the Earth from astrophysical sources. The data from the Observatory have been used to show that the highest-energy particles have an extra-galactic origin.
+
+Cosmic rays are observed indirectly, through extensive air-showers of secondary particles produced by the interaction of the incoming cosmic ray with the atmosphere. The Surface Detector of the Observatory covers 3000 km2 and comprises an array of ~1600 particle detectors, separated by 1500 m. The low energy extension features an array of 71 stations spread apart by 750 m and covering about 27 km2. The area is overlooked by a set of telescopes that compose the Fluorescence Detector which is sensitive to the auroral-like light emitted as the air-shower develops, while the Surface Detector is sensitive to muons, electrons and photons that reach the ground.
+
+The Open Data released here include those from these instruments. They have been subjected to the same selection and reconstruction procedures used by the Collaboration in recent publications. They amount to more than 80000 showers measured with the surface-detector arrays and more than 3000 showers recorded simultaneously by the surface and fluorescence detectors. Data are available as pseudo-raw (JSON) format and as a summary CSV file containing the reconstructed shower parameters. Simplified codes derived from the ones used for published analyses are also provided, by means of Python notebooks that have been prepared to guide the reader to an understanding of the physics results. An outreach section dedicated to the general public, and in particular to school students, is also available and includes simple tools to enjoy our data. To get more details about the Observatory and the Open Data, you can visit the dedicated website.
+
+About the Auger Open Data
+
+Downloadable datasets
+
+
+
+ Cosmic-ray data:
+
+
+
+Pseudo-raw data: for each event, a list of SD stations, with their relevant PMT traces, is available. If an event is detected simultaneously with the SD and FD it is called a hybrid event and a list of FD telescopes with a camera view is also provided. The main parameters from the SD and FD reconstruction are also given. The 'ready-to-use' Event Display is a good way to become familiar with the Open Data.
+
+Reconstructed data: for each event, only 'high-level' information is provided. Different parameters are extracted from the pseudo-raw dataset to be used in physics analysis. Examples on how to use them can be found in the Analysis page.
+
+
+
+Atmospheric data:
+
+
+
+Pseudo-raw data: the values of different atmospheric state-variables, recorded using each of the five weather stations, are available.
+
+Processed data: the values of the different atmospheric state- variables, obtained by merging the information from the different weather stations, are provided.
+
+
+
+Scaler data: the counting rate of the surface detectors over 15 minutes, averaged over the active detectors, is provided.
+
+Auxiliary data: these are additional data necessary for a full physics analysis but that are not extracted directly from the raw data. They include the position of the SD stations, the position of the FD pixels, the SD exposure, the FD acceptance.
+
+
+Pseudo-raw and reconstructed data are provided in JSON format. Reconstructed data are also available in CSV format, representing a “summary” of the JSON files and containing the information that is needed for analysis. Similarly, auxiliary data are in CSV format. Format description is available on the dedicated website.
+
+Tools
+
+
+
+Ready-to-use event display
+
+Simple software, reading the JSON and CSV files and producing examples of basic histograms of different data parameters
+
+Analysis examples, reading the reconstructed data and producing derived data and graphs
+
+
+Other Auger Open Data
+
+
+
+All Auger publications are available as Open Access. Some of them also include Open Data in the form of additional tables, plots, graphs.
+
+
+Disclaimer
+
+
+
+The Open Data are released under the (CC BY-SA 4.0) International License.
+
+All datasets have a unique DOI that you are requested to cite in any applications or publications.
+
+The Auger Collaboration does not endorse any work, scientific or otherwise, produced using these data, even if available on, or linked from, this portal.
+
+The spreadsheet-based datasets allow the user to undertake basic analyses. More complex analyses however require some knowledge of the underlying physics and of the instruments.
+
+The analysis methods, including the reconstruction of the data, have evolved over time, and will continue to evolve. The reconstructed Open Data are processed with the most up-to-date software. Updates are thus foreseen, for either the reconstructed data or the software needed to analyse them. These will be detailed in later releases.
+
+If you are interested in joining or working with the Auger Collaboration, please contact auger-join-request@auger.unam.mx.
+
+
+Policy 
+
+The policy of the Auger Collaboration on Data Release and Open Access can be found here.
+
+Contact
+
+For any question/doubt about these data, feel free to check the contact page of our website or directly write to auger-open-data@auger.unam.mx.</dcterms:abstract>
+        <dc:date>2024</dc:date>
+        <z:libraryCatalog>DOI.org (Datacite)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/doi/10.5281/zenodo.10488964</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-27 00:44:59</dcterms:dateSubmitted>
+        <dc:rights>Creative Commons Attribution Share Alike 4.0 International</dc:rights>
+        <dc:identifier>DOI 10.5281/ZENODO.10488964</dc:identifier>
+    </rdf:Description>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -6445,7 +6783,10 @@ Version Number: Final</dc:description>
         <dcterms:hasPart rdf:resource="#collection_4"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_5">
-       <dc:title>Auger</dc:title>
+        <dc:title>Auger</dc:title>
+        <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S0920563200005259"/>
+        <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/63-general-information/2253-2013-04-design-report"/>
+        <dcterms:hasPart rdf:resource="https://zenodo.org/doi/10.5281/zenodo.4487612"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_2">
         <dc:title>Other</dc:title>
