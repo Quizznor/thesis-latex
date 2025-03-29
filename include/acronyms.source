@@ -4,6 +4,7 @@ CO	        Coihueco
 DAQ         Data Acquisition
 EAS         Extensive Air Shower
 FD          Fluorescence Detector
+FOV		Field Of View
 GAP         Giant Array Project
 HE	        High Elevation Auger Telescope
 ICRC		International Cosmic Ray Conference
@@ -12,8 +13,8 @@ LL	        Los Leones
 LM	        Los Morados
 SD          Surface Detector
 PAO         Pierre Auger Observatory
-PMT	        Photomultiplier tube
+PMT	        Photomultiplier Tube
 UHE		Ultra High Energy
 UHECR       UHE Cosmic Ray
-UV          ultra-violet
+UV          Ultra-Violet
 WCD         Water Cherenkov Detector

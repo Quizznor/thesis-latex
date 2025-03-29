@@ -119,7 +119,7 @@
 \widowpenalty = 10000
 \usepackage{mathpazo}
 \extrafloats{100}
-\usepackage[style=numeric-comp, sorting=ynt, defernumbers=true]{biblatex}
+\usepackage[style=numeric-comp, sorting=none, defernumbers=true]{biblatex}
 \addbibresource{bib/thesis.bib}
 
 % % Describe separation hints here:
