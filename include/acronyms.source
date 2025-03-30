@@ -1,20 +1,24 @@
 ADC	        Analog Digital Count
-CR          Cosmic Ray
+CR          	Cosmic Ray
 CO	        Coihueco
-DAQ         Data Acquisition
-EAS         Extensive Air Shower
-FD          Fluorescence Detector
+DAQ         	Data Acquisition
+EAS         	Extensive Air Shower
+FD          	Fluorescence Detector
+FLT		First Level Trigger
 FOV		Field Of View
-GAP         Giant Array Project
+FPGA		Field Programmable Gate Array
+GAP         	Giant Array Project
 HE	        High Elevation Auger Telescope
 ICRC		International Cosmic Ray Conference
 LA	        Loma Amarilla
 LL	        Los Leones
 LM	        Los Morados
-SD          Surface Detector
-PAO         Pierre Auger Observatory
+SD          	Surface Detector
+SLT		Second Level Trigger
+SRAM		Static Random Access Memory
+PAO         	Pierre Auger Observatory
 PMT	        Photomultiplier Tube
 UHE		Ultra High Energy
-UHECR       UHE Cosmic Ray
-UV          Ultra-Violet
-WCD         Water Cherenkov Detector
+UHECR       	UHE Cosmic Ray
+UV          	Ultra-Violet
+WCD         	Water Cherenkov Detector

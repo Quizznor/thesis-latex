@@ -12,7 +12,7 @@
 \usepackage[export]{adjustbox}
 \usepackage{ae, aecompl}
 \usepackage{listings}
-\usepackage[binary-units]{siunitx}
+\usepackage{siunitx}
 \usepackage{rotating}
 \usepackage{subfig}
 \usepackage{mparhack}

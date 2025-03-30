@@ -183,12 +183,14 @@ the order that light traverses them (c.f. \cref{fig:fd-schematic} and
 \subsubsection{\acf{HE}}
 \label{sssec:HEAT}
 
-The fifth and newest \FD-site, the \acl{HE} constructed in \todo{find out}, is located close to \CO, and looks 
-out over the SD-750 array (c.f. \todo{ref here}) with three fluorescence 
-telescopes. The setup of the optical system is, conceptually, identical to that
-of the standard \FD-sites. However, in the case of \HE, the entire telescope frame can be rotated upwards by $30^\circ$. This allows the observation of the 
-upper atmosphere, where lower energy \EASs are more prevalent. \HE effectively 
-extends the energy scale seen by the \FD to lower energies.
+The fifth and newest \FD-site, the \acl{HE} commissioned 2009, is located close 
+to \CO, and looks out over the SD-750 array with three fluorescence telescopes. 
+The setup of the optical system is (conceptually) identical to that of the 
+standard \FD-sites. However, in the case of \HE, the entire telescope frame can 
+be rotated upwards by $30^\circ$. This allows the observation of the upper 
+atmosphere, where lower energy \EASs are more prevalent. \HE extends the energy 
+scale seen by the \FD downwards by one order of magnitude 
+\cite{mathesHEATTelescopesPierre2011}.
 
 \subsection{Camera and Readout Electronics}
 
@@ -196,20 +198,32 @@ The camera for each telescope consists of 440 Photonis XP3062 \PMTs that serve
 as the individual pixels. The specific model is chosen because it minimizes 
 afterpulsing in the anode trace, and has a reasonable quantum efficiency 
 ($\approx30\%$) at the target wavelength (\SIrange{350}{400}{\nano\meter}) that 
-the \FD monitors \cite{xiaoCalibrationPhotonisXP30622005}.
+the \FD monitors \cite{xiaoCalibrationPhotonisXP30622005}. The \PMTs are 
+arranged in 22 rows and 20 columns. Each pixel has a solid angle acceptance of 
+$\Omega = \SI{5.94e-4}{\sr}$. Reflective star shapes with threefold symmetry 
+sit between neighbouring pixels to boost light collection efficiency, as well as
+increase the camera point resolution. Finally, the voltage at the anode of the 
+\PMTs is read out at a sampling frequency of \SI{10}{\mega\hertz} 
+(\SI{20}{\mega\hertz} for \HE) and digitized by 12-bit \ADC-converter stages. 
 
-The \PMTs are arranged in 22 rows and 20 columns. Each pixel has a solid angle 
-acceptance of $\Omega = \SI{5.94e-4}{\sr}$. Reflective star shapes with 
-threefold symmetry sit between neighbouring pixels to boost light collection 
-efficiency, as well as increase the camera point resolution. The voltage at the 
-anode of the \PMTs is read out at a sampling frequency of \SI{10}{\mega\hertz} 
-(\SI{20}{\mega\hertz} for \HE) and digitized. The accurate reconstruction of an 
-\EAS requires the camera to have a wide dynamic range, as well as excellent 
+The accurate reconstruction of an \EAS requires the camera to have an excellent 
 background rejection (of e.g. transient stars in the camera \FOV). On top of 
 this, signals must be processed quickly to keep a potential timing offset 
-between \FD and \SD minimal, and enable a hybrid reconstruction.
+between \FD and \SD minimal, and enable a hybrid reconstruction. The \FD 
+electronics achieve this via a simple, hierarchical trigger logic. An \FPGA 
+scans the incoming signal from one column of pixels in a \FLT-stage. It 
+calculates the running sum of the last 16 (baseline\footnote{calculated as the 
+mean \ADC value over 65536 ($\cong\SI{6.554}{\milli\second}$) samples} 
+subtracted) \ADC samples per pixel and compares the result to a reference 
+threshold. If the sum exceeds the reference threshold a \FLT is issued and the 
+pixel data is written to a \SRAM. This achieves two things. First, the number of
+\FLTs over a period of time is used to calculate an \FLT rate per pixel. The 
+reference threshold is updated according to this trigger rate, such that the 
+\FLT matches a \SI{100}{\hertz} trigger rate. Secondly, the number of 
+simultaneous \FLTs per column per \SI{100}{\nano\second} window is evaluated, 
+and passed on to the \SLT-stage.
 
-The \FD electronics achieve this via a simple, hierarchical trigger logic.
+
 
 \subsection{Telescope Calibration}
 \label{ssec:fd-calibration}

@@ -7,27 +7,27 @@ The Pierre Auger observatory hosts an internal database of papers. These
 typically short reports serve to accelerate the exchange of knowledge within the
 collaboration, and are called \GAP notes. Since they contain information that is
 not freely accessible outside the Pierre Auger collaboration, they are listed in
-a special category with the prefix \textbf{\textit{G}} alongside information 
+a special category with the prefix \textbf{\textit{A}} alongside information 
 that purely pertains to the hardware/software used at the observatory. 
 Similarly, sources from personal correspondence are grouped with the prefix 
-\textbf{\textit{C}}. Physical references, also containing publications by the 
-Pierre Auger collaboration, can be found with label \textbf{\textit{P}}. All 
-other references are indexed under the label \textbf{\textit{O}}.
+\textbf{\textit{C}}. All public (non-physics related) information has the label 
+\textbf{\textit{O}}. Finally, physical references, also containing publications 
+by the Pierre Auger collaboration, can be found with label \textbf{\textit{P}}.
 
 % Auger Internal References
-\newrefcontext[labelprefix=G]
-\printbibliography[keyword={auger},title={GAP Notes},heading=subbibliography]
+\newrefcontext[labelprefix=A]
+\printbibliography[keyword={auger},title={Auger internal},heading=subbibliography]
 
 % Personal Correspondence
 \newrefcontext[labelprefix=C]
 \printbibliography[keyword={private},title={Personal Correspondence},heading=subbibliography]
 
-% General Physical References
-\newrefcontext[labelprefix=P]
-\printbibliography[keyword={phys},notkeyword={auger},title={Physics References},heading=subbibliography]
-
 % Other References
 \newrefcontext[labelprefix=O]
 \printbibliography[notkeyword={private},notkeyword={phys},notkeyword={auger},title={Other References},heading=subbibliography]
+
+% General Physical References
+\newrefcontext[labelprefix=P]
+\printbibliography[keyword={phys},notkeyword={auger},title={Physics References},heading=subbibliography]
 
 \cleardoublepage
