@@ -17,7 +17,7 @@
 \usepackage{subfig}
 \usepackage{mparhack}
 \usepackage{lipsum}
-\usepackage{authoraftertitle}
+\usepackage{enumitem}
 \usepackage[printonlyused, withpage]{acronym}
 \newcommand{\word}[2]{\acro{#1}{\textit{#2}}}
 
@@ -290,7 +290,7 @@
     \else
       \raisebox{-1.5pt}{\sc{Contents}}~\titlerule\flushright
       \normalsize\normalfont\vspace{5pt}
-      \printcontents{p}{2}{\setcounter{tocdepth}{4}}
+      \printcontents{p}{2}{\setcounter{tocdepth}{3}}
       \vspace{5pt}\titlerule
     \fi
   ]

@@ -116,96 +116,100 @@ since the solar irradiance ($\approx\SI{120}{\watt\per\meter\squared}$
 emission of \UV-light by cosmic rays ($<\SI{1}{\nano\watt\per\meter\squared}$, 
 c.f. \cref{app:cr-uv-irradiance}), the \FD can only operate after astronomical 
 twiglight, and when the moon is not directly in the telescope \FOV, and not
-more 70\% illuminated \cite{mathesCriteriaFDShift}. This drops the duty cycle 
-to approximately 13\% \cite{abrahamFluorescenceDetectorPierre2010}.
+more than 70\% illuminated as seen from Earth \cite{mathesCriteriaFDShift}. This
+drops the duty cycle to approximately 13\% 
+\cite{abrahamFluorescenceDetectorPierre2010}.
 
-hallo
-
-
-Ignoring three exceptions (see \autoref{ssec:heat}), all telescopes are grouped
-at four \FD sites, where a collection of six identical setups offer a $180^\circ
-\times30^\circ$ view (Azimuth $\times$ Elevation) over the \SD array. 
-\autoref{fig:auger-map} shows the location of these sites relative to the \SD.
-Commonly, these sites are referred to via their names \CO, \LA, \LM, and \LL.
+The telescopes are grouped at five \FD sites, where a collection of six (three
+in one case) identical setups offer a $6\cdot30^\circ=180^\circ\times30^\circ$ 
+view (Azimuth $\times$ Elevation) over the \SD array. \cref{fig:auger-map} shows
+the location of these sites overlooking the \SD. Starting anticlockwise with the
+telescopes located closest to Malargüe, these sites are \LL, \LM, \LA, \CO, and 
+the \HE.
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\includegraphics[width=0.48\textwidth]{auger-observatory/auger_array-small.png}
+  \subfloat[]{\includegraphics[height=0.45\textwidth]{auger-observatory/auger_array-small.png}
   \label{fig:auger-map}
   }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[width=0.48\textwidth]{auger-observatory/fd_schematic.png}
+  \subfloat[]{\includegraphics[height=0.45\textwidth]{auger-observatory/fd_schematic.png}
   \label{fig:fd-schematic}
   }
-  \caption[]{\subref{fig:auger-map} Overview of the \PAO. The black dots give the 
-  location of \WCDs. The blue lines indicate the location and FOV of the \FD. 
-  HEAT (red) overlooks the Infill area of the \SD-array. From 
-  \cite{veberic_index_nodate}. \subref{fig:fd-schematic} A schematic of a single
-  telescope, or bay, of an \FD building, modified from 
-\cite{abraham_fluorescence_2010}.}
+  \caption[]{\subref{fig:auger-map} Overview of the \PAO and its' detector 
+  components. The black dots mark the placement of \WCDs in the \SD. The blue 
+  lines indicate the location and \FOV of the \FDs. \HE (red) and \CO overlook 
+  the SD-750 Infill area, where a denser spacing of stations separated by 
+  \SI{750}{\meter} complement the SD-1500 main array. From 
+  \cite{vebericIndexHttpWebiapkitedu}. \subref{fig:fd-schematic} Cross section 
+  of the components of a single telescope, located in an \FD building, modified 
+  from \cite{abraham_fluorescence_2010}.}
   \label{fig:pao-images}
 \end{figure}
 
 
-\subsection{Telescope design}
+\subsection{Optical System}
 \label{ssec:fd-design}
 
 The \FD telescopes are designed following the schematic of a Schmidt camera with 
 corrector plates. The individual components located on the optical axis are, in 
-the order that light traverses them:
+the order that light traverses them (c.f. \cref{fig:fd-schematic} and 
+\cite{abrahamFluorescenceDetectorPierre2010}):
 
-\begin{itemize}
-  \item \textbf{Shutter:} \\
-  The shutter consists of two massive metal doors that block the light 
-  propagation. Several mechanisms automatically close the shutters to shield the 
-  telescope from e.g. atmospheric influences like wind and rain, or an 
-  unacceptably high light flux.
-  \item \textbf{UV Filter:} \\
-  A MUG6 UV-filter is installed in the light path in order to block visible 
-  light from entering the telescope, and potentially damaging the sensitive 
-  electronics. It separates the climate controlled inside of the \FD buildings 
-  from the outside.
-  \item \textbf{Corrector:} \\
-  A ring of aspheric corrector lenses is located at the edge of the aperture,
-  the ring has an inside diameter of \SI{1.7}{\meter} and serves to increase 
-  the light collection area, while minimizing spherical aberration in the 
-  camera.
-  \item \textbf{Curtain:} \\
-  The curtain provides a secondary failsafe, that prevents high-intensity light 
-  from reaching the electronics. During nominal operation the curtain sits outside 
-  of the light path. It can be deployed in emergency situations, or during daytime
-  work and maintenance.
-  \item \textbf{Mirror:} \\
-  The mirrors are a set of hexagonally (square, in the case of \LL) segmented 
-  mirrors aligned in a concave $\SI{3.6}{\meter}\times\SI{3.6}{\meter}$ shape, 
-  which reflects and concentrates incoming light towards the camera.
-  \item \textbf{Camera:} see next subsection.
-\end{itemize}
+\begin{enumerate}[label=(\Alph*)]
+  \item \textbf{The shutter}, which consists of two massive metal doors, shields  the aperture from atmospheric influences such as strong winds or rain. It also  serves as a light shield that protects the sensitive camera electronics during  the day.
 
-A schematic overview of the setup in each telescope bay is given in
-\cref{fig:fd-schematic}.
+  \item A \textbf{MUG6 \UV Filter} is installed in the light path in order to 
+  block visible light from entering the telescope. It separates the climate 
+  controlled inside of the \FD buildings from the outside via a circular
+  aperture that measures \SI{2.2}{\meter} in diameter. 
+  
+  \item \textbf{Corrector lenses} are located in a ring around the edge of the 
+  aperture. The ring has an inside diameter of \SI{1.7}{\meter} and manages to 
+  increase the light collection area, while minimizing spherical aberrations in 
+  the camera.
+
+  \item \textbf{The curtain} curtain provides a secondary failsafe that prevents
+  high-intensity light from reaching the sensitive electronics. The curtain 
+  sits outside of the light path, but can be deployed in emergency situations, 
+  or during daytime work and maintenance.
+
+  \item \textbf{The mirrors} are a set of 60 hexagonal glass segments (36 square  segments from anodized aluminum in the case of \LL and \LM) aligned in a 
+  concave $\SI{3.6}{\meter}\times\SI{3.6}{\meter}$ shape, which reflects and 
+  concentrates incoming light towards the camera.
+
+  \item For \textbf{the Camera} refer to the next subsection.
+\end{enumerate}
+
+\subsubsection{\acf{HE}}
+\label{sssec:HEAT}
+
+The fifth and newest \FD-site, the \acl{HE} constructed in \todo{find out}, is located close to \CO, and looks 
+out over the SD-750 array (c.f. \todo{ref here}) with three fluorescence 
+telescopes. The setup of the optical system is, conceptually, identical to that
+of the standard \FD-sites. However, in the case of \HE, the entire telescope frame can be rotated upwards by $30^\circ$. This allows the observation of the 
+upper atmosphere, where lower energy \EASs are more prevalent. \HE effectively 
+extends the energy scale seen by the \FD to lower energies.
 
 \subsection{Camera and Readout Electronics}
 
-The camera is made up of 440 highly sensitive \PMTs that make up the individual
-pixels. They are arranged in 22 rows and 20 columns. Each pixel has a solid angle 
-acceptance of $\Omega = \SI{5.94e-4}{\sr}$. Reflective star shapes with threefold 
-symmetry are mounted between pixels. They are commonly referred to as Mercedes 
-stars, due to their characteristic shape, and increase both light collection as 
-well as ensure a good point resolution between adjacent pixels.
+The camera for each telescope consists of 440 Photonis XP3062 \PMTs that serve 
+as the individual pixels. The specific model is chosen because it minimizes 
+afterpulsing in the anode trace, and has a reasonable quantum efficiency 
+($\approx30\%$) at the target wavelength (\SIrange{350}{400}{\nano\meter}) that 
+the \FD monitors \cite{xiaoCalibrationPhotonisXP30622005}.
 
-The pixel data is read out at a sampling frequency of \SI{10}{\mega\hertz} 
-(\SI{20}{\mega\hertz} in the case of \HE). \todo{continue}
+The \PMTs are arranged in 22 rows and 20 columns. Each pixel has a solid angle 
+acceptance of $\Omega = \SI{5.94e-4}{\sr}$. Reflective star shapes with 
+threefold symmetry sit between neighbouring pixels to boost light collection 
+efficiency, as well as increase the camera point resolution. The voltage at the 
+anode of the \PMTs is read out at a sampling frequency of \SI{10}{\mega\hertz} 
+(\SI{20}{\mega\hertz} for \HE) and digitized. The accurate reconstruction of an 
+\EAS requires the camera to have a wide dynamic range, as well as excellent 
+background rejection (of e.g. transient stars in the camera \FOV). On top of 
+this, signals must be processed quickly to keep a potential timing offset 
+between \FD and \SD minimal, and enable a hybrid reconstruction.
 
-
-\subsection{High Elevation Auger Telescope (HEAT)}
-\label{ssec:heat}
-
-Three additional telescopes, called \HEs are located close to the Coihueco site.
-The construction of these telescopes is identical to the telescopes discussed
-above. However, in the case of \HE, the entire telescope frame can be rotated,
-which allows the observation of the upper atmosphere, and effectively extends the 
-energy scale seen by the \FD to lower energies.
-
+The \FD electronics achieve this via a simple, hierarchical trigger logic.
 
 \subsection{Telescope Calibration}
 \label{ssec:fd-calibration}
