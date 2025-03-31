@@ -4,7 +4,11 @@ SHELL := bash
 TARGET := main
 BIBTEX := biber
 LATEX := latexmk -pdf
-DEPENDENCIES := $(wildcard *.tex abstract/*.tex chap/*.tex app/*.tex figures/* include/*.tex)
+DEPENDENCIES := $(wildcard *.tex)
+DEPENDENCIES += $(wildcard abstract/*.tex)
+DEPENDENCIES += $(wildcard chap/*.tex)
+DEPENDENCIES += $(wildcard app/*.tex)
+DEPENDENCIES += $(wildcard include/*.tex)
 DEPENDENCIES += $(wildcard *.sty *.bib)
 
 ##########################################################
@@ -20,4 +24,4 @@ clean:
 	scripts/gather_acronyms
 	scripts/gather_chapters
 	scripts/gather_appendices
-	$(LATEX) $*
+	#$(LATEX) $*

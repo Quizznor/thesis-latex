@@ -1,4 +1,6 @@
 ADC	        Analog Digital Count
+CDAS		Central Data Acquisition System
+CLF		Central Laser Facility
 CR          	Cosmic Ray
 CO	        Coihueco
 DAQ         	Data Acquisition
@@ -8,9 +10,11 @@ FLT		First Level Trigger
 FOV		Field Of View
 FPGA		Field Programmable Gate Array
 GAP         	Giant Array Project
-HE	        High Elevation Auger Telescope
+HEAT	        High Elevation Auger Telescope
 ICRC		International Cosmic Ray Conference
 LA	        Loma Amarilla
+LCU		Light Control Unit
+LED		Light Emitting Diode
 LL	        Los Leones
 LM	        Los Morados
 SD          	Surface Detector
@@ -18,7 +22,10 @@ SLT		Second Level Trigger
 SRAM		Static Random Access Memory
 PAO         	Pierre Auger Observatory
 PMT	        Photomultiplier Tube
+PSF		Point Spread Function
+TLT		Third Level Trigger
 UHE		Ultra High Energy
 UHECR       	UHE Cosmic Ray
 UV          	Ultra-Violet
 WCD         	Water Cherenkov Detector
+XLF		Extreme Laser Facility

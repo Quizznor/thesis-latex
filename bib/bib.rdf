@@ -6469,6 +6469,7 @@ Version Number: Final</dc:description>
         <link:link rdf:resource="#item_56"/>
         <dc:subject>auger</dc:subject>
         <dc:title>The Pierre Auger Observatory Design Report</dc:title>
+        <dc:date>03/14/1997</dc:date>
         <z:language>English</z:language>
         <dc:identifier>
             <dcterms:URI>
@@ -13707,6 +13708,7 @@ Version Number: Final</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
+        <dc:subject>phys</dc:subject>
         <dc:title>Detection of a cosmic ray with measured energy well beyond the expected spectral cutoff due to cosmic microwave radiation</dc:title>
         <dc:date>03/1995</dc:date>
         <z:language>en</z:language>
@@ -23270,6 +23272,399 @@ Version Number: Final</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
+    <bib:Report rdf:about="https://auger.org/document-centre2/download/161-gap-notes-2024/5868-gap2024-029">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Filip</foaf:surname>
+                        <foaf:givenName>Paul</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Daumiller</foaf:surname>
+                        <foaf:givenName>Kai</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Engel</foaf:surname>
+                        <foaf:givenName>Ralph</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Horwath</foaf:surname>
+                        <foaf:givenName>Pavel</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hrabovsky</foaf:surname>
+                        <foaf:givenName>Miroslav</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mathes</foaf:surname>
+                        <foaf:givenName>Hermann-Josef</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Michal</foaf:surname>
+                        <foaf:givenName>Stanislav</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Pech</foaf:surname>
+                        <foaf:givenName>Miroslav</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Roth</foaf:surname>
+                        <foaf:givenName>Markus</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Segreto</foaf:surname>
+                        <foaf:givenName>Alberto</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schäfer</foaf:surname>
+                        <foaf:givenName>Christoph</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schovanok</foaf:surname>
+                        <foaf:givenName>Petr</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Unger</foaf:surname>
+                        <foaf:givenName>Michael</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Vaclavek</foaf:surname>
+                        <foaf:givenName>Lukas</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Vacula</foaf:surname>
+                        <foaf:givenName>Martin</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Veberic</foaf:surname>
+                        <foaf:givenName>Darko</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_114"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Jumps in XY Calibration Constants After Mirror Cleaning at HEAT</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/161-gap-notes-2024/5868-gap2024-029</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 14:48:41</dcterms:dateSubmitted>
+        <prism:number>2024-029</prism:number>
+        <z:type>GAP note</z:type>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_114">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>GAP2024_029 Jumps in XY Calibration Constants After Mirror Cleaning at HEAT</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/161-gap-notes-2024/5868-gap2024-029</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 14:48:51</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=465a1204c1a4f4cf083b515ecd2085f4ec7ef499">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:title>Proceedings of the 33rd ICRC, Rio de Janeiro, Brasil</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Verzi</foaf:surname>
+                        <foaf:givenName>Valerio</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_116"/>
+        <dc:subject>physics</dc:subject>
+        <dc:title>The energy scale of the Pierre Auger Observatory</dc:title>
+        <dc:date>2013</dc:date>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=465a1204c1a4f4cf083b515ecd2085f4ec7ef499</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 16:14:38</dcterms:dateSubmitted>
+        <dc:description>Publisher: Citeseer</dc:description>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_116">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Available Version (via Google Scholar)</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=465a1204c1a4f4cf083b515ecd2085f4ec7ef499</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 16:14:41</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://iopscience.iop.org/article/10.1088/1748-0221/8/04/P04009/meta">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>8</prism:volume>
+                <dc:title>Journal of Instrumentation</dc:title>
+                <prism:number>04</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Collaboration</foaf:surname>
+                        <foaf:givenName>Pierre Auger</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_118"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>Techniques for measuring aerosol attenuation using the Central Laser Facility at the Pierre Auger Observatory</dc:title>
+        <dc:date>2013</dc:date>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1088/1748-0221/8/04/P04009/meta</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 18:40:12</dcterms:dateSubmitted>
+        <dc:description>Publisher: IOP Publishing</dc:description>
+        <bib:pages>P04009</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_118">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Available Version (via Google Scholar)</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1088/1748-0221/8/04/P04009/pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 18:40:23</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.sciencedirect.com/science/article/pii/S0927650503002469">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>20</prism:volume>
+                <dc:title>Astroparticle Physics</dc:title>
+                <prism:number>6</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brack</foaf:surname>
+                        <foaf:givenName>J. T.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Meyhandan</foaf:surname>
+                        <foaf:givenName>R.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hofman</foaf:surname>
+                        <foaf:givenName>G. J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Matthews</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_120"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>Absolute photometric calibration of large aperture optical systems</dc:title>
+        <dc:date>2004</dc:date>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0927650503002469</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 19:23:19</dcterms:dateSubmitted>
+        <dc:description>Publisher: Elsevier</dc:description>
+        <bib:pages>653–659</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_120">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Available Version (via Google Scholar)</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0927650503002469</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 19:23:30</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:ConferenceProceedings rdf:about="https://indico.nucleares.unam.mx/event/210/session/28/contribution/8">
+        <z:itemType>presentation</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Malargue</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+            </foaf:Organization>
+        </dc:publisher>
+        <z:presenters>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Criss</foaf:surname>
+                        <foaf:givenName>Adrienne</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:presenters>
+        <link:link rdf:resource="#item_123"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Update on Recent Absolute Calibration work</dc:title>
+        <dc:date>3/7/2010</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://indico.nucleares.unam.mx/event/210/session/28/contribution/8</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 21:41:33</dcterms:dateSubmitted>
+        <z:meetingName>Auger Collaboration Meeting</z:meetingName>
+    </bib:ConferenceProceedings>
+    <z:Attachment rdf:about="#item_123">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Auger Collaboration Meeting March 2010 (06-12 March 2010)</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://indico.nucleares.unam.mx/event/210/session/28/contribution/8</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 21:41:36</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Illustration rdf:about="https://www.flickr.com/photos/134252569@N07/19904108588/">
+        <z:itemType>artwork</z:itemType>
+        <z:artists>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Observatory</foaf:surname>
+                        <foaf:givenName>Pierre Auger</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:artists>
+        <link:link rdf:resource="#item_125"/>
+        <dc:title>P2250002</dc:title>
+        <dcterms:abstract>OLYMPUS DIGITAL CAMERA</dcterms:abstract>
+        <z:medium>photo</z:medium>
+        <dc:date>2004-02-25</dc:date>
+        <z:libraryCatalog>Flickr</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.flickr.com/photos/134252569@N07/19904108588/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 22:01:56</dcterms:dateSubmitted>
+        <dc:rights>Attribution-ShareAlike License</dc:rights>
+    </bib:Illustration>
+    <z:Attachment rdf:about="#item_125">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>P2250002</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://farm1.staticflickr.com/447/19904108588_fd691b468a_o.jpg</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 22:01:57</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>image/jpg</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="#item_126">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>The Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_127"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>The Pierre Auger Observatory Design Report</dc:title>
+        <dc:date>3/14/1997</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/63-general-information/2253-2013-04-design-report</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 22:32:35</dcterms:dateSubmitted>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_127">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>2013-04 Design Report DR_2edA4_2.pdf</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/63-general-information/2253-2013-04-design-report</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 22:32:37</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -23284,6 +23679,8 @@ Version Number: Final</dc:description>
         <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/63-general-information/2253-2013-04-design-report"/>
         <dcterms:hasPart rdf:resource="http://arxiv.org/abs/1604.03637"/>
         <dcterms:hasPart rdf:resource="https://www.auger.org.ar/FD/measurement_time_info/current_measurement.html"/>
+        <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/161-gap-notes-2024/5868-gap2024-029"/>
+        <dcterms:hasPart rdf:resource="https://indico.nucleares.unam.mx/event/210/session/28/contribution/8"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_2">
         <dc:title>Other</dc:title>
@@ -23292,6 +23689,7 @@ Version Number: Final</dc:description>
         <dcterms:hasPart rdf:resource="https://www.nobelprize.org/prizes/physics/1980/cronin/facts/"/>
         <dcterms:hasPart rdf:resource="https://doi.org/10.1111/j.1468-4004.2011.52539_3.x"/>
         <dcterms:hasPart rdf:resource="https://cds.cern.ch/record/965864/files/18021-chn-xiao-G-abs1-he15-oral.pdf"/>
+        <dcterms:hasPart rdf:resource="https://www.flickr.com/photos/134252569@N07/19904108588/"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_3">
         <dc:title>Physics</dc:title>
@@ -23321,6 +23719,9 @@ Version Number: Final</dc:description>
         <dcterms:hasPart rdf:resource="https://link.aps.org/doi/10.1103/PhysRevD.84.122005"/>
         <dcterms:hasPart rdf:resource="http://arxiv.org/abs/1107.4805"/>
         <dcterms:hasPart rdf:resource="https://s3.cern.ch/inspire-prod-files-6/61df763c583d7a22951ff29b2cd90186"/>
+        <dcterms:hasPart rdf:resource="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=465a1204c1a4f4cf083b515ecd2085f4ec7ef499"/>
+        <dcterms:hasPart rdf:resource="https://iopscience.iop.org/article/10.1088/1748-0221/8/04/P04009/meta"/>
+        <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S0927650503002469"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
        <dc:title>Private</dc:title><dcterms:hasPart rdf:resource="#item_1"/>

@@ -45,11 +45,11 @@ experiment.
 Cronin and Watson gathered support for their ideas and, in 1995, founded a 
 collaboration of 140 likeminded scientists in 17 participating countries. A 
 white paper was published that outlined the construction, capabilities, and 
-cost of the \PAO \cite{theaugercollaborationPierreAugerObservatory}. The 
-detector configuration presented in the document varies from the design in use 
-today. Most importantly, what was originally envisioned to be a detector with an
-active area of \SI{6000}{\km\squared} spread over two locations (Auger North and
-Auger South) had to be amended and only one site with and area of 
+cost of the \PAO \cite{thepierreaugercollaborationPierreAugerObservatory1997}. 
+The detector configuration presented in the document varies from the design in 
+use today. Most importantly, what was originally envisioned to be a detector 
+with an active area of \SI{6000}{\km\squared} spread over two locations (Auger 
+North and Auger South) had to be amended and only one site with and area of 
 \SI{3000}{\km\squared}, located in the Argentinian Pampa Amarilla in the Mendoza
 province, could be realized. There, construction of an Engineering Array - a 
 full scale prototype of the first \SD and \FD detectors (see \cref{sec:sd} and 
@@ -125,7 +125,7 @@ in one case) identical setups offer a $6\cdot30^\circ=180^\circ\times30^\circ$
 view (Azimuth $\times$ Elevation) over the \SD array. \cref{fig:auger-map} shows
 the location of these sites overlooking the \SD. Starting anticlockwise with the
 telescopes located closest to Malargüe, these sites are \LL, \LM, \LA, \CO, and 
-the \HE.
+the \HEAT.
 
 \begin{figure}[t]
   \centering
@@ -137,12 +137,12 @@ the \HE.
   }
   \caption[]{\subref{fig:auger-map} Overview of the \PAO and its' detector 
   components. The black dots mark the placement of \WCDs in the \SD. The blue 
-  lines indicate the location and \FOV of the \FDs. \HE (red) and \CO overlook 
+  lines indicate the location and \FOV of the \FDs. \HEAT (red) and \CO overlook 
   the SD-750 Infill area, where a denser spacing of stations separated by 
   \SI{750}{\meter} complement the SD-1500 main array. From 
   \cite{vebericIndexHttpWebiapkitedu}. \subref{fig:fd-schematic} Cross section 
   of the components of a single telescope, located in an \FD building, modified 
-  from \cite{abraham_fluorescence_2010}.}
+  from \cite{abrahamFluorescenceDetectorPierre2010}.}
   \label{fig:pao-images}
 \end{figure}
 
@@ -150,13 +150,16 @@ the \HE.
 \subsection{Optical System}
 \label{ssec:fd-design}
 
-The \FD telescopes are designed following the schematic of a Schmidt camera with 
+The \FD telescopes are designed following the schematic of a Schmidt camera with
 corrector plates. The individual components located on the optical axis are, in 
-the order that light traverses them (c.f. \cref{fig:fd-schematic} and 
-\cite{abrahamFluorescenceDetectorPierre2010}):
+the order that light traverses them (c.f. \cref{fig:fd-schematic}, 
+\cref{fig:fd-inside-view} and \cite{abrahamFluorescenceDetectorPierre2010}):
 
 \begin{enumerate}[label=(\Alph*)]
-  \item \textbf{The shutter}, which consists of two massive metal doors, shields  the aperture from atmospheric influences such as strong winds or rain. It also  serves as a light shield that protects the sensitive camera electronics during  the day.
+  \item \textbf{The shutter}, which consists of two massive metal doors, shields
+  the aperture from atmospheric influences such as strong winds or rain. It also
+  serves as a light shield that protects the sensitive camera electronics during
+  the day.
 
   \item A \textbf{MUG6 \UV Filter} is installed in the light path in order to 
   block visible light from entering the telescope. It separates the climate 
@@ -173,23 +176,24 @@ the order that light traverses them (c.f. \cref{fig:fd-schematic} and
   sits outside of the light path, but can be deployed in emergency situations, 
   or during daytime work and maintenance.
 
-  \item \textbf{The mirrors} are a set of 60 hexagonal glass segments (36 square  segments from anodized aluminum in the case of \LL and \LM) aligned in a 
+  \item \textbf{The mirrors} are a set of 60 hexagonal glass segments (36 square
+  segments from anodized aluminum in the case of \LL and \LM) aligned in a 
   concave $\SI{3.6}{\meter}\times\SI{3.6}{\meter}$ shape, which reflects and 
   concentrates incoming light towards the camera.
 
   \item For \textbf{the Camera} refer to the next subsection.
 \end{enumerate}
 
-\subsubsection{\acf{HE}}
+\subsubsection{\acf{HEAT}}
 \label{sssec:HEAT}
 
-The fifth and newest \FD-site, the \acl{HE} commissioned 2009, is located close 
-to \CO, and looks out over the SD-750 array with three fluorescence telescopes. 
-The setup of the optical system is (conceptually) identical to that of the 
-standard \FD-sites. However, in the case of \HE, the entire telescope frame can 
-be rotated upwards by $30^\circ$. This allows the observation of the upper 
-atmosphere, where lower energy \EASs are more prevalent. \HE extends the energy 
-scale seen by the \FD downwards by one order of magnitude 
+The fifth and newest \FD-site, the \acl{HEAT} commissioned 2009, is located 
+close to \CO, and looks out over the SD-750 array with three fluorescence 
+telescopes. The setup of the optical system is (conceptually) identical to that 
+of the standard \FD-sites. However, in the case of \HEAT, the entire telescope 
+building can be rotated upwards by $30^\circ$. This allows the observation of 
+the upper atmosphere, where lower energy \EASs are more prevalent. \HEAT extends
+the energy scale seen by the \FD by one order of magnitude 
 \cite{mathesHEATTelescopesPierre2011}.
 
 \subsection{Camera and Readout Electronics}
@@ -204,13 +208,13 @@ $\Omega = \SI{5.94e-4}{\sr}$. Reflective star shapes with threefold symmetry
 sit between neighbouring pixels to boost light collection efficiency, as well as
 increase the camera point resolution. Finally, the voltage at the anode of the 
 \PMTs is read out at a sampling frequency of \SI{10}{\mega\hertz} 
-(\SI{20}{\mega\hertz} for \HE) and digitized by 12-bit \ADC-converter stages. 
+(\SI{20}{\mega\hertz} for \HEAT) and digitized by 12-bit \ADC-converter stages. 
 
 The accurate reconstruction of an \EAS requires the camera to have an excellent 
 background rejection (of e.g. transient stars in the camera \FOV). On top of 
 this, signals must be processed quickly to keep a potential timing offset 
 between \FD and \SD minimal, and enable a hybrid reconstruction. The \FD 
-electronics achieve this via a simple, hierarchical trigger logic. An \FPGA 
+electronics achieve this via a simple, hierarchical trigger logic. A \FPGA 
 scans the incoming signal from one column of pixels in a \FLT-stage. It 
 calculates the running sum of the last 16 (baseline\footnote{calculated as the 
 mean \ADC value over 65536 ($\cong\SI{6.554}{\milli\second}$) samples} 
@@ -220,42 +224,139 @@ pixel data is written to a \SRAM. This achieves two things. First, the number of
 \FLTs over a period of time is used to calculate an \FLT rate per pixel. The 
 reference threshold is updated according to this trigger rate, such that the 
 \FLT matches a \SI{100}{\hertz} trigger rate. Secondly, the number of 
-simultaneous \FLTs per column per \SI{100}{\nano\second} window is evaluated, 
-and passed on to the \SLT-stage.
+simultaneous \FLTs per column, or multiplicity, is evaluated and passed on to 
+the \SLT-stage.
 
+There, the active pixels (those that have raised a trigger in the last 
+\SI{100}{\nano\second}) are searched for spatial correlations. If a collection 
+of at least 4 pixels are found whose layout corresponds to a set of predefined
+masks a \SLT is issued. These predefined masks aim to identify straight tracks 
+in the camera \FOV, and decrease the trigger rate from 
+$\SI{100}{\hertz\per\mathrm{pixel}}$ in the \FLT to 
+$\SIrange{0.1}{10}{\hertz\per\mathrm{telescope}}$ in the \SLT. Following, a \TLT
+separates true air shower events from noise with $\approx94\%$ accuracy by 
+performing a data-based cut on the multiplicity of active pixels. This reduces 
+the trigger rate to $\SI{0.01}{\hertz\per\mathrm{telescope}}$. 
 
+Finally, \TLTs from all telescopes in a building are analyzed for events that
+pass the \FOV of multiple cameras, and an event level trigger, or T3, is issued
+to the \CDAS at a rate of approximately 
+$\SI{0.02}{\hertz\per\mathrm{building}}$.
 
 \subsection{Telescope Calibration}
 \label{ssec:fd-calibration}
 
-The UV-telescopes observe the longitudinal shower profile as an EAS develops. As 
-shown in \autoref{chap:cosmic-rays}, this enables the \FD to estimate the total 
-energy of the primary particle, by relating it to the count of photons observed 
-in the telescope.
+The description of the event reconstruction in \cref{sec:event-reconstruction}
+will reveal that in order to estimate the primary particle energy the number of
+photons incident on the \FD-camera need to be known. This poses a big challenge.
+While the camera signal response correlates with the number of photons observed
+per \EAS, the exact correlation coefficient is completely by the gain of the 
+telescope readout electronics, which is not constant. For instance, the
+camera response to the same signal can change by up to $6\%$ under suboptimal
+conditions \cite{filipJumpsXYCalibration}.
 
-The individual pixel PMTs show a drop \todo{is this correct?} in voltage when exposed to UV light. This
-voltage gets converted to \ADC via \todo{what?}. The exact \ADC value that a 
-given voltage corresponds to is completely determined by the PMT gain, and
-fluctuates over the course of a measurement night. Thus in order to obtain a 
-physically meaningful observable the conversion factor of \ADC $\rightarrow$ 
-photon number needs to be known. This is achieved by illuminating the \FD camera 
-with a light source of known intensity, and measuring the camera response. 
+To account for this, the \PMTs need to be calibrated on a nightly basis. During
+calibration the camera is exposed to a lightsource of known radiance, and the 
+camera response (in units of \ADC) is logged. Tying all information together, 
+this allows the calculation of (absolute) pixel calibration constants, 
+$C^\mathrm{pixel}_\mathrm{abs.}$, in units of \SI{}{$\gamma$\per\ADC}. It is
+imperative that these quantities are measured with high precision, as
+uncertainties on $C^\mathrm{pixel}_\mathrm{abs.}$ contribute linearly to the 
+uncertainty of the reconstructed primary particle energy. Currently, the pixel
+calibration constants are measured with an uncertainty of approximately $9\%$.
+This represents the biggest contribution to the total uncertainty in the \PAO 
+energy scale of $14\%$ \cite{verziEnergyScalePierre2013}.
+
+\subsubsection{Atmospheric laser shots}
+
+The \PAO operates two atmospheric lasers, the \CLF, and the \XLF 
+\cite{collaborationTechniquesMeasuringAerosol2013}. Their primary science case 
+is monitoring atmospheric conditions in order to model the development of \EASs
+accurately. The two instruments provide vertical laser beams with stable power,
+that, due to their very narrow frequency spectrum, translate to a stable
+output of photons. In theory, the number of photons that scatter off of air 
+molecules and hit the \FD-cameras per laser pulse is calculable. Analyzing the
+telescope response to these laser pulses allow for an absolute calibration of 
+\FD-\PMTs. In practice this proves impractical however. The air conditions in 
+the atmosphere are not known with sufficient precision. Moreover, not all
+pixels in all telescopes see the laser beams, which drastically lowers the 
+accuracy of the presented method.
+
+\subsubsection{Drone based calibration}
+
+A remote-controlled drone equipped with a light source is used to simulate a 
+distant point source in the \FD-\FOV \cite{wernerDesignTestFlying2010, 
+tomankovaOpticalPropertiesCalibration2016}. In principle the hardware can be
+used to calibrate the individual pixels of a camera, as the source radiance is
+known. In practice the drone based approach takes a long time to illuminate 
+every pixel. Other methods are less time intensive and therefore preferred. 
+Nevertheless, the drone proves useful in measuring the optical properties of 
+the \FD-mirrors, such as the \PSF.
 
 \subsubsection{Drum calibration}
 
-The first absolute calibration of the \FD telescopes is the Drum calibration. 
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.32\textwidth]{auger-observatory/fd_camera.png}
+  \label{fig:fd-inside-view}
+  }\hspace{0.1cm}
+  \subfloat[]{\includegraphics[height=0.32\textwidth]{auger-observatory/drum_mounting.png}
+  \label{fig:drum-mounting}
+  }\hspace{0.1cm}
+  \subfloat[]{\includegraphics[height=0.32\textwidth]{auger-observatory/cal_a_response.png}
+  \label{fig:cal-a-example-response}
+  }
+  \caption[]{\subref{fig:fd-inside-view} View of the inside of an \FD-telescope.
+  The different detector components are labelled and described in more detail in
+  \cref{ssec:fd-design}. Picture from \cite{observatoryP22500022004}. 
+  \subref{fig:drum-mounting} The drum light source is mounted in front of the 
+  aperture of a telescope at \CO for an absolute calibration. From 
+  \cite{crissUpdateRecentAbsolute2010}. \subref{fig:cal-a-example-response} The 
+  integral signal per pixel received by the camera in bay 2 of \CO for a 
+  relative calibration measurement (cal. A) before standard \DAQ on 2024-11-20.}
+  \label{fig:camera-stuff}
+\end{figure}
+
+The absolute calibration method currently in use at the \PAO is the drum 
+calibration. The name derives from the shape of the light source, visible in 
+\cref{fig:drum-mounting}. It is a cylinder with a diameter of \SI{2.5}{\meter} 
+and depth of \SI{1.4}{\meter} with two NSHU550 \UV \LEDs installed at its' 
+center. A reflective laminate uniformly distributes the light from the \LED over
+the interior of the drum \cite{brackAbsolutePhotometricCalibration2004}. The 
+radiance of the lightsource is carefully measured before, during, and after 
+every \DAQ campaign \cite{brackAugerFluorescenceDetector2013}. To measure 
+$C^\mathrm{pixel}_\mathrm{abs.}$ via the drum lightsource the cylinder frame has
+to be mounted on top of the \FD aperture. Once done, all pixels in the telescope
+camera are illuminated simultaneously with a single \LED pulse and the signal
+response can be read out.
+
+While the measurement itself is quick it requires time, manpower, and knowledge
+to set up. For this reason the last absolute calibration of the \FD-telescopes 
+with the drum lightsource has been conducted more than ten years ago in 2013 
+\cite{dorofeevFDAbsoluteCalibration2013}. 
+
+\subsubsection{Calibration A, B and C}
+
+In order to address the lack of a nightly absolute calibration relative 
+calibration systems exists to track the telescope evolution over time. These 
+relative calibration systems are a set of \LCUs and identical for each building
+\footnote{\HEAT has three copies of the same setup for the three telescopes}.
+They consist of a central \LED light source and optical fibers that transport 
+photon signals to diffusers located at three different exit ports at all 
+telescopes. The location of these exit ports are as follows:
+
+\begin{enumerate}[label=(\Alph*)]
+	\item In the center of the mirror, directly illuminating the \FD-camera.
+	\item Left and right above the camera body, illuminating the pixels 
+	indirectly via the mirror.
+	\item Outside the \FD building and pointed towards the shutter.
+	Reflective liners on the inside of the shutter redirect the light into 
+	the aperture and eventually the camera.
+\end{enumerate}
 
 
-\subsubsection{XY-scanner}
 
-
-
-\subsubsection{Calibration A}
-
-In order to track the relative drift between absolute calibration campaigns, an 
-LED located in the center of the mirror shoots a known amount of light directly 
-at the \FD camera. It is performed twice each night, once before \DAQ, and once 
-more after \DAQ.
+\todo{ref cal a plot}
 
 The importance of this so-called Calibration A becomes apparent when examining the
 response of the \FD cameras, as e.g. shown in \autoref{fig:calibration-a-signal}.
@@ -269,8 +370,7 @@ This is a consequence of the \PMT electronics being turned off between measurmen
 cycles. Each time this occurs, \PMTs first have to warm up again, until full
 collection efficiency for incoming photons is reached.
 
-\todo{cal a plot}
-
+\subsubsection{XY Scanner}
 
 \section{The Surface Detector}
 \label{sec:sd}
@@ -283,25 +383,7 @@ collection efficiency for incoming photons is reached.
 
 
 \section{\Offline and Event Reconstruction}
-\label{sec:rec}
+\label{sec:event-reconstruction}
 
-\begin{figure}[t]
-  \centering
-  \subfloat[]{\includegraphics[width=0.47\textwidth]{cosmic-rays/spectrum-double1.png}
-  \label{fig:LABEL}
-  }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[width=0.47\textwidth]{cosmic-rays/spectrum-double2.png}
-  \label{fig:LABEL}
-  }
-  \caption[]{\subref{fig:LABEL} asdasd \subref{fig:LABEL} asdasd}
-  \label{fig:}
-\end{figure}
+\todo{reconstructed quantities table}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.9\textwidth]{cosmic-rays/spectrum-single.png}
-  \caption{asdasdasdasd}
-  \label{fig:asdasd}
-\end{figure}
-
-\cref{chap:pierre-auger-observatory} 
