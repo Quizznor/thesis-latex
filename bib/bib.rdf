@@ -23377,6 +23377,7 @@ Version Number: Final</dc:description>
         <link:link rdf:resource="#item_114"/>
         <dc:subject>auger</dc:subject>
         <dc:title>Jumps in XY Calibration Constants After Mirror Cleaning at HEAT</dc:title>
+        <dc:date>5/24/2024</dc:date>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://auger.org/document-centre2/download/161-gap-notes-2024/5868-gap2024-029</rdf:value>
@@ -23416,7 +23417,7 @@ Version Number: Final</dc:description>
             </rdf:Seq>
         </bib:authors>
         <link:link rdf:resource="#item_116"/>
-        <dc:subject>physics</dc:subject>
+        <dc:subject>phys</dc:subject>
         <dc:title>The energy scale of the Pierre Auger Observatory</dc:title>
         <dc:date>2013</dc:date>
         <z:libraryCatalog>Google Scholar</z:libraryCatalog>
@@ -23579,7 +23580,7 @@ Version Number: Final</dc:description>
             </dcterms:URI>
         </dc:identifier>
         <dcterms:dateSubmitted>2025-03-30 21:41:33</dcterms:dateSubmitted>
-        <z:meetingName>Auger Collaboration Meeting</z:meetingName>
+        <z:meetingName>Auger Collaboration Meeting (6-12 March 2010)</z:meetingName>
     </bib:ConferenceProceedings>
     <z:Attachment rdf:about="#item_123">
         <z:itemType>attachment</z:itemType>
@@ -23665,6 +23666,658 @@ Version Number: Final</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Thesis rdf:about="https://publikationen.bibliothek.kit.edu/1000061954">
+        <z:itemType>thesis</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>Karlsruhe Institute of Technology</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tománková</foaf:surname>
+                        <foaf:givenName>Lenka</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>phys</dc:subject>
+        <dc:title>Optical Properties and Calibration of the Pierre Auger Fluorescence Detector</dc:title>
+        <dc:date>6/3/2016</dc:date>
+        <z:language>English</z:language>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://publikationen.bibliothek.kit.edu/1000061954</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 22:47:23</dcterms:dateSubmitted>
+        <z:numPages>214</z:numPages>
+        <z:type>PhD Thesis</z:type>
+    </bib:Thesis>
+    <bib:Thesis rdf:about="#item_129">
+        <z:itemType>thesis</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>Karlsruhe Institute of Technology</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Werner</foaf:surname>
+                        <foaf:givenName>Felix</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>phys</dc:subject>
+        <dc:title>Design and test of a flying light source for the calibration of the Auger fluorescence telescopes</dc:title>
+        <dc:date>08/03/2010</dc:date>
+        <z:language>English</z:language>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <z:numPages>83</z:numPages>
+        <z:type>PhD Thesis</z:type>
+    </bib:Thesis>
+    <bib:Report rdf:about="https://auger.org/document-centre2/download/6-gap-notes-2010/812-gap2010-118">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brack</foaf:surname>
+                        <foaf:givenName>Jeff</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Cope</foaf:surname>
+                        <foaf:givenName>Robert</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dorofeev</foaf:surname>
+                        <foaf:givenName>Alexei</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gookin</foaf:surname>
+                        <foaf:givenName>Ben</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Harton</foaf:surname>
+                        <foaf:givenName>John</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Petrov</foaf:surname>
+                        <foaf:givenName>Yevgenij</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rovero</foaf:surname>
+                        <foaf:givenName>Adrian</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bruijn</foaf:surname>
+                        <foaf:givenName>Ronald</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chriss</foaf:surname>
+                        <foaf:givenName>Adrienne</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sommers</foaf:surname>
+                        <foaf:givenName>Paul</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Menshikov</foaf:surname>
+                        <foaf:givenName>Alexander</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>La Rosa</foaf:surname>
+                        <foaf:givenName>Giovanni</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_131"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Auger Fluorescence Detector Absolute Calibration January and June 2010</dc:title>
+        <dc:date>12/12/2013</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/6-gap-notes-2010/812-gap2010-118</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 23:25:09</dcterms:dateSubmitted>
+        <prism:number>2010-118</prism:number>
+        <z:type>GAP note</z:type>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_131">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>GAP2010_118 Auger Fluorescence Detector Absolute Calibration January and June 2010</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/6-gap-notes-2010/812-gap2010-118</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 23:25:11</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="https://auger.org/document-centre2/download/5-gap-notes-2013/139-gap2013-058">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dorofeev</foaf:surname>
+                        <foaf:givenName>Alexei</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gookin</foaf:surname>
+                        <foaf:givenName>Ben</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brack</foaf:surname>
+                        <foaf:givenName>Jeff</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Harton</foaf:surname>
+                        <foaf:givenName>John</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Luzio</foaf:surname>
+                        <foaf:givenName>Vitor Pretes</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>del Rio</foaf:surname>
+                        <foaf:givenName>Mariano</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_133"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>FD Absolute Calibration, April 2013</dc:title>
+        <dc:date>11/26/2013</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/5-gap-notes-2013/139-gap2013-058</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 23:36:24</dcterms:dateSubmitted>
+        <prism:number>2013-058</prism:number>
+        <z:type>GAP note</z:type>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_133">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>GAP2013_058 FD Absolute Calibration, April 2013</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/5-gap-notes-2013/139-gap2013-058</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 23:36:26</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="http://arxiv.org/abs/0708.1924">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>arXiv</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Knapik</foaf:surname>
+                        <foaf:givenName>R.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bauleo</foaf:surname>
+                        <foaf:givenName>P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Becker</foaf:surname>
+                        <foaf:givenName>B. R.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brack</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Caruso</foaf:surname>
+                        <foaf:givenName>R.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fratte</foaf:surname>
+                        <foaf:givenName>C. Delle</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dorofeev</foaf:surname>
+                        <foaf:givenName>A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Harton</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Insolia</foaf:surname>
+                        <foaf:givenName>A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Matthews</foaf:surname>
+                        <foaf:givenName>J. A. J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Menshikov</foaf:surname>
+                        <foaf:givenName>A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ortolani</foaf:surname>
+                        <foaf:givenName>F.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Petrinca</foaf:surname>
+                        <foaf:givenName>P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Pichel</foaf:surname>
+                        <foaf:givenName>A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Riggi</foaf:surname>
+                        <foaf:givenName>S.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Roberts</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Martino</foaf:surname>
+                        <foaf:givenName>J. Rodriguez</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rovero</foaf:surname>
+                        <foaf:givenName>A. C.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Scuderi</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tamashiro</foaf:surname>
+                        <foaf:givenName>A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Torresi</foaf:surname>
+                        <foaf:givenName>D.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tuci</foaf:surname>
+                        <foaf:givenName>V.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wiencke</foaf:surname>
+                        <foaf:givenName>L.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_135"/>
+        <link:link rdf:resource="#item_136"/>
+        <link:link rdf:resource="#item_137"/>
+        <dc:subject>phys</dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Astrophysics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>The Absolute, Relative and Multi-Wavelength Calibration of the Pierre Auger Observatory Fluorescence Detectors</dc:title>
+        <dcterms:abstract>Absolute calibration of the Pierre Auger Observatory fluorescence detectors uses a 375 nm light source at the telescope aperture. This end-to-end technique accounts for the combined effects of all detector components in a single measurement. The relative response has been measured at wavelengths of 320, 337, 355, 380 and 405 nm, defining a spectral response curve which has been normalized to the absolute calibration. Before and after each night of data taking a relative calibration of the phototubes is performed. This relative calibration is used to track both short and long term changes in the detector's response. A cross check of the calibration in some phototubes is performed using an independent laser technique. Overall uncertainties, current results and future plans are discussed.</dcterms:abstract>
+        <dc:date>2007-08-14</dc:date>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/0708.1924</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 23:49:12</dcterms:dateSubmitted>
+        <dc:description>arXiv:0708.1924 [astro-ph]</dc:description>
+        <dc:identifier>DOI 10.48550/arXiv.0708.1924</dc:identifier>
+        <prism:number>arXiv:0708.1924</prism:number>
+    </rdf:Description>
+    <bib:Memo rdf:about="#item_135">
+        <rdf:value>Comment: This paper was presented as a poster(#0393) at the 30th International Cosmic Ray Conference on July 3-11th 2007 in Merida, Mexico; 4 pages, 4 figures</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_136">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Preprint PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/pdf/0708.1924v1</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 23:49:13</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_137">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/0708.1924</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-30 23:49:18</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="http://arxiv.org/abs/astro-ph/0308410">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>arXiv</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Roberts</foaf:surname>
+                        <foaf:givenName>M. D.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_139"/>
+        <link:link rdf:resource="#item_140"/>
+        <link:link rdf:resource="#item_141"/>
+        <dc:subject>phys</dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Astrophysics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Calibration of the Pierre Auger fluorescence detector</dc:title>
+        <dcterms:abstract>The absolute calibration of an air fluorescence detector (FD) is an important element in correctly determining the energy of detected cosmic rays. The absolute calibration relates the flux of photons of a given wavelength at the detector aperture to the electronic signal recorded by the FD data acquisition system. For the Auger FDs, the primary absolute calibration method uses a diffusive surface which is placed in front of a telescope aperture to uniformly illuminate the telescope field of view with a known light signal. This single-wavelength measurement (375 nm) will be made at intervals of several months until the stability of the telescopes is determined. The relative wavelength dependence of the calibration is determined through independent measurements. The error in absolute calibration at a single wavelength is estimated to be less than 10%. Two other absolute calibration methods are used to provide an independent verification of the primary measurement. The stability of the calibration with time is monitored nightly by a relative calibration system. In this paper we will provide descriptions of the absolute and relative calibration methods used by the Auger air fluorescence observatory. Results from the calibration of the Auger Engineering Array telescopes will also be presented.</dcterms:abstract>
+        <dc:date>2003-08-22</dc:date>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/astro-ph/0308410</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 13:23:24</dcterms:dateSubmitted>
+        <dc:description>arXiv:astro-ph/0308410</dc:description>
+        <dc:identifier>DOI 10.48550/arXiv.astro-ph/0308410</dc:identifier>
+        <prism:number>arXiv:astro-ph/0308410</prism:number>
+    </rdf:Description>
+    <bib:Memo rdf:about="#item_139">
+        <rdf:value>Comment: 4 pages, no figures. Presented at the 28th International Cosmic Ray Conference</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_140">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Preprint PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/pdf/astro-ph/0308410v1</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 13:23:26</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_141">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/astro-ph/0308410</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 13:23:32</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="https://gitlab.iap.kit.edu/ipe-auger/lcu-tools/tree/master/doc">
+        <z:itemType>report</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <foaf:name>Institute of Data Processing and Electronics (IPE), Karlsruhe Institute of Technology (KIT)</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Menshikov</foaf:surname>
+                        <foaf:givenName>Alexander</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>LED Calibration Unit – User manual</dc:title>
+        <z:language>English</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://gitlab.iap.kit.edu/ipe-auger/lcu-tools/tree/master/doc</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31</dcterms:dateSubmitted>
+        <z:type>User Manual</z:type>
+    </bib:Report>
+    <bib:ConferenceProceedings rdf:about="https://indico.nucleares.unam.mx/event/820/session/4/contribution/66">
+        <z:itemType>presentation</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Mines, CO</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+            </foaf:Organization>
+        </dc:publisher>
+        <z:presenters>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Salina</foaf:surname>
+                        <foaf:givenName>Gaetano</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:presenters>
+        <link:link rdf:resource="#item_144"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>New Calibration Task: Some Ideas (?)</dc:title>
+        <dc:date>6/14/2014</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://indico.nucleares.unam.mx/event/820/session/4/contribution/66</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 13:50:38</dcterms:dateSubmitted>
+        <z:meetingName>Golden Analysis Meeting 2014 (16-20 June 2014)</z:meetingName>
+    </bib:ConferenceProceedings>
+    <z:Attachment rdf:about="#item_144">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Golden Analysis Meeting 2014 (16-20 June 2014)</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://indico.nucleares.unam.mx/event/820/session/4/contribution/66</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 13:50:39</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:ConferenceProceedings rdf:about="https://agenda.infn.it/event/44951/contributions/253566/">
+        <z:itemType>presentation</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Torino, Italy</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+            </foaf:Organization>
+        </dc:publisher>
+        <z:presenters>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Salina</foaf:surname>
+                        <foaf:givenName>Gaetano</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:presenters>
+        <link:link rdf:resource="#item_146"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Meeting della Collaborazione Auger Italia</dc:title>
+        <dcterms:abstract>Meeting Aula C: tutti i giorni, tranne il martedi mattina. Piano terra, prima a sinistra dopo la portineria. Aula A: solo martedi mattina. Piano terra, corridoio a destra dopo gli ascensori. --------------------------------------- Zoom Room https://zoom.us/j/92493492789 Codice d'accesso: inviato via e-mail a tutti i partecipanti online. Eventuali altre richieste possono essere inviate ai contatti indicati --------------------------------------- Coffee breaks Primo piano. Istituto vecchio,...</dcterms:abstract>
+        <dc:date>2/4/2025</dc:date>
+        <z:language>en</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://agenda.infn.it/event/44951/contributions/253566/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 20:23:48</dcterms:dateSubmitted>
+        <z:meetingName>Meeting della Collaborazione Auger Italia</z:meetingName>
+    </bib:ConferenceProceedings>
+    <z:Attachment rdf:about="#item_146">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://agenda.infn.it/event/44951/contributions/253566/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 20:24:00</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="https://auger.org/gap-notes/download/153-gap-notes-2022/5479-gap2022-012">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schäfer</foaf:surname>
+                        <foaf:givenName>Christoph</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Veberic</foaf:surname>
+                        <foaf:givenName>Darko</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Engel</foaf:surname>
+                        <foaf:givenName>Ralph</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_148"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Reconstruction of the Baseline Undershoot of FD Photomultipliers</dc:title>
+        <dc:date>4/14/2022</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/gap-notes/download/153-gap-notes-2022/5479-gap2022-012</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 20:32:26</dcterms:dateSubmitted>
+        <prism:number>2022-012</prism:number>
+        <z:type>GAP note</z:type>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_148">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>GAP2022_012 Reconstruction of the Baseline Undershoot of FD Photomultipliers</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/gap-notes/download/153-gap-notes-2022/5479-gap2022-012</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-31 20:32:28</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -23681,6 +24334,11 @@ Version Number: Final</dc:description>
         <dcterms:hasPart rdf:resource="https://www.auger.org.ar/FD/measurement_time_info/current_measurement.html"/>
         <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/161-gap-notes-2024/5868-gap2024-029"/>
         <dcterms:hasPart rdf:resource="https://indico.nucleares.unam.mx/event/210/session/28/contribution/8"/>
+        <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/6-gap-notes-2010/812-gap2010-118"/>
+        <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/5-gap-notes-2013/139-gap2013-058"/>
+        <dcterms:hasPart rdf:resource="https://indico.nucleares.unam.mx/event/820/session/4/contribution/66"/>
+        <dcterms:hasPart rdf:resource="https://agenda.infn.it/event/44951/contributions/253566/"/>
+        <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/153-gap-notes-2022/5479-gap2022-012"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_2">
         <dc:title>Other</dc:title>
@@ -23722,6 +24380,11 @@ Version Number: Final</dc:description>
         <dcterms:hasPart rdf:resource="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=465a1204c1a4f4cf083b515ecd2085f4ec7ef499"/>
         <dcterms:hasPart rdf:resource="https://iopscience.iop.org/article/10.1088/1748-0221/8/04/P04009/meta"/>
         <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S0927650503002469"/>
+        <dcterms:hasPart rdf:resource="https://publikationen.bibliothek.kit.edu/1000061954"/>
+        <dcterms:hasPart rdf:resource="#item_129"/>
+        <dcterms:hasPart rdf:resource="http://arxiv.org/abs/0708.1924"/>
+        <dcterms:hasPart rdf:resource="http://arxiv.org/abs/astro-ph/0308410"/>
+        <dcterms:hasPart rdf:resource="https://gitlab.iap.kit.edu/ipe-auger/lcu-tools/tree/master/doc"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
        <dc:title>Private</dc:title><dcterms:hasPart rdf:resource="#item_1"/>

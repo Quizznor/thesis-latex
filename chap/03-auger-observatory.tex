@@ -253,7 +253,7 @@ While the camera signal response correlates with the number of photons observed
 per \EAS, the exact correlation coefficient is completely by the gain of the 
 telescope readout electronics, which is not constant. For instance, the
 camera response to the same signal can change by up to $6\%$ under suboptimal
-conditions \cite{filipJumpsXYCalibration}.
+conditions \cite{filipJumpsXYCalibration2024}.
 
 To account for this, the \PMTs need to be calibrated on a nightly basis. During
 calibration the camera is exposed to a lightsource of known radiance, and the 
@@ -340,10 +340,11 @@ with the drum lightsource has been conducted more than ten years ago in 2013
 In order to address the lack of a nightly absolute calibration relative 
 calibration systems exists to track the telescope evolution over time. These 
 relative calibration systems are a set of \LCUs and identical for each building
-\footnote{\HEAT has three copies of the same setup for the three telescopes}.
-They consist of a central \LED light source and optical fibers that transport 
-photon signals to diffusers located at three different exit ports at all 
-telescopes. The location of these exit ports are as follows:
+\footnote{\HEAT has three copies of the same setup for its' telescopes}.
+They consist of three central \LED light source and optical fibers that 
+transport photon signals to diffusers located at three different exit ports at 
+the six different telescopes \cite{robertsCalibrationPierreAuger2003}. The 
+location of the exit ports are as follows:
 
 \begin{enumerate}[label=(\Alph*)]
 	\item In the center of the mirror, directly illuminating the \FD-camera.
@@ -353,6 +354,39 @@ telescopes. The location of these exit ports are as follows:
 	Reflective liners on the inside of the shutter redirect the light into 
 	the aperture and eventually the camera.
 \end{enumerate}
+
+In principle, the combination of Calibration A, B, and C allow to monitor the 
+aging of the different detector components, and provide an end-to-end 
+calibration, in which the whole optical system of the telescopes is probed. Only
+Calibration A is performed to track changes in the pixel-\PMTs in practice. The 
+remaining telescope constituents have been shown to be stable over the timespan 
+of years \cite{brackAugerFluorescenceDetector2013, 
+dorofeevFDAbsoluteCalibration2013}.
+
+Two Calibration A measurements are performed during each night. One before the 
+start of \DAQ, and one after the data-taking ends. During the measurement the 
+\LED emits 50 light pulses with a duration of $\approx\SI{60}{\micro\second}$ at
+a wavelength of \SI{470\pm25}{\nano\meter} \cite{menshikovLEDCalibrationUnit}. 
+The optical signal is guided through six cables to the diffusers at the center 
+of the mirror. A seventh fiber feeds the light back to the \LCU, where a
+photodiode digitizes the signal $S_\mathrm{LCU}$. The readout of pixel-data is 
+forced via an external trigger coincident with every light pulse. The overall
+signal recorded in the \FD time trace from the calibration light pulse(s),
+$S_\mathrm{CalA}$, can be recovered by first estimating and subtracting the 
+trace baseline \cite{schaferReconstructionBaselineUndershoot2022}, determining 
+the pulse start and stop via a pulse-finding algorithm (c.f. \todo{xy section 
+ref here}), and summing the \ADC bins within the pulse-window. 
+\cref{fig:cal-a-example-response} shows example data analyzed in this fashion. 
+From $S_\mathrm{LCU}$ and $S_\mathrm{CalA}$ the calibration constants measured 
+in a reference night via calibration method $i$ can be forward- or 
+backpropagated to an arbitrary point in time according to 
+\cite{salinaNewCalibrationTask2014, salinaMeetingCollaborazioneAuger2025} like
+
+\begin{equation}
+\label{eq:cal-a-propagation}
+C^{\mathrm{pixel},\,i}_{\mathrm{abs.}} = \frac{S_\mathrm{LCU}}{S_\mathrm{LCU}^\mathrm{ref.}}\,\frac{S_\mathrm{CalA}^\mathrm{ref.}}{S_\mathrm{CalA}}\,c_\mathrm{LCU}^\mathrm{Corr.}\,C^\mathrm{pixel, i}_\mathrm{abs., ref}.
+\end{equation}
+
 
 
 
