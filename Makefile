@@ -4,6 +4,7 @@ SHELL := bash
 TARGET := main
 BIBTEX := biber
 LATEX := latexmk -pdf
+
 DEPENDENCIES := $(wildcard *.tex)
 DEPENDENCIES += $(wildcard abstract/*.tex)
 DEPENDENCIES += $(wildcard chap/*.tex)
@@ -15,13 +16,10 @@ DEPENDENCIES += $(wildcard *.sty *.bib)
 
 .PHONY: all clean
 
-all: $(TARGET).pdf
-
-clean:
-	- $(RM) -f $(TARGET){.fls,.fdb_latexmk,.pdf,.tex~,.ps,.dvi,.log,.aux,.toc,.bcf,.nav,.out,.snm,.bbl,.blg,-blx.bib,.tex.bbl,.tex.blg,.run.xml,.spl,.lof,.maf,.fff,.lot,.ttt,.mtc*,.ptc,.loc,.tdo,.soc} */*.aux
-
-%.pdf: $(DEPENDENCIES)
+all:
 	scripts/gather_acronyms
 	scripts/gather_chapters
 	scripts/gather_appendices
 	#$(LATEX) $*
+clean:
+	- $(RM) -f $(TARGET){.fls,.fdb_latexmk,.pdf,.tex~,.ps,.dvi,.log,.aux,.toc,.bcf,.nav,.out,.snm,.bbl,.blg,-blx.bib,.tex.bbl,.tex.blg,.run.xml,.spl,.lof,.maf,.fff,.lot,.ttt,.mtc*,.ptc,.loc,.tdo,.soc} */*.aux

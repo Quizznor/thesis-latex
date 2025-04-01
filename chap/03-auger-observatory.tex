@@ -103,7 +103,7 @@ opposed to Phase I pre- and during AugerPrime) will be the basis for many
 contributions that attempt to shed light into the physics of \UHECRs, with this 
 work being just one example.
 
-\section{The Fluorescence Detector}
+\section{The Fluorescence Detector (FD)}
 \label{sec:fd}
 
 The Fluorescence Detector of the \PAO is a set of 27 reflector telescopes tuned
@@ -308,7 +308,7 @@ the \FD-mirrors, such as the \PSF.
   }
   \caption[]{\subref{fig:fd-inside-view} View of the inside of an \FD-telescope.
   The different detector components are labelled and described in more detail in
-  \cref{ssec:fd-design}. Picture from \cite{observatoryP22500022004}. 
+  \cref{ssec:fd-design}. Picture from \cite{pierreaugerobservatoryP22500022004} 
   \subref{fig:drum-mounting} The drum light source is mounted in front of the 
   aperture of a telescope at \CO for an absolute calibration. From 
   \cite{crissUpdateRecentAbsolute2010}. \subref{fig:cal-a-example-response} The 
@@ -340,7 +340,7 @@ with the drum lightsource has been conducted more than ten years ago in 2013
 In order to address the lack of a nightly absolute calibration relative 
 calibration systems exists to track the telescope evolution over time. These 
 relative calibration systems are a set of \LCUs and identical for each building
-\footnote{\HEAT has three copies of the same setup for its' telescopes}.
+\footnote{\HEAT has one copy for each of its' telescopes}.
 They consist of three central \LED light source and optical fibers that 
 transport photon signals to diffusers located at three different exit ports at 
 the six different telescopes \cite{robertsCalibrationPierreAuger2003}. The 
@@ -348,8 +348,8 @@ location of the exit ports are as follows:
 
 \begin{enumerate}[label=(\Alph*)]
 	\item In the center of the mirror, directly illuminating the \FD-camera.
-	\item Left and right above the camera body, illuminating the pixels 
-	indirectly via the mirror.
+	\item Above the camera body, illuminating the pixels indirectly via the 
+	mirror.
 	\item Outside the \FD building and pointed towards the shutter.
 	Reflective liners on the inside of the shutter redirect the light into 
 	the aperture and eventually the camera.
@@ -384,32 +384,47 @@ backpropagated to an arbitrary point in time according to
 
 \begin{equation}
 \label{eq:cal-a-propagation}
-C^{\mathrm{pixel},\,i}_{\mathrm{abs.}} = \frac{S_\mathrm{LCU}}{S_\mathrm{LCU}^\mathrm{ref.}}\,\frac{S_\mathrm{CalA}^\mathrm{ref.}}{S_\mathrm{CalA}}\,c_\mathrm{LCU}^\mathrm{Corr.}\,C^\mathrm{pixel, i}_\mathrm{abs., ref}.
+C^{\mathrm{pixel},\,i}_{\mathrm{abs.}} = C^{\mathrm{pixel},\,i}_{\mathrm{abs.},\,\mathrm{ref}}\,\cdot\,\frac{S_\mathrm{LCU}}{S_\mathrm{LCU}^\mathrm{ref.}}\,\frac{S_\mathrm{CalA}^\mathrm{ref.}}{S_\mathrm{CalA}}\,c_\mathrm{LCU}^\mathrm{Corr.}\,c^\mathrm{Corr.}_\mathrm{Halo}.
 \end{equation}
 
-
-
-
-\todo{ref cal a plot}
-
-The importance of this so-called Calibration A becomes apparent when examining the
-response of the \FD cameras, as e.g. shown in \autoref{fig:calibration-a-signal}.
-Comparing measurements across a larger timespan, it can be seen that the Cal A
-before \DAQ systematically has less recovered signal, i.e. measures fewer \ADC
-than the post-\DAQ run, while in both runs the cameras are exposed to the same 
-amount of light. Moreover, the recovered signal after extended downtimes is lower
-than at the end of a measurement period.
-
-This is a consequence of the \PMT electronics being turned off between measurment 
-cycles. Each time this occurs, \PMTs first have to warm up again, until full
-collection efficiency for incoming photons is reached.
+In \cref{eq:cal-a-propagation} the two factors $c$ give different corrections
+to the end result that need to be considered. First, a time-dependant factor 
+absorbs the change of radiance in the \LCU \LED after a replacement in 2011/2012
+took place in all telescopes \cite{menshikovLEDCalibrationUnit}. A second factor
+accounts for the fact that not all photons that hit the camera body are 
+registered in the \PMTs. Some light is reflected away, and does not contribute
+to the absolute calibration. Consequently, 
+$C^{\mathrm{pixel},\,i}_\mathrm{abs.}$ would be underestimated without a 
+correction factor \cite{brackFluorescenceDetectorAbsolute13}.
 
 \subsubsection{XY Scanner}
 
-\section{The Surface Detector}
+The XY-Scanner is a novel end-to-end calibration method that aims to be the
+successor of the drum calibration system \cite{engelNewEndtoendCalibration2017}.
+It consists of a portable \IS lightsource mounted on an XY translation stage. 
+Instead of illuminating the entire aperture with a single flash of a big 
+lightsource, the XY-Scanner fires many flashes from different positions in the 
+aperture. This compromises measurement time for much easier handling and better
+systematics on the resulting pixel calibration constants. The setup and analysis
+of the method are summarized in \todo{xy scanner chapter here}, and described in
+detail in \cite{schaferXYScannerVersatileMethod2023}
+
+\section{The Surface Detector (SD)}
 \label{sec:sd}
 
 \todo[inline]{roughly mention design, duty cycle}
+
+\subsection{Array structure}
+
+\subsection{Detector components}
+
+\subsubsection{\acf{WCD}}
+
+\subsubsection{\acf{SSD}}
+
+\subsubsection{\acf{UMD}}
+
+\subsubsection{\acf{RD}}
 
 \section{Central Data Acquisition System (CDAS)}
 \label{sec:cdas}

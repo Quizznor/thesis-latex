@@ -12,20 +12,24 @@ FPGA		Field Programmable Gate Array
 GAP         	Giant Array Project
 HEAT	        High Elevation Auger Telescope
 ICRC		International Cosmic Ray Conference
+IS		Integrating Sphere
 LA	        Loma Amarilla
 LCU		LED Calibration Unit
 LED		Light Emitting Diode
 LL	        Los Leones
 LM	        Los Morados
+RD		Radio Detector
 SD          	Surface Detector
 SLT		Second Level Trigger
 SRAM		Static Random Access Memory
+SSD		Surface Scintillator Detector
 PAO         	Pierre Auger Observatory
 PMT	        Photomultiplier Tube
 PSF		Point Spread Function
 TLT		Third Level Trigger
 UHE		Ultra High Energy
 UHECR       	UHE Cosmic Ray
+UMD		Underground Muon Detector
 UV          	Ultra-Violet
 WCD         	Water Cherenkov Detector
 XLF		Extreme Laser Facility
