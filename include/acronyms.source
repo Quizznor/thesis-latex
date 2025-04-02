@@ -21,15 +21,18 @@ LM	        Los Morados
 RD		Radio Detector
 SD          	Surface Detector
 SLT		Second Level Trigger
+SOC		System On Chip
 SRAM		Static Random Access Memory
 SSD		Surface Scintillator Detector
 PAO         	Pierre Auger Observatory
 PMT	        Photomultiplier Tube
 PSF		Point Spread Function
 TLT		Third Level Trigger
+UB		Unified Board
 UHE		Ultra High Energy
 UHECR       	UHE Cosmic Ray
 UMD		Underground Muon Detector
+UUB		Upgraded Unified Board
 UV          	Ultra-Violet
 WCD         	Water Cherenkov Detector
 XLF		Extreme Laser Facility

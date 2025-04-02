@@ -10,13 +10,6 @@ simultaneous detection of \CR-artifacts in the air and on ground via this hybrid
 approach offers a unique possibility to observe \UHECRs at the tail-end of the 
 \CR energy spectrum.
 
-%We begin this chapter in \cref{sec:science-case} by formulating open questions 
-%that the \PAO aims to answer. Design details for the \FD and for the \SD are 
-%given in \cref{sec:fd} and \cref{sec:sd} respectively. After a discussion of the
-%local \DAQ processes and the centralized event detection in \cref{sec:cdas}, we 
-%finish by detailing the procedure of the event reconstruction and higher level 
-%analysis in \cref{sec:rec}.
-
 \section{Project History and Future}
 \label{sec:project-history-and-future}
 
@@ -51,8 +44,8 @@ use today. Most importantly, what was originally envisioned to be a detector
 with an active area of \SI{6000}{\km\squared} spread over two locations (Auger 
 North and Auger South) had to be amended and only one site with and area of 
 \SI{3000}{\km\squared}, located in the Argentinian Pampa Amarilla in the Mendoza
-province, could be realized. There, construction of an Engineering Array - a 
-full scale prototype of the first \SD and \FD detectors (see \cref{sec:sd} and 
+province, came to be. There, construction of an Engineering Array - a full scale
+prototype of the first \SD and \FD detectors (see \cref{sec:sd} and 
 \cref{sec:fd} respectively) was completed in 2001. More hardware was added after
 first successful measurements, making the \PAO the largest observatory for \CRs 
 by the end of 2003.
@@ -63,12 +56,12 @@ total exposure well surpassing \SI{100000}{\km\squared\sr\year}
 Collaboration has delivered key insights that advanced our understanding of 
 astroparticle and high-energy physics. Most notably, the \PAO confirmed a 
 strong suppression of the \CR-flux for particles above 
-$E\approx\SI{4e19}{\eV}$ \cite{yamamotoUHECRSpectrumMeasured2007} (c.f. 
+$E\approx\SI{4e19}{\eV}$ \cite{yamamotoUHECRSpectrumMeasured2007} (see 
 \todo{ref physics chapter}). Anisotropies in the arrival directions of \UHECRs 
 hint to their distant origins
-\cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017} (c.f. 
+\cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017} (see 
 \todo{ref physics chapter}). Upper limits have been set on the \UHE photon and
-neutrino flux that force the reevaluation of certain astrophysical models 
+neutrino flux, which forces the reevaluation of certain astrophysical models 
 \cite{collaborationPierreAugerObservatory2011, abreuSearchUltrahighEnergy2011}.
 Last but not least, regular releases of datasets to the public support the work 
 of independently working astrophysicists around the globe 
@@ -104,17 +97,17 @@ contributions that attempt to shed light into the physics of \UHECRs, with this
 work being just one example.
 
 \section{The Fluorescence Detector (FD)}
-\label{sec:fd}
+\label{sesee}
 
-The Fluorescence Detector of the \PAO is a set of 27 reflector telescopes tuned
-to detect faint sources of \UV light. More specifically, the aim of the \FD is
-to observe the \UV-emission of \EAS (c.f. \todo{physics ref here}). However, 
-since the solar irradiance ($\approx\SI{120}{\watt\per\meter\squared}$ 
+The \acf{FD} of the \PAO is a set of 27 reflector telescopes tuned to detect 
+faint sources of \UV light. More specifically, the aim of the \FD is to observe
+the \UV-emission of \EAS (see \todo{physics ref here}). However, since the 
+solar irradiance ($\approx\SI{120}{\watt\per\meter\squared}$ 
 \cite{leanContributionUltravioletIrradiance1989}) and even the lunar irradiance 
 ($\approx\SI{16}{\nano\watt\per\meter\squared}$
 \cite{snowAbsoluteUltravioletIrradiance2013}) in the \UV-band far outshine the 
 emission of \UV-light by cosmic rays ($<\SI{1}{\nano\watt\per\meter\squared}$, 
-c.f. \cref{app:cr-uv-irradiance}), the \FD can only operate after astronomical 
+see \cref{app:cr-uv-irradiance}), the \FD can only operate after astronomical 
 twiglight, and when the moon is not directly in the telescope \FOV, and not
 more than 70\% illuminated as seen from Earth \cite{mathesCriteriaFDShift}. This
 drops the duty cycle to approximately 13\% 
@@ -123,9 +116,8 @@ drops the duty cycle to approximately 13\%
 The telescopes are grouped at five \FD sites, where a collection of six (three
 in one case) identical setups offer a $6\cdot30^\circ=180^\circ\times30^\circ$ 
 view (Azimuth $\times$ Elevation) over the \SD array. \cref{fig:auger-map} shows
-the location of these sites overlooking the \SD. Starting anticlockwise with the
-telescopes located closest to Malargüe, these sites are \LL, \LM, \LA, \CO, and 
-the \HEAT.
+their location. Starting anticlockwise with the telescopes located closest to 
+Malargüe, these sites are \LL, \LM, \LA, \CO, and the \HEAT.
 
 \begin{figure}[t]
   \centering
@@ -152,7 +144,7 @@ the \HEAT.
 
 The \FD telescopes are designed following the schematic of a Schmidt camera with
 corrector plates. The individual components located on the optical axis are, in 
-the order that light traverses them (c.f. \cref{fig:fd-schematic}, 
+the order that light traverses them (see \cref{fig:fd-schematic}, 
 \cref{fig:fd-inside-view} and \cite{abrahamFluorescenceDetectorPierre2010}):
 
 \begin{enumerate}[label=(\Alph*)]
@@ -374,7 +366,7 @@ forced via an external trigger coincident with every light pulse. The overall
 signal recorded in the \FD time trace from the calibration light pulse(s),
 $S_\mathrm{CalA}$, can be recovered by first estimating and subtracting the 
 trace baseline \cite{schaferReconstructionBaselineUndershoot2022}, determining 
-the pulse start and stop via a pulse-finding algorithm (c.f. \todo{xy section 
+the pulse start and stop via a pulse-finding algorithm (see \todo{xy section 
 ref here}), and summing the \ADC bins within the pulse-window. 
 \cref{fig:cal-a-example-response} shows example data analyzed in this fashion. 
 From $S_\mathrm{LCU}$ and $S_\mathrm{CalA}$ the calibration constants measured 
@@ -412,19 +404,87 @@ detail in \cite{schaferXYScannerVersatileMethod2023}
 \section{The Surface Detector (SD)}
 \label{sec:sd}
 
-\todo[inline]{roughly mention design, duty cycle}
+The \acf{SD} are a collection of more than 1660 stations spread in a regular 
+pattern over the surface of the Pampa Amarilla. Each station is equipped with 
+hardware that offers several detection channels to ionizing particles on the 
+ground. Their remote location complicates maintenance work and the transfer of 
+measurement data. For this reason the stations are operating largely 
+autonomously, only communicating essential information to the \CDAS (see 
+\cref{sec:cdas}). They derive their electrical power from a solar panel, and 
+have (limited) computational resources at hand that control communication with 
+the \CDAS, data readout, and run procedures to self-calibrate the individual 
+detectors. 
+
+The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
+electronic components \cite{collaborationPierreAugerObservatory2016}. Most
+importantly, this includes an Artix-7 \FPGA \cite{xilinx7SeriesFPGAs2020} for 
+low-level signal processing, as well as a Xilinx Zynq-7020 \SOC 
+\cite{amdZynq7000SoC2023} that handles the front-end electronics and 
+higher-level procedures.
 
 \subsection{Array structure}
+\label{ssec:array-structure}
+
+The \SD is designed to detect the footprint of an \EAS on the surface of the 
+Earth. Operating a detector with a continous active region is impractical, as 
+\EASs can reach many kilometers in extent. It is sufficient to probe the shower
+footprint at select few positions and reconstruct the \EAS from this limited 
+knowledge. As already realized by Pierre Auger, the separation between sampling 
+points influences the types of air showers that can be detected. The lower the 
+separation, the more low-energy \EAS become observable.
+
+Already before the construction of the \PAO it was decided that the \SD will 
+host sub-arrays of different sizes and separations 
+\cite{watsonDevelopmentPierreAuger}. This ensures that the observatory can 
+make accurate measurements of \EAS over many decades of energy.
+
+\subsubsection{SD-1500}
+
+The SD-1500, or main array, is a collection of 1669 stations, arranged in a grid
+of isoceles triangles of side length \SI{1500}{\meter}. It covers an area of 
+roughly \SI{3000}{\kilo\meter\squared}, and is able to detect \EASs with full 
+efficiency\footnote{Meaning every shower that hits the array is succesfully 
+detected} at an energy above \SI{3e18}{\eV} 
+\cite{abrahamTriggerApertureSurface2010}. It is currently the detector with the 
+highest accumulated exposure to \CRs worldwide 
+\cite{aabPierreAugerObservatory2020}.
+
+The stations contained in the SD-1500 are equipped with a \WCD 
+(see \cref{sssec:wcd})
+
+\subsubsection{SD-750}
+
+The Infill array is a triangular grid of stations with a spacing of 
+\SI{750}{\meter}, half the separation of the SD-1500. It resides at the 
+north-western border of the main array, close to \CO and \HEAT, and hosts 71 
+stations in total (with 22 of these being shared with the SD-1500 grid). It has
+a total area of 
+
+\subsubsection{SD-433}
+
+20 stations (5 sd750, 20 sd433 only + 2 all grids)
+
+size
+n stations
+full efficiency + source
+detector components
+
+
 
 \subsection{Detector components}
+\label{ssec:detector-components}
 
 \subsubsection{\acf{WCD}}
+\label{sssec:wcd}
 
 \subsubsection{\acf{SSD}}
+\label{sssec:ssd}
 
 \subsubsection{\acf{UMD}}
+\label{sssec:umd}
 
 \subsubsection{\acf{RD}}
+\label{sssec:rd}
 
 \section{Central Data Acquisition System (CDAS)}
 \label{sec:cdas}
