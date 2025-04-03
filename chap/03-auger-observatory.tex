@@ -405,22 +405,15 @@ detail in \cite{schaferXYScannerVersatileMethod2023}
 \label{sec:sd}
 
 The \acf{SD} are a collection of more than 1660 stations spread in a regular 
-pattern over the surface of the Pampa Amarilla. Each station is equipped with 
-hardware that offers several detection channels to ionizing particles on the 
-ground. Their remote location complicates maintenance work and the transfer of 
-measurement data. For this reason the stations are operating largely 
-autonomously, only communicating essential information to the \CDAS (see 
-\cref{sec:cdas}). They derive their electrical power from a solar panel, and 
-have (limited) computational resources at hand that control communication with 
-the \CDAS, data readout, and run procedures to self-calibrate the individual 
-detectors. 
-
-The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
-electronic components \cite{collaborationPierreAugerObservatory2016}. Most
-importantly, this includes an Artix-7 \FPGA \cite{xilinx7SeriesFPGAs2020} for 
-low-level signal processing, as well as a Xilinx Zynq-7020 \SOC 
-\cite{amdZynq7000SoC2023} that handles the front-end electronics and 
-higher-level procedures.
+pattern over the surface of the Pampa Amarilla. The position of each station is 
+shown in \cref{fig:auger-map}. Each station is equipped with hardware that 
+offers several detection channels to ionizing particles on the ground. Their 
+remote location complicates maintenance work and the transfer of measurement 
+data. For this reason the stations are operating largely autonomously, only 
+communicating essential information to the \CDAS (see \cref{sec:cdas}). They 
+derive their electrical power from a solar panel, and have (limited) 
+computational resources at hand that control communication with the \CDAS, data 
+readout, and run procedures to self-calibrate the individual detectors. 
 
 \subsection{Array structure}
 \label{ssec:array-structure}
@@ -450,49 +443,63 @@ highest accumulated exposure to \CRs worldwide
 \cite{aabPierreAugerObservatory2020}.
 
 The stations contained in the SD-1500 are equipped with a \WCD, a \SSD, and a
-\RD. The individual detector components are characterized in depth in 
-\cref{ssec:components}).
+\RD. All detectors are read out using the \UUB. The individual detector 
+components are characterized in depth in \cref{ssec:station-components}).
 
 \subsubsection{SD-750}
 
-The Infill array is a triangular grid of stations with a spacing of 
+The Infill array is a another triangular grid of stations with a spacing of 
 \SI{750}{\meter}, half the separation of the SD-1500. It resides at the 
-north-western border of the main array, close to \CO and \HEAT, and hosts 71 
+north-western border of the main array, close to \CO and \HEAT, and hosts 61 
 stations in total (with 22 of these being shared with the SD-1500 grid). It has
-a total area of
+a total area of \SI{25}{\km\squared}, and reaches full efficiency at 
+\SI{3e17}{\eV} \cite{fenuCosmicRayEnergy2023}.
+
+On top of the standard detector components and \SDE, each station also has 
+\UMDs buried by its' side. The \UMDs are operating in slave-mode to the \WCD.
 
 \subsubsection{SD-433}
 
-20 stations (5 sd750, 20 sd433 only + 2 all grids)
+As the name implies, the SD-433 is a collection of 19 stations separated in a 
+grid of isoceles triangles with side length \SI{433}{\meter}. It is the sub-grid
+with the lowest full-efficiency transition, \SI{5e16}{\eV} for hadronic 
+primaries with $\theta < 45^\circ$, in the \SD 
+\cite{silliPerformance433Surface2022}.
 
-size
-n stations
-full efficiency + source
-detector components
+The SD-433 is home to several doublet and triplet stations. These are 
+installations of two or three stations (with different electronics, in some
+cases) at the same site. They are used to study timing offsets, and verify the
+correct operation of the upgraded AugerPrime electronics 
+\cite{payerasCompatibilityUBUUB2023}.
 
-
-
-\subsection{Detector components}
-\label{ssec:detector-components}
+\subsection{Station components}
+\label{ssec:station-components}
 
 \subsubsection{\acf{WCD}}
-\label{sssec:wcd}
 
 \subsubsection{\acf{SSD}}
-\label{sssec:ssd}
 
 \subsubsection{\acf{UMD}}
-\label{sssec:umd}
 
 \subsubsection{\acf{RD}}
-\label{sssec:rd}
+
+\subsubsection{\acf{UUB}}
+
+The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
+electronic readout components of the station 
+\cite{collaborationPierreAugerObservatory2016}. Most importantly, this includes 
+an Artix-7 \FPGA \cite{xilinx7SeriesFPGAs2020} for low-level signal processing,
+as well as a Xilinx Zynq-7020 \SOC \cite{amdZynq7000SoC2023} that handles the 
+front-end electronics and higher-level procedures.
+
+
 
 \section{Central Data Acquisition System (CDAS)}
 \label{sec:cdas}
 
 
 
-\section{\Offline and Event Reconstruction}
+\section{Event detection and reconstruction}
 \label{sec:event-reconstruction}
 
 \todo{reconstructed quantities table}
