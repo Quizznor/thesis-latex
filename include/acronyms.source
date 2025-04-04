@@ -26,6 +26,7 @@ SOC		System On Chip
 SRAM		Static Random Access Memory
 SSD		Surface Scintillator Detector
 PAO         	Pierre Auger Observatory
+PCB		Printed Circuit Board
 PMT	        Photomultiplier Tube
 PSF		Point Spread Function
 TLT		Third Level Trigger

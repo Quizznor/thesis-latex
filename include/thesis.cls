@@ -18,6 +18,7 @@
 \usepackage{mparhack}
 \usepackage{lipsum}
 \usepackage{enumitem}
+\usepackage{pdflscape}
 \usepackage[printonlyused, withpage]{acronym}
 \newcommand{\word}[2]{\acro{#1}{\textit{#2}}}
 

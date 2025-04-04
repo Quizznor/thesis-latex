@@ -6354,55 +6354,6 @@ Version Number: Final</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <bib:Article rdf:about="https://doi.org/10.1111/j.1468-4004.2011.52539_3.x">
-        <z:itemType>journalArticle</z:itemType>
-        <dcterms:isPartOf rdf:resource="urn:issn:1366-8781"/>
-        <link:link rdf:resource="#item_48"/>
-        <link:link rdf:resource="#item_49"/>
-        <dc:title>Fellow wins IoP Faraday Medal</dc:title>
-        <dcterms:abstract>http://tinyurl.com/watson-faradayThe Faraday Medal recognizes outstanding achievement in experimental physics. Prof. Watson, of the University of Leeds, has led the field over the past four decades, culminating in his work with Prof. Jim Cronin of the University of Chicago to establish the Pierre Auger Observatory in Argentina. The observatory detected an anisotropy in the arrival direction of the highest energy cosmic rays, described in the medal citation as possibly “the most significant experimental discovery made to date in particle astrophysics”.</dcterms:abstract>
-        <dc:date>2011-10-01</dc:date>
-        <z:libraryCatalog>Silverchair</z:libraryCatalog>
-        <dc:identifier>
-            <dcterms:URI>
-                <rdf:value>https://doi.org/10.1111/j.1468-4004.2011.52539_3.x</rdf:value>
-            </dcterms:URI>
-        </dc:identifier>
-        <dcterms:dateSubmitted>2025-03-25 22:48:14</dcterms:dateSubmitted>
-        <bib:pages>5.39</bib:pages>
-    </bib:Article>
-    <bib:Journal rdf:about="urn:issn:1366-8781">
-        <prism:volume>52</prism:volume>
-        <dc:title>Astronomy &amp; Geophysics</dc:title>
-        <dc:identifier>DOI 10.1111/j.1468-4004.2011.52539_3.x</dc:identifier>
-        <prism:number>5</prism:number>
-        <dcterms:alternative>Astronomy &amp; Geophysics</dcterms:alternative>
-        <dc:identifier>ISSN 1366-8781</dc:identifier>
-    </bib:Journal>
-    <z:Attachment rdf:about="#item_48">
-        <z:itemType>attachment</z:itemType>
-        <dc:title>Full Text PDF</dc:title>
-        <dc:identifier>
-            <dcterms:URI>
-                <rdf:value>https://academic.oup.com/astrogeo/article-pdf/52/5/5.39/705871/52-5-5.39c.pdf</rdf:value>
-            </dcterms:URI>
-        </dc:identifier>
-        <dcterms:dateSubmitted>2025-03-25 22:48:17</dcterms:dateSubmitted>
-        <z:linkMode>1</z:linkMode>
-        <link:type>application/pdf</link:type>
-    </z:Attachment>
-    <z:Attachment rdf:about="#item_49">
-        <z:itemType>attachment</z:itemType>
-        <dc:title>Snapshot</dc:title>
-        <dc:identifier>
-            <dcterms:URI>
-                <rdf:value>https://academic.oup.com/astrogeo/article/52/5/5.39/254263?login=true</rdf:value>
-            </dcterms:URI>
-        </dc:identifier>
-        <dcterms:dateSubmitted>2025-03-25 22:48:22</dcterms:dateSubmitted>
-        <z:linkMode>1</z:linkMode>
-        <link:type>text/html</link:type>
-    </z:Attachment>
     <bib:Article rdf:about="https://www.sciencedirect.com/science/article/pii/S0920563200005259">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:0920-5632"/>
@@ -27474,6 +27425,378 @@ DOI: 10.5445/IR/1000160386</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Document rdf:about="https://www.jpl.nasa.gov/images/pia10748-our-milky-way-gets-a-makeover-artist-concept/">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+            <z:Website>
+               <dc:title>NASA Jet Propulsion Laboratory (JPL)</dc:title>
+            </z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>NASA/JPL-Caltech</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_171"/>
+        <dc:title>Our Milky Way Gets A Makeover Artist Concept</dc:title>
+        <dcterms:abstract>Robotic Space Exploration - www.jpl.nasa.gov</dcterms:abstract>
+        <dc:date>06/03/2008</dc:date>
+        <z:language>en-US</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.jpl.nasa.gov/images/pia10748-our-milky-way-gets-a-makeover-artist-concept/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-02 17:20:16</dcterms:dateSubmitted>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_171">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.jpl.nasa.gov/images/pia10748-our-milky-way-gets-a-makeover-artist-concept/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-02 17:20:25</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.eso.org/public/germany/images/eso0932a/">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>www.eso.org</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brunier</foaf:surname>
+                        <foaf:givenName>Serge</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                   <foaf:Person><foaf:surname>ESO</foaf:surname></foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>Ein Panorama der Milchstraße</dc:title>
+        <dcterms:abstract>Ein Panorama der Milchstraße</dcterms:abstract>
+        <dc:date>9/14/2009</dc:date>
+        <z:language>de</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.eso.org/public/germany/images/eso0932a/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-02 18:03:11</dcterms:dateSubmitted>
+    </bib:Document>
+    <bib:Article rdf:about="https://academic.oup.com/astrogeo/article-lookup/doi/10.1111/j.1468-4004.2011.52539_3.x">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:13668781"/>
+        <link:link rdf:resource="#item_174"/>
+        <link:link rdf:resource="#item_48"/>
+        <link:link rdf:resource="#item_49"/>
+        <dc:title>Fellow wins IoP Faraday Medal</dc:title>
+        <dc:date>10/2011</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/astrogeo/article-lookup/doi/10.1111/j.1468-4004.2011.52539_3.x</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-02 18:06:25</dcterms:dateSubmitted>
+        <dc:rights>http://doi.wiley.com/10.1002/tdm_license_1</dc:rights>
+        <bib:pages>5.39-5.39</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:13668781">
+        <prism:volume>52</prism:volume>
+        <dc:title>Astronomy &amp; Geophysics</dc:title>
+        <dc:identifier>DOI 10.1111/j.1468-4004.2011.52539_3.x</dc:identifier>
+        <prism:number>5</prism:number>
+        <dc:identifier>ISSN 13668781</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_174">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/astrogeo/article-pdf/52/5/5.39/705871/52-5-5.39c.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-02 18:07:26</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_48">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/astrogeo/article-pdf/52/5/5.39/705871/52-5-5.39c.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:48:17</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_49">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/astrogeo/article/52/5/5.39/254263?login=true</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-25 22:48:22</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://repository.ubn.ru.nl/bitstream/handle/2066/249223/249223.pdf">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Silli</foaf:surname>
+                        <foaf:givenName>Gaia</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Alves Batista</foaf:surname>
+                        <foaf:givenName>R.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Canfora</foaf:surname>
+                        <foaf:givenName>F.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>de Jong</foaf:surname>
+                        <foaf:givenName>S. J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>De Mauro</foaf:surname>
+                        <foaf:givenName>G.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Falcke</foaf:surname>
+                        <foaf:givenName>H.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fodran</foaf:surname>
+                        <foaf:givenName>T.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Galea</foaf:surname>
+                        <foaf:givenName>C.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Giaccari</foaf:surname>
+                        <foaf:givenName>U. G.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hörandel</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_176"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>Performance of the 433 m surface array of the Pierre Auger Observatory</dc:title>
+        <dc:date>2022</dc:date>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://repository.ubn.ru.nl/bitstream/handle/2066/249223/249223.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-03 17:43:03</dcterms:dateSubmitted>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_176">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Available Version (via Google Scholar)</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://repository.ubn.ru.nl/bitstream/handle/2066/249223/249223.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-03 17:43:21</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="https://auger.org/gap-notes/download/157-gap-notes-2023/5716-gap2023-032">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Payeras</foaf:surname>
+                        <foaf:givenName>Alan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fauth</foaf:surname>
+                        <foaf:givenName>Anderson</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Roth</foaf:surname>
+                        <foaf:givenName>Markus</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schmidt</foaf:surname>
+                        <foaf:givenName>David</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Veberic</foaf:surname>
+                        <foaf:givenName>Darko</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_178"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Compatibility of UB/UUB VEM Calibration, Signals and Timing</dc:title>
+        <dc:date>08/23/2023</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/gap-notes/download/157-gap-notes-2023/5716-gap2023-032</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-03 17:55:08</dcterms:dateSubmitted>
+        <prism:number>2023-032</prism:number>
+        <z:type>GAP note</z:type>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_178">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>GAP2023_032 Compatibility of UB/UUB VEM Calibration, Signals and Timing</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/gap-notes/download/157-gap-notes-2023/5716-gap2023-032</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-03 17:55:22</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://ui.adsabs.harvard.edu/abs/2019ICRC...36..370N/abstract">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>36</prism:volume>
+                <dc:title>36th International Cosmic Ray Conference (ICRC2019)</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nitz</foaf:surname>
+                        <foaf:givenName>D. F.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>phys</dc:subject>
+        <dc:title>New electronics for the surface detectors of the Pierre Auger Observatory</dc:title>
+        <dc:date>2019</dc:date>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ui.adsabs.harvard.edu/abs/2019ICRC...36..370N/abstract</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-04 19:40:30</dcterms:dateSubmitted>
+        <bib:pages>370</bib:pages>
+    </rdf:Description>
+    <bib:BookSection rdf:about="https://pos.sissa.it/301/450/">
+        <z:itemType>bookSection</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Book>
+                <prism:volume>301</prism:volume>
+                <dc:title>Proceedings of 35th International Cosmic Ray Conference — PoS(ICRC2017)</dc:title>
+            </bib:Book>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>SISSA Medialab</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Suomijarvi</foaf:surname>
+                        <foaf:givenName>Tiina</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>on behalf of the Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_181"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>New electronics for the surface detectors of the Pierre Auger Observatory</dc:title>
+        <dcterms:abstract>The surface detector array of the Pierre Auger Observatory consists of 1660 water-Cherenkov detectors that sample at the ground the charged particles and photons of air showers initiated by energetic cosmic rays. Each detector records data locally with timing obtained from Global Positioning System (GPS) units and power from solar panels and batteries. In the framework of the upgrade of the Auger Observatory, AugerPrime, new electronics has been designed for the surface detectors. The electronics upgrade includes better timing with up-to-date GPS receivers, higher sampling frequency, increased dynamic range, increased processing capability, and better calibration and monitoring systems. It will also process the data of the AugerPrime scintillator detectors. In this paper, the design of the new electronics will be presented and its performance will be discussed in light of results from test measurements and from the engineering array data analysis.</dcterms:abstract>
+        <dc:date>2018-08-03</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>pos.sissa.it</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://pos.sissa.it/301/450/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-04 19:56:28</dcterms:dateSubmitted>
+        <dc:description>Conference Name: 35th International Cosmic Ray Conference
+DOI: 10.22323/1.301.0450</dc:description>
+        <bib:pages>450</bib:pages>
+    </bib:BookSection>
+    <z:Attachment rdf:about="#item_181">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://pos.sissa.it/301/450/pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-04 19:56:32</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -27499,17 +27822,20 @@ DOI: 10.5445/IR/1000160386</dc:description>
         <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/4-gap-notes-2012/349-gap2012-095"/>
         <dcterms:hasPart rdf:resource="https://indico.nucleares.unam.mx/event/1312/session/10/contribution/0"/>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/107-gap-notes-2018/4640-gap2018-019"/>
+        <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/157-gap-notes-2023/5716-gap2023-032"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_2">
         <dc:title>Other</dc:title>
         <dcterms:hasPart rdf:resource="https://www.re3data.org/repository/r3d100010401"/>
         <dcterms:hasPart rdf:resource="https://www.auger.org/news/news/199-how-it-all-began"/>
         <dcterms:hasPart rdf:resource="https://www.nobelprize.org/prizes/physics/1980/cronin/facts/"/>
-        <dcterms:hasPart rdf:resource="https://doi.org/10.1111/j.1468-4004.2011.52539_3.x"/>
         <dcterms:hasPart rdf:resource="https://cds.cern.ch/record/965864/files/18021-chn-xiao-G-abs1-he15-oral.pdf"/>
         <dcterms:hasPart rdf:resource="https://www.flickr.com/photos/134252569@N07/19904108588/"/>
         <dcterms:hasPart rdf:resource="https://docs.amd.com/r/en-US/ug585-zynq-7000-SoC-TRM/Overview?tocId=dDUb17pqK2DikAjrDppAjQ"/>
         <dcterms:hasPart rdf:resource="#item_166"/>
+        <dcterms:hasPart rdf:resource="https://www.jpl.nasa.gov/images/pia10748-our-milky-way-gets-a-makeover-artist-concept/"/>
+        <dcterms:hasPart rdf:resource="https://www.eso.org/public/germany/images/eso0932a/"/>
+        <dcterms:hasPart rdf:resource="https://academic.oup.com/astrogeo/article-lookup/doi/10.1111/j.1468-4004.2011.52539_3.x"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_3">
         <dc:title>Physics</dc:title>
@@ -27549,6 +27875,9 @@ DOI: 10.5445/IR/1000160386</dc:description>
         <dcterms:hasPart rdf:resource="https://gitlab.iap.kit.edu/ipe-auger/lcu-tools/tree/master/doc"/>
         <dcterms:hasPart rdf:resource="https://publikationen.bibliothek.kit.edu/1000160386"/>
         <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S0168900209021688"/>
+        <dcterms:hasPart rdf:resource="https://repository.ubn.ru.nl/bitstream/handle/2066/249223/249223.pdf"/>
+        <dcterms:hasPart rdf:resource="https://ui.adsabs.harvard.edu/abs/2019ICRC...36..370N/abstract"/>
+        <dcterms:hasPart rdf:resource="https://pos.sissa.it/301/450/"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
        <dc:title>Private</dc:title><dcterms:hasPart rdf:resource="#item_1"/>

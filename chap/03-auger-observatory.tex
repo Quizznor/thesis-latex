@@ -488,6 +488,18 @@ correct operation of the upgraded AugerPrime electronics
 
 \subsubsection{\acf{UUB}}
 
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.42\textwidth]{auger-observatory/uub_annotated.png}
+  \label{fig:uub-pcb-board}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.42\textwidth]{auger-observatory/uub_annotated.png}
+  \label{fig:uub-operative-logic}
+  }
+  \caption[]{\subref{fig:uub-pcb-board} . Image edited from \cite{nitzNewElectronicsSurface2019} \subref{fig:uub-operative-logic} }
+  \label{fig:uub-specifications}
+\end{figure}
+
 The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
 electronic readout components of the station 
 \cite{collaborationPierreAugerObservatory2016}. Most importantly, this includes 
@@ -495,7 +507,8 @@ an Artix-7 \FPGA \cite{xilinx7SeriesFPGAs2020} for low-level signal processing,
 as well as a Xilinx Zynq-7020 \SOC \cite{amdZynq7000SoC2023} that handles the 
 front-end electronics and higher-level procedures.
 
-
+\cref{fig:uub-pcb-board} and \cref{fig:uub-circuit-diagram} show the design and
+architecture of the \UUB \PCB board respectively.
 
 \section{Central Data Acquisition System (CDAS)}
 \label{sec:cdas}
