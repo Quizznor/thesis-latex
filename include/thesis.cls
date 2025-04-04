@@ -121,6 +121,8 @@
 \extrafloats{100}
 \usepackage[style=numeric-comp, sorting=none, defernumbers=true]{biblatex}
 \addbibresource{bib/thesis.bib}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 
 % % Describe separation hints here:
 % \hyphenation{
