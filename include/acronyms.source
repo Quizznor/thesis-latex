@@ -6,6 +6,7 @@ CR          	Cosmic Ray
 CO	        Coihueco
 DAQ         	Data Acquisition
 EAS         	Extensive Air Shower
+FADC		Flash Analog Digital Converter
 FD          	Fluorescence Detector
 FLT		First Level Trigger
 FOV		Field Of View
@@ -13,19 +14,24 @@ FPGA		Field Programmable Gate Array
 GAP         	Giant Array Project
 GPS		Global Positioning System
 HEAT	        High Elevation Auger Telescope
+HG		High Gain
 ICRC		International Cosmic Ray Conference
 IS		Integrating Sphere
 LA	        Loma Amarilla
 LCU		LED Calibration Unit
 LED		Light Emitting Diode
+LG		Low Gain
 LL	        Los Leones
 LM	        Los Morados
+LPMT		Large PMT
+MIP		Minimum Ionizing Particle
 RD		Radio Detector
 RND		Research And Development
 SD          	Surface Detector
 SDE		Surface Detector Electronics
 SLT		Second Level Trigger
 SOC		System On Chip
+SPMT		Small PMT
 SRAM		Static Random Access Memory
 SSD		Surface Scintillator Detector
 PAO         	Pierre Auger Observatory
@@ -39,5 +45,7 @@ UHECR       	UHE Cosmic Ray
 UMD		Underground Muon Detector
 UUB		Upgraded Unified Board
 UV          	Ultra-Violet
+VEM		Vertical Equivalent Muon
 WCD         	Water Cherenkov Detector
+WLS		Wavelength Shifting Fiber
 XLF		Extreme Laser Facility

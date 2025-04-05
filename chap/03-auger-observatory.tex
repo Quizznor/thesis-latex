@@ -421,7 +421,6 @@ readout, and run procedures to self-calibrate the individual detectors.
 \subsection{Station components}
 \label{ssec:station-components}
 
-\todo{mention not named things! gps battery solar panel etc.}
 The main detector and processing components (\WCD, \UUB, etc.) are presented in
 the following subsections. Some auxiliary hardware components (auxiliary in the 
 context of this work, not the function of the stations) are only briefly 
@@ -433,7 +432,7 @@ mentioned here:
 	\cite{collaborationPierreAugerObservatory2016}.
 	\item Two \SI{105}{\ampere\hour} batteries deliver power during	the 
 	dark \cite{collaborationPierreAugerObservatory2016}.
-	\item A Motorola Oncore UT+ \GPS-receiver calculates the position of the
+	\item A Motorola Oncore UT+ \GPS-receiver determines the position of the
 	station using a pulse precision of \SI{5}{\nano\second} 
 	\cite{networktimefoundationMotorolaOncoreGPS, 
 	collaborationPierreAugerObservatory2016} ($\cong\SI{1.5}{\meter}$
@@ -444,26 +443,112 @@ mentioned here:
 
 \subsubsection{\acf{WCD}}
 
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.37\textwidth]{auger-observatory/sd_station.png}
+  \label{fig:sd-station-render}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.37\textwidth]{auger-observatory/SSD_high_contrast.png}
+  \label{fig:ssd-high-contrast}
+  }
+  \caption[]{\subref{fig:sd-station-render} A model of an \SD-station, showing
+  wht the label (A) the \RD, (B) the comms antenna, (C) the \SSD, (D) the solar
+  panels, (E) the electronics box containing the \UUB, and (F) the inside of the
+  \WCD with the three \LPMTs. Adopted with changes from 
+  \cite{filipPotentialNeuralNetwork2023}. \subref{fig:ssd-high-contrast} The 
+  \SSD without enclosing box, showing the individual scintillator strips and 
+  \WLSs. From \cite{schmidtUHECR2024ProceedingEdits25}.}
+  \label{fig:sd-station-components}
+\end{figure}
+
 The \acf{WCD} is the main detector component, and common to all \SD-stations 
 since the construction of the \PAO began. It is an oblate cylinder with a 
-diameter of \SI{3.6}{\meter} and height of $\SI{1.2}{\meter}$ 
-The interior is filled with a sealed liner containing \SI{12000}{\liter} of 
-filtered water, and shielded from exterior light via a polyethylene housing 
-\cite{allekotteSurfaceDetectorSystem2008}. The darkness in the cylinder is 
-occasionally interrupted by flashes of light stemming from relativistic 
-particles producing Cherenkov radiation in the water. This light bounces off of 
-the reflective interior walls until it reaches one of three identical 
-\SI{20}{\milli\meter} \PMTs that are optically coupled to the inside of the 
-liner.
+diameter of \SI{3.6}{\meter} and height of $\SI{1.2}{\meter}$ as seen in 
+\cref{fig:sd-station-render}. The interior is filled with a sealed liner 
+containing \SI{12000}{\liter} of filtered water, and shielded from exterior 
+light via a polyethylene housing \cite{allekotteSurfaceDetectorSystem2008}. The 
+darkness in the cylinder is occasionally interrupted by flashes of light 
+stemming from relativistic particles producing Cherenkov radiation in the water.
+This light bounces off of the reflective interior walls until it reaches one of 
+three identical \SI{230}{\milli\meter} Photonis XP1805 \LPMTs 
+\cite{tripathiSystematicStudyLarge2003} that are optically coupled to the inside
+volume of the liner.
 
-PMTs
+The \WCD needs to be able to accurately reconstruct a large dynamic range of
+signals, starting from individual particles to $>10^3$ muons entering the water
+\cite{abrahamTriggerApertureSurface2010a}. To achieve this, the \LPMTs 
+characteristics are monitored by two channels, the \HG and the \LG. The \LG 
+is connected directly to the dynode of the \PMTs, whereas the \HG tracks the 
+anode voltage. The \HG-channel is thus amplified to have a gain ratio of 
+$\sim32$. Both channels are read out via 12-bit AD9628 \FADCs 
+\cite{analogdevicesinc.AD9628DatasheetProduct2015} at a sampling rate of \SI{120}{\mega\hertz} (corresponding to a binning of \SI{8.333}{\nano\second}). 
 
+A fourth, \SI{25}{\milli\meter} \SPMT of type Hamamatsu R8619 
+\cite{hamamatsuphotonicsPhotomultiplierTubeR8619} is installed near the center
+of the tank. It is exposed to less light due to its relatively small size, and 
+extends the dynamic range of the \WCD to about \SI{20000}{\VEM}.
+
+\subsubsection{Calibration}
+
+The same considerations as in \cref{ssec:fd-calibration} apply to the data
+recorded by the \WCD (and all other \SD components). The detector information 
+needs to be put into a physical context in order to be interpreted correctly.
+For the particle detectors at the \PAO (\WCD, \SSD, and \UMD) this context is 
+given by atmospheric muons, as they have a characteristic energy deposit and 
+signature in the active medium. The measurement data (in units of \ADC) is
+converted to the quantity of muons (or \MIPs, in the case of the \SSD) that
+would be needed to be injected vertically\footnote{To absorb dependencies of the
+track length in the detector} in the detector to record the same signal 
+strenght. This, for the \WCD, gives raise to two quantities that need to be 
+tracked in order to provide calibrated data:
+
+\begin{itemize}
+	\item \Ivem is the most probable pulse height (in units of \ADC) 
+	recorded by the \WCD \PMTs when a muon passes vertically through the 
+	center of the water volume.
+	\item \Qvem gives the most probable value (measured in \ADC as well) for
+	the integral of the muon pulse, corresponding to the energy deposited in 	the detector by the particle.
+\end{itemize}
+
+The trigger thresholds (compare \cref{ssec:sd-triggers}) in the \WCD are set in
+terms of \Ivem. For this reason, the stations operate a self-calibration
+algorithm that delivers a rate-based estimate of \Ivem, called \VemOnline that 
+is accurate to within $\sim5-10\%$ \cite{bertouCalibrationSurfaceArray2006} of 
+the true value of \Ivem.
+
+The value of \VemOnline is adjusted by a simple and robust algorithm. It employs
+a calibration trigger that requires a coincident signal of at least 
+\SI{1.75}{\VemOnline} in all three \LPMTs. In the case of one or more tubes
+being broken the trigger thresholds are adjusted in order to ensure the stable 
+operation of the remaining \PMTs 
+\cite{convengaLocalStationCalibrationDummies2023}.
+
+An additional cut of \SI{2.5}{\VemOnline} is applied per \LPMT, and the number 
+of triggers during a timespan measuring at most \SI{60}{\second} is tracked. If
+the trigger rate of the calibration trigger exceeds a target rate of 
+\SI{72}{\hertz} during this period, the value of \VemOnline is increased. This 
+results in more stringent trigger conditions, and will decrease the trigger rate
+during the following \DAQ period. Similarly, the value of \VemOnline is 
+decreased if the calibration trigger rate is lower than \SI{68}{\hertz}. If the 
+trigger rate lies within \SI{70\pm2}{\hertz} the \DAQ period is increased 
+(beginning with \SI{10}{\second}) by \SI{5}{\second} to limit the influence of 
+Poissonian noise on the estimate \cite{bertouCalibrationSurfaceArray2006, 
+convengaLocalStationCalibrationDummies2023}.
 
 \subsubsection{\acf{SSD}}
 
 \subsubsection{\acf{UMD}}
 
 \subsubsection{\acf{RD}}
+
+
+
+
+
+
+
+
+
 
 \subsubsection{\acf{UUB}}
 
@@ -489,6 +574,7 @@ front-end electronics and higher-level procedures.
 \cref{fig:uub-pcb-board} and \cref{fig:uub-circuit-diagram} show the design and
 architecture of the \UUB \PCB board respectively.
 
+\todo{continue}
 
 \subsection{Array structure}
 \label{ssec:array-structure}
@@ -559,10 +645,13 @@ operation of the upgraded AugerPrime electronics
 \section{Central Data Acquisition System (CDAS)}
 \label{sec:cdas}
 
-
-
 \section{Event detection and reconstruction}
 \label{sec:event-reconstruction}
 
+\subsection{\SD triggers and \EAS detection}
+\label{ssec:sd-triggers}
+
+\subsection{\FD triggers and \EAS detection}
+\subsection{\Offline event reconstruction}
 \todo{reconstructed quantities table}
 
