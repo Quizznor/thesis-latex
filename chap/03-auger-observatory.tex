@@ -219,16 +219,17 @@ reference threshold is updated according to this trigger rate, such that the
 simultaneous \FLTs per column, or multiplicity, is evaluated and passed on to 
 the \SLT-stage.
 
-There, the active pixels (those that have raised a trigger in the last 
+There, the active pixels (that have raised a trigger in the last 
 \SI{100}{\nano\second}) are searched for spatial correlations. If a collection 
 of at least 4 pixels are found whose layout corresponds to a set of predefined
 masks a \SLT is issued. These predefined masks aim to identify straight tracks 
 in the camera \FOV, and decrease the trigger rate from 
 $\SI{100}{\hertz\per\mathrm{pixel}}$ in the \FLT to 
-$\SIrange{0.1}{10}{\hertz\per\mathrm{telescope}}$ in the \SLT. Following, a \TLT
-separates true air shower events from noise with $\approx94\%$ accuracy by 
-performing a data-based cut on the multiplicity of active pixels. This reduces 
-the trigger rate to $\SI{0.01}{\hertz\per\mathrm{telescope}}$. 
+$\SIrange[range-units = single]{0.1}{10}{\hertz\per\mathrm{telescope}}$ in the 
+\SLT. Following, a \TLT separates true air shower events from noise with 
+$\approx94\%$ accuracy by performing a data-based cut on the multiplicity of 
+active pixels \cite{abrahamFluorescenceDetectorPierre2010}. This reduces the 
+trigger rate to $\SI{0.01}{\hertz\per\mathrm{telescope}}$. 
 
 Finally, \TLTs from all telescopes in a building are analyzed for events that
 pass the \FOV of multiple cameras, and an event level trigger, or T3, is issued
@@ -242,10 +243,10 @@ The description of the event reconstruction in \cref{sec:event-reconstruction}
 will reveal that in order to estimate the primary particle energy the number of
 photons incident on the \FD-camera need to be known. This poses a big challenge.
 While the camera signal response correlates with the number of photons observed
-per \EAS, the exact correlation coefficient is completely by the gain of the 
-telescope readout electronics, which is not constant. For instance, the
-camera response to the same signal can change by up to $6\%$ under suboptimal
-conditions \cite{filipJumpsXYCalibration2024}.
+per \EAS, the correlation coefficient is completely determined by the gain of 
+the telescope readout electronics, which need not be constant. It has been shown
+that the camera response to the same signal can change by up to $6\%$ under 
+suboptimal conditions \cite{filipJumpsXYCalibration2024}.
 
 To account for this, the \PMTs need to be calibrated on a nightly basis. During
 calibration the camera is exposed to a lightsource of known radiance, and the 
@@ -255,9 +256,10 @@ $C^\mathrm{pixel}_\mathrm{abs.}$, in units of \SI{}{$\gamma$\per\ADC}. It is
 imperative that these quantities are measured with high precision, as
 uncertainties on $C^\mathrm{pixel}_\mathrm{abs.}$ contribute linearly to the 
 uncertainty of the reconstructed primary particle energy. Currently, the pixel
-calibration constants are measured with an uncertainty of approximately $9\%$.
-This represents the biggest contribution to the total uncertainty in the \PAO 
-energy scale of $14\%$ \cite{verziEnergyScalePierre2013}.
+calibration constants are measured with an uncertainty of approximately $9\%$
+\cite{dawsonUpdateAugerEnergy13}. This represents the biggest contribution to 
+the total uncertainty in the \PAO energy scale of $14\%$ 
+\cite{verziEnergyScalePierre2013}.
 
 \subsubsection{Atmospheric laser shots}
 
@@ -379,15 +381,15 @@ backpropagated to an arbitrary point in time according to
 C^{\mathrm{pixel},\,i}_{\mathrm{abs.}} = C^{\mathrm{pixel},\,i}_{\mathrm{abs.},\,\mathrm{ref}}\,\cdot\,\frac{S_\mathrm{LCU}}{S_\mathrm{LCU}^\mathrm{ref.}}\,\frac{S_\mathrm{CalA}^\mathrm{ref.}}{S_\mathrm{CalA}}\,c_\mathrm{LCU}^\mathrm{Corr.}\,c^\mathrm{Corr.}_\mathrm{Halo}.
 \end{equation}
 
-In \cref{eq:cal-a-propagation} the two factors $c$ give different corrections
-to the end result that need to be considered. First, a time-dependant factor 
-absorbs the change of radiance in the \LCU \LED after a replacement in 2011/2012
-took place in all telescopes \cite{menshikovLEDCalibrationUnit}. A second factor
-accounts for the fact that not all photons that hit the camera body are 
-registered in the \PMTs. Some light is reflected away, and does not contribute
-to the absolute calibration. Consequently, 
-$C^{\mathrm{pixel},\,i}_\mathrm{abs.}$ would be underestimated without a 
-correction factor $c^\mathrm{Corr.}_\mathrm{Halo}$ 
+In \cref{eq:cal-a-propagation} the two factors $c^\mathrm{Corr.}_i$ give 
+different corrections to the end result that need to be considered. First, a 
+time-dependant factor $c^\mathrm{Corr.}_\mathrm{LCU}$ absorbs the change of 
+radiance in the \LCU \LED after a replacement in 2011/2012 took place in all 
+telescopes \cite{menshikovLEDCalibrationUnit}. A second factor accounts for the 
+fact that not all photons that hit the camera body are registered in the \PMTs. 
+Some light is reflected away, and does not contribute to the absolute 
+calibration. Consequently, $C^{\mathrm{pixel},\,i}_\mathrm{abs.}$ would be 
+underestimated without a correction factor $c^\mathrm{Corr.}_\mathrm{Halo}$ 
 \cite{brackFluorescenceDetectorAbsolute13}.
 
 \subsubsection{XY Scanner}
@@ -416,68 +418,45 @@ derive their electrical power from a solar panel, and have (limited)
 computational resources at hand that control communication with the \CDAS, data 
 readout, and run procedures to self-calibrate the individual detectors. 
 
-\subsection{Array structure}
-\label{ssec:array-structure}
-
-The \SD is designed to detect the footprint of an \EAS on the surface of the 
-Earth. Operating a detector with a continous active region is impractical, as 
-\EASs can reach many kilometers in extent. It is sufficient to probe the shower
-footprint at select few positions and reconstruct the \EAS from this limited 
-knowledge. As already realized by Pierre Auger, the separation between sampling 
-points influences the types of air showers that can be detected. The lower the 
-separation, the more low-energy \EAS become observable.
-
-Already before the construction of the \PAO it was decided that the \SD will 
-host sub-arrays of different sizes and separations 
-\cite{watsonDevelopmentPierreAuger}. This ensures that the observatory can 
-make accurate measurements of \EAS over many decades of energy.
-
-\subsubsection{SD-1500}
-
-The SD-1500, or main array, is a collection of 1669 stations, arranged in a grid
-of isoceles triangles of side length \SI{1500}{\meter}. It covers an area of 
-roughly \SI{3000}{\kilo\meter\squared}, and is able to detect \EASs with full 
-efficiency\footnote{Meaning every shower whose shower axis intercepts the Earth 
-surface somewhere within the array is succesfully detected} at an energy above 
-\SI{3e18}{\eV} \cite{abrahamTriggerApertureSurface2010}. It is currently the 
-detector with the highest accumulated exposure to \CRs worldwide 
-\cite{aabPierreAugerObservatory2020}.
-
-The stations contained in the SD-1500 are equipped with a \WCD, a \SSD, and a
-\RD. All detectors are read out using the \UUB. The individual detector 
-components are characterized in depth in \cref{ssec:station-components}).
-
-\subsubsection{SD-750}
-
-The Infill array is a another triangular grid of stations with a spacing of 
-\SI{750}{\meter}, half the separation of the SD-1500. It resides at the 
-north-western border of the main array, close to \CO and \HEAT, and hosts 61 
-stations in total (with 22 of these being shared with the SD-1500 grid). It has
-a total area of \SI{25}{\km\squared}, and reaches full efficiency at 
-\SI{3e17}{\eV} \cite{fenuCosmicRayEnergy2023}.
-
-On top of the standard detector components and \SDE, each station also has 
-\UMDs buried by its' side. The \UMDs are operating in slave-mode to the \WCD.
-
-\subsubsection{SD-433}
-
-As the name implies, the SD-433 is a collection of 19 stations separated in a 
-grid of isoceles triangles with side length \SI{433}{\meter}. It is the sub-grid
-with the lowest full-efficiency transition, \SI{5e16}{\eV} for hadronic 
-primaries with $\theta < 45^\circ$, in the \SD 
-\cite{silliPerformance433Surface2022}.
-
-The SD-433 is home to several doublet and triplet stations. These are 
-installations of two or three stations (with different electronics, in some
-cases) at the same site. They are used to study timing offsets, and verify the
-correct operation of the upgraded AugerPrime electronics 
-\cite{payerasCompatibilityUBUUB2023}.
-
 \subsection{Station components}
 \label{ssec:station-components}
 
+\todo{mention not named things! gps battery solar panel etc.}
+The main detector and processing components (\WCD, \UUB, etc.) are presented in
+the following subsections. Some auxiliary hardware components (auxiliary in the 
+context of this work, not the function of the stations) are only briefly 
+mentioned here:
+
+\begin{itemize}
+	\item Two $\SI{55}{\watt}_\mathrm{peak}$ solar panels provide 
+	electricity during solar periods 
+	\cite{collaborationPierreAugerObservatory2016}.
+	\item Two \SI{105}{\ampere\hour} batteries deliver power during	the 
+	dark \cite{collaborationPierreAugerObservatory2016}.
+	\item A Motorola Oncore UT+ \GPS-receiver calculates the position of the
+	station using a pulse precision of \SI{5}{\nano\second} 
+	\cite{networktimefoundationMotorolaOncoreGPS, 
+	collaborationPierreAugerObservatory2016} ($\cong\SI{1.5}{\meter}$
+	position accuracy).
+	\item A commercial \SI{12}{\dBi} Yagi antenna \cite{rfwel12DBiYagi} 
+	establishes communication with the \CDAS.
+\end{itemize}
+
 \subsubsection{\acf{WCD}}
 
+The \acf{WCD} is the main detector component, and common to all \SD-stations 
+since the construction of the \PAO began. It is an oblate cylinder with a 
+diameter of \SI{3.6}{\meter} and height of $\SI{1.2}{\meter}$ 
+The interior is filled with a sealed liner containing \SI{12000}{\liter} of 
+filtered water, and shielded from exterior light via a polyethylene housing 
+\cite{allekotteSurfaceDetectorSystem2008}. The darkness in the cylinder is 
+occasionally interrupted by flashes of light stemming from relativistic 
+particles producing Cherenkov radiation in the water. This light bounces off of 
+the reflective interior walls until it reaches one of three identical 
+\SI{20}{\milli\meter} \PMTs that are optically coupled to the inside of the 
+liner.
+
+PMTs
 
 
 \subsubsection{\acf{SSD}}
@@ -496,7 +475,7 @@ correct operation of the upgraded AugerPrime electronics
   \subfloat[]{\includegraphics[height=0.42\textwidth]{auger-observatory/uub_annotated.png}
   \label{fig:uub-operative-logic}
   }
-  \caption[]{\subref{fig:uub-pcb-board} . Image edited from \cite{nitzNewElectronicsSurface2019} \subref{fig:uub-operative-logic} }
+  \caption[]{\subref{fig:uub-pcb-board} . Image edited from \cite{nitzNewElectronicsSurface2021} \subref{fig:uub-operative-logic} }
   \label{fig:uub-specifications}
 \end{figure}
 
@@ -509,6 +488,73 @@ front-end electronics and higher-level procedures.
 
 \cref{fig:uub-pcb-board} and \cref{fig:uub-circuit-diagram} show the design and
 architecture of the \UUB \PCB board respectively.
+
+
+\subsection{Array structure}
+\label{ssec:array-structure}
+
+The \SD is designed to detect the footprint of an \EAS on the surface of the 
+Earth. The choice of a detector segmented into many different sub-components is
+deliberate. Operating a detector with a continous active region is impractical, 
+as \EASs can reach many kilometers in extent. It is sufficient to probe the 
+shower footprint at select few positions and reconstruct the \EAS from this 
+limited knowledge. As already realized by Pierre Auger, the separation between 
+sampling points influences the types of air showers that can be detected 
+\todo{ref here}. The lower the separation, the more low-energy \EAS become 
+observable.
+
+Already before the construction of the \PAO it was decided that the \SD will 
+host sub-arrays of different sizes and separations 
+\cite{watsonDevelopmentPierreAuger}. This ensures that the observatory can 
+make accurate measurements of \EAS over many decades of energy. 
+\cref{tab:sub-array-details} lists the most important characteristics of the 
+individual sub-arrays. In all of them, the stations are arranged on a grid of 
+isoceles triangles. The SD-1500, or main array, is the largest of the three 
+existing grids. It is currently the detector with the highest accumulated 
+exposure to \CRs worldwide \cite{aabPierreAugerObservatory2020}.
+
+Inset in the north-west of the SD-1500 are the SD-750 (Infill), and SD-433
+(compare \cref{fig:auger-map}). Their vicinity to \CO and \HEAT ensure that the 
+hybrid reconstruction (see \cref{sec:event-reconstruction}) of \EAS remain 
+possible also for energies below \SI{1e17}{\eV}
+\cite{mathesHEATTelescopesPierre2011}. Contained within both arrays are several 
+\RND environments, such as the \AERA \cite{fuchsAugerEngineeringRadio2012}, or 
+IceCube@Auger \cite{schroederIceTopAuger2025}. 
+
+The Infill is also home to doublet and triplet detectors, where two \SD-stations
+(with e.g. different electronics) are installed at the same site. They are used 
+to study timing offsets and (un)certainties, as well as verify the correct 
+operation of the upgraded AugerPrime electronics 
+\cite{payerasCompatibilityUBUUB2023}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.0}
+\begin{table}
+	\begin{center}
+	\caption{Characteristics of the different \SD sub-arrays}
+	\begin{tabular*}{1.0\textwidth}{@{\extracolsep{\fill}} l|ccccl}
+  \toprule
+	\hline
+	Array & Sep. & Stations & Area & full efficiency\tablefootnote{The full
+	efficiency gives the minimum energy for which the detection of the \EAS 
+	is guaranteed.} & 
+	Station components \\
+	\hline
+	\textbf{SD-1500} & \SI{1500}{\meter} & 1669 & 
+	\SI{3000}{\kilo\meter\squared} & 
+	\SI{3e18}{\eV} \cite{abrahamTriggerApertureSurface2010} & \WCD, \SSD, 
+	\RD \\
+	\textbf{SD-750} & \SI{750}{\meter} & 61 & \SI{25}{\kilo\meter\squared} &
+	\SI{3e17}{\eV} \cite{fenuCosmicRayEnergy2023} & \WCD, \SSD, \RD, \UMD \\
+	\textbf{SD-433} & \SI{433}{\meter} & 19 & \SI{2}{\kilo\meter\squared} &
+	\SI{5e16}{\eV} \cite{silliPerformance433Surface2022a}\tablefootnote{for 
+	hadronic primaries with $\theta < 45^\circ$} & \WCD, \SSD, \RD, \UMD \\
+  \bottomrule
+	\end{tabular*}
+	\label{tab:sub-array-details}
+	\end{center}
+\end{table}
+\endgroup
 
 \section{Central Data Acquisition System (CDAS)}
 \label{sec:cdas}
