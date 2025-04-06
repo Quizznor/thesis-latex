@@ -117,7 +117,7 @@ The telescopes are grouped at five \FD sites, where a collection of six (three
 in one case) identical setups offer a $6\cdot30^\circ=180^\circ\times30^\circ$ 
 view (Azimuth $\times$ Elevation) over the \SD array. \cref{fig:auger-map} shows
 their location. Starting anticlockwise with the telescopes located closest to 
-Malargüe, these sites are \LL, \LM, \LA, \CO, and the \HEAT.
+Malargüe, these sites are \LL, \LM, \LA, \CO2, and the \HEAT.
 
 \begin{figure}[t]
   \centering
@@ -434,8 +434,7 @@ mentioned here:
 	dark \cite{collaborationPierreAugerObservatory2016}.
 	\item A Motorola Oncore UT+ \GPS-receiver determines the position of the
 	station using a pulse precision of \SI{5}{\nano\second} 
-	\cite{networktimefoundationMotorolaOncoreGPS, 
-	collaborationPierreAugerObservatory2016} ($\cong\SI{1.5}{\meter}$
+	\cite{networktimefoundationMotorolaOncoreGPS} ($\cong\SI{1.5}{\meter}$
 	position accuracy).
 	\item A commercial \SI{12}{\dBi} Yagi antenna \cite{rfwel12DBiYagi} 
 	establishes communication with the \CDAS.
@@ -476,7 +475,7 @@ volume of the liner.
 
 The \WCD needs to be able to accurately reconstruct a large dynamic range of
 signals, starting from individual particles to $>10^3$ muons entering the water
-\cite{abrahamTriggerApertureSurface2010a}. To achieve this, the \LPMTs 
+\cite{abrahamTriggerApertureSurface2010}. To achieve this, the \LPMTs 
 characteristics are monitored by two channels, the \HG and the \LG. The \LG 
 is connected directly to the dynode of the \PMTs, whereas the \HG tracks the 
 anode voltage. The \HG-channel is thus amplified to have a gain ratio of 
@@ -593,6 +592,25 @@ found in \todo{ref here}.
 
 \subsubsection{\acf{UMD}}
 
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.33\textwidth]{auger-observatory/underground_muon_detector}
+  \label{fig:umd}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.33\textwidth]{auger-observatory/uub_annotated.png}
+  \label{fig:uub}
+  }
+  \caption[]{\subref{fig:umd}The three modules of a \UMD in their final location
+  before being covered with soil. Additional solar panels in the background
+  provide electrical power for the detector. From 
+  \cite{pierreaugercollaborationUMDUndergroundMuon} \subref{fig:uub} The \PCB
+  design of the \UUB. Connection with the front-end electronics is made via the
+  golden connectors on the bottom. Image adopted with changes from 
+\cite{nitzNewElectronicsSurface2021}.}
+  \label{fig:umd-and-uub}
+\end{figure}
+
+
 The \UMD represents another enhancement installed during the AugerPrime detector
 upgrade. It further boosts the observatories primary mass discrimination 
 abilities \cite{collaborationPierreAugerObservatory2016}. In total 73 \UMDs are
@@ -602,10 +620,10 @@ These installations comprise the \acf{AMIGA} detector.
 Each \UMD consists of three \SI{10}{\meter\squared} scintillator modules that 
 are, like the \SSD, segmented themselves into bars to minimize signal pileup
 \cite{bottiStatusPerformanceUnderground2022}. They are buried \SI{2.3}{\meter} 
-underground. The soil above the detectors provides an excellent attenuation for 
-non-muonic particles in \EASs. Particularly, this implies that the signals 
-measured by the \UMD consist entirely of muons, allowing the \PAO to e.g. probe 
-the muon content of \EASs \todo{cite joachims thesis}.
+underground, as shown in \cref{fig:umd}. The soil above the detectors provides 
+an excellent attenuation for non-muonic particles in \EASs. Particularly, this 
+implies that the signals measured by the \UMD consist entirely of muons, 
+allowing the \PAO to e.g. probe the muon content of \EASs \todo{cite joachims thesis}.
 
 \WLS cables transport the light signal from the active medium of one bar to a 
 dedicated \SiPM. The output of the \SiPM array is digitized in two ways 
@@ -630,36 +648,33 @@ obtained from the \ADC mode \cite{bottiStatusPerformanceUnderground2022}.
 This is done in practice by dividing the observed pulse integral, or charge, by
 the most probable charge obtained from a single-muon event, $Q_\mathrm{UMD}$. 
 This is a familiar problem, and has been solved for the \WCD already. A similar
-strategy for the calibration of the \UMD \EAS data is thus chosen. The \UMD does
-not need to be self-calibrating, as it is run purely in a secondary mode to the
-\WCD, and does not generate triggers itself 
-\cite{aabCalibrationUndergroundMuon2021}.
+strategy for the calibration of the \UMD \EAS data is thus chosen during event 
+reconstruction \cref{ssec:offline-event-reconstruction}. The \UMD does not need 
+to be self-calibrating, as it is run purely in a secondary mode to the \WCD, and
+does not generate triggers itself \cite{aabCalibrationUndergroundMuon2021}.
 
 \subsubsection{\acf{RD}}
 
-completion citation (castellinaSeasonalGreetings202424)
+The \RD represents the last, and newest detector component that was added to the
+\SD. Since the completion of construction at the end of 2024 
+\cite{castellinaSeasonalGreetings202424}, all \SD stations have been equipped
+with \SALLAs, consisting of a dipole loop with radius \SI{60}{\centi\meter} that
+are mounted on top of the \SSD (ref. \cref{fig:sd-station-render}). This 
+configuration allows the detection of the \EM signature of \EASs from arbitrary 
+directions in the frequency band 
+\SIrange[range-units = single]{30}{80}{\mega\hertz} 
+\cite{pontLargeRadioDetector2021}, and was chosen after a thorough \RND phase of
+the \AERA prototype detector \cite{aabPierreAugerObservatory2020, 
+fuchsAugerEngineeringRadio2012, aabEnergyEstimationCosmic2016}.
 
-
-
-
-
-
-
+The \RD is only sensitive to macroscopic changes in the \EM field, and cannot 
+rely on muon signals for calibration. For this reason, the signal power received
+by the antenna is compared to the time- and frequency-dependent expected signal 
+of the galactic radio background instead. This provides a measure of the antenna
+directional gain that agrees to within $\sim5\%$ with simulations 
+\cite{huegeRadioDetectorPierre2023, fodranFirstResultsAugerPrime2022}.
 
 \subsubsection{\acf{UUB}}
-
-\begin{figure}[t]
-  \centering
-  \subfloat[]{\includegraphics[height=0.42\textwidth]{auger-observatory/uub_annotated.png}
-  \label{fig:uub-pcb-board}
-  }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[height=0.42\textwidth]{auger-observatory/uub_annotated.png}
-  \label{fig:uub-operative-logic}
-  }
-  \caption[]{\subref{fig:uub-pcb-board} . Image edited from \cite{nitzNewElectronicsSurface2021} \subref{fig:uub-operative-logic} }
-  \label{fig:uub-specifications}
-\end{figure}
-
 The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
 electronic readout components of the station 
 \cite{collaborationPierreAugerObservatory2016}. Most importantly, this includes 
@@ -730,7 +745,7 @@ operation of the upgraded AugerPrime electronics
 	\SI{3e17}{\eV} \cite{fenuCosmicRayEnergy2023} & \WCD, \SSD, \RD, \UMD \\
 	\textbf{SD-433} & \SI{433}{\meter} & 19 & \SI{2}{\kilo\meter\squared} &
 	\SI{5e16}{\eV} \cite{silliPerformance433Surface2022a}\tablefootnote{for 
-	hadronic primaries with $\theta < 45^\circ$} & \WCD, \SSD, \RD\\
+	hadronic primaries with $\theta < 45^\circ$} & \WCD, \SSD, \RD \\
   \bottomrule
 	\end{tabular*}
 	\label{tab:sub-array-details}
@@ -748,6 +763,11 @@ operation of the upgraded AugerPrime electronics
 \label{ssec:sd-triggers}
 
 \subsection{FD triggers and EAS detection}
+\label{ssec:fd-triggers}
+
 \subsection{\Offline event reconstruction}
+\label{ssec:offline-event-reconstruction}
+
+
 \todo{reconstructed quantities table}
 
