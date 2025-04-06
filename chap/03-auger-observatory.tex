@@ -488,8 +488,6 @@ A fourth, \SI{25}{\milli\meter} \SPMT of type Hamamatsu R8619
 of the tank. It is exposed to less light due to its relatively small size, and 
 extends the dynamic range of the \WCD to about \SI{20000}{\VEM}.
 
-\subsubsection{Calibration}
-
 The same considerations as in \cref{ssec:fd-calibration} apply to the data
 recorded by the \WCD (and all other \SD components). The detector information 
 needs to be put into a physical context in order to be interpreted correctly.
@@ -535,13 +533,111 @@ trigger rate lies within \SI{70\pm2}{\hertz} the \DAQ period is increased
 Poissonian noise on the estimate \cite{bertouCalibrationSurfaceArray2006, 
 convengaLocalStationCalibrationDummies2023}.
 
+Under nominal conditions, this results in the value of \VemOnline being updated
+every minute. Most importantly, this implies that the trigger thresholds of 
+station-level event triggers (see \cref{ssec:sd-triggers}) adjust to the
+changing environmental conditions in the array. Additionally, the value of 
+\VemOnline is packaged among other diagnostic information, and sent to the \CDAS
+every \SI{400}{\second} for monitoring purposes. This allows for the easy 
+identification of non-functioning stations, as these will show an abnormal value
+or evolution of \VemOnline in one or more of the three \LPMTs. 
+
 \subsubsection{\acf{SSD}}
+
+With the AugerPrime detector upgrade, the \SSD has been installed on every 
+\SD-station. It sits atop the \WCD as seen in \cref{fig:sd-station-render}, with
+an aluminum box shielding the sensitive electronics from the environment. As the
+name implies, the active area of the detector (\SI{3.84}{\meter\squared}) is 
+made up of polystyrene scintillator strips measuring \SI{1600}{\centi\meter} in 
+length, \SI{5}{\centi\meter} in width, and \SI{1}{\centi\meter} in thickness 
+\cite{cataldiUpgradePierreAuger2022}. These strips produce light via molecular 
+(de-) excitation when ionizing particles pass through them, with the amount of
+light being inversely proportional to the change in energy of the traversing 
+particles.
+
+The scintillating light is reflected by a TiO$_2$ external coating of the bars,
+and eventually captured by \WLS cables running through the long end of each 
+segment. An example of this is given in \cref{fig:ssd-high-contrast}. From 
+there, the \WLSs are arranged in a "U" configuration, where both ends of each 
+cable are coupled via optical cement to a \SI{38}{\milli\meter} Hamamatsu R942 
+\PMT \cite{hamamatsuphotonicsPhotomultiplierTubeR9420}. This allows the 
+efficient transport of photons from the source to the readout location. The
+electronics responsible for digitizing the signal of the \SSD \PMT have similar 
+specifications to those of the \WCD 
+\cite{collaborationPierreAugerObservatory2016}.
+
+A crucial difference between the \WCD and the \SSD is their response to the 
+\EM-component of \EASs. While the \WCD is mostly sensitive to muons, the \SSD,
+relying only on ionization processes, shows the same signal strength for muons
+and electrons. This is the science case of the \SSD. Utilizing the knowledge of
+the \WCD and \SSD allows the disentanglement of the individual shower 
+components. This results in an improved sensitivity to the primary particle
+mass (compare \todo{write \EAS chapter} and \cref{ssec:augerprime-and-outlook}).
+
+Similar to the \WCD, the \SSD must be calibrated. For the case at hand, the 
+characteristic quantities that are of significance are those of an arbitrary 
+\acf{MIP}:
+
+\begin{itemize}
+	\item \Imip is the most probable pulse height (in units of \ADC) 
+	recorded by the \SSD \PMT when a \MIP passes vertically through a 
+	random location in the \SSD active medium.
+	\item \Qmip is the most probable pulse integral recorded during the 
+	aforementioned event.
+\end{itemize}
+
+The details of how \SSD data is calibrated during event reconstruction can be
+found in \todo{ref here}. Additionally, a novel algorithm developed in this work
+allows the estimation of \Imip on a station-level. Implementation details can be
+found in \todo{ref here}.
 
 \subsubsection{\acf{UMD}}
 
+The \UMD represents another enhancement installed during the AugerPrime detector
+upgrade. It further boosts the observatories primary mass discrimination 
+abilities \cite{collaborationPierreAugerObservatory2016}. In total 73 \UMDs are
+buried underground, each one in close vicinity to an SD-750 or SD-433 station. 
+These installations comprise the \acf{AMIGA} detector.
+
+Each \UMD consists of three \SI{10}{\meter\squared} scintillator modules that 
+are, like the \SSD, segmented themselves into bars to minimize signal pileup
+\cite{bottiStatusPerformanceUnderground2022}. They are buried \SI{2.3}{\meter} 
+underground. The soil above the detectors provides an excellent attenuation for 
+non-muonic particles in \EASs. Particularly, this implies that the signals 
+measured by the \UMD consist entirely of muons, allowing the \PAO to e.g. probe 
+the muon content of \EASs \todo{cite joachims thesis}.
+
+\WLS cables transport the light signal from the active medium of one bar to a 
+dedicated \SiPM. The output of the \SiPM array is digitized in two ways 
+\cite{aabCalibrationUndergroundMuon2021}:
+
+\begin{itemize}
+	\item 64 binary traces, that read either 1, or 0, depending on if the 
+	corresponding \SiPM signal is above or below a threshold of 
+	\SI{2.5}{photo-equivalents}\footnote{meaning roughly two and a half
+	out of 1584 photo-diodes in the \SiPM trigger an electron avalanche.}
+	\cite{bottiStatusPerformanceUnderground2022}.
+	\item one \ADC trace that sums all 64 \SiPM signals. Split into \HG and
+	\LG channels.
+\end{itemize}
+
+This approach is chosen to retain the large dynamic range of signals that the 
+detector needs to support. Individual muons can be reconstructed by examining
+the binary mode of the \UMD, and the muon density of up to 
+$\sim\SI{30}{muons\per\meter\squared} $ during a high-energy \EAS event is 
+obtained from the \ADC mode \cite{bottiStatusPerformanceUnderground2022}.
+
+This is done in practice by dividing the observed pulse integral, or charge, by
+the most probable charge obtained from a single-muon event, $Q_\mathrm{UMD}$. 
+This is a familiar problem, and has been solved for the \WCD already. A similar
+strategy for the calibration of the \UMD \EAS data is thus chosen. The \UMD does
+not need to be self-calibrating, as it is run purely in a secondary mode to the
+\WCD, and does not generate triggers itself 
+\cite{aabCalibrationUndergroundMuon2021}.
+
 \subsubsection{\acf{RD}}
 
-
+completion citation (castellinaSeasonalGreetings202424)
 
 
 
@@ -634,7 +730,7 @@ operation of the upgraded AugerPrime electronics
 	\SI{3e17}{\eV} \cite{fenuCosmicRayEnergy2023} & \WCD, \SSD, \RD, \UMD \\
 	\textbf{SD-433} & \SI{433}{\meter} & 19 & \SI{2}{\kilo\meter\squared} &
 	\SI{5e16}{\eV} \cite{silliPerformance433Surface2022a}\tablefootnote{for 
-	hadronic primaries with $\theta < 45^\circ$} & \WCD, \SSD, \RD, \UMD \\
+	hadronic primaries with $\theta < 45^\circ$} & \WCD, \SSD, \RD\\
   \bottomrule
 	\end{tabular*}
 	\label{tab:sub-array-details}
@@ -648,10 +744,10 @@ operation of the upgraded AugerPrime electronics
 \section{Event detection and reconstruction}
 \label{sec:event-reconstruction}
 
-\subsection{\SD triggers and \EAS detection}
+\subsection{SD triggers and EAS detection}
 \label{ssec:sd-triggers}
 
-\subsection{\FD triggers and \EAS detection}
+\subsection{FD triggers and EAS detection}
 \subsection{\Offline event reconstruction}
 \todo{reconstructed quantities table}
 

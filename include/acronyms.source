@@ -1,11 +1,13 @@
 ADC	        Analog Digital Count
 AERA		Auger Engineering Radio Array
+AMIGA		Auger Muons And Infill For The Ground Array
 CDAS		Central Data Acquisition System
 CLF		Central Laser Facility
 CR          	Cosmic Ray
 CO	        Coihueco
 DAQ         	Data Acquisition
 EAS         	Extensive Air Shower
+EM		Electromagnetic
 FADC		Flash Analog Digital Converter
 FD          	Fluorescence Detector
 FLT		First Level Trigger
@@ -29,6 +31,7 @@ RD		Radio Detector
 RND		Research And Development
 SD          	Surface Detector
 SDE		Surface Detector Electronics
+SiPM		Silicon Photomultiplier
 SLT		Second Level Trigger
 SOC		System On Chip
 SPMT		Small PMT
