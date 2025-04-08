@@ -208,9 +208,9 @@
 \newcounter{prepostchapter}
 
 % custom sections, subsections, and subsubsections for minitocs
-\titlecontents{psection}[0.2cm]{\vspace{-0.3cm}\large\bfseries}{\thecontentslabel\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
-\titlecontents{psubsection}[5.1em]{\vspace{-0.3cm}}{\contentslabel{1.4cm}\hspace{0.5em}}{}{\titlerule*[1pc]{.}\contentspage}
-\titlecontents{psubsubsection}[5.1em]{\vspace{-0.3cm}\small}{\contentslabel{1.2cm}\hspace{0.5em}}{}{\titlerule*[1pc]{.}\contentspage}
+\titlecontents{psection}[0.2cm]{\vspace{-0.3cm}\bfseries}{\thecontentslabel\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
+\titlecontents{psubsection}[5.1em]{\vspace{-0.3cm}\bfseries}{\contentslabel{1.4cm}\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
+\titlecontents{psubsubsection}[5.1em]{\vspace{-0.3cm}}{\small\contentslabel{1.1cm}\hspace{0.5em}}{}{\normalfont\normalsize\titlerule*[1pc]{.}\contentspage}
 
 
 % chapter with automatic minitoc creation

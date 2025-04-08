@@ -176,7 +176,7 @@ the order that light traverses them (see \cref{fig:fd-schematic},
   \item For \textbf{the Camera} refer to the next subsection.
 \end{enumerate}
 
-\subsubsection{\acf{HEAT}}
+\subsubsection{High Elevation Auger Telescope (HEAT)}
 \label{sssec:HEAT}
 
 The fifth and newest \FD-site, the \acl{HEAT} commissioned 2009, is located 
@@ -440,7 +440,7 @@ mentioned here:
 	establishes communication with the \CDAS.
 \end{itemize}
 
-\subsubsection{\acf{WCD}}
+\subsubsection{Water Cherenkov Detector (WCD)}
 
 \begin{figure}[t]
   \centering
@@ -541,7 +541,7 @@ every \SI{400}{\second} for monitoring purposes. This allows for the easy
 identification of non-functioning stations, as these will show an abnormal value
 or evolution of \VemOnline in one or more of the three \LPMTs. 
 
-\subsubsection{\acf{SSD}}
+\subsubsection{Surface Scintillator Detector (SSD)}
 
 With the AugerPrime detector upgrade, the \SSD has been installed on every 
 \SD-station. It sits atop the \WCD as seen in \cref{fig:sd-station-render}, with
@@ -590,7 +590,7 @@ found in \todo{ref here}. Additionally, a novel algorithm developed in this work
 allows the estimation of \Imip on a station-level. Implementation details can be
 found in \todo{ref here}.
 
-\subsubsection{\acf{UMD}}
+\subsubsection{Underground Muon detector (UMD)}
 
 \begin{figure}[t]
   \centering
@@ -653,7 +653,7 @@ reconstruction \cref{ssec:offline-event-reconstruction}. The \UMD does not need
 to be self-calibrating, as it is run purely in a secondary mode to the \WCD, and
 does not generate triggers itself \cite{aabCalibrationUndergroundMuon2021}.
 
-\subsubsection{\acf{RD}}
+\subsubsection{Radio Detector (RD)}
 
 The \RD represents the last, and newest detector component that was added to the
 \SD. Since the completion of construction at the end of 2024 
@@ -674,19 +674,19 @@ of the galactic radio background instead. This provides a measure of the antenna
 directional gain that agrees to within $\sim5\%$ with simulations 
 \cite{huegeRadioDetectorPierre2023, fodranFirstResultsAugerPrime2022}.
 
-\subsubsection{\acf{UUB}}
+\subsection{Upgraded Unified Board (UUB)}
 The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
 electronic readout components of the station 
-\cite{collaborationPierreAugerObservatory2016}. Most importantly, this includes 
-an Artix-7 \FPGA \cite{xilinx7SeriesFPGAs2020} for low-level signal processing,
-as well as a Xilinx Zynq-7020 \SOC \cite{amdZynq7000SoC2023} that handles the 
-front-end electronics and higher-level procedures.
+\cite{collaborationPierreAugerObservatory2016}. \cref{fig:uub-pcb-board} and 
+\cref{fig:uub-circuit-diagram} show the design and architecture of the \UUB \PCB
+respectively, and \cite{suomijarviNewElectronicsSurface2018} details the exact 
+implementation and purpose of each component. It follows a brief overview of the
+operative functions of the Artix-7 \FPGA \cite{xilinx7SeriesFPGAs2020}, which is
+responsible for low-level signal processing, and the tasks of the Xilinx 
+Zynq-7020 \SOC \cite{amdZynq7000SoC2023} that handles the front-end electronics 
+and higher-level procedures. 
 
-\cref{fig:uub-pcb-board} and \cref{fig:uub-circuit-diagram} show the design and
-architecture of the \UUB \PCB board respectively.
-
-\todo{continue}
-
+\subsubsection{FPGA and memory buffers}
 
 
 
