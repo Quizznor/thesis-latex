@@ -11,6 +11,7 @@ EAS         	Extensive Air Shower
 EM		Electromagnetic
 FADC		Flash Analog Digital Converter
 FD          	Fluorescence Detector
+FIFO		First In First Out
 FLT		First Level Trigger
 FOV		Field Of View
 FPGA		Field Programmable Gate Array

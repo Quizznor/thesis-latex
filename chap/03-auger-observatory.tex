@@ -706,10 +706,14 @@ logic.
 The main purpose of the \FPGA is to read out the 
 $\SI{5}{\PMTs} \cdot (\HG + \LG) = 10$ different channels of detector data and 
 compare them against various trigger criteria (see \cref{sssec:wcd}, 
-\todo{ref}). Two types of triggers are distinguished, and determine how data is
-processed.
+\todo{ref}). If a trigger condition is met, the \FPGA stores the data in memory 
+for further processing. The memory address is determined by the type of raised 
+trigger. In total, four \FIFO ring buffers are available for writing. Two of 
+these comprise the \texttt{ShowerBuffer}, and the remaining two form the 
+\texttt{MuonBuffer}. 
 
-A calibration 
+A calibration trigger with a low threshold and high rate (\todo{order here}) 
+writes 
 
 \subsubsection{Higher-level procedures}
 
