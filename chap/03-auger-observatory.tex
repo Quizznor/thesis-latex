@@ -285,7 +285,7 @@ used to calibrate the individual pixels of a camera, as the source radiance is
 known. In practice the drone based approach takes a long time to illuminate 
 every pixel. Other methods are less time intensive and therefore preferred. 
 Nevertheless, the drone proves useful in measuring the optical properties of 
-the \FD-mirrors, such as the \PSF.
+the \FD-mirrors, such as the \PSF \cite{ungerSimulationPointSpread2013}.
 
 \subsubsection{Drum calibration}
 
@@ -393,6 +393,7 @@ underestimated without a correction factor $c^\mathrm{Corr.}_\mathrm{Halo}$
 \cite{brackFluorescenceDetectorAbsolute13}.
 
 \subsubsection{XY Scanner}
+\label{sssec:xy-scanner}
 
 The XY-Scanner is a novel end-to-end calibration method that aims to be the
 successor of the drum calibration system \cite{engelNewEndtoendCalibration2017}.
@@ -441,6 +442,7 @@ mentioned here:
 \end{itemize}
 
 \subsubsection{Water Cherenkov Detector (WCD)}
+\label{sssec:wcd}
 
 \begin{figure}[t]
   \centering
@@ -541,7 +543,13 @@ every \SI{400}{\second} for monitoring purposes. This allows for the easy
 identification of non-functioning stations, as these will show an abnormal value
 or evolution of \VemOnline in one or more of the three \LPMTs. 
 
+An alternative method of calibration exists, that is used during event 
+reconstruction (i.e. not on a station-level). It analyzes the distribution of 
+low-energy pulses in the detector, and forms a more accurate estimator, 
+\VemOffline, as described in \todo{ref here}
+
 \subsubsection{Surface Scintillator Detector (SSD)}
+\label{sssec:ssd}
 
 With the AugerPrime detector upgrade, the \SSD has been installed on every 
 \SD-station. It sits atop the \WCD as seen in \cref{fig:sd-station-render}, with
@@ -591,6 +599,7 @@ allows the estimation of \Imip on a station-level. Implementation details can be
 found in \todo{ref here}.
 
 \subsubsection{Underground Muon detector (UMD)}
+\label{sssec:umd}
 
 \begin{figure}[t]
   \centering
@@ -633,7 +642,7 @@ dedicated \SiPM. The output of the \SiPM array is digitized in two ways
 	\item 64 binary traces, that read either 1, or 0, depending on if the 
 	corresponding \SiPM signal is above or below a threshold of 
 	\SI{2.5}{photo-equivalents}\footnote{meaning roughly two and a half
-	out of 1584 photo-diodes in the \SiPM trigger an electron avalanche.}
+	(out of 1584) photo-diodes in the \SiPM trigger an electron avalanche.}
 	\cite{bottiStatusPerformanceUnderground2022}.
 	\item one \ADC trace that sums all 64 \SiPM signals. Split into \HG and
 	\LG channels.
@@ -654,6 +663,7 @@ to be self-calibrating, as it is run purely in a secondary mode to the \WCD, and
 does not generate triggers itself \cite{aabCalibrationUndergroundMuon2021}.
 
 \subsubsection{Radio Detector (RD)}
+\label{sssec:rd}
 
 The \RD represents the last, and newest detector component that was added to the
 \SD. Since the completion of construction at the end of 2024 
@@ -675,31 +685,33 @@ directional gain that agrees to within $\sim5\%$ with simulations
 \cite{huegeRadioDetectorPierre2023, fodranFirstResultsAugerPrime2022}.
 
 \subsection{Upgraded Unified Board (UUB)}
+\label{ssec:uub}
+
 The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
 electronic readout components of the station 
-\cite{collaborationPierreAugerObservatory2016}. \cref{fig:uub-pcb-board} and 
+\cite{collaborationPierreAugerObservatory2016}. \cref{fig:uub} and 
 \cref{fig:uub-circuit-diagram} show the design and architecture of the \UUB \PCB
 respectively, and \cite{suomijarviNewElectronicsSurface2018} details the exact 
-implementation and purpose of each component. It follows a brief overview of the
-operative functions of the Artix-7 \FPGA \cite{xilinx7SeriesFPGAs2020}, which is
-responsible for low-level signal processing, and the tasks of the Xilinx 
-Zynq-7020 \SOC \cite{amdZynq7000SoC2023} that handles the front-end electronics 
-and higher-level procedures. 
+implementation and purpose of each component. 
+
+Highlighted for this work must be the operative functions of the Artix-7 \FPGA 
+\cite{xilinx7SeriesFPGAs2020}, which is responsible for low-level signal 
+processing, as well as the tasks of the Xilinx Zynq-7020 \SOC, equipped with a
+dual-core \CPU \cite{amdZynq7000SoC2023} that handles higher-level programming 
+logic. 
 
 \subsubsection{FPGA and memory buffers}
+\label{sssec:fpga-buffers}
 
+The main purpose of the \FPGA is to read out the 
+$\SI{5}{\PMTs} \cdot (\HG + \LG) = 10$ different channels of detector data and 
+compare them against various trigger criteria (see \cref{sssec:wcd}, 
+\todo{ref}). Two types of triggers are distinguished, and determine how data is
+processed.
 
+A calibration 
 
-
-
-
-
-
-
-
-
-
-
+\subsubsection{Higher-level procedures}
 
 \subsection{Array structure}
 \label{ssec:array-structure}

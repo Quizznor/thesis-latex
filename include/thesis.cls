@@ -209,7 +209,7 @@
 
 % custom sections, subsections, and subsubsections for minitocs
 \titlecontents{psection}[0.2cm]{\vspace{-0.3cm}\bfseries}{\thecontentslabel\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
-\titlecontents{psubsection}[5.1em]{\vspace{-0.3cm}\bfseries}{\contentslabel{1.4cm}\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
+\titlecontents{psubsection}[5.1em]{\vspace{-0.3cm}}{\contentslabel{1.4cm}\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
 \titlecontents{psubsubsection}[5.1em]{\vspace{-0.3cm}}{\small\contentslabel{1.1cm}\hspace{0.5em}}{}{\normalfont\normalsize\titlerule*[1pc]{.}\contentspage}
 
 
@@ -310,7 +310,7 @@
 {%
  \vspace{-0.1cm}\sc{\thesubsubsection}\hspace{0.3cm}\sc{#1}
 }
-\titlespacing*{\subsubsection} {0pt}{0pt}{10pt}
+\titlespacing*{\subsubsection} {0pt}{-0.6cm}{10pt}
 
 \titlecontents{subsubsection}
   [0.85cm]

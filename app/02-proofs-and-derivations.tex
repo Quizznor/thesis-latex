@@ -7,63 +7,58 @@
 \section{Approximate max. UV Irradiance of an EAS}
 \label{app:cr-uv-irradiance}
 
-We estimate the UV irradiance, $I_\text{UV}$, or Wattage deposited per area, 
-from fluorescence light stemming from an extensive air shower. To illustrate 
-that telescopes need to be incredibly sensitive to observe this phenomenon, we 
-assume fantastic to unrealistically good conditions for the \UV light yield and 
-related parameters. This results in an  upper limit to $I_\text{UV}$.
+We estimate the UV irradiance, $I_\text{UV}$, from fluorescence light stemming 
+from an extensive air shower. To illustrate that telescopes need to be 
+incredibly sensitive to observe this phenomenon, we assume fantastic to 
+unrealistically good conditions for the \UV light yield and related parameters. 
+This results in an optimistic estimate of $I_\text{UV}$.
 
 We consider an \EAS of energy $E_0 = \SI{e18}{\eV}$ and inclination 
 $\uptheta=\SI{15}{\degree}$. We assume the behaviour of the particle cascade 
-resulting from the deeply inelastic is completely determined by the 
-Heitler-Matthews model (see \todo{write this} and 
-\cite{matthewsHeitlerModelExtensive2005, rissePhotonAirShowers2006}). We arrive
-at the value for the atmospheric depth (height), at which the shower reaches the
-maximum multiplicity:
+resulting from the deeply inelastic is determined by the Heitler-Matthews model 
+(see \todo{write this} and \cite{matthewsHeitlerModelExtensive2005, 
+rissePhotonAirShowers2006}). This implies that hte atmospheric depth (height), 
+at which the shower reaches the maximum multiplicity is
 
 \begin{equation}
 \label{eq:irradiance-multiplicity}
 \Xmax \approx \SI{700}{\gram\per\centi\meter\squared}\qquad\left(\;\widehat{\approx}\;\SI{18.5}{\kilo\meter}\;\text{above earth surface}\footnotemark\right).
 \end{equation}
-\footnotetext{The calculated height above surface that corresponds to the given 
-atmospheric depth varies a lot based on atmospheric variables. We have assumed a
-purely isothermic atmosphere with $T=\SI{278}{\kelvin}$, and a standard density 
-of $\rho=\SI{0.86}{\kilogram\per\meter\cubed}$ at an altitude of 
-\SI{1400}{\meter} above sea level.}
+\footnotetext{To calculate the height above surface we assume a purely 
+isothermic atmosphere with $T=\SI{278}{\kelvin}$, and a density of 
+$\rho=\SI{0.86}{\kilogram\per\meter\cubed}$ at an altitude of \SI{1400}{\meter} 
+above sea level.}
 
 At $\Xmax$, the EM component of the shower contains roughly
 $1-\left(E_0\,/\,\xi^\pi_C\right)^{\beta-1}\approx92\%$ of the primary particle 
-energy, with photons and electrons sharing the fraction to roughly equal parts.
-Since only electrons contribute meaningfully to excitations of air molecules, it 
+energy. Photons and electrons share the energy to roughly equal parts. It
 follows that $E_\text{UV}=0.92\cdot0.5\cdot\SI{e18}{\electronvolt}=
 \SI{4.6e17}{\electronvolt}$ are available a priori to create fluorescence light.
-We take an optimistic estimate of the fluorescence light yield 
-$\text{FY}\approx8\gamma\,/\,\SI{}{\mega\electronvolt}$ from 
-\cite{keilhauerNitrogenFluorescenceAir2013}. The majority of these photons stem 
-from the 2P(0,0) transition of N$_2$ \cite{aveSpectrallyResolvedPressure2008}, 
-which has a characteristic wavelength of \SI{337.1}{\nano\meter}, and an average 
-radiation time of \SI{42}{\nano\second} 
-\cite{leanContributionUltravioletIrradiance1989}. We assume that all available 
-energy $E_\text{UV}$ is immediately converted to molecular excitations of N$_2$ 
-at $\Xmax$, and then gradually released according to an exponential decay and 
-recover an expression for the (UV) power output of the air shower.
+\cite{keilhauerNitrogenFluorescenceAir2013} gives an optimistic fluorescence 
+light yield $\text{FY}\approx8\gamma\,/\,\SI{}{\mega\electronvolt}$. The 
+majority of the produced light stem from the 2P(0,0) transition of N$_2$ 
+\cite{aveSpectrallyResolvedPressure2008}, which has a characteristic wavelength 
+of \SI{337.1}{\nano\meter}, and an average radiation time of 
+\SI{42}{\nano\second} \cite{leanContributionUltravioletIrradiance1989}. We 
+assume that all available energy $E_\text{UV}$ is immediately converted to 
+molecular excitations of N$_2$ at $\Xmax$, and then gradually released according
+to an exponential decay and recover an expression for the (UV) power output of 
+the air shower.
 
 \begin{equation}
 \label{eq:irradiance-power}
 P(t)= \text{FY}\,E_\text{UV}\,\frac{hc}{\SI{337.1}{\nano\meter}} \cdot\frac{e^{-\SI{42}{\nano\second}/t}}{t}   
 \end{equation}
 
-This results in a maximum power output of $P_\text{max}\approx\SI{19.4}{\watt}$. 
-In a last step, we convert the maximum power output to an irradiance measured on
-ground. For this, we must take into acount that the area illuminated by the 
-\UV-light grows proportional to the distance squared to the source (location of 
-$\Xmax$). Furthermore, \UV-light is attenuated by the atmosphere. More 
-specifically, UV light with a wavelength of \SI{337}{\nano\meter} drops in 
-intensity by about 13\%/km in clear conditions 
-\cite[see Fig. 83 on page 103 of][]{baumAttenuationUltravioletLight2008}. Supposing that 
-an observer is at least $d=\SI{18.5}{\kilo\meter}$ away from $\Xmax$ (compare 
-\cref{eq:irradiance-multiplicity}), we estimate the total irradiance this observer 
-measures as
+The maximum power output is thus $P_\text{max}\approx\SI{19.4}{\watt}$. We 
+convert the maximum power output to an irradiance measured on ground and account
+for the attenuation of \UB-light in the atmosphere. Specifically, light of 
+wavelength \SI{337}{\nano\meter} drops in intensity by about 
+\SI{13}{\percent\per\kilo\meter}  in clear conditions 
+\cite[see Fig. 83 on page 103 of][]{baumAttenuationUltravioletLight2008}. 
+Assuming that an observer on ground must be at least $d=\SI{18.5}{\kilo\meter}$ 
+away from the $\Xmax$ (compare \cref{eq:irradiance-multiplicity}), the total 
+irradiance that is measured reads
 
 \begin{equation}
 \label{eq:irradiance}

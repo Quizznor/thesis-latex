@@ -1,33 +1,46 @@
 %! TEX root = ../main.tex
 
 \titleformat{\chapter}[display]{\centering\normalfont\huge}{}{0pt}{#1}[\hrule\vspace{-0.5cm}]
+\titleformat{\section}[display]{\bfseries\Large}{}{10pt}{\sc{#1}}[]
 \printbibheading
 
+\defbibnote{auger}{%
 The Pierre Auger observatory hosts an internal database of papers. These 
 typically short reports serve to accelerate the exchange of knowledge within the
-collaboration, and are called \GAP notes. Since they contain information that is
-not freely accessible outside the Pierre Auger collaboration, they are listed in
-a special category with the prefix \textbf{\textit{A}} alongside other 
-information, that is accessible only to members of the Auger collaboration. 
-Similarly, non-public sources from personal correspondence are grouped with the 
-prefix \textbf{\textit{C}}. All public (non-physics related) information has the
-label \textbf{\textit{O}}. Finally, physical references can be found under the 
-label \textbf{\textit{P}}.
+collaboration, and are called \GAP notes. Since they are not freely accessible 
+outside the Pierre Auger collaboration, they are listed in a special category 
+with the prefix \sc{A}\normalfont, alongside other information that is 
+available only to Auger members.}
+
+\defbibnote{private}{%
+Non-public sources from personal correspondence are grouped under the prefix 
+\sc{C}.}
+
+\defbibnote{other}{%
+All public (non-physics related) reference are marked with the label \sc{O}.}
+
+\defbibnote{physics}{%
+Physical references, including publications from the \PAO, can be found under 
+the label \sc{P}.}
 
 % Auger Internal References
 \newrefcontext[labelprefix=A]
-\printbibliography[keyword={auger},title={Auger internal},heading=subbibliography]
+\printbibliography[keyword={auger},title={Auger Internal Documents},heading=subbibliography, prenote={auger}]
+\vspace{0.5cm}\hrule\vspace{0.2cm}
 
 % Personal Correspondence
 \newrefcontext[labelprefix=C]
-\printbibliography[keyword={private},title={Private Communication},heading=subbibliography]
+\printbibliography[keyword={private},title={Private Communication},heading=subbibliography, prenote=private]
+\vspace{0.5cm}\hrule\vspace{0.2cm}
 
 % Other References
 \newrefcontext[labelprefix=O]
-\printbibliography[notkeyword={private},notkeyword={phys},notkeyword={auger},title={Other References},heading=subbibliography]
+\printbibliography[notkeyword={private},notkeyword={phys},notkeyword={auger},title={Other References},heading=subbibliography, prenote=other]
+\vspace{0.5cm}\hrule\vspace{0.2cm}
 
 % General Physical References
 \newrefcontext[labelprefix=P]
-\printbibliography[keyword={phys},notkeyword={auger},title={Physics References},heading=subbibliography]
+\printbibliography[keyword={phys},notkeyword={auger},title={Physics References},heading=subbibliography, prenote=physics]
+\vspace{0.5cm}\hrule\vspace{0.2cm}
 
 \cleardoublepage
