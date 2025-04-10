@@ -694,7 +694,7 @@ electronic readout components of the station
 respectively, and \cite{suomijarviNewElectronicsSurface2018} details the exact 
 implementation and purpose of each component. 
 
-Highlighted for this work must be the operative functions of the Artix-7 \FPGA 
+Highlighted for this work are the operative functions of the Artix-7 \FPGA 
 \cite{xilinx7SeriesFPGAs2020}, which is responsible for low-level signal 
 processing, as well as the tasks of the Xilinx Zynq-7020 \SOC, equipped with a
 dual-core \CPU \cite{amdZynq7000SoC2023} that handles higher-level programming 
@@ -706,16 +706,42 @@ logic.
 The main purpose of the \FPGA is to read out the 
 $\SI{5}{\PMTs} \cdot (\HG + \LG) = 10$ different channels of detector data and 
 compare them against various trigger criteria (see \cref{sssec:wcd}, 
-\todo{ref}). If a trigger condition is met, the \FPGA stores the data in memory 
-for further processing. The memory address is determined by the type of raised 
-trigger. In total, four \FIFO ring buffers are available for writing. Two of 
-these comprise the \texttt{ShowerBuffer}, and the remaining two form the 
-\texttt{MuonBuffer}. 
+\todo{ref}) \cite{nitzUUBV2Analog18}. If a trigger condition is met, the \FPGA 
+stores the data in memory for further processing. The memory address is 
+determined by the type of raised trigger. Four \FIFO ring buffers are available 
+for writing and separated in their purpose. Two instances of these circular 
+memory modules comprise the muon buffer, and two form the shower buffer. 
 
-A calibration trigger with a low threshold and high rate (\todo{order here}) 
-writes 
+The former contains events that surpass \SI{30}{\ADC} (\SI{70}{\ADC}) above 
+baseline in any of the \WCD \LPMTs (\SSD PMT) for at least one sample. Once this
+is the case, the last 19 bins, the latch bin, as well as the next 49 bins 
+(concluding in total 69 bins $\cong\SI{0.575}{\micro\second}$) from the \WCD and
+\SSD \HG channels are stored, with the \FPGA alternating writing to both ring 
+buffers, to avoid dead times. This process occurs at a rate of 
+$\sim\SI{3}{\kilo\Hz}$. The muon buffer is then read out by the \CPU in 
+real-time to construct muon histograms (see \cref{sssec:muon-histograms}) that 
+provide an accurate method to calibrate the \WCD and \SSD.
 
-\subsubsection{Higher-level procedures}
+The shower buffer contains events that satisfy \TTWOs (compare 
+\cref{ssec:sd-triggers}). These occur at a, due to the stations 
+self-calibration, fixed rate of $\sim\SI{20}{\hertz}$. This is a far lower rate
+than that of the muon buffer, but the volume of information contained in the 
+shower buffer is far more exhaustive. Upon a \TTWO, 2048 samples 
+($\cong\SI{17.07}{\micro\second}$) of all ten \HG and \LG channels are stored in
+the circular buffer. This data is the raw event data that gets sent to \CDAS
+upon an \TTHREE request (see \cref{sssec:sd-triggers}). In total, the two shower
+buffers can hold up to 1024 \TTWO events 
+\cite{wainbergDigitalElectronicsPierre2014}, meaning that at a nominal \TTWO
+rate, events are overwritten after $\sim\SI{50}{\second}$. In practice, not more
+than $\sim\SI{8}{\second}$ are needed for \CDAS to request \TTWO information
+\cite{collaborationPierreAugerObservatory2016}.
+
+\subsubsection{Muon histograms}
+\label{sssec:muon-histograms}
+
+
+
+\subsubsection{}
 
 \subsection{Array structure}
 \label{ssec:array-structure}

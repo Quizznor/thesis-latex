@@ -17,6 +17,7 @@ DEPENDENCIES += $(wildcard *.sty *.bib)
 .PHONY: all clean
 
 all:
+	scripts/sort_acronyms.py
 	scripts/gather_acronyms
 	scripts/gather_chapters
 	scripts/gather_appendices

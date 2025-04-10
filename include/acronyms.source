@@ -1,57 +1,59 @@
-ADC	        Analog Digital Count
-AERA		Auger Engineering Radio Array
-AMIGA		Auger Muons And Infill For The Ground Array
-CDAS		Central Data Acquisition System
-CLF		Central Laser Facility
-CO	        Coihueco
-CPU		Central Processing Unit
-CR          	Cosmic Ray
-DAQ         	Data Acquisition
-EAS         	Extensive Air Shower
-EM		Electromagnetic
-FADC		Flash Analog Digital Converter
-FD          	Fluorescence Detector
-FIFO		First In First Out
-FLT		First Level Trigger
-FOV		Field Of View
-FPGA		Field Programmable Gate Array
-GAP         	Giant Array Project
-GPS		Global Positioning System
-HEAT	        High Elevation Auger Telescope
-HG		High Gain
-ICRC		International Cosmic Ray Conference
-IS		Integrating Sphere
-LA	        Loma Amarilla
-LCU		LED Calibration Unit
-LED		Light Emitting Diode
-LG		Low Gain
-LL	        Los Leones
-LM	        Los Morados
-LPMT		Large PMT
-MIP		Minimum Ionizing Particle
-RD		Radio Detector
-RND		Research And Development
-SALLA		Short Aperiodic Loaded Loop Antenna
-SD          	Surface Detector
-SDE		Surface Detector Electronics
-SiPM		Silicon Photomultiplier
-SLT		Second Level Trigger
-SOC		System On Chip
-SPMT		Small PMT
-SRAM		Static Random Access Memory
-SSD		Surface Scintillator Detector
-PAO         	Pierre Auger Observatory
-PCB		Printed Circuit Board
-PMT	        Photomultiplier Tube
-PSF		Point Spread Function
-TLT		Third Level Trigger
-UB		Unified Board
-UHE		Ultra High Energy
-UHECR       	UHE Cosmic Ray
-UMD		Underground Muon Detector
-UUB		Upgraded Unified Board
-UV          	Ultra-Violet
-VEM		Vertical Equivalent Muon
-WCD         	Water Cherenkov Detector
-WLS		Wavelength Shifting Fiber
-XLF		Extreme Laser Facility
+ADC        Analog Digital Count
+AERA       Auger Engineering Radio Array
+AMIGA      Auger Muons And Infill For The Ground Array
+CDAS       Central Data Acquisition System
+CLF        Central Laser Facility
+CO         Coihueco
+CPU        Central Processing Unit
+CR         Cosmic Ray
+DAQ        Data Acquisition
+EAS        Extensive Air Shower
+EM         Electromagnetic
+FADC       Flash Analog Digital Converter
+FD         Fluorescence Detector
+FIFO       First In First Out
+FLT        First Level Trigger
+FOV        Field Of View
+FPGA       Field Programmable Gate Array
+GAP        Giant Array Project
+GPS        Global Positioning System
+HEAT       High Elevation Auger Telescope
+HG         High Gain
+ICRC       International Cosmic Ray Conference
+IS         Integrating Sphere
+LA         Loma Amarilla
+LCU        LED Calibration Unit
+LED        Light Emitting Diode
+LG         Low Gain
+LL         Los Leones
+LM         Los Morados
+LPMT       Large PMT
+MIP        Minimum Ionizing Particle
+PAO        Pierre Auger Observatory
+PCB        Printed Circuit Board
+PMT        Photomultiplier Tube
+PSF        Point Spread Function
+RD         Radio Detector
+RND        Research And Development
+SALLA      Short Aperiodic Loaded Loop Antenna
+SD         Surface Detector
+SDE        Surface Detector Electronics
+SLT        Second Level Trigger
+SOC        System On Chip
+SPMT       Small PMT
+SRAM       Static Random Access Memory
+SSD        Surface Scintillator Detector
+SiPM       Silicon Photomultiplier
+T2         Station Level Trigger
+T3         Event Level Trigger
+TLT        Third Level Trigger
+UB         Unified Board
+UHE        Ultra High Energy
+UHECR      UHE Cosmic Ray
+UMD        Underground Muon Detector
+UUB        Upgraded Unified Board
+UV         Ultra-Violet
+VEM        Vertical Equivalent Muon
+WCD        Water Cherenkov Detector
+WLS        Wavelength Shifting Fiber
+XLF        Extreme Laser Facility

@@ -50,6 +50,10 @@ while read line; do
   LONG="${FIELD[@]:1}"
 
   echo -e \\\\"acro{$SHORT}{$LONG}" >> "$BASE/acronyms.tex"
+  
+  if [ "$SHORT" = "T2" ]; then continue; fi
+  if [ "$SHORT" = "T3" ]; then continue; fi
+
   echo -e \\\\"newcommand{"\\\\"$SHORT}{"\\\\"ac{$SHORT}\\\\xspace}" >> "$BASE/definitions.tex"
   echo -e \\\\"newcommand{"\\\\"$SHORT"s}{\\\\"acp{$SHORT}\\\\xspace}" >> "$BASE/definitions.tex"
 
