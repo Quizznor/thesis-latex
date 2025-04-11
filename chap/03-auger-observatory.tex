@@ -232,9 +232,8 @@ active pixels \cite{abrahamFluorescenceDetectorPierre2010}. This reduces the
 trigger rate to $\SI{0.01}{\hertz\per\mathrm{telescope}}$. 
 
 Finally, \TLTs from all telescopes in a building are analyzed for events that
-pass the \FOV of multiple cameras, and an event level trigger, or T3, is issued
-to the \CDAS at a rate of approximately 
-$\SI{0.02}{\hertz\per\mathrm{building}}$.
+pass the \FOV of multiple cameras, and an \TTHREE, is issued to the \CDAS at a 
+rate of approximately $\SI{0.02}{\hertz\per\mathrm{building}}$.
 
 \subsection{Telescope Calibration}
 \label{ssec:fd-calibration}
@@ -741,18 +740,21 @@ was presented in \todo[inline]{cite icrc2025 proceeding}.}
 \subsubsection{Muon histograms}
 \label{sssec:muon-histograms}
 
-\subsubsection{Trigger}
-
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\textwidth]{auger-observatory/filter_and_downsample.png}
-  \caption{Comparison between a \FBW \UUB trace \textit{(top)} and a \FDS \UB 
-  trace \textit{(bottom)}. Both detector responses are captured from the same
-  simulated signal. The \UB pulse height is on average  lower .}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{auger-observatory/ssd_histo.png}
+  \label{fig:ssd-histo}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{auger-observatory/filter_and_downsample.png}
   \label{fig:filter-and-downsample}
+  }
+  \caption[]{\subref{fig:ssd-histo}  \subref{fig:filter-and-downsample} }
+  \label{fig:uub-trace-details}
 \end{figure}
 
-\todo{add peak scaling factor to image description above}
+
+
+\subsubsection{Station Level Trigger Algorithms}
 
 
 \subsection{Array structure}
