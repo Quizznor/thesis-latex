@@ -10,7 +10,9 @@ DAQ        Data Acquisition
 EAS        Extensive Air Shower
 EM         Electromagnetic
 FADC       Flash Analog Digital Converter
+FBW        Full Bandwidth
 FD         Fluorescence Detector
+FDS        Filtered And Downsampled
 FIFO       First In First Out
 FLT        First Level Trigger
 FOV        Field Of View

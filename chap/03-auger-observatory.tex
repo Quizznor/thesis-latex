@@ -734,14 +734,26 @@ buffers can hold up to 1024 \TTWO events
 \cite{wainbergDigitalElectronicsPierre2014}, meaning that at a nominal \TTWO
 rate, events are overwritten after $\sim\SI{50}{\second}$. In practice, not more
 than $\sim\SI{8}{\second}$ are needed for \CDAS to request \TTWO information
+\footnote{Thunderstorms can cause large backlogs in \TTHREEs. For this, a fix 
+was presented in \todo[inline]{cite icrc2025 proceeding}.}
 \cite{collaborationPierreAugerObservatory2016}.
 
 \subsubsection{Muon histograms}
 \label{sssec:muon-histograms}
 
+\subsubsection{Trigger}
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{auger-observatory/filter_and_downsample.png}
+  \caption{Comparison between a \FBW \UUB trace \textit{(top)} and a \FDS \UB 
+  trace \textit{(bottom)}. Both detector responses are captured from the same
+  simulated signal. The \UB pulse height is on average  lower .}
+  \label{fig:filter-and-downsample}
+\end{figure}
 
-\subsubsection{}
+\todo{add peak scaling factor to image description above}
+
 
 \subsection{Array structure}
 \label{ssec:array-structure}
@@ -814,6 +826,20 @@ operation of the upgraded AugerPrime electronics
 
 \section{Event detection and reconstruction}
 \label{sec:event-reconstruction}
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.33\textwidth]{auger-observatory/t3_vertical_mode.png}
+  \label{fig:t3-vertical}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.33\textwidth]{auger-observatory/t3_horizontal_mode.png}
+  \label{fig:t3-horizontal}
+  }
+  \caption[]{\subref{fig:t3-vertical}  \subref{fig:t3-horizontal} }
+  \label{fig:}
+\end{figure}
+
+
 
 \subsection{SD triggers and EAS detection}
 \label{ssec:sd-triggers}

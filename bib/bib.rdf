@@ -24379,20 +24379,30 @@ DOI: 10.5445/IR/1000160386</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <bib:Document rdf:about="https://auger.org/gap-notes/download/107-gap-notes-2018/4640-gap2018-019">
-        <z:itemType>webpage</z:itemType>
-        <dcterms:isPartOf>
-           <z:Website></z:Website>
-        </dcterms:isPartOf>
+    <bib:Report rdf:about="https://auger.org/gap-notes/download/107-gap-notes-2018/4640-gap2018-019">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nitz</foaf:surname>
+                        <foaf:givenName>David</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
         <link:link rdf:resource="#item_158"/>
-        <dc:title>GAP2018_019 UUB V2 Analog Performance</dc:title>
+        <dc:title>UUB V2 Analog Performance</dc:title>
+        <dc:date>04/15/18</dc:date>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://auger.org/gap-notes/download/107-gap-notes-2018/4640-gap2018-019</rdf:value>
             </dcterms:URI>
         </dc:identifier>
         <dcterms:dateSubmitted>2025-04-01 21:40:35</dcterms:dateSubmitted>
-    </bib:Document>
+        <prism:number>2018-019</prism:number>
+        <z:type>GAP note</z:type>
+    </bib:Report>
     <z:Attachment rdf:about="#item_158">
         <z:itemType>attachment</z:itemType>
         <dc:title>GAP2018_019 UUB V2 Analog Performance</dc:title>
@@ -27326,6 +27336,7 @@ DOI: 10.5445/IR/1000160386</dc:description>
         <link:link rdf:resource="#item_208"/>
         <link:link rdf:resource="#item_168"/>
         <link:link rdf:resource="#item_169"/>
+        <dc:subject>phys</dc:subject>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Auger Observatory</rdf:value>
@@ -27339,7 +27350,6 @@ DOI: 10.5445/IR/1000160386</dc:description>
                <rdf:value>Extensive air showers</rdf:value>
             </z:AutomaticTag>
         </dc:subject>
-        <dc:subject>phys</dc:subject>
         <dc:subject>
            <z:AutomaticTag><rdf:value>Trigger</rdf:value></z:AutomaticTag>
         </dc:subject>
@@ -33222,6 +33232,7 @@ DOI: 10.22323/1.395.0251</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
+        <dc:subject>private</dc:subject>
         <dc:date>12/20/24</dc:date>
         <dc:title>Seasonal greetings 2024</dc:title>
     </bib:Letter>
@@ -35754,6 +35765,199 @@ DOI: 10.22323/1.395.0270</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
+    <bib:Document rdf:about="https://visitantes.auger.org.ar/index.php/amiga/">
+        <z:itemType>blogPost</z:itemType>
+        <dcterms:isPartOf>
+           <z:Blog></z:Blog>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_239"/>
+        <dc:title>UMD – Underground Muon Detector</dc:title>
+        <z:language>es-AR</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://visitantes.auger.org.ar/index.php/amiga/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-06 17:51:13</dcterms:dateSubmitted>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_239">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://visitantes.auger.org.ar/index.php/amiga/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-06 17:51:20</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="https://auger.org/gap-notes/download/5-gap-notes-2013/150-gap2013-069">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Unger</foaf:surname>
+                        <foaf:givenName>Michael</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Engel</foaf:surname>
+                        <foaf:givenName>Ralph</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ulrich</foaf:surname>
+                        <foaf:givenName>Ralf</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_241"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Simulation of the Point Spread Function of the FD Telescopes and its Effect on the Reconstructed Energy and Xmax</dc:title>
+        <dc:date>11/26/2013</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/gap-notes/download/5-gap-notes-2013/150-gap2013-069</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-08 22:55:19</dcterms:dateSubmitted>
+        <prism:number>2013-069</prism:number>
+        <z:type>GAP note</z:type>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_241">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>GAP2013_069 Simulation of the Point Spread Function of the FD Telescopes and its Effect on the Reconstructed Energy and Xmax</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/gap-notes/download/5-gap-notes-2013/150-gap2013-069</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-08 22:55:24</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://dx.doi.org/10.1088/1748-0221/9/04/T04003">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1748-0221"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wainberg</foaf:surname>
+                        <foaf:givenName>O</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Almela</foaf:surname>
+                        <foaf:givenName>A</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Platino</foaf:surname>
+                        <foaf:givenName>M</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sanchez</foaf:surname>
+                        <foaf:givenName>F</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Suarez</foaf:surname>
+                        <foaf:givenName>F</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lucero</foaf:surname>
+                        <foaf:givenName>A</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Videla</foaf:surname>
+                        <foaf:givenName>M</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wundheiler</foaf:surname>
+                        <foaf:givenName>B</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Melo</foaf:surname>
+                        <foaf:givenName>D</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hampel</foaf:surname>
+                        <foaf:givenName>M R</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Etchegoyen</foaf:surname>
+                        <foaf:givenName>A</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_243"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>Digital electronics for the Pierre Auger Observatory AMIGA muon counters</dc:title>
+        <dcterms:abstract>The “Auger Muons and Infill for the Ground Array” (AMIGA) project provides direct muon counting capacity to the Pierre Auger Observatory and extends its energy detection range down to 0.3 EeV. It currently consists of 61 detector pairs (a Cherenkov surface detector and a buried muon counter) distributed over a 23.5 km2 area on a 750 m triangular grid. Each counter relies on segmented scintillator modules storing a logical train of `0's and `1's on each scintillator segment at a given time slot. Muon counter data is sampled and stored at 320 MHz allowing both the detection of single photoelectrons and the implementation of an offline trigger designed to mitigate multi-pixel PMT crosstalk and dark rate undesired effects. Acquisition is carried out by the digital electronics built around a low power Cyclone III FPGA. This paper presents the digital electronics design, internal and external synchronization schemes, hardware tests, and first results from the Observatory.</dcterms:abstract>
+        <dc:date>2014-04</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Institute of Physics</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://dx.doi.org/10.1088/1748-0221/9/04/T04003</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-10 21:29:23</dcterms:dateSubmitted>
+        <bib:pages>T04003</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1748-0221">
+        <prism:volume>9</prism:volume>
+        <dc:title>Journal of Instrumentation</dc:title>
+        <dc:identifier>DOI 10.1088/1748-0221/9/04/T04003</dc:identifier>
+        <prism:number>04</prism:number>
+        <dcterms:alternative>J. Inst.</dcterms:alternative>
+        <dc:identifier>ISSN 1748-0221</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_243">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ri.conicet.gov.ar/bitstream/11336/7763/2/CONICET_Digital_Nro.8931_A.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-10 21:29:30</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -35783,6 +35987,7 @@ DOI: 10.22323/1.395.0270</dc:description>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/6-gap-notes-2010/814-gap2010-120"/>
         <dcterms:hasPart rdf:resource="https://www.google.com/search?client=firefox-b-e&amp;channel=entpr&amp;q=Motorola+Oncore+UT%2B+GPS"/>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/157-gap-notes-2023/5755-gap2023-049"/>
+        <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/5-gap-notes-2013/150-gap2013-069"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_2">
         <dc:title>Other</dc:title>
@@ -35801,6 +36006,7 @@ DOI: 10.22323/1.395.0270</dc:description>
         <dcterms:hasPart rdf:resource="https://www.analog.com/en/products/ad9628.html?doc=ad9628.pdf"/>
         <dcterms:hasPart rdf:resource="https://www.hamamatsu.com/eu/en/product/optical-sensors/pmt/pmt_tube-alone/head-on-type/R8619.html"/>
         <dcterms:hasPart rdf:resource="https://hep.hamamatsu.com/eu/en/products/R9420.html"/>
+        <dcterms:hasPart rdf:resource="https://visitantes.auger.org.ar/index.php/amiga/"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_3">
         <dc:title>Physics</dc:title>
@@ -35855,6 +36061,7 @@ DOI: 10.22323/1.395.0270</dc:description>
         <dcterms:hasPart rdf:resource="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.93.122005"/>
         <dcterms:hasPart rdf:resource="https://www.epj-conferences.org/articles/epjconf/abs/2023/09/epjconf_uhecr2023_06002/epjconf_uhecr2023_06002.html"/>
         <dcterms:hasPart rdf:resource="https://pos.sissa.it/395/270/"/>
+        <dcterms:hasPart rdf:resource="https://dx.doi.org/10.1088/1748-0221/9/04/T04003"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
         <dc:title>Private</dc:title>
