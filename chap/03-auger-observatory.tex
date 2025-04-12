@@ -731,12 +731,12 @@ self-calibration, fixed rate of $\sim\SI{20}{\hertz}$. This is a far lower rate
 than that of the muon buffer, but the volume of information contained in the 
 shower buffer is far more exhaustive. Upon a \TTWO, 2048 samples 
 ($\cong\SI{17.07}{\micro\second}$) of all ten \HG and \LG channels are stored in
-the circular buffer. This data is the raw event data that gets sent to \CDAS
+the circular buffer. This data is the raw event data that gets sent to the \CDAS
 upon a \TTHREE request (see \cref{sssec:sd-triggers}). In total, the two shower
 buffers can hold up to 1024 \TTWO events 
 \cite{wainbergDigitalElectronicsPierre2014}, meaning that at a nominal \TTWO
 rate, events are overwritten after $\sim\SI{50}{\second}$. In practice, not more
-than $\sim\SI{8}{\second}$ are needed for \CDAS to request \TTWO information
+than $\sim\SI{8}{\second}$ are needed for the \CDAS to request \TTWO information
 \footnote{Thunderstorms can cause large backlogs in \TTHREEs. For this, a fix 
 was presented in \todo[inline]{cite icrc2025 proceeding}.}
 \cite{collaborationPierreAugerObservatory2016}.
@@ -755,14 +755,12 @@ was presented in \todo[inline]{cite icrc2025 proceeding}.}
   \caption[]{\subref{fig:ssd-histo} Example calibration histogram for \Qmip. A
   specialized \DAQ setup allows for the distinction of vertical (solid black
   line) and omnidirectional (dashed red line) events 
-  \cite{assisMeasurementWaterCherenkovDetector2016}, and reveals the systematic
-  difference between the two distributions. Data is from 
+  \cite{assisMeasurementWaterCherenkovDetector2016}. Data is from 
   \cite{sarmentoVerticalVsOmnidirectional2024}. 
-  \subref{fig:filter-and-downsample} Comparison between the simulated detector 
-  response of a \UUB station (top), and a \UB station (bottom). Pulse heights 
-  recorded from the same signal are $\sim\SI{15}{\percent}$ lower for a \FDS
-  trace compared to its' \FBW counterpart 
-  \cite{convengaLocalStationCalibrationDummies2023}.
+  \subref{fig:filter-and-downsample} Comparison between the simulated \WCD 
+  response in a \UUB \FBW trace (top), and its' \FDS counterpart (bottom). 
+  Pulse heights recorded from the same signal are $\sim\SI{15}{\percent}$ lower 
+  for the \FDS trace \cite{convengaLocalStationCalibrationDummies2023}.
 }
   \label{fig:uub-trace-details}
 \end{figure}
@@ -789,11 +787,67 @@ logged in histograms with predefined binning
 \cite{bertouCalibrationSurfaceArray2006}. An example histogram for the \SSD
 charge, \Qmip, is shown in \cref{fig:ssd-histo}. Similar histograms are 
 constructed for all \WCD \LPMTs, and updated every \SI{61}{\second}. Upon a 
-\TTHREE request from \CDAS, all histograms are sent to the central server and
-used to approximate the minute values of \Ivem, \Qvem, \Imip, and \Qmip \todo{ref here}.
+\TTHREE request from the \CDAS, all histograms are sent to the central server 
+and used to approximate the minute values of \Ivem, \Qvem, \Imip, and \Qmip \todo{ref here}.
 
 \subsection{Event Detection}
 \label{ssec:sd-triggers}
+
+The autonomy of the \SD-stations requires them to independently recognize when
+an \EAS passes through them. Several algorithms are in place to detect detector
+data that deviates from the electronic noise, or low-threshold pulses from 
+atmospheric muons. If an \EAS candidate is observed by the local station a 
+\acfp{T2} is sent to the \CDAS. All station level trigger algorithms presented 
+here have been in operation since many years, with the majority being present 
+since the construction of the first \WCD tanks 
+\cite{thepierreaugercollaborationPierreAugerObservatory1997}. Importantly, this 
+means that the various trigger hyperparameters are optimized for \UB 
+electronics, which have a \SI{40}{\mega\hertz} sampling rate 
+(\SI{25}{\nano\second} binning), compared to what is in use today in the \UUB 
+(\SI{120}{\mega\hertz} sample rate, \SI{8.333}{\nano\second} binning). To 
+address this, the same trigger algorithms that were in use for the \UB are 
+operated with the same hyperparameters in a compatibility mode, where incoming 
+\UUB detector data is filtered and downsampled to resemble \UB data. More 
+specifically, a \acf{FDS} fake \UB trace $f$ (containing 682 samples) is 
+calculated from a weighted sum of the \acf{FBW} trace $b$ (2048 samples) 
+according to \cref{eq:filter-and-downsample} 
+\cite{convengaLocalStationCalibrationDummies2023}.
+
+\begin{equation}
+\label{eq:filter-and-downsample} 
+f_i = \frac{1}{2048} \sum^{2 n - 1}_{j = 0} b_{3i+p-j} \, \mathrm{FIR}_{n - \left| j-n \right|}, \qquad p = \left\{ 0, 1, 2 \right\}.
+\end{equation}
+
+In \cref{eq:filter-and-downsample}, $p$ gives a random phase for the 
+downsampling of the filtered trace, and is essentially random, and based on the
+uptime of the \FPGA. The \FIR weights applied to the \FBW trace are given as
+$\mathrm{FIR} = \left\{ 5, 0, 12, 22, 0, -61, -96, 0, 256, 551, 681 \right\}$, 
+and $n=11$. The normalizing factor $2048$ differs slightly from 
+$\sum^{2n-1}_{j=0} \mathrm{FIR}_{n-\left| j-n \right|} = 2059$, and is chosen 
+because the division by $2048 = 2^{11}$ can be represented by a bit shift to the
+right. The effect that this has on detector data is shown in a comparison in 
+\cref{fig:filter-and-downsample}.
+
+\subsubsection{Threshold Trigger}
+\subsubsection{Time Over Threshold}
+\subsubsection{Time Over Threshold Deconvoluted}
+\subsubsection{Multiplicity Of Positive Steps}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Array Structure}
 \label{ssec:array-structure}
