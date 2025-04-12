@@ -8,7 +8,7 @@ DOCSTRING5="\\\renewcommand{\\\baselinestretch}{1.5}%"
 DOCSTRING6="\pagestyle{plain}\n"
 DOCSTRING7="\chapter*{Acronyms}"
 DOCSTRING8="\label{chapter:acronyms}\n"
-DOCSTRING9="This is a list of alphabetically sorted acronyms used throughout this work.\n"
+DOCSTRING9="This is a list of alphabetically sorted acronyms and abbreviations used throughout this work.\n"
 
 
 case $HOSTNAME in

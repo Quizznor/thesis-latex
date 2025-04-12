@@ -18,12 +18,6 @@
                         <foaf:givenName>Antonella</foaf:givenName>
                     </foaf:Person>
                 </rdf:li>
-                <rdf:li>
-                    <foaf:Person>
-                        <foaf:surname>Roth</foaf:surname>
-                        <foaf:givenName>Markus</foaf:givenName>
-                    </foaf:Person>
-                </rdf:li>
             </rdf:Seq>
         </bib:authors>
         <dc:subject>private</dc:subject>
@@ -35958,6 +35952,97 @@ DOI: 10.22323/1.395.0270</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
+    <bib:Letter rdf:about="#item_244">
+        <z:itemType>email</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sarmento</foaf:surname>
+                        <foaf:givenName>Raul</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>private</dc:subject>
+        <dc:date>10/22/2024</dc:date>
+        <dc:title>Vertical vs Omnidirectional MIP plot</dc:title>
+    </bib:Letter>
+    <bib:BookSection rdf:about="https://pos.sissa.it/236/620/">
+        <z:itemType>bookSection</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Book>
+                <prism:volume>236</prism:volume>
+                <dc:title>Proceedings of The 34th International Cosmic Ray Conference — PoS(ICRC2015)</dc:title>
+            </bib:Book>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>SISSA Medialab</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Assis</foaf:surname>
+                        <foaf:givenName>Pedro</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_246"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>Measurement of the water-Cherenkov detector response to inclined muons using an RPC hodoscope</dc:title>
+        <dc:date>2016-08-18</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>pos.sissa.it</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://pos.sissa.it/236/620/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-12 01:07:04</dcterms:dateSubmitted>
+        <dc:description>Conference Name: The 34th International Cosmic Ray Conference
+DOI: 10.22323/1.236.0620</dc:description>
+        <bib:pages>620</bib:pages>
+    </bib:BookSection>
+    <z:Attachment rdf:about="#item_246">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://pos.sissa.it/236/620/pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-12 01:07:10</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Data rdf:about="https://gitlab.iap.kit.edu/auger-observatory/sde/uub/daq/-/blob/master/src/MuonFill/muoncalib.c">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sato</foaf:surname>
+                        <foaf:givenName>Ricardo</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <dc:subject>auger</dc:subject>
+        <prism:edition>V128r0b0p29</prism:edition>
+        <dc:title>UUB DAQ release</dc:title>
+        <dc:date>09/05/2024</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://gitlab.iap.kit.edu/auger-observatory/sde/uub/daq/-/blob/master/src/MuonFill/muoncalib.c</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:description>l759-l794</dc:description>
+        <z:programmingLanguage>C</z:programmingLanguage>
+    </bib:Data>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -35988,6 +36073,7 @@ DOI: 10.22323/1.395.0270</dc:description>
         <dcterms:hasPart rdf:resource="https://www.google.com/search?client=firefox-b-e&amp;channel=entpr&amp;q=Motorola+Oncore+UT%2B+GPS"/>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/157-gap-notes-2023/5755-gap2023-049"/>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/5-gap-notes-2013/150-gap2013-069"/>
+        <dcterms:hasPart rdf:resource="https://gitlab.iap.kit.edu/auger-observatory/sde/uub/daq/-/blob/master/src/MuonFill/muoncalib.c"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_2">
         <dc:title>Other</dc:title>
@@ -36062,11 +36148,13 @@ DOI: 10.22323/1.395.0270</dc:description>
         <dcterms:hasPart rdf:resource="https://www.epj-conferences.org/articles/epjconf/abs/2023/09/epjconf_uhecr2023_06002/epjconf_uhecr2023_06002.html"/>
         <dcterms:hasPart rdf:resource="https://pos.sissa.it/395/270/"/>
         <dcterms:hasPart rdf:resource="https://dx.doi.org/10.1088/1748-0221/9/04/T04003"/>
+        <dcterms:hasPart rdf:resource="https://pos.sissa.it/236/620/"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
         <dc:title>Private</dc:title>
         <dcterms:hasPart rdf:resource="#item_1"/>
         <dcterms:hasPart rdf:resource="#item_219"/>
         <dcterms:hasPart rdf:resource="#item_228"/>
+        <dcterms:hasPart rdf:resource="#item_244"/>
     </z:Collection>
 </rdf:RDF>

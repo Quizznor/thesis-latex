@@ -173,7 +173,7 @@ the order that light traverses them (see \cref{fig:fd-schematic},
   concave $\SI{3.6}{\meter}\times\SI{3.6}{\meter}$ shape, which reflects and 
   concentrates incoming light towards the camera.
 
-  \item For \textbf{the Camera} refer to the next subsection.
+  \item For \textbf{the Camera} refer to the next \cref{ssec:fd-camera}.
 \end{enumerate}
 
 \subsubsection{High Elevation Auger Telescope (HEAT)}
@@ -188,7 +188,8 @@ the upper atmosphere, where lower energy \EASs are more prevalent. \HEAT extends
 the energy scale seen by the \FD by one order of magnitude 
 \cite{mathesHEATTelescopesPierre2011}.
 
-\subsection{Camera and Readout Electronics}
+\subsection{Readout Electronics}
+\label{ssec:fd-camera}
 
 The camera for each telescope consists of 440 Photonis XP3062 \PMTs that serve 
 as the individual pixels. The specific model is chosen because it minimizes 
@@ -201,6 +202,9 @@ sit between neighbouring pixels to boost light collection efficiency, as well as
 increase the camera point resolution. Finally, the voltage at the anode of the 
 \PMTs is read out at a sampling frequency of \SI{10}{\mega\hertz} 
 (\SI{20}{\mega\hertz} for \HEAT) and digitized by 12-bit \ADC-converter stages. 
+
+\subsection{Event Detection}
+\label{ssec:fd-triggers}
 
 The accurate reconstruction of an \EAS requires the camera to have an excellent 
 background rejection (of e.g. transient stars in the camera \FOV). On top of 
@@ -260,7 +264,7 @@ calibration constants are measured with an uncertainty of approximately $9\%$
 the total uncertainty in the \PAO energy scale of $14\%$ 
 \cite{verziEnergyScalePierre2013}.
 
-\subsubsection{Atmospheric laser shots}
+\subsubsection{Atmospheric Laser Shots}
 
 The \PAO operates two atmospheric lasers, the \CLF, and the \XLF 
 \cite{collaborationTechniquesMeasuringAerosol2013}. Their primary science case 
@@ -275,7 +279,7 @@ the atmosphere are not known with sufficient precision. Moreover, not all
 pixels in all telescopes see the laser beams, which drastically lowers the 
 accuracy of the presented method.
 
-\subsubsection{Drone based calibration}
+\subsubsection{Drone Based Calibration}
 
 A remote-controlled drone equipped with a light source is used to simulate a 
 distant point source in the \FD-\FOV \cite{wernerDesignTestFlying2010, 
@@ -286,7 +290,7 @@ every pixel. Other methods are less time intensive and therefore preferred.
 Nevertheless, the drone proves useful in measuring the optical properties of 
 the \FD-mirrors, such as the \PSF \cite{ungerSimulationPointSpread2013}.
 
-\subsubsection{Drum calibration}
+\subsubsection{Drum Calibration}
 
 \begin{figure}[t]
   \centering
@@ -418,8 +422,8 @@ derive their electrical power from a solar panel, and have (limited)
 computational resources at hand that control communication with the \CDAS, data 
 readout, and run procedures to self-calibrate the individual detectors. 
 
-\subsection{Station components}
-\label{ssec:station-components}
+\subsection{Detector Components}
+\label{ssec:detector-components}
 
 The main detector and processing components (\WCD, \UUB, etc.) are presented in
 the following subsections. Some auxiliary hardware components (auxiliary in the 
@@ -597,7 +601,7 @@ found in \todo{ref here}. Additionally, a novel algorithm developed in this work
 allows the estimation of \Imip on a station-level. Implementation details can be
 found in \todo{ref here}.
 
-\subsubsection{Underground Muon detector (UMD)}
+\subsubsection{Underground Muon Detector (UMD)}
 \label{sssec:umd}
 
 \begin{figure}[t]
@@ -683,7 +687,7 @@ of the galactic radio background instead. This provides a measure of the antenna
 directional gain that agrees to within $\sim5\%$ with simulations 
 \cite{huegeRadioDetectorPierre2023, fodranFirstResultsAugerPrime2022}.
 
-\subsection{Upgraded Unified Board (UUB)}
+\subsection{Station Electronics}
 \label{ssec:uub}
 
 The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
@@ -699,7 +703,7 @@ processing, as well as the tasks of the Xilinx Zynq-7020 \SOC, equipped with a
 dual-core \CPU \cite{amdZynq7000SoC2023} that handles higher-level programming 
 logic. 
 
-\subsubsection{FPGA and memory buffers}
+\subsubsection{FPGA and Memory Buffers}
 \label{sssec:fpga-buffers}
 
 The main purpose of the \FPGA is to read out the 
@@ -728,7 +732,7 @@ than that of the muon buffer, but the volume of information contained in the
 shower buffer is far more exhaustive. Upon a \TTWO, 2048 samples 
 ($\cong\SI{17.07}{\micro\second}$) of all ten \HG and \LG channels are stored in
 the circular buffer. This data is the raw event data that gets sent to \CDAS
-upon an \TTHREE request (see \cref{sssec:sd-triggers}). In total, the two shower
+upon a \TTHREE request (see \cref{sssec:sd-triggers}). In total, the two shower
 buffers can hold up to 1024 \TTWO events 
 \cite{wainbergDigitalElectronicsPierre2014}, meaning that at a nominal \TTWO
 rate, events are overwritten after $\sim\SI{50}{\second}$. In practice, not more
@@ -737,7 +741,7 @@ than $\sim\SI{8}{\second}$ are needed for \CDAS to request \TTWO information
 was presented in \todo[inline]{cite icrc2025 proceeding}.}
 \cite{collaborationPierreAugerObservatory2016}.
 
-\subsubsection{Muon histograms}
+\subsubsection{Muon Calibration Histograms}
 \label{sssec:muon-histograms}
 
 \begin{figure}[t]
@@ -748,16 +752,50 @@ was presented in \todo[inline]{cite icrc2025 proceeding}.}
   \subfloat[]{\includegraphics[height=0.34\textwidth]{auger-observatory/filter_and_downsample.png}
   \label{fig:filter-and-downsample}
   }
-  \caption[]{\subref{fig:ssd-histo}  \subref{fig:filter-and-downsample} }
+  \caption[]{\subref{fig:ssd-histo} Example calibration histogram for \Qmip. A
+  specialized \DAQ setup allows for the distinction of vertical (solid black
+  line) and omnidirectional (dashed red line) events 
+  \cite{assisMeasurementWaterCherenkovDetector2016}, and reveals the systematic
+  difference between the two distributions. Data is from 
+  \cite{sarmentoVerticalVsOmnidirectional2024}. 
+  \subref{fig:filter-and-downsample} Comparison between the simulated detector 
+  response of a \UUB station (top), and a \UB station (bottom). Pulse heights 
+  recorded from the same signal are $\sim\SI{15}{\percent}$ lower for a \FDS
+  trace compared to its' \FBW counterpart 
+  \cite{convengaLocalStationCalibrationDummies2023}.
+}
   \label{fig:uub-trace-details}
 \end{figure}
 
+The muon buffers presented in \cref{sssec:fpga-buffers} contain data from short 
+pulses recorded mostly from single muons passing through the water volume. Since
+muons in \EASs are produced in the minimum of the Bethe-Bloch curve they have a
+characteristic energy deposit and detector signature in the \WCD and \SSD. To 
+utilize this knowledge in calibrating the detectors, the \CPU analyzes all $n$
+traces (containing 69 samples $b_i$ of data) collected in the muon buffer over 
+the last \SI{61}{\second} and calculates the baseline $B$, peaks $I_n$, and 
+charges $Q_n$ as 
 
+\begin{equation}
+\label{eq:peak-and-charge}
+B = \frac{1}{n} \sum^n_{i=1} b_{0,\,i}\,, \qquad I_n = \mathrm{max}\left( b_{n} - B_\mathrm{prev.} \right), \qquad Q_n = \sum^{69}_{j=1} b_{j,\,n} - B_\mathrm{prev.}. 
+\end{equation}
 
-\subsubsection{Station Level Trigger Algorithms}
+In \cite{satoUUBDAQRelease2024} $B_\mathrm{prev.}$ is the baseline $B$ of the 
+previous \DAQ interval. That is to say, $B_\mathrm{prev.}$ gives the mean of the
+first bin of all traces of the previous \SI{61}{\second} interval that was
+analyzed \cite{satoUUBDAQRelease2024}. The distributions of $I_n$ and $Q_n$ are 
+logged in histograms with predefined binning 
+\cite{bertouCalibrationSurfaceArray2006}. An example histogram for the \SSD
+charge, \Qmip, is shown in \cref{fig:ssd-histo}. Similar histograms are 
+constructed for all \WCD \LPMTs, and updated every \SI{61}{\second}. Upon a 
+\TTHREE request from \CDAS, all histograms are sent to the central server and
+used to approximate the minute values of \Ivem, \Qvem, \Imip, and \Qmip \todo{ref here}.
 
+\subsection{Event Detection}
+\label{ssec:sd-triggers}
 
-\subsection{Array structure}
+\subsection{Array Structure}
 \label{ssec:array-structure}
 
 The \SD is designed to detect the footprint of an \EAS on the surface of the 
@@ -842,12 +880,6 @@ operation of the upgraded AugerPrime electronics
 \end{figure}
 
 
-
-\subsection{SD triggers and EAS detection}
-\label{ssec:sd-triggers}
-
-\subsection{FD triggers and EAS detection}
-\label{ssec:fd-triggers}
 
 \subsection{\Offline event reconstruction}
 \label{ssec:offline-event-reconstruction}
