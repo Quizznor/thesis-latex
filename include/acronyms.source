@@ -32,7 +32,7 @@ LL         Los Leones
 LM         Los Morados
 LPMT       Large PMT
 MIP        Minimum Ionizing Particle
-MOPS       Multiplicity Of Positive Steps
+MoPS       Multiplicity of Positive Steps
 PAO        Pierre Auger Observatory
 PCB        Printed Circuit Board
 PMT        Photomultiplier Tube
@@ -52,8 +52,8 @@ SiPM       Silicon Photomultiplier
 T2         Station Level Trigger
 T3         Event Level Trigger
 TLT        Third Level Trigger
-TOT        Time Over Threshold
-TOTD       Time Over Threshold Deconvoluted
+ToT        Time over Threshold
+ToTd       Time over Threshold deconvoluted
 UB         Unified Board
 UHE        Ultra High Energy
 UHECR      UHE Cosmic Ray

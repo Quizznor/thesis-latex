@@ -5,10 +5,11 @@
 
 The \PAO is the largest scientific experiment in the world, spanning an area of
 roughly \SI{3000}{\kilo\meter\squared}. It consists of an array of 1660 \WCDs, 
-which form the \SD, and 27 fluorescence telescopes, that comprise the \FD. The
-simultaneous detection of \CR-artifacts in the air and on ground via this 
-hybrid approach offers a unique possibility to observe \UHECRs at the tail-end 
-of the \CR energy spectrum.
+which form the \SD, and 27 fluorescence telescopes, that comprise the \FD. Data
+is collected at one location, the \CDAS, in the nearby city of Malargüe. The
+hybrid detection of \CR-artifacts in the air and on ground via the simultaneous
+operation of the \FD and the \SD offers a unique possibility to observe \UHECRs
+at the tail-end of the \CR energy spectrum. 
 
 \section{Project History and Future}
 \label{sec:project-history-and-future}
@@ -19,9 +20,8 @@ of the \CR energy spectrum.
 The project that is today known as the \acl{PAO} looks back on a history which 
 spans more than three decades in total. First plans for a \CR detector of
 immense exposure were devised by Nobel laureate James Cronin 
-\cite{nobelprizeoutreach2025NobelPrizePhysics} and Faraday medalist Alan Watson 
-\cite{FellowWinsIoP2011} at the 22nd \ICRC \cite{watsonDevelopmentPierreAuger}.
-
+\cite{nobelprizeoutreach2025NobelPrizePhysics} and Faraday medalist Alan Watson
+\cite{FellowWinsIoP2011} at the 22nd \ICRC \cite{watsonDevelopmentPierreAuger}
 They realized that the flux of \UHECRs is very low 
 ($\approx\SI{1}{\per\km\squared\per\year}$ for energies above \SI{1e19}{\eV} 
 \cite{fenuCosmicRayEnergy2023}), and that one needs to observe a large area 
@@ -44,16 +44,15 @@ use today. Most importantly, what was originally envisioned to be a detector
 with an active area of \SI{6000}{\km\squared} spread over two locations (Auger 
 North and Auger South) had to be amended and only one site with and area of 
 \SI{3000}{\km\squared}, located in the Argentinian Pampa Amarilla in the 
-Mendoza province, came to be. There, construction of an Engineering Array - a 
-full scale prototype of the first \SD and \FD detectors (see \cref{sec:sd} and 
-\cref{sec:fd} respectively) was completed in 2001. More hardware was added 
-after first successful measurements, making the \PAO the largest observatory 
-for \CRs by the end of 2003.
+Mendoza province, came to be. There, the construction of an Engineering Array, 
+a full scale prototype of the first \SD and \FD detectors was completed in 
+2001. More hardware was added after first successful measurements, making the 
+\PAO the largest observatory for \CRs by the end of 2003.
 
 The detector has been operating almost continuously ever since, resulting in a 
 total exposure well surpassing \SI{100000}{\km\squared\sr\year} 
 \cite{aabPierreAugerObservatory2020}. Thanks to this, the Pierre Auger 
-Collaboration has delivered key insights that advanced our understanding of 
+Collaboration has delivered key insights that advanced the understanding of 
 astroparticle and high-energy physics. Most notably, the \PAO confirmed a 
 strong suppression of the \CR-flux for particles above 
 $E\approx\SI{4e19}{\eV}$ \cite{yamamotoUHECRSpectrumMeasured2007} (see 
@@ -98,7 +97,7 @@ contributions that attempt to shed light into the physics of \UHECRs, with this
 work being just one example.
 
 \section{The Fluorescence Detector}
-\label{sesee}
+\label{sec:fd}
 
 The \acf{FD} of the \PAO is a set of 27 reflector telescopes tuned to detect 
 faint sources of \UV light. More specifically, the aim of the \FD is to observe
@@ -865,8 +864,8 @@ that might be induced by neutrinos
 
 \subsubsection{Time Over Threshold}
 
-The \TOT trigger is an altered version of the threshold trigger. Instead of 
-requiring a \SB exceedance of a high threshold, the \TOT scans a window of 120
+The \ToT trigger is an altered version of the threshold trigger. Instead of 
+requiring a \SB exceedance of a high threshold, the \ToT scans a window of 120
 samples of the \FDS detector signal. For each window and \WCD \PMT, the number 
 of bins above a threshold of \SI{0.2}{\VemOnline} are counted. If two or more
 \PMTs have a count of $>12$ bins above the threshold, a \TTWO is raised.
@@ -878,9 +877,9 @@ trigger frequency of $\sim\SI{2}{\hertz}$.
 
 \subsubsection{Time Over Threshold Deconvoluted}
 
-The \TOTD trigger has the same trigger requirements as the \TOT, with the only
+The \ToTd trigger has the same trigger requirements as the \ToT, with the only
 difference being the input data that is fed into the trigger. Before passing 
-the \TOTD, the filtered and downsampled detector data is convoluted with a 
+the \ToTd, the filtered and downsampled detector data is convoluted with a 
 kernel that accounts for the exponential decay of light intensity from a single
 flash.
 
@@ -894,16 +893,16 @@ further detail and motivates the \SI{25}{\nano\second} in \cref{eq:totd-input}
 as the binning of the \UB, and \SI{67}{\nano\second} is the time constant of 
 the exponential decay, as determined by measurements. This reduces the 
 exponential tail of the \WCD signal to a series of (in theory) \SB pulses whose
-pulse height correlates well with the deposited total signal. The \TOTD has 
+pulse height correlates well with the deposited total signal. The \ToTd has 
 been in use in the \SD since 2013, and extend the sensitivity of the \SD 
 stations to fainter signals, and lower \EAS primary energies 
 \cite{billoirFirstResultsToTd2013}.
 
 \subsubsection{Multiplicity Of Positive Steps}
 
-The \MOPS trigger is the last and most intricate addition to \SD \TTWO triggers
+The \MoPS trigger is the last and most intricate addition to \SD \TTWO triggers
 \cite{billoirPropositionImproveLocal13}. Instead of relying on the \WCD signal
-amplitude, the \MOPS trigger is sensitive to the signal shape. Specifically, it
+amplitude, the \MoPS trigger is sensitive to the signal shape. Specifically, it
 scans the \LPMT traces for rising flanks, where consecutive bins show an
 increase in \ADC counts. After applying some selection criteria (see 
 \cite{colemanNewTriggerSettings2018}), the number of detected positive steps
@@ -976,13 +975,18 @@ the correct operation of the upgraded AugerPrime electronics
 \end{table}
 \endgroup
 
-\section{Central Data Acquisition System}
-\label{sec:cdas}
-
-The \acf{CDAS}
-
-\section{Event detection and reconstruction}
+\section{Event Reconstruction}
 \label{sec:event-reconstruction}
+
+\subsection{Event Level Trigger}
+\label{ssec:cdas}
+
+The first action in the chain of \EAS event reconstruction is the detection of
+an air shower. This occurs at the level of the \acf{CDAS}, the collection of 
+servers that represent the central hub to which data from all detectors is 
+sent. 
+
+\subsubsection{Surface Detector}
 
 \begin{figure}[t]
   \centering
@@ -996,11 +1000,26 @@ The \acf{CDAS}
   \label{fig:}
 \end{figure}
 
+The \CDAS receives a list of stations that have recently seen a \TTWO. It then
+analzyes the spatial and temporal distribution of \TTWOs for coincidences, as 
+these may be caused by \EASs. For any \TTWO at a candidate station, the 
+surrounding crowns $C_1, ..., C_4$ representing the sets of  
+$1\mathrm{st}, ..., 4\mathrm{th}$ nearest neighbor stations are analyzed for 
+coincident \TTWO triggers. Due to the finite speed of light, a grace period of 
+$(6 + 5n)\,\mathrm{ns}$ is allowed for a station in $C_n$ to be coincident with
+the candidate station. Two scanning strategies are utilized when searching 
+for \acfp{T3}. Both rely on a compactness criteria of the underlaying \TTWOs.
 
+The $\ToT2C_1\&3C_2$, or vertical mode, requires all participating station 
+triggers to be \ToT-like triggers (\ToT, \ToTd, \MoPS). Then, at least one 
+\ToT-like station is required within the $1\mathrm{st}$ nearest neighbors, and
+at least three triggered stations must exist up to the $2\mathrm{nd}$ nearest
+neighbors. \cref{fig:t3-vertical} gives example trigger configurations that 
+result in a $\ToT2C_1\&3C_2$ \TTHREE.
 
-\subsection{\Offline event reconstruction}
-\label{ssec:offline-event-reconstruction}
+An example of the second mode, the $2C_1\&3C_2\&4C_4$ \TTHREE trigger is shown
+in \cref{fig:t3-horizontal}. 
 
+\subsubsection{Fluorescence Detector}
 
 \todo{reconstructed quantities table}
-

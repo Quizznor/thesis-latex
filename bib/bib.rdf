@@ -36278,6 +36278,43 @@ DOI: 10.22323/1.236.0620</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Report rdf:about="https://auger.org/document-centre2/download/7-gap-notes-2009/751-gap2009-179">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Billoir</foaf:surname>
+                        <foaf:givenName>Pierre</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_263"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Proposition to improve the local trigger of the Surface Detector for low energy showers</dc:title>
+        <dc:date>12/12/13</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/7-gap-notes-2009/751-gap2009-179</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-12 19:47:09</dcterms:dateSubmitted>
+        <prism:number>2009-179</prism:number>
+        <z:type>GAP note</z:type>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_263">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>GAP2009_179 Proposition to improve the local trigger of the Surface Detector for low energy showers</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://auger.org/document-centre2/download/7-gap-notes-2009/751-gap2009-179</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-12 19:47:11</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -36313,6 +36350,7 @@ DOI: 10.22323/1.236.0620</dc:description>
         <dcterms:hasPart rdf:resource="https://www.desmos.com/calculator?lang=de"/>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/107-gap-notes-2018/4593-gap2018-001"/>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/3-gap-notes-2011/62-gap2011-032"/>
+        <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/7-gap-notes-2009/751-gap2009-179"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_2">
         <dc:title>Other</dc:title>
