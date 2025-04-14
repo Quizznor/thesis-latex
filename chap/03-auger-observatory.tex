@@ -904,11 +904,12 @@ The \MoPS trigger is the last and most intricate addition to \SD \TTWO triggers
 \cite{billoirPropositionImproveLocal13}. Instead of relying on the \WCD signal
 amplitude, the \MoPS trigger is sensitive to the signal shape. Specifically, it
 scans the \LPMT traces for rising flanks, where consecutive bins show an
-increase in \ADC counts. After applying some selection criteria (see 
-\cite{colemanNewTriggerSettings2018}), the number of detected positive steps
-in a window of 120 bins is counted. If the number of rising flanks exceeds $4$ 
-for at least two \LPMTs, a final check on the integral of the \FDS trace is 
-made, that, if it succeeds results in the deployment of a \TTWO to the \CDAS.
+increase in \ADC counts. After applying some selection criteria on the scale of
+the rising flank (see \cite{colemanNewTriggerSettings2018}), the number of 
+detected positive steps in a window of 120 bins is counted. If the number of 
+rising flanks exceeds $4$ for at least two \LPMTs, a final check on the 
+integral of the \FDS trace is made, that, if it succeeds results in the 
+deployment of a \TTWO to the \CDAS.
 
 \subsection{Array Structure}
 \label{ssec:array-structure}
@@ -996,7 +997,12 @@ sent.
   \subfloat[]{\includegraphics[height=0.33\textwidth]{auger-observatory/t3_horizontal_mode.png}
   \label{fig:t3-horizontal}
   }
-  \caption[]{\subref{fig:t3-vertical}  \subref{fig:t3-horizontal} }
+  \caption[]{\subref{fig:t3-vertical} Example configuration for a 
+  $\ToT2C_1\&3C_2$ \TTHREE trigger made up of \ToT-like \TTWOs exclusively. 
+  Only the number of triggered stations within a crown matters, not their 
+  positioning. \subref{fig:t3-horizontal} Station trigger configuration that 
+  would result in a $2C_1\&3C_2\&4C_4$. Only one of the stations in the two 
+  outermost crowns is required to form the \TTHREE.}
   \label{fig:}
 \end{figure}
 
@@ -1007,8 +1013,9 @@ surrounding crowns $C_1, ..., C_4$ representing the sets of
 $1\mathrm{st}, ..., 4\mathrm{th}$ nearest neighbor stations are analyzed for 
 coincident \TTWO triggers. Due to the finite speed of light, a grace period of 
 $(6 + 5n)\,\mathrm{ns}$ is allowed for a station in $C_n$ to be coincident with
-the candidate station. Two scanning strategies are utilized when searching 
-for \acfp{T3}. Both rely on a compactness criteria of the underlaying \TTWOs.
+the candidate station \cite{abrahamTriggerApertureSurface2010}. Two scanning 
+strategies are utilized when searching for \acfp{T3}. Both rely on a 
+compactness criteria of the underlaying \TTWOs.
 
 The $\ToT2C_1\&3C_2$, or vertical mode, requires all participating station 
 triggers to be \ToT-like triggers (\ToT, \ToTd, \MoPS). Then, at least one 
