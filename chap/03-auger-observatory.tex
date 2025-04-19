@@ -837,6 +837,7 @@ the right. The effect that this has on detector data is shown in a comparison
 in \cref{fig:filter-and-downsample}.
 
 \subsubsection{Threshold Trigger}
+\label{sssec:threshold-t2}
 
 \begin{figure}[t]
   \centering
@@ -1017,15 +1018,32 @@ the candidate station \cite{abrahamTriggerApertureSurface2010}. Two scanning
 strategies are utilized when searching for \acfp{T3}. Both rely on a 
 compactness criteria of the underlaying \TTWOs.
 
-The $\ToT2C_1\&3C_2$, or vertical mode, requires all participating station 
-triggers to be \ToT-like triggers (\ToT, \ToTd, \MoPS). Then, at least one 
-\ToT-like station is required within the $1\mathrm{st}$ nearest neighbors, and
-at least three triggered stations must exist up to the $2\mathrm{nd}$ nearest
-neighbors. \cref{fig:t3-vertical} gives example trigger configurations that 
+The $\ToT2C_1\&3C_2$ mode requires all participating station triggers to be 
+\ToT-like, meaning \ToT, \ToTd, or \MoPS. Then, at least two \ToT-like stations
+(including the central station $C_0$) are required within $C_1$, and at least 
+three triggered stations must exist up to the $2\mathrm{nd}$ nearest neighbors 
+in $C_2$. \cref{fig:t3-vertical} gives example trigger configurations that 
 result in a $\ToT2C_1\&3C_2$ \TTHREE.
 
 An example of the second mode, the $2C_1\&3C_2\&4C_4$ \TTHREE trigger is shown
-in \cref{fig:t3-horizontal}. 
+in \cref{fig:t3-horizontal}. It accepts any kind of \TTWO, namely the noisy 
+threshold trigger (refer to \cref{sssec:threshold-t2}). It requires four 
+active stations. At least two stations (including the central station) in 
+$C_1$, at least three within $C_2$, and at least one more trigger anywhere 
+within $C_3$ or $C_4$.
+
+Due to their respective selection criteria, both trigger configurations have 
+their own use case. The $\ToT2C_1\&3C_2$, due to the underlaying local triggers
+providing an excellent background rejection, has a fraction of true \EAS events
+that surpasses \SI{95}{\percent} \todo{cite/write proceeding}. It provides the
+main trigger mode for showers impinging on the array with an inclination of up 
+to $\sim\SI{60}{\degree}$. Higher inclination showers are attenuated more 
+strongly due to having passed more atmosphere. Usually, the \EM component of 
+horizontal \EASs gets thermalized before the shower reaches the ground, and 
+only the muonic component survives. This results in short, strong pulses and 
+threshold \TTWOs being recorded in the local stations.  It is thus the main 
+trigger for highly inclined shoewr events, at the cose of a purity of only 
+\SIrange{3}{10}{\percent} \todo{proceeding} \cite{todo, abrahamTriggerApertureSurface2010}.
 
 \subsubsection{Fluorescence Detector}
 
