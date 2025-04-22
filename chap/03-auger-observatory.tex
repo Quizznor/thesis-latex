@@ -86,7 +86,7 @@ channels and improved readout electronics. The \FD telescopes duty cycle was
 improved, and new methods for data analysis are being tested.
 
 As of the completion of this thesis, the AugerPrime hardware and software 
-upgrade is completed and described in \todo{augerprime ref here} and 
+upgrade is completed and described in the following pages as well as in 
 \cite{collaborationPierreAugerObservatory2011}. The observatory delivers data 
 with lower systematics and additional information from the new detectors. The 
 prospects of this detector upgrade have astroparticle physicists excited, and 
@@ -234,10 +234,6 @@ $\SIrange[range-units = single]{0.1}{10}{\hertz\per\mathrm{telescope}}$ in the
 $\approx94\%$ accuracy by performing a data-based cut on the multiplicity of 
 active pixels \cite{abrahamFluorescenceDetectorPierre2010}. This reduces the 
 trigger rate to $\SI{0.01}{\hertz\per\mathrm{telescope}}$. 
-
-Finally, \TLTs from all telescopes in a building are analyzed for events that
-pass the \FOV of multiple cameras, and an \TTHREE, is issued to the \CDAS at a 
-rate of approximately $\SI{0.02}{\hertz\per\mathrm{building}}$.
 
 \subsection{Telescope Calibration}
 \label{ssec:fd-calibration}
@@ -826,15 +822,15 @@ according to \cref{eq:filter-and-downsample}
 f_i = \frac{1}{2048} \sum^{2 n}_{j = 0} b_{3i+p-j} \, \mathrm{FIR}_{n - \left| j-n \right|}, \qquad p = \left\{ 0, 1, 2 \right\}.
 \end{equation}
 
-In \cref{eq:filter-and-downsample}, $p$ gives a random phase for the 
+In \cref{eq:filter-and-downsample}, $p$ gives a phase offset for the 
 downsampling of the filtered trace, and is essentially random, and based on the
 uptime of the \FPGA. The \FIR weights applied to the \FBW trace are given as
 $\mathrm{FIR} = \left\{ 5, 0, 12, 22, 0, -61, -96, 0, 256, 551, 681 \right\}$, 
 and $n=10$. The normalizing factor $2048$ differs slightly from 
 $\sum^{2n}_{j=0} \mathrm{FIR}_{n-\left| j-n \right|} = 2059$, and is chosen 
-because the division by $2048 = 2^{11}$ can be represented by a bit shift to 
-the right. The effect that this has on detector data is shown in a comparison 
-in \cref{fig:filter-and-downsample}.
+because the division by $2048 = 2^{11}$ can be realized by a bit shift to the 
+right. A comparison between a \FBW and \FDS trace of the same physical signal 
+are shown in \cref{fig:filter-and-downsample}.
 
 \subsubsection{Threshold Trigger}
 \label{sssec:threshold-t2}
@@ -980,13 +976,33 @@ the correct operation of the upgraded AugerPrime electronics
 \section{Event Reconstruction}
 \label{sec:event-reconstruction}
 
-\subsection{Event Level Trigger}
+\subsection{Event Detection}
 \label{ssec:cdas}
 
 The first action in the chain of \EAS event reconstruction is the detection of
-an air shower. This occurs at the level of the \acf{CDAS}, the collection of 
-servers that represent the central hub to which data from all detectors is 
-sent. 
+an air shower. Based on the hybridity of the observatory, this happens in a 
+twofold way. Common to either case is the principle of a hierarchical trigger
+structure, where detector information is processed in-situ where possible, and 
+forwarded only if certain (trigger) conditions are met. The identification of
+an \EAS event the \PAO starts with an \acf{T3}, that occurs at the level
+of the \acf{CDAS}.
+
+\subsubsection{Fluorescence Detector}
+
+The lower level triggers analyzing pixel, pixel column, and camera data have 
+been introduced in \cref{ssec:fd-triggers}. There, a \acf{TLT} represents the 
+stage at which it has been determined that an \FD-camera has seen an \EAS.
+\TLTs from all telescopes in a building are analyzed for events that pass the 
+\FOV of multiple cameras. Every \TLT is treated as a \FD-\TTHREE at the \CDAS 
+level, denoting an \EAS event detection by the fluorescence telescopes. 
+Possible hybrid events are checked for by comparing coincident \FD and \SD 
+\TTHREEs. In the case of the \SD not detecting an \EAS the approximate impact 
+time of the \EAS on ground is calculated via a preliminary reconstruction of 
+the \FD detector data. Stations closest to the given \FD building are checked 
+for \TTWOs that lie within \SI{20}{\micro\second} of this core time. If any 
+station has a matching trigger, it is added to the event
+\cite{abrahamFluorescenceDetectorPierre2010, 
+thepierreaugercollaborationPierreAugerCosmic2015}.
 
 \subsubsection{Surface Detector}
 
@@ -1007,10 +1023,12 @@ sent.
   \label{fig:}
 \end{figure}
 
-The \CDAS receives a list of stations that have recently seen a \TTWO. It then
-analzyes the spatial and temporal distribution of \TTWOs for coincidences, as 
-these may be caused by \EASs. For any \TTWO at a candidate station, the 
-surrounding crowns $C_1, ..., C_4$ representing the sets of  
+For the \SD, the trigger hierarchy is based on the \acfp{T2} detailed in 
+\cref{ssec:sd-triggers}. Every station sends a list if its' \TTWO candidate 
+events to the \CDAS, along with a high-precision timestamp when the event 
+occured. The \CDAS analzyes the spatial and temporal distribution of \TTWOs for
+coincidences, as these may be caused by \EASs. For any \TTWO at a candidate 
+station, the surrounding crowns $C_1, ..., C_4$ representing the sets of  
 $1\mathrm{st}, ..., 4\mathrm{th}$ nearest neighbor stations are analyzed for 
 coincident \TTWO triggers. Due to the finite speed of light, a grace period of 
 $(6 + 5n)\,\mathrm{ns}$ is allowed for a station in $C_n$ to be coincident with
@@ -1042,9 +1060,29 @@ strongly due to having passed more atmosphere. Usually, the \EM component of
 horizontal \EASs gets thermalized before the shower reaches the ground, and 
 only the muonic component survives. This results in short, strong pulses and 
 threshold \TTWOs being recorded in the local stations.  It is thus the main 
-trigger for highly inclined shoewr events, at the cose of a purity of only 
+trigger for highly inclined shower events, at the cost of a purity of only 
 \SIrange{3}{10}{\percent} \todo{proceeding} \cite{todo, abrahamTriggerApertureSurface2010}.
 
-\subsubsection{Fluorescence Detector}
+\subsubsection{Event selection}
+
+The purity of the \SD-\TTHREEs especially is very poor. To combat this, 
+fiducial triggers need to be employed before the event reconstruction can take
+place. Immediately after a \TTHREE is issued and low-level detector data is 
+sent to the \CDAS, a T4 trigger rejects \TTHREE candidates whose participating
+station trigger timings do not fit a plane front hypothesis. Essentially, this 
+identifies \TTHREEs that are formed on the basis of random coincidences of 
+\TTWOs. The ratio of real \EAS events over generated T4s is about 
+\SIrange{98}{100}{\percent} \cite{abrahamTriggerApertureSurface2010}.
+
+A final T5 check requires the station that received the most signal to have all
+6 nearest neighbour stations existing and functioning. This ensures the 
+reconstructed quantities are not biased by the geometry of the array, which
+occurs especially at the edges of the \PAO. This requirement reduces the 
+effective size of the \SD-array by about \SI{10}{\percent} 
+\cite{abrahamTriggerApertureSurface2010}.
+
+\subsection{\Offline Reconstruction}
+
+hallo
 
 \todo{reconstructed quantities table}

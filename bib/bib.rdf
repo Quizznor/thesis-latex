@@ -13673,7 +13673,7 @@ Version Number: Final</dc:description>
         <dcterms:alternative>ApJ</dcterms:alternative>
         <dc:identifier>ISSN 0004-637X, 1538-4357</dc:identifier>
     </bib:Journal>
-    <bib:Book rdf:about="https://books.google.com/books?hl=de&amp;lr=&amp;id=nEBPDwAAQBAJ&amp;oi=fnd&amp;pg=PR3&amp;dq=Pro+c+ICRR+International+Symp+osium+on+the+Astrophysical+Asp+ects+of+the+Most+Energetic+Cosmic+Rays&amp;ots=2oluKCIa8-&amp;sig=aZ4oM_Yo_fYHfQw2ouRFYjhKjJM">
+    <bib:Book rdf:about="https://inspirehep.net/literature/325861">
         <z:itemType>book</z:itemType>
         <dc:publisher>
             <foaf:Organization>
@@ -13702,7 +13702,7 @@ Version Number: Final</dc:description>
         <z:libraryCatalog>Google Scholar</z:libraryCatalog>
         <dc:identifier>
             <dcterms:URI>
-                <rdf:value>https://books.google.com/books?hl=de&amp;lr=&amp;id=nEBPDwAAQBAJ&amp;oi=fnd&amp;pg=PR3&amp;dq=Pro+c+ICRR+International+Symp+osium+on+the+Astrophysical+Asp+ects+of+the+Most+Energetic+Cosmic+Rays&amp;ots=2oluKCIa8-&amp;sig=aZ4oM_Yo_fYHfQw2ouRFYjhKjJM</rdf:value>
+               <rdf:value>https://inspirehep.net/literature/325861</rdf:value>
             </dcterms:URI>
         </dc:identifier>
         <dcterms:dateSubmitted>2025-03-28 19:37:31</dcterms:dateSubmitted>
@@ -27629,6 +27629,7 @@ DOI: 10.5445/IR/1000160386</dc:description>
             </rdf:Seq>
         </bib:authors>
         <link:link rdf:resource="#item_181"/>
+        <dc:subject>phys</dc:subject>
         <dc:title>New electronics for the surface detectors of the Pierre Auger Observatory</dc:title>
         <dcterms:abstract>The surface detector array of the Pierre Auger Observatory consists of 1660 water-Cherenkov detectors that sample at the ground the charged particles and photons of air showers initiated by energetic cosmic rays. Each detector records data locally with timing obtained from Global Positioning System (GPS) units and power from solar panels and batteries. In the framework of the upgrade of the Auger Observatory, AugerPrime, new electronics has been designed for the surface detectors. The electronics upgrade includes better timing with up-to-date GPS receivers, higher sampling frequency, increased dynamic range, increased processing capability, and better calibration and monitoring systems. It will also process the data of the AugerPrime scintillator detectors. In this paper, the design of the new electronics will be presented and its performance will be discussed in light of results from test measurements and from the engineering array data analysis.</dcterms:abstract>
         <dc:date>2018-08-03</dc:date>
@@ -36315,6 +36316,52 @@ DOI: 10.22323/1.236.0620</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Article rdf:about="https://linkinghub.elsevier.com/retrieve/pii/S0168900215008086">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>798</prism:volume>
+                <dc:title>Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment</dc:title>
+                <dc:identifier>DOI 10.1016/j.nima.2015.06.058</dc:identifier>
+                <dcterms:alternative>Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment</dcterms:alternative>
+                <dc:identifier>ISSN 01689002</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>The Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_265"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>The Pierre Auger Cosmic Ray Observatory</dc:title>
+        <dc:date>10/2015</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://linkinghub.elsevier.com/retrieve/pii/S0168900215008086</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-21 22:36:02</dcterms:dateSubmitted>
+        <bib:pages>172-213</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_265">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://sedici.unlp.edu.ar/bitstream/handle/10915/75102/Documento_completo.pdf?sequence=1</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-21 22:36:06</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -36390,7 +36437,7 @@ DOI: 10.22323/1.236.0620</dc:description>
         <dcterms:hasPart rdf:resource="https://link.springer.com/10.1140/epjc/s10052-024-13560-5"/>
         <dcterms:hasPart rdf:resource="https://adsabs.harvard.edu/full/record/seri/ApJ../0268/1983ApJ...268L..17S.html"/>
         <dcterms:hasPart rdf:resource="http://adsabs.harvard.edu/doi/10.1086/175344"/>
-        <dcterms:hasPart rdf:resource="https://books.google.com/books?hl=de&amp;lr=&amp;id=nEBPDwAAQBAJ&amp;oi=fnd&amp;pg=PR3&amp;dq=Pro+c+ICRR+International+Symp+osium+on+the+Astrophysical+Asp+ects+of+the+Most+Energetic+Cosmic+Rays&amp;ots=2oluKCIa8-&amp;sig=aZ4oM_Yo_fYHfQw2ouRFYjhKjJM"/>
+        <dcterms:hasPart rdf:resource="https://inspirehep.net/literature/325861"/>
         <dcterms:hasPart rdf:resource="https://link.aps.org/doi/10.1103/PhysRevLett.73.3491"/>
         <dcterms:hasPart rdf:resource="https://iopscience.iop.org/article/10.1088/0954-3899/17/5/019/meta"/>
         <dcterms:hasPart rdf:resource="https://pos.sissa.it/358/482/pdf"/>
@@ -36427,6 +36474,7 @@ DOI: 10.22323/1.236.0620</dc:description>
         <dcterms:hasPart rdf:resource="https://dx.doi.org/10.1088/1748-0221/9/04/T04003"/>
         <dcterms:hasPart rdf:resource="https://pos.sissa.it/236/620/"/>
         <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S0927650505001581"/>
+        <dcterms:hasPart rdf:resource="https://linkinghub.elsevier.com/retrieve/pii/S0168900215008086"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
         <dc:title>Private</dc:title>

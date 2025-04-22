@@ -3,7 +3,7 @@
 
 % \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[ngerman, english]{babel}
+\usepackage[english]{babel}
 \usepackage[margin=1.1in]{geometry}
 \usepackage{amsfonts, amstext, amssymb}
 \usepackage{amsmath}
@@ -261,7 +261,7 @@
     \else
       \raisebox{-1.5pt}{\sc{Contents}}~\titlerule\flushright
       \normalsize\normalfont\vspace{5pt}
-      \printcontents{p}{2}{\setcounter{tocdepth}{4}}
+      \printcontents{p}{2}{\setcounter{tocdepth}{3}}
       \vspace{5pt}\titlerule
     \fi
   ]
