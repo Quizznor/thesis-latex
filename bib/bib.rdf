@@ -36362,6 +36362,247 @@ DOI: 10.22323/1.236.0620</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
+    <bib:Article rdf:about="https://www.sciencedirect.com/science/article/pii/S0168900207014106">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>580</prism:volume>
+                <dc:title>Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment</dc:title>
+                <dc:identifier>DOI 10.1016/j.nima.2007.07.010</dc:identifier>
+                <prism:number>3</prism:number>
+                <dcterms:alternative>Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment</dcterms:alternative>
+                <dc:identifier>ISSN 0168-9002</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Argirò</foaf:surname>
+                        <foaf:givenName>S.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Barroso</foaf:surname>
+                        <foaf:givenName>S. L. C.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gonzalez</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nellen</foaf:surname>
+                        <foaf:givenName>L.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Paul</foaf:surname>
+                        <foaf:givenName>T.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Porter</foaf:surname>
+                        <foaf:givenName>T. A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Prado Jr.</foaf:surname>
+                        <foaf:givenName>L.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Roth</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ulrich</foaf:surname>
+                        <foaf:givenName>R.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Veberič</foaf:surname>
+                        <foaf:givenName>D.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_268"/>
+        <link:link rdf:resource="#item_267"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Cosmic rays</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Framework</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Object oriented</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Offline software</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Simulation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>The offline software framework of the Pierre Auger Observatory</dc:title>
+        <dcterms:abstract>The Pierre Auger Observatory is designed to unveil the nature and the origins of the highest energy cosmic rays. The large and geographically dispersed collaboration of physicists and the wide-ranging collection of simulation and reconstruction tasks pose some special challenges for the offline analysis software. We have designed and implemented a general purpose framework which allows collaborators to contribute algorithms and sequencing instructions to build up the variety of applications they require. The framework includes machinery to manage these user codes, to organize the abundance of user-contributed configuration files, to facilitate multi-format file handling, and to provide access to event and time-dependent detector information which can reside in various data sources. A number of utilities are also provided, including a novel geometry package which allows manipulation of abstract geometrical objects independent of coordinate system choice. The framework is implemented in C++, and takes advantage of object oriented design and common open source tools, while keeping the user side simple enough for C++ novices to learn in a reasonable time. The distribution system incorporates unit and acceptance testing in order to support rapid development of both the core framework and contributed user code.</dcterms:abstract>
+        <dc:date>2007-10-11</dc:date>
+        <z:libraryCatalog>ScienceDirect</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0168900207014106</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 13:52:36</dcterms:dateSubmitted>
+        <bib:pages>1485-1496</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_268">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>ScienceDirect Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0168900207014106</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 13:52:45</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_267">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Submitted Version</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://arxiv.org/pdf/astro-ph/0601016</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 13:52:39</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://isocpp.org/">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Stroustrup</foaf:surname>
+                        <foaf:givenName>Bjarne</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sutter</foaf:surname>
+                        <foaf:givenName>Herb</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_270"/>
+        <dc:title>Standard C++</dc:title>
+        <dc:identifier>
+           <dcterms:URI><rdf:value>https://isocpp.org/</rdf:value></dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 13:54:32</dcterms:dateSubmitted>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_270">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Standard C++</dc:title>
+        <dc:identifier>
+           <dcterms:URI><rdf:value>https://isocpp.org/</rdf:value></dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 13:54:39</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://gitlab.iap.kit.edu/auger-observatory/offline/offline">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>GitLab</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>The Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_272"/>
+        <dc:subject>auger</dc:subject>
+        <dc:title>Official Offline repository</dc:title>
+        <dcterms:abstract>Official Auger Reconstruction and Simulation Framework See README for more details.</dcterms:abstract>
+        <dc:date>2025-04-25</dc:date>
+        <z:language>en</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://gitlab.iap.kit.edu/auger-observatory/offline/offline</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 14:04:18</dcterms:dateSubmitted>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_272">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://gitlab.iap.kit.edu/auger-observatory/offline/offline</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 14:04:29</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="https://library.oapen.org/bitstream/handle/20.500.12657/28155/1/1001839.pdf">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>Springer Nature</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chacon</foaf:surname>
+                        <foaf:givenName>Scott</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Straub</foaf:surname>
+                        <foaf:givenName>Ben</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>Pro git</dc:title>
+        <dc:date>2014</dc:date>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://library.oapen.org/bitstream/handle/20.500.12657/28155/1/1001839.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 14:08:21</dcterms:dateSubmitted>
+    </bib:Book>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -36398,6 +36639,7 @@ DOI: 10.22323/1.236.0620</dc:description>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/107-gap-notes-2018/4593-gap2018-001"/>
         <dcterms:hasPart rdf:resource="https://auger.org/gap-notes/download/3-gap-notes-2011/62-gap2011-032"/>
         <dcterms:hasPart rdf:resource="https://auger.org/document-centre2/download/7-gap-notes-2009/751-gap2009-179"/>
+        <dcterms:hasPart rdf:resource="https://gitlab.iap.kit.edu/auger-observatory/offline/offline"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_2">
         <dc:title>Other</dc:title>
@@ -36417,6 +36659,9 @@ DOI: 10.22323/1.236.0620</dc:description>
         <dcterms:hasPart rdf:resource="https://www.hamamatsu.com/eu/en/product/optical-sensors/pmt/pmt_tube-alone/head-on-type/R8619.html"/>
         <dcterms:hasPart rdf:resource="https://hep.hamamatsu.com/eu/en/products/R9420.html"/>
         <dcterms:hasPart rdf:resource="https://visitantes.auger.org.ar/index.php/amiga/"/>
+        <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S0168900207014106"/>
+        <dcterms:hasPart rdf:resource="https://isocpp.org/"/>
+        <dcterms:hasPart rdf:resource="https://library.oapen.org/bitstream/handle/20.500.12657/28155/1/1001839.pdf"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_3">
         <dc:title>Physics</dc:title>

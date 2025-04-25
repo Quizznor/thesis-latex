@@ -1075,14 +1075,78 @@ identifies \TTHREEs that are formed on the basis of random coincidences of
 \SIrange{98}{100}{\percent} \cite{abrahamTriggerApertureSurface2010}.
 
 A final T5 check requires the station that received the most signal to have all
-6 nearest neighbour stations existing and functioning. This ensures the 
-reconstructed quantities are not biased by the geometry of the array, which
-occurs especially at the edges of the \PAO. This requirement reduces the 
-effective size of the \SD-array by about \SI{10}{\percent} 
-\cite{abrahamTriggerApertureSurface2010}.
+6 nearest neighbour stations existing and functioning. While the requirement 
+reduces the effective size of the \SD-array by about \SI{10}{\percent} 
+\cite{abrahamTriggerApertureSurface2010}, it ensures the reconstructed 
+quantities are not biased by the geometry of the array, which occurs especially
+at the edges of the \PAO. 
 
 \subsection{\Offline Reconstruction}
 
-hallo
+\Offline is the extensive in-house software framework utilized by the Auger 
+collaboration to reconstruct \EAS data and perform detector studies
+\cite{argiroOfflineSoftwareFramework2007}. It is written in \texttt{C++}
+\cite{stroustrupStandard}, and is continuously updated by collaborators using 
+\texttt{git} \cite{thepierreaugercollaborationOfficialOfflineRepository2025,
+chaconProGit2014}. 
 
-\todo{reconstructed quantities table}
+The study of \EAS data by \Offline is governed by steering files in \XML 
+format, that dictate which software modules are executed in which order. 
+Consequentially, this defines which information regarding the \EAS is 
+reconstructed. Usually, at the end of the reconstruction the results of the 
+analysis are written to an \ADST, a compact data structure based on the 
+\texttt{root} format \cite{brunROOTObjectOriented1997}. This section follows 
+the procedure of a standard hybrid event reconstruction, and details how event-
+and station-level variables are calculated during the analysis. An overview of
+the most important reconstructed quantities is given in 
+\cref{tab:rec-quantities}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.2}
+\begin{table}
+	\begin{center}
+	\caption{List of quantities that are reconstructed during a standard 
+	\EAS reconstruction.}
+	\begin{tabular*}{0.9\textwidth}{M{0.7cm}M{2.3cm}|M{7.05cm}|M{2.1cm}}
+  \toprule
+	 & $\mathbf{Q}$ / $\mathbf{\Delta Q}$ & Details & Ref. \\
+	\cline{2-4}
+	\ldelim\{{5}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Event level}}]
+	 & $E_\mathrm{SD}$ / \SI{14}{\percent} & The energy of the primary 
+	 particle, estimated from \SD data only & \\
+	 & $E_\mathrm{FD}$ / \SI{14}{\percent} & Primary particle energy,
+	 from the \FD & \\ 
+	 & $(\theta, \phi)$ / \SI{1}{\percent} & Arrival direction of the 
+	 primary particle & \\
+	 & $(x, y)$ / \SI{10}{\percent}\tablefootnote{The percentage
+ 	 uncertainty is given in terms of the SD-1500 array spacing} & 
+	 Intersect of \EAS axis and Earth surface & \\ 
+	 & $\Xmax$ / \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
+	 size & \\
+	 \cline{2-4}
+	\ldelim\{{9}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Station/Telescope
+	level}}]
+	 & \Ivem / \SI{2}{\percent} & Calibration factor for the \WCD \LPMTs & 
+	 \cref{sssec:sd-offline-calib} \\
+	 & \Imip / \SI{2}{\percent} & Calibration factor for the \SSD \PMT & 
+	 \cref{sssec:sd-offline-calib} \\
+ & & \\
+	 & & & \\
+	 & & & \\
+	 & & & \\
+	 & & & \\
+	 & & & \\
+	 & & & \\
+	 & & & \\
+\bottomrule
+	\end{tabular*}
+	\label{tab:rec-quantities}
+	\end{center}
+\end{table}
+\endgroup
+
+\subsubsection{SD PMT calibration}
+\label{sssec:sd-offline-calib}
+
+First, the signal recovered from the \SD \PMTs, meaning the \LPMTs, \sPMT, and 
+

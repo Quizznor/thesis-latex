@@ -1,4 +1,5 @@
 ADC        Analog Digital Count
+ADST       Advanced Data Summary Tree
 AERA       Auger Engineering Radio Array
 AMIGA      Auger Muons And Infill For The Ground Array
 CDAS       Central Data Acquisition System
@@ -64,3 +65,4 @@ VEM        Vertical Equivalent Muon
 WCD        Water Cherenkov Detector
 WLS        Wavelength Shifting Fiber
 XLF        Extreme Laser Facility
+XML        Extensible Markup Language
