@@ -1088,17 +1088,25 @@ collaboration to reconstruct \EAS data and perform detector studies
 \cite{argiroOfflineSoftwareFramework2007}. It is written in \texttt{C++}
 \cite{stroustrupStandard}, and is continuously updated by collaborators using 
 \texttt{git} \cite{thepierreaugercollaborationOfficialOfflineRepository2025,
-chaconProGit2014}. 
+chaconProGit2014}. A deliberate design choice of the project is the 
+compartmentalization of the reconstruction process into different modules.
 
-The study of \EAS data by \Offline is governed by steering files in \XML 
-format, that dictate which software modules are executed in which order. 
-Consequentially, this defines which information regarding the \EAS is 
-reconstructed. Usually, at the end of the reconstruction the results of the 
-analysis are written to an \ADST, a compact data structure based on the 
-\texttt{root} format \cite{brunROOTObjectOriented1997}. This section follows 
-the procedure of a standard hybrid event reconstruction, and details how event-
-and station-level variables are calculated during the analysis. An overview of
-the most important reconstructed quantities is given in 
+During an \EAS reconstruction, these modules are executed in a predefined 
+sequence as defined in \XML steering files. Every module has a specific use 
+case, and reconstructs different \EAS information. Consequentially, the 
+module sequence defines which measurement data is analyzed, and which \EAS 
+information is reconstructed. Usually, at the end of the procedure the results 
+of the analysis are written to an \ADST, a compact data structure based on the 
+\texttt{root} format \cite{brunROOTObjectOriented1997}. 
+
+This section details the different modules that are executed during a standard
+hybrid event reconstruction. The \UMD and the \RD are not part of this module
+sequence. Details on the event reconstruction using the \UMD and the \RD data 
+are offered in \cite{bottiAMIGAUndergroundMuon2021} and \todo{simons proceeding}. 
+
+The goal of the reconstruction is the collection of several event-level 
+quantities that can be used for higher-level physics analysis. An overview of 
+the most important reconstructed information is given in 
 \cref{tab:rec-quantities}.
 
 \begingroup
@@ -1114,8 +1122,8 @@ the most important reconstructed quantities is given in
 	\ldelim\{{5}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Event level}}]
 	 & $E_\mathrm{SD}$ / \SI{14}{\percent} & The energy of the primary 
 	 particle, estimated from \SD data only & \\
-	 & $E_\mathrm{FD}$ / \SI{14}{\percent} & Primary particle energy,
-	 from the \FD & \\ 
+	 & $E_\mathrm{FD}$ / \SI{14}{\percent} & \FD-estimate of the primary
+	 energy & \\ 
 	 & $(\theta, \phi)$ / \SI{1}{\percent} & Arrival direction of the 
 	 primary particle & \\
 	 & $(x, y)$ / \SI{10}{\percent}\tablefootnote{The percentage
@@ -1145,8 +1153,47 @@ the most important reconstructed quantities is given in
 \end{table}
 \endgroup
 
-\subsubsection{SD PMT calibration}
+\subsubsection{SD Station Calibration}
 \label{sssec:sd-offline-calib}
 
-First, the signal recovered from the \SD \PMTs, meaning the \LPMTs, \sPMT, and 
+It follows a discussion of several modules that, for the sake of clarity, are 
+grouped together in one section. They all have a common purpose in processing
+the raw \SD detector data, and ensuring it is of good quality.
 
+First, quality cuts are applied to the \WCD \LPMTs that check several variables
+relating to the functionality of the \PMT. Namely, \PMTs are flagged as bad if
+\VemOnline or the standard deviation of the online estimated baseline (ref.
+\cref{eq:peak-and-charge}) are outside of predefined ranges. The \LG-channel of
+the \PMT is flagged as bad if the dynode-to-anode ratio of the \PMT is outside
+of a nominal range. Stations for which none of the \LPMTs pass the selection 
+criteria receive a "rejected" status, that removes them from participating in 
+the event reconstruction.
+
+Next, the dynode-to-anode ratio, as well as the \TTWO timestamp of the 
+surviving stations are adjusted and corrected according to \LUTs that keep 
+track of station-level software/hardware changes that influence either of the 
+two quantities.
+
+Additionally to the quality cuts on a \PMT level, stations are also checked for
+their \TTWO lifetime\footnote{\todo{wtf is this}}, quality of the \GPS timing 
+information, data integrity, and many other aspects. Individual stations are 
+flagged as rejected if any of the assertions made in the process fail.
+
+Rate-based estimators for \Ivem and \Imip exist on the station-level (ref. 
+\cref{sssec:wcd}, \todo{online mip reference}). During event reconstruction, a
+more robust method of estimating the peak and charge of the \LPMTs and the
+\SSD-\PMT are used. As detailed in \cref{sssec:muon-histograms}, information 
+exists on the distribution of pulse heights and integrals for the different 
+\PMTs in the \SIrange{1}{2}{\minute} leading up to the event (ref. 
+\cref{fig:ssd-histo}). Crucially, all histograms show a local maximum that can
+be identified with the most probable peak/charge from a single atmospheric 
+muon.
+
+A second order polynomial is fitted to the counts in these histograms. The 
+vertex of the parabola is coincident with \Ivem/\Qvem/\Imip/\Qmip\footnote{up 
+to zenith-dependent corrections.}. It represents the histogram-based estimate 
+of the \WCD and \SSD calibration factors, and is accurate to within 
+$\sim\SI{2}{\percent}$ \cite{bertouCalibrationSurfaceArray2006, 
+filipCalibrationScintillatorSurface2025}
+
+The \PMT baseline is revisited in a similar fashion. 

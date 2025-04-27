@@ -36603,6 +36603,170 @@ DOI: 10.22323/1.236.0620</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2025-04-25 14:08:21</dcterms:dateSubmitted>
     </bib:Book>
+    <bib:Article rdf:about="https://www.sciencedirect.com/science/article/pii/S016890029700048X">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>389</prism:volume>
+                <dc:title>Nuclear instruments and methods in physics research section A: accelerators, spectrometers, detectors and associated equipment</dc:title>
+                <prism:number>1-2</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brun</foaf:surname>
+                        <foaf:givenName>Rene</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rademakers</foaf:surname>
+                        <foaf:givenName>Fons</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_278"/>
+        <dc:title>ROOT—An object oriented data analysis framework</dc:title>
+        <dc:date>1997</dc:date>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S016890029700048X</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 14:56:31</dcterms:dateSubmitted>
+        <dc:description>Publisher: Elsevier</dc:description>
+        <bib:pages>81–86</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_278">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Available Version (via Google Scholar)</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://cds.cern.ch/record/491486/files/p11.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-25 14:56:37</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:BookSection rdf:about="https://pos.sissa.it/358/202/">
+        <z:itemType>bookSection</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Book>
+                <prism:volume>358</prism:volume>
+                <dc:title>Proceedings of 36th International Cosmic Ray Conference — PoS(ICRC2019)</dc:title>
+            </bib:Book>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>SISSA Medialab</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Botti</foaf:surname>
+                        <foaf:givenName>Ana Martina</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>the Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_282"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>The AMIGA underground muon detector of the Pierre Auger Observatory - performance and event reconstruction</dc:title>
+        <dcterms:abstract>The Auger Muons and Infill for the Ground Array (AMIGA) aims to both lower the detection threshold of the Pierre Auger Observatory down to energies of $\sim 10^{16.5}$ eV and to directly measure the muon content of extensive air showers. AMIGA consists of an array of coupled water-Cherenkov and buried scintillation detectors deployed in two superimposed triangular grids of 433 m and 750 m spacings. Each underground detector has a total area of 30 $\mathrm{m}^2$ buried at a depth of 2.3 m, to shield it from the shower electromagnetic component. The scintillation plane is segmented in plastic-scintillator strips with embedded wavelength-shifter optical fibers coupled to a common optical sensor. Before proceeding to the construction of the full-size array, an engineering array was operated until November 2017 to validate and optimize the design, and to evaluate the performance of the detection system. During this phase, scintillation areas of 5 $\mathrm{m}^2$ and 10 $\mathrm{m}^2$ and two optical sensors, photomultiplier tubes and silicon photomultipliers, were tested. In this work, we present the status and performance of the array currently equipped with silicon photomultipliers, along with the timing performance and geometry reconstruction of modules equipped with photomultiplier tubes. Analyses and results are based on both laboratory and field measurements. Scintillation areas of 10 $\mathrm{m}^2$ and silicon photomultipliers as readout have been selected as the baseline design for the full-scale AMIGA array.</dcterms:abstract>
+        <dc:date>2021-07-02</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>pos.sissa.it</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://pos.sissa.it/358/202/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-26 13:32:01</dcterms:dateSubmitted>
+        <dc:description>Conference Name: 36th International Cosmic Ray Conference
+DOI: 10.22323/1.358.0202</dc:description>
+        <bib:pages>202</bib:pages>
+    </bib:BookSection>
+    <z:Attachment rdf:about="#item_282">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://pos.sissa.it/358/202/pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-26 13:32:05</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:BookSection rdf:about="https://pos.sissa.it/484/085/">
+        <z:itemType>bookSection</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Book>
+                <prism:volume>484</prism:volume>
+                <dc:title>Proceedings of 7th International Symposium on Ultra High Energy Cosmic Rays — PoS(UHECR2024)</dc:title>
+            </bib:Book>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>SISSA Medialab</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Filip</foaf:surname>
+                        <foaf:givenName>Paul</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>The Pierre Auger Collaboration</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_284"/>
+        <dc:subject>phys</dc:subject>
+        <dc:title>Calibration of the Scintillator Surface Detector of AugerPrime</dc:title>
+        <dcterms:abstract>We present the methods used to calibrate the Surface Scintillator Detector of the Pierre Auger Observatory. We describe how to obtain an accurate calibration of the scintillator by examining peak and charge distributions of atmospheric muons. This is done whenever an extensive air shower event measured by the Surface Detector is reconstructed. We also describe the work towards an algorithm that uses a rate-based approach to calibrate the Surface Scintillator Detectors independently.</dcterms:abstract>
+        <dc:date>2025-03-21</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>pos.sissa.it</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://pos.sissa.it/484/085/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-27 03:29:57</dcterms:dateSubmitted>
+        <dc:description>Conference Name: 7th International Symposium on Ultra High Energy Cosmic Rays
+DOI: 10.22323/1.484.0085</dc:description>
+        <bib:pages>085</bib:pages>
+    </bib:BookSection>
+    <z:Attachment rdf:about="#item_284">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://pos.sissa.it/484/085/pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-27 03:30:09</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_1">
         <dc:title>PhD</dc:title>
         <dcterms:hasPart rdf:resource="#collection_5"/>
@@ -36662,6 +36826,7 @@ DOI: 10.22323/1.236.0620</dc:description>
         <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S0168900207014106"/>
         <dcterms:hasPart rdf:resource="https://isocpp.org/"/>
         <dcterms:hasPart rdf:resource="https://library.oapen.org/bitstream/handle/20.500.12657/28155/1/1001839.pdf"/>
+        <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S016890029700048X"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_3">
         <dc:title>Physics</dc:title>
@@ -36720,6 +36885,8 @@ DOI: 10.22323/1.236.0620</dc:description>
         <dcterms:hasPart rdf:resource="https://pos.sissa.it/236/620/"/>
         <dcterms:hasPart rdf:resource="https://www.sciencedirect.com/science/article/pii/S0927650505001581"/>
         <dcterms:hasPart rdf:resource="https://linkinghub.elsevier.com/retrieve/pii/S0168900215008086"/>
+        <dcterms:hasPart rdf:resource="https://pos.sissa.it/358/202/"/>
+        <dcterms:hasPart rdf:resource="https://pos.sissa.it/484/085/"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
         <dc:title>Private</dc:title>

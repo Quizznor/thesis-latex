@@ -23,4 +23,4 @@ all:
 	scripts/gather_appendices
 	#$(LATEX) $*
 clean:
-	- $(RM) -f $(TARGET){.fls,.fdb_latexmk,.pdf,.tex~,.ps,.dvi,.log,.aux,.toc,.bcf,.nav,.out,.snm,.bbl,.blg,-blx.bib,.tex.bbl,.tex.blg,.run.xml,.spl,.lof,.maf,.fff,.lot,.ttt,.mtc*,.ptc,.loc,.tdo,.soc} */*.aux
+	- $(RM) -f $(TARGET){.fls,.bbl,.synctex.gz,.fdb_latexmk,.pdf,.tex~,.ps,.dvi,.log,.aux,.toc,.bcf,.nav,.out,.snm,.bbl,.blg,-blx.bib,.tex.bbl,.tex.blg,.run.xml,.spl,.lof,.maf,.fff,.lot,.ttt,.mtc*,.ptc,.loc,.tdo,.soc} */*.aux
