@@ -1115,37 +1115,39 @@ the most important reconstructed information is given in
 	\begin{center}
 	\caption{List of quantities that are reconstructed during a standard 
 	\EAS reconstruction.}
-	\begin{tabular*}{0.9\textwidth}{M{0.7cm}M{2.3cm}|M{7.05cm}|M{2.1cm}}
+	\begin{tabular*}{1.0\textwidth}{M{0.7cm}M{1.9cm}M{1.3cm}|M{7.25cm}|M{2.1cm}}
   \toprule
-	 & $\mathbf{Q}$ / $\mathbf{\Delta Q}$ & Details & Ref. \\
-	\cline{2-4}
+	 & $\mathbf{Q}$ & $\mathbf{\Delta Q}$ & Details & Ref. \\
+	\cline{2-5}
 	\ldelim\{{5}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Event level}}]
-	 & $E_\mathrm{SD}$ / \SI{14}{\percent} & The energy of the primary 
+	 & $E_\mathrm{SD}$ & \SI{14}{\percent} & The energy of the primary 
 	 particle, estimated from \SD data only & \\
-	 & $E_\mathrm{FD}$ / \SI{14}{\percent} & \FD-estimate of the primary
+	 & $E_\mathrm{FD}$ & \SI{14}{\percent} & \FD-estimate of the primary
 	 energy & \\ 
-	 & $(\theta, \phi)$ / \SI{1}{\percent} & Arrival direction of the 
+	 & $(\theta, \phi)$ & \SI{1}{\percent} & Arrival direction of the 
 	 primary particle & \\
-	 & $(x, y)$ / \SI{10}{\percent}\tablefootnote{The percentage
- 	 uncertainty is given in terms of the SD-1500 array spacing} & 
-	 Intersect of \EAS axis and Earth surface & \\ 
-	 & $\Xmax$ / \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
+	 & $(x, y)$ & \SI{10}{\percent}\tablefootnote{The percentage
+ 	 uncertainty is given in terms of the SD-1500 array spacing 
+	 (\SI{1.5}{\kilo\meter})} & Intersect of \EAS axis and Earth surface 
+	 & \\ 
+	 & $\Xmax$ & \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
 	 size & \\
-	 \cline{2-4}
+	 \cline{2-5}
 	\ldelim\{{9}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Station/Telescope
 	level}}]
-	 & \Ivem / \SI{2}{\percent} & Calibration factor for the \WCD \LPMTs & 
-	 \cref{sssec:sd-offline-calib} \\
-	 & \Imip / \SI{2}{\percent} & Calibration factor for the \SSD \PMT & 
-	 \cref{sssec:sd-offline-calib} \\
- & & \\
-	 & & & \\
-	 & & & \\
-	 & & & \\
-	 & & & \\
-	 & & & \\
-	 & & & \\
-	 & & & \\
+	 & \Ivem/\Qvem & \SI{2}{\percent} & Calibration factors for the \WCD 
+	 \LPMTs & \cref{sssec:reconstruction-histogram-fitter} \\
+	 & \Imip/\Qmip & \SI{2}{\percent} & Calibration factors for the \SSD 
+	 \PMT & \cref{sssec:reconstruction-histogram-fitter} \\
+	 & $Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$ &
+	 ada & Integrated signal received by the \SD \PMTs & 
+	 \cref{sssec:reconstruction-trace-calibrator} \\
+	 & & & & \\
+	 & & & & \\
+	 & & & & \\
+	 & & & & \\
+	 & & & & \\
+	 & & & & \\
 \bottomrule
 	\end{tabular*}
 	\label{tab:rec-quantities}
@@ -1153,12 +1155,13 @@ the most important reconstructed information is given in
 \end{table}
 \endgroup
 
-\subsubsection{SD Station Calibration}
-\label{sssec:sd-offline-calib}
+\subsubsection{PMT Quality Cuts \& Station Selection}
+\label{sssec:reconstruction-pmt-quality-cuts}
 
 It follows a discussion of several modules that, for the sake of clarity, are 
-grouped together in one section. They all have a common purpose in processing
-the raw \SD detector data, and ensuring it is of good quality.
+grouped together in one section. They all have a common purpose in a first 
+level processing of the raw \SD detector data, and ensuring it is of good 
+quality.
 
 First, quality cuts are applied to the \WCD \LPMTs that check several variables
 relating to the functionality of the \PMT. Namely, \PMTs are flagged as bad if
@@ -1169,15 +1172,18 @@ of a nominal range. Stations for which none of the \LPMTs pass the selection
 criteria receive a "rejected" status, that removes them from participating in 
 the event reconstruction.
 
-Next, the dynode-to-anode ratio, as well as the \TTWO timestamp of the 
-surviving stations are adjusted and corrected according to \LUTs that keep 
-track of station-level software/hardware changes that influence either of the 
-two quantities.
+Next, the dynode-to-anode ratio, the \TTWO timestamp, as well as the \GPS
+information of the surviving stations are adjusted and corrected according to 
+\LUTs that keep track of station-level software/hardware changes and problems 
+that influence any of the quantities.
 
 Additionally to the quality cuts on a \PMT level, stations are also checked for
 their \TTWO lifetime\footnote{\todo{wtf is this}}, quality of the \GPS timing 
 information, data integrity, and many other aspects. Individual stations are 
 flagged as rejected if any of the assertions made in the process fail.
+
+\subsubsection{SdHistogramFitterKG}
+\label{sssec:reconstruction-histogram-fitter}
 
 Rate-based estimators for \Ivem and \Imip exist on the station-level (ref. 
 \cref{sssec:wcd}, \todo{online mip reference}). During event reconstruction, a
@@ -1185,9 +1191,9 @@ more robust method of estimating the peak and charge of the \LPMTs and the
 \SSD-\PMT are used. As detailed in \cref{sssec:muon-histograms}, information 
 exists on the distribution of pulse heights and integrals for the different 
 \PMTs in the \SIrange{1}{2}{\minute} leading up to the event (ref. 
-\cref{fig:ssd-histo}). Crucially, all histograms show a local maximum that can
-be identified with the most probable peak/charge from a single atmospheric 
-muon.
+\cref{fig:ssd-histo}). Crucially, all these histograms show a local maximum 
+that can be identified with the most probable peak/charge from a single 
+atmospheric muon.
 
 A second order polynomial is fitted to the counts in these histograms. The 
 vertex of the parabola is coincident with \Ivem/\Qvem/\Imip/\Qmip\footnote{up 
@@ -1196,4 +1202,43 @@ of the \WCD and \SSD calibration factors, and is accurate to within
 $\sim\SI{2}{\percent}$ \cite{bertouCalibrationSurfaceArray2006, 
 filipCalibrationScintillatorSurface2025}
 
-The \PMT baseline is revisited in a similar fashion. 
+\subsubsection{SdBaselineFinderKG}
+\label{sssec:reconstruction-baseline-finder}
+
+The \PMT baseline estimate is equally revisited. An algorithm scans the
+trace before and after the \EAS signal, and builds a running baseline estimate
+that accounts for \PMT undershoot \todo{cite?}, electronic fluctuations and 
+other hardware effects that falsify the physical signal \cite{tobiasUB, tobiasUUB}.
+
+\subsubsection{SdTraceCalibratorOG}
+\label{sssec:reconstruction-trace-calibrator}
+
+With the knowledge of the bin-by-bin baseline $b_i$, as well as the calibration
+constants as determined above, the individual \FADC \PMT-traces are calibrated
+according to \cref{eq:offline-calibration}.
+
+\begin{equation}
+\label{eq:offline-calibration}
+s^\mathrm{VEM/MIP}_i = \left( s^\mathrm{ADC}_i - b_i \right)\,/\,I_\mathrm{VEM/MIP}.
+\end{equation}
+
+Furthermore, the signal window is determined according to the procedure defined
+in \cite{todo}. \todo{describe}.
+
+Once finalized, the integral of the \FADC trace within the determined signal 
+window is calculated and divided by the corresponding charge calibration 
+factor. The recovered quantity is the total \EAS signal 
+$Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$, and will be 
+reused at a later stage of the reconstruction.
+
+\subsubsection{SdSignalRecoveryKLT}
+\label{sssec:reconstruction-signal-recovery}
+
+\subsubsection{FdCalibratorOG}
+\subsubsection{FD axis shit}
+
+\subsubsection{HybridGeometryFinderOG/WG}
+\subsubsection{FdApertureLightKG}
+\subsubsection{FdEnergyDepositFinderKG}
+
+\subsubsection{SdReco TODO!}
