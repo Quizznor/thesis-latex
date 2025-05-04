@@ -1083,6 +1083,52 @@ at the edges of the \PAO.
 
 \subsection{\Offline Reconstruction}
 
+\begingroup
+\renewcommand{\arraystretch}{1.2}
+\begin{table}[T]
+	\begin{center}
+	\caption{List of quantities that are reconstructed during a standard 
+	\EAS reconstruction.}
+	\begin{tabular*}{1.0\textwidth}{M{0.6cm}M{1.7cm}M{1.1cm}|M{7.25cm}|M{2.6cm}}
+  \toprule
+	 & $\mathbf{Q}$ & $\mathbf{\Delta Q}$ & Details & Ref. \\
+	\cline{2-5}
+	\ldelim\{{5}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Event level}}]
+	 & $E_\mathrm{SD}$ & \SI{14}{\percent} & The energy of the primary 
+	 particle, estimated from \SD data only & \\
+	 & $E_\mathrm{FD}$ & \SI{14}{\percent} & \FD-estimate of the primary
+	 energy & \\ 
+	 & $(\theta, \phi)$ & \SI{1}{\percent} & Arrival direction of the 
+	 primary particle & \\
+	 & $(x, y)$ & \SI{10}{\percent}\tablefootnote{The percentage
+ 	 uncertainty is given in terms of the SD-1500 array spacing 
+	 (\SI{1.5}{\kilo\meter})} & Intersect of \EAS axis and Earth surface 
+	 & \\ 
+	 & $\Xmax$ & \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
+	 size & \\
+	 \cline{2-5}
+	\ldelim\{{9}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Station/Telescope
+	level}}]
+	 & \Ivem/\Qvem & \SI{2}{\percent} & Calibration factors for the \WCD 
+	 \LPMTs & \cref{sssec:reconstruction-histogram-fitter} \\
+	 & \Imip/\Qmip & \SI{2}{\percent} & Calibration factors for the \SSD 
+	 \PMT & \cref{sssec:reconstruction-histogram-fitter} \\
+	 & $Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$ &
+	 $\sim\SI{5}{\percent}$ & Integrated signal received by the \SD \PMTs &
+	 \cref{sssec:reconstruction-trace-calibrator} \\
+	 & & & & \\
+	 & & & & \\
+	 & & & & \\
+	 & & & & \\
+	 & & & & \\
+	 & & & & \\
+\bottomrule
+	\end{tabular*}
+	\label{tab:rec-quantities}
+	\end{center}
+\end{table}
+\endgroup
+
 \Offline is the extensive in-house software framework utilized by the Auger 
 collaboration to reconstruct \EAS data and perform detector studies
 \cite{argiroOfflineSoftwareFramework2007}. It is written in \texttt{C++}
@@ -1108,53 +1154,6 @@ The goal of the reconstruction is the collection of several event-level
 quantities that can be used for higher-level physics analysis. An overview of 
 the most important reconstructed information is given in 
 \cref{tab:rec-quantities}.
-
-\begingroup
-\renewcommand{\arraystretch}{1.2}
-\begin{table}
-	\begin{center}
-	\caption{List of quantities that are reconstructed during a standard 
-	\EAS reconstruction.}
-	\begin{tabular*}{1.0\textwidth}{M{0.7cm}M{1.9cm}M{1.3cm}|M{7.25cm}|M{2.1cm}}
-  \toprule
-	 & $\mathbf{Q}$ & $\mathbf{\Delta Q}$ & Details & Ref. \\
-	\cline{2-5}
-	\ldelim\{{5}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Event level}}]
-	 & $E_\mathrm{SD}$ & \SI{14}{\percent} & The energy of the primary 
-	 particle, estimated from \SD data only & \\
-	 & $E_\mathrm{FD}$ & \SI{14}{\percent} & \FD-estimate of the primary
-	 energy & \\ 
-	 & $(\theta, \phi)$ & \SI{1}{\percent} & Arrival direction of the 
-	 primary particle & \\
-	 & $(x, y)$ & \SI{10}{\percent}\tablefootnote{The percentage
- 	 uncertainty is given in terms of the SD-1500 array spacing 
-	 (\SI{1.5}{\kilo\meter})} & Intersect of \EAS axis and Earth surface 
-	 & \\ 
-	 & $\Xmax$ & \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
-	 size & \\
-	 \cline{2-5}
-	\ldelim\{{9}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Station/Telescope
-	level}}]
-	 & \Ivem/\Qvem & \SI{2}{\percent} & Calibration factors for the \WCD 
-	 \LPMTs & \cref{sssec:reconstruction-histogram-fitter} \\
-	 & \Imip/\Qmip & \SI{2}{\percent} & Calibration factors for the \SSD 
-	 \PMT & \cref{sssec:reconstruction-histogram-fitter} \\
-	 & $Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$ &
-	 ada & Integrated signal received by the \SD \PMTs & 
-	 \cref{sssec:reconstruction-trace-calibrator} \\
-	 & & & & \\
-	 & & & & \\
-	 & & & & \\
-	 & & & & \\
-	 & & & & \\
-	 & & & & \\
-\bottomrule
-	\end{tabular*}
-	\label{tab:rec-quantities}
-	\end{center}
-\end{table}
-\endgroup
-
 \subsubsection{PMT Quality Cuts \& Station Selection}
 \label{sssec:reconstruction-pmt-quality-cuts}
 
@@ -1223,18 +1222,53 @@ s^\mathrm{VEM/MIP}_i = \left( s^\mathrm{ADC}_i - b_i \right)\,/\,I_\mathrm{VEM/M
 \end{equation}
 
 Furthermore, the signal window is determined according to the procedure defined
-in \cite{todo}. \todo{describe}.
+in \cite[Sec. 3.3 of][]{aabReconstructionEventsRecorded2020}. Regions where the
+trace exceeds \SI{3}{\ADC} above baseline are identified as signal fragments. 
+These signal pieces are iteratively combined under two conditions. Fragment B
+must start latest $\SI{500}{\nano\second} + t_A$ after fragment A, that has a 
+duration $t_A$, ends. Additionally, the segments are only merged if the charge 
+$Q$ or peak $I$ of both windows fulfill the conditions $Q_A > 0.3\,Q_B$, or 
+$I_B < 5\,\Ivem$. Both checks ensure the exclusion of random coincidences 
+stemming from atmospheric muons.
 
-Once finalized, the integral of the \FADC trace within the determined signal 
-window is calculated and divided by the corresponding charge calibration 
+Once no trace segments are left to merge, the window with the longest duration
+is chosen for each \WCD \PMT, and the \EAS start and stop time are calculated 
+as the average of the \PMT start/stop times. A buffer time of 
+\SI{250}{\nano\seconds} is appended to the stop time, to ensure containment of
+any sub-threshold pulses. The integral of the \FADC trace within the determined
+signal window is calculated and divided by the corresponding charge calibration
 factor. The recovered quantity is the total \EAS signal 
-$Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$, and will be 
-reused at a later stage of the reconstruction.
+$Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$.
+
+The uncertainty of the total estimated signal is highly non-linear, and
+increases from \SI{5}{\percent} for smaller signals to \SI{60}{\percent} at 
+very large signals of $\sim\SI{10}{\kilo\VEM} 
+\cite{aabReconstructionEventsRecorded2020}.
 
 \subsubsection{SdSignalRecoveryKLT}
 \label{sssec:reconstruction-signal-recovery}
 
+The station-level hardware encodes the \PMT signals using 11-bits. This means 
+that signals exceeding $2^{11}-1 = \SI{2047}{\ADC}$ cannot be represented and 
+the trace becomes saturated. For the (amplified) \HG-channels, this is observed
+for signal amplitudes exceeding very roughly 
+$\SI{14}{\Ivem}\,/\,\SI{50}{\Imip}$. The relevant detector information is 
+reconstructed from the \LG channel in the case of a \HG-saturated \PMT. For
+very high signals ($\sim\SI{440}{\Ivem},/\,\sim\SI{1600}{\Imip}$), the \LG
+trace also becomes saturated, and needs to be recovered accurately. In such 
+cases a signal recovery algorithm \cite{vebericEstimationSignalSaturated2013}
+estimates the total charge 
+$Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$ by fitting a 
+Moyal distribution \cite{moyalXXXTheoryIonization1955} to the unsaturated part
+of the \PMT trace, accounting for \PMT undershoot in the process
+\cite{vebericEstimationSignalSaturated2013}.
+
 \subsubsection{FdCalibratorOG}
+\label{sssec:reconstruction}
+
+After the \SD data is processed, the \FD data needs to be calibrated in a
+similar fashion. For this purpose, 
+
 \subsubsection{FD axis shit}
 
 \subsubsection{HybridGeometryFinderOG/WG}
