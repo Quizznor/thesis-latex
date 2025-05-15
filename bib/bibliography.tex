@@ -12,6 +12,10 @@ outside the Pierre Auger collaboration, they are listed in a special category
 with the prefix \sc{A}\normalfont, alongside other information that is 
 available only to Auger members.}
 
+\defbibnote{software}{%
+The list of software used to produce the results presented in this work is 
+indexed with \sc{S}.}
+
 \defbibnote{private}{%
 Non-public sources from personal correspondence are grouped under the prefix 
 \sc{C}.}
@@ -24,23 +28,85 @@ Physical references, including publications from the \PAO, can be found under
 the label \sc{P}.}
 
 % Auger Internal References
-\newrefcontext[labelprefix=A]
-\printbibliography[keyword={auger},title={Auger Internal Documents},heading=subbibliography, prenote={auger}]
-\vspace{0.5cm}\hrule\vspace{0.2cm}
+\begin{refcontext}
+	\newrefcontext[labelprefix=A]
+	\printbibliography[%
+		title={Auger Internal Documents},
+		keyword={auger},
+		heading=subbibliography, 
+		prenote={auger}]
+
+	\vspace{0.5cm}
+	\hrule
+	\vspace{0.2cm}
+\end{refcontext}
+
 
 % Personal Correspondence
-\newrefcontext[labelprefix=C]
-\printbibliography[keyword={private},title={Private Communication},heading=subbibliography, prenote=private]
-\vspace{0.5cm}\hrule\vspace{0.2cm}
+\begin{refcontext}
+	\newrefcontext[labelprefix=C]
+	\printbibliography[%
+		title={Private Communication},
+		keyword={private},
+		heading=subbibliography, 
+		prenote=private]
+
+	\vspace{0.5cm}
+	\hrule
+	\vspace{0.2cm}
+\end{refcontext}
+
+\end{refcontext}
 
 % Other References
-\newrefcontext[labelprefix=O]
-\printbibliography[notkeyword={private},notkeyword={phys},notkeyword={auger},title={Other References},heading=subbibliography, prenote=other]
-\vspace{0.5cm}\hrule\vspace{0.2cm}
+\begin{refcontext}
+	\newrefcontext[labelprefix=O]
+	\printbibliography[%
+		title={OtherReferences},
+		notkeyword={private},
+		notkeyword={phys},
+		notkeyword={auger},
+		notkeyword={software},
+		heading=subbibliography, 
+		prenote=other]
+
+	\vspace{0.5cm}
+	\hrule
+	\vspace{0.2cm}
+\end{refcontext}
+
+
+% Software References
+\begin{refcontext}
+	\newrefcontext[labelprefix=S]
+	\printbibliography[%
+		title={Software},
+		keyword={software},
+		heading=subbibliography, 
+		prenote=software,
+		resetnumbers=true]
+	\nocite{*} % Cite all software, not just quoted
+	
+	\vspace{0.5cm}
+	\hrule
+	\vspace{0.2cm}
+\end{refcontext}
+
 
 % General Physical References
-\newrefcontext[labelprefix=P]
-\printbibliography[keyword={phys},notkeyword={auger},title={Physics References},heading=subbibliography, prenote=physics]
-\vspace{0.5cm}\hrule\vspace{0.2cm}
+\begin{refcontext}
+	\newrefcontext[labelprefix=P]
+	\printbibliography[%
+		title={Physics References}, 
+		keyword={phys},
+		notkeyword={auger},
+		title={Physics References},
+		heading=subbibliography, 
+		prenote=physics]
+	
+	\vspace{0.5cm}
+	\hrule
+	\vspace{0.2cm}
+\end{refcontext}
 
 \cleardoublepage

@@ -127,8 +127,8 @@
 \extrafloats{100}
 \usepackage[style=numeric-comp, sorting=none, defernumbers=true]{biblatex}
 \addbibresource{bib/thesis.bib}
-\setcounter{biburllcpenalty}{7000}
-\setcounter{biburlucpenalty}{8000}
+\setcounter{biburllcpenalty}{10000}
+\setcounter{biburlucpenalty}{10000}
 
 % % Describe separation hints here:
 % \hyphenation{
@@ -360,7 +360,7 @@
   pdfkeywords = {astroparticle physics, ultra-high energy cosmic rays, Pierre Auger Observatory},
   colorlinks = true,
   plainpages = false,
-  linkcolor = RawSienna,
+  linkcolor = blue,
   citecolor = magenta,
   urlcolor = blue,
   bookmarksopen = false,
