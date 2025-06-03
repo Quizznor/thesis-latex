@@ -1208,6 +1208,9 @@ The \PMT baseline estimate is equally revisited. An algorithm scans the
 trace before and after the \EAS signal, and builds a running baseline estimate
 that accounts for \PMT undershoot \todo{cite?}, electronic fluctuations and 
 other hardware effects that falsify the physical signal \cite{tobiasUB, tobiasUUB}.
+It is crucial to characterize these accurately, as to not bias the calculation 
+of trace integrals, as this distorts the estimate of the primary particle 
+energy.
 
 \subsubsection{SdTraceCalibratorOG}
 \label{sssec:reconstruction-trace-calibrator}
@@ -1254,7 +1257,7 @@ the trace becomes saturated. For the (amplified) \HG-channels, this is observed
 for signal amplitudes exceeding very roughly 
 $\SI{14}{\Ivem}\,/\,\SI{50}{\Imip}$. The relevant detector information is 
 reconstructed from the \LG channel in the case of a \HG-saturated \PMT. For
-very high signals ($\sim\SI{440}{\Ivem},/\,\sim\SI{1600}{\Imip}$), the \LG
+very high signals ($\sim\SI{440}{\Ivem}\,/\,\sim\SI{1600}{\Imip}$), the \LG
 trace also becomes saturated, and needs to be recovered accurately. In such 
 cases a signal recovery algorithm \cite{vebericEstimationSignalSaturated2013}
 estimates the total charge 
@@ -1265,6 +1268,12 @@ of the \PMT trace, accounting for \PMT undershoot in the process
 
 \subsubsection{FdCalibratorOG}
 \label{sssec:reconstruction}
+
+The next module in line is responsible for preparing \FD data for 
+reconstruction. First, timing corrections are applied to the \FD-\TTWO 
+timestamps in order to synchronize measurement information across all 
+telescopes. Next, the baseline 
+
 
 After the \SD data is processed, the \FD data needs to be calibrated in a
 similar fashion. For this purpose, bing bing bong
