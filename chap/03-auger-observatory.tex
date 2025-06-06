@@ -1272,11 +1272,8 @@ of the \PMT trace, accounting for \PMT undershoot in the process
 The next module in line is responsible for preparing \FD data for 
 reconstruction. First, timing corrections are applied to the \FD-\TTWO 
 timestamps in order to synchronize measurement information across all 
-telescopes. Next, the baseline 
-
-
-After the \SD data is processed, the \FD data needs to be calibrated in a
-similar fashion. For this purpose, bing bing bong
+telescopes. The baseline is evaluated as the mean \ADC values of the first 300
+samples of the pixel trace. 
 
 
 \subsubsection{FD axis shit}
