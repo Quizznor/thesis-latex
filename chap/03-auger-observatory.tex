@@ -203,7 +203,7 @@ as increase the camera point resolution. Finally, the voltage at the anode of
 the \PMTs is read out at a sampling frequency of \SI{10}{\mega\hertz} 
 (\SI{20}{\mega\hertz} for \HEAT) and digitized by 12-bit \ADC-converter stages. 
 
-\subsection{Event Detection}
+\subsection{Telescope Triggers}
 \label{ssec:fd-triggers}
 
 The accurate reconstruction of an \EAS requires the camera to have an excellent
@@ -793,7 +793,7 @@ constructed for all \WCD \LPMTs, and updated every \SI{61}{\second}. Upon a
 \TTHREE request from the \CDAS, all histograms are sent to the central server 
 and used to approximate the minute values of \Ivem, \Qvem, \Imip, and \Qmip \todo{ref here}.
 
-\subsection{Event Detection}
+\subsection{Station Triggers}
 \label{ssec:sd-triggers}
 
 The autonomy of the \SD-stations requires them to independently recognize when
@@ -976,6 +976,9 @@ the correct operation of the upgraded AugerPrime electronics
 \section{Event Reconstruction}
 \label{sec:event-reconstruction}
 
+\todo{write some shit here}
+hallo bla bla
+
 \subsection{Event Detection}
 \label{ssec:cdas}
 
@@ -1079,13 +1082,39 @@ A final T5 check requires the station that received the most signal to have all
 reduces the effective size of the \SD-array by about \SI{10}{\percent} 
 \cite{abrahamTriggerApertureSurface2010}, it ensures the reconstructed 
 quantities are not biased by the geometry of the array, which occurs especially
-at the edges of the \PAO. 
+at the edges of the \SD array. 
 
 \subsection{\Offline Reconstruction}
 
+\Offline is the extensive in-house software framework utilized by the Auger 
+collaboration to reconstruct \EAS data and perform detector studies
+\cite{argiroOfflineSoftwareFramework2007}. It is written in \texttt{C++}
+\cite{stroustrupStandard}, and is continuously updated by collaborators using 
+\texttt{git} \cite{thepierreaugercollaborationOfficialOfflineRepository2025,
+chaconProGit2014}. A deliberate design choice of the project is the 
+compartmentalization of the reconstruction process into different modules.
+
+During an \EAS reconstruction, these modules are executed in a predefined 
+sequence as defined in \XML steering files. Every module has a specific use 
+case, and reconstructs different \EAS information. Consequentially, the 
+module sequence defines which measurement data is analyzed, and which \EAS 
+information is reconstructed. Usually, at the end of the procedure the results 
+of the analysis are written to an \ADST, a compact data structure based on the 
+\texttt{root} format \cite{brunROOTObjectOriented1997}. 
+
+This section details the different modules that are executed during a standard
+hybrid event reconstruction. The \UMD and the \RD are not part of this module
+sequence. Details on the event reconstruction using the \UMD and the \RD data 
+are offered in \cite{bottiAMIGAUndergroundMuon2021} and \todo{simons proceeding}. 
+
+The goal of the reconstruction is the collection of several event-level 
+quantities that can be used for higher-level physics analysis. An overview of 
+the most important reconstructed information is given in 
+\cref{tab:rec-quantities}.
+
 \begingroup
 \renewcommand{\arraystretch}{1.2}
-\begin{table}[T]
+\begin{table}
 	\begin{center}
 	\caption{List of quantities that are reconstructed during a standard 
 	\EAS reconstruction.}
@@ -1129,31 +1158,12 @@ at the edges of the \PAO.
 \end{table}
 \endgroup
 
-\Offline is the extensive in-house software framework utilized by the Auger 
-collaboration to reconstruct \EAS data and perform detector studies
-\cite{argiroOfflineSoftwareFramework2007}. It is written in \texttt{C++}
-\cite{stroustrupStandard}, and is continuously updated by collaborators using 
-\texttt{git} \cite{thepierreaugercollaborationOfficialOfflineRepository2025,
-chaconProGit2014}. A deliberate design choice of the project is the 
-compartmentalization of the reconstruction process into different modules.
+\subsection{Surface Detector Reconstruction}
+\label{ssec:sd-reconstruction}
 
-During an \EAS reconstruction, these modules are executed in a predefined 
-sequence as defined in \XML steering files. Every module has a specific use 
-case, and reconstructs different \EAS information. Consequentially, the 
-module sequence defines which measurement data is analyzed, and which \EAS 
-information is reconstructed. Usually, at the end of the procedure the results 
-of the analysis are written to an \ADST, a compact data structure based on the 
-\texttt{root} format \cite{brunROOTObjectOriented1997}. 
+\todo{write some shit here}
+hallo bla bl asdasda
 
-This section details the different modules that are executed during a standard
-hybrid event reconstruction. The \UMD and the \RD are not part of this module
-sequence. Details on the event reconstruction using the \UMD and the \RD data 
-are offered in \cite{bottiAMIGAUndergroundMuon2021} and \todo{simons proceeding}. 
-
-The goal of the reconstruction is the collection of several event-level 
-quantities that can be used for higher-level physics analysis. An overview of 
-the most important reconstructed information is given in 
-\cref{tab:rec-quantities}.
 \subsubsection{PMT Quality Cuts \& Station Selection}
 \label{sssec:reconstruction-pmt-quality-cuts}
 
@@ -1258,13 +1268,12 @@ for signal amplitudes exceeding very roughly
 $\SI{14}{\Ivem}\,/\,\SI{50}{\Imip}$. The relevant detector information is 
 reconstructed from the \LG channel in the case of a \HG-saturated \PMT. For
 very high signals ($\sim\SI{440}{\Ivem}\,/\,\sim\SI{1600}{\Imip}$), the \LG
-trace also becomes saturated, and needs to be recovered accurately. In such 
-cases a signal recovery algorithm \cite{vebericEstimationSignalSaturated2013}
-estimates the total charge 
-$Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$ by fitting a 
-Moyal distribution \cite{moyalXXXTheoryIonization1955} to the unsaturated part
-of the \PMT trace, accounting for \PMT undershoot in the process
-\cite{vebericEstimationSignalSaturated2013}.
+trace is also saturated, and needs to be approximated. In such cases a signal 
+recovery algorithm \cite{vebericEstimationSignalSaturated2013} estimates the 
+total charge $Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$ by
+fitting a Moyal distribution \cite{moyalXXXTheoryIonization1955} to the 
+unsaturated portion of the \PMT trace, accounting for \PMT undershoot in the 
+process \cite{vebericEstimationSignalSaturated2013}.
 
 \subsubsection{FdCalibratorOG}
 \label{sssec:reconstruction}
@@ -1272,9 +1281,17 @@ of the \PMT trace, accounting for \PMT undershoot in the process
 The next module in line is responsible for preparing \FD data for 
 reconstruction. First, timing corrections are applied to the \FD-\TTWO 
 timestamps in order to synchronize measurement information across all 
-telescopes. The baseline is evaluated as the mean \ADC values of the first 300
-samples of the pixel trace. 
+telescopes. 
 
+For each pixel the baseline is evaluated as the mean \ADC values of the first 
+300 samples of the corresponding trace. By subtracting the baseline and 
+applying the pixel calibration constants (see \cref{ssec:fd-calibration}) the 
+trace is converted from units of \ADC to numbers of photons at a reference 
+wavelength. This process is done in an identical manner to 
+\cref{eq:offline-calibration}. Furthermore, every \PMT is checked for an \ADC 
+overflow, and an attempt is made to recover the saturated trace with the help 
+of virtual pixel channels. Finally, the integration interval is determined 
+similar to how the \SD signal window is calculated.
 
 \subsubsection{FD axis shit}
 

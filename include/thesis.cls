@@ -283,7 +283,7 @@
 [display]
 {\newpage\normalfont\bfseries\huge}{}{0.3cm}
 {%
- \vspace{-1.6cm}\sc{\thesection}\hspace{0.3cm}\sc{#1}
+ \vspace{-50pt}\sc{\thesection}\hspace{0.3cm}\sc{#1}
 }
 \titlespacing*{\section} {0pt}{0pt}{10pt}
 
@@ -298,9 +298,9 @@
 [display]
 {\normalfont\bfseries\Large}{}{0.3cm}
 {%
- \vspace{-0.7cm}\sc{\thesubsection}\hspace{0.3cm}\sc{#1}
+ \sc{\thesubsection}\hspace{0.3cm}\sc{#1}
 }
-\titlespacing*{\subsection} {0pt}{0pt}{10pt}
+\titlespacing*{\subsection} {0pt}{-30pt}{5pt}
 
 \titlecontents{subsection}[0.85cm]{}
 {\thecontentslabel\hspace{0.5em}}
@@ -311,9 +311,9 @@
 [display]
 {\normalfont\bfseries\large}{}{0.3cm}
 {%
- \vspace{-0.1cm}\sc{\thesubsubsection}\hspace{0.3cm}\sc{#1}
+ \sc{\thesubsubsection}\hspace{0.3cm}\sc{#1}
 }
-\titlespacing*{\subsubsection} {0pt}{-0.6cm}{10pt}
+\titlespacing*{\subsubsection} {0pt}{-20pt}{5pt}
 
 \titlecontents{subsubsection}
   [0.85cm]
