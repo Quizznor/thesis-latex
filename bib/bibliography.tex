@@ -1,7 +1,9 @@
 %! TEX root = ../main.tex
 
-\titleformat{\chapter}[display]{\centering\normalfont\huge}{}{0pt}{#1}[\hrule\vspace{-0.5cm}]
-\titleformat{\section}[display]{\bfseries\Large}{}{10pt}{\sc{#1}}[]
+\titleformat{\chapter}[display]{\centering\normalfont\Huge}{}{0pt}{#1}[\hrule\vspace{-0.5cm}]
+\titlespacing{\chapter}{0pt}{-80pt}{30pt}
+\titleformat{\section}[display]{\bfseries\huge}{}{10pt}{\sc{#1}}[]
+\titlespacing{\section}{0pt}{20pt}{10pt}
 \printbibheading
 
 \defbibnote{auger}{%
@@ -56,7 +58,6 @@ the label \sc{P}.}
 	\vspace{0.2cm}
 \end{refcontext}
 
-\end{refcontext}
 
 % Other References
 \begin{refcontext}
@@ -103,10 +104,6 @@ the label \sc{P}.}
 		title={Physics References},
 		heading=subbibliography, 
 		prenote=physics]
-	
-	\vspace{0.5cm}
-	\hrule
-	\vspace{0.2cm}
 \end{refcontext}
 
 \cleardoublepage

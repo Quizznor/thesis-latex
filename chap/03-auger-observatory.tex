@@ -14,7 +14,9 @@ at the tail-end of the \CR energy spectrum.
 \section{Project History and Future}
 \label{sec:project-history-and-future}
 
-\subsection{Science Goals and Achievements}
+\fulllift
+
+\subsection{Goals and Achievements}
 \label{ssec:science-goals-and-achievements}
 
 The project that is today known as the \acl{PAO} looks back on a history which 
@@ -22,11 +24,11 @@ spans more than three decades in total. First plans for a \CR detector of
 immense exposure were devised by Nobel laureate James Cronin 
 \cite{nobelprizeoutreach2025NobelPrizePhysics} and Faraday medalist Alan Watson
 \cite{FellowWinsIoP2011} at the 22nd \ICRC \cite{watsonDevelopmentPierreAuger}
-They realized that the flux of \UHECRs is very low 
+The two realized that the flux of \UHECRs is very low 
 ($\approx\SI{1}{\per\km\squared\per\year}$ for energies above \SI{1e19}{\eV} 
 \cite{fenuCosmicRayEnergy2023}), and that one needs to observe a large area 
 over a long timespan to collect enough data for a statistically relevant 
-analysis of their dynamics. Cronin especially was interested in  verifying the 
+analysis of their dynamics. Cronin especially was interested in verifying the 
 possible detection of an astrophysical source of $\gamma$-rays 
 \cite{samorskiDetection2101983}. Moreover, the mere existence of some \UHECRs 
 was challenging astrophysical models \cite{birdDetectionCosmicRay1995, 
@@ -52,7 +54,7 @@ a full scale prototype of the first \SD and \FD detectors was completed in
 The detector has been operating almost continuously ever since, resulting in a 
 total exposure well surpassing \SI{100000}{\km\squared\sr\year} 
 \cite{aabPierreAugerObservatory2020}. Thanks to this, the Pierre Auger 
-Collaboration has delivered key insights that advanced the understanding of 
+Collaboration has delivered key insights that advance our understanding of 
 astroparticle and high-energy physics. Most notably, the \PAO confirmed a 
 strong suppression of the \CR-flux for particles above 
 $E\approx\SI{4e19}{\eV}$ \cite{yamamotoUHECRSpectrumMeasured2007} (see 
@@ -62,21 +64,20 @@ hint to their distant origins
 \todo{ref physics chapter}). Upper limits have been set on the \UHE photon and
 neutrino flux, which forces the reevaluation of certain astrophysical models 
 \cite{collaborationPierreAugerObservatory2011, abreuSearchUltrahighEnergy2011}.
-Last but not least, regular releases of datasets to the public support the work 
+Last but not least, regular releases of datasets to the public support the work
 of independently working astrophysicists around the globe 
 \cite{pierreaugercollaborationPierreAugerObservatory2025}.
 
 \subsection{AugerPrime and Outlook}
 \label{ssec:augerprime-and-outlook}
 
-Many questions have been answered thanks to the data collected by the \PAO. It
-is no surprise however that new insights sprout new questions. The existence of
-\UHECRs beyond the GZK-cutoff has been established unambigously. Now, their
-nature must be studied more deeply. Of particular interest is the 
-reconstruction of the primary particle mass from \EAS-data, as this influences 
-the \CRs (reconstructed \cite{yushkovMassCompositionCosmic2021}) energy, and 
-evolution from the source to the earth 
-\cite{strongCosmicRayPropagationInteractions2007, 
+Many questions have been answered thanks to the data collected by the \PAO. 
+Naturally, new insights sprout new questions. The existence of \UHECRs beyond 
+the \GZK-cutoff has been established unambigously. Now, their nature must be 
+studied more deeply. Of particular interest is the reconstruction of the 
+primary particle mass from \EAS-data, as this influences the \CRs 
+(reconstructed \cite{yushkovMassCompositionCosmic2021}) energy, and evolution 
+from the source to the earth \cite{strongCosmicRayPropagationInteractions2007, 
 flaggsStudyingMassSensitivity2024}.
 
 The detectors have undergone a major upgrade in the past decade in order to 
@@ -88,13 +89,14 @@ improved, and new methods for data analysis are being tested.
 As of the completion of this thesis, the AugerPrime hardware and software 
 upgrade is completed and described in the following pages as well as in 
 \cite{collaborationPierreAugerObservatory2011}. The observatory delivers data 
-with lower systematics and additional information from the new detectors. The 
-prospects of this detector upgrade have astroparticle physicists excited, and 
-resulted in the strong support to extend the observatories funding until beyond
-the year 2030 \cite{castellinaOutcomeFinanceBoard2023}. The phase II of \DAQ 
-(as opposed to Phase I pre- and during AugerPrime) will be the basis for many 
-contributions that attempt to shed light into the physics of \UHECRs, with this
-work being just one example.
+with lower systematics. Additional information from new detectors assists the 
+interpretation of observed phenomena. The prospects of this detector upgrade 
+have astroparticle physicists excited, and resulted in the strong support to 
+extend the observatories funding until beyond the year 2030 
+\cite{castellinaOutcomeFinanceBoard2023}. The Phase-II of \DAQ (as opposed to 
+Phase-I pre- and during AugerPrime) will be the basis for many contributions 
+that attempt to shed light into the physics of \UHECRs, with this work being 
+just one example.
 
 \section{The Fluorescence Detector}
 \label{sec:fd}
@@ -207,7 +209,7 @@ the \PMTs is read out at a sampling frequency of \SI{10}{\mega\hertz}
 \label{ssec:fd-triggers}
 
 The accurate reconstruction of an \EAS requires the camera to have an excellent
-background rejection (of e.g. transient stars in the camera \FOV). On top of 
+background rejection (of e.g.\ transient stars in the camera \FOV). On top of 
 this, signals must be processed quickly to keep a potential timing offset 
 between \FD and \SD minimal, and enable a hybrid reconstruction. The \FD 
 electronics achieve this via a simple, hierarchical trigger logic. A \FPGA 
@@ -637,7 +639,7 @@ are, like the \SSD, segmented themselves into bars to minimize signal pileup
 underground, as shown in \cref{fig:umd}. The soil above the detectors provides 
 an excellent attenuation for non-muonic particles in \EASs. Particularly, this 
 implies that the signals measured by the \UMD consist entirely of muons, 
-allowing the \PAO to e.g. probe the muon content of \EASs \todo{cite joachims thesis}.
+allowing the \PAO to e.g.\ probe the muon content of \EASs \todo{cite joachims thesis}.
 
 \WLS cables transport the light signal from the active medium of one bar to a 
 dedicated \SiPM. The output of the \SiPM array is digitized in two ways 
@@ -674,7 +676,7 @@ The \RD represents the last, and newest detector component that was added to
 the \SD. Since the completion of construction at the end of 2024 
 \cite{castellinaSeasonalGreetings202424}, all \SD stations have been equipped
 with \SALLAs, consisting of a dipole loop with radius \SI{60}{\centi\meter} 
-that are mounted on top of the \SSD (ref. \cref{fig:sd-station-render}). This 
+that are mounted on top of the \SSD (Ref. \cref{fig:sd-station-render}). This 
 configuration allows the detection of the \EM signature of \EASs from arbitrary
 directions in the frequency band 
 \SIrange[range-units = single]{30}{80}{\mega\hertz} 
@@ -940,7 +942,7 @@ possible also for energies below \SI{1e17}{\eV}
 IceCube@Auger \cite{schroederIceTopAuger2025}. 
 
 The Infill is also home to doublet and triplet detectors, where two 
-\SD-stations (with e.g. different electronics) are installed at the same site. 
+\SD-stations (with e.g.\ different electronics) are installed at the same site.
 They are used to study timing offsets and (un)certainties, as well as verify 
 the correct operation of the upgraded AugerPrime electronics 
 \cite{payerasCompatibilityUBUUB2023}.
@@ -1084,7 +1086,7 @@ reduces the effective size of the \SD-array by about \SI{10}{\percent}
 quantities are not biased by the geometry of the array, which occurs especially
 at the edges of the \SD array. 
 
-\subsection{\Offline Reconstruction}
+\subsection{\Offline Framework}
 
 \Offline is the extensive in-house software framework utilized by the Auger 
 collaboration to reconstruct \EAS data and perform detector studies
@@ -1102,15 +1104,17 @@ information is reconstructed. Usually, at the end of the procedure the results
 of the analysis are written to an \ADST, a compact data structure based on the 
 \texttt{root} format \cite{brunROOTObjectOriented1997}. 
 
-This section details the different modules that are executed during a standard
-hybrid event reconstruction. The \UMD and the \RD are not part of this module
-sequence. Details on the event reconstruction using the \UMD and the \RD data 
-are offered in \cite{bottiAMIGAUndergroundMuon2021} and \todo{simons proceeding}. 
-
-The goal of the reconstruction is the collection of several event-level 
-quantities that can be used for higher-level physics analysis. An overview of 
-the most important reconstructed information is given in 
+The goal of this reconstruction is the collection of several quantities that 
+can be used for higher-level physics analysis. An overview of the most 
+important reconstructed information for the \FD and the \SD is given in 
 \cref{tab:rec-quantities}.
+
+The following sections detail the different modules that are executed during 
+a standard event reconstruction for the \FD, and the \SD (including only 
+information from the \WCD and the \SSD). The \UMD and the \RD are, given their 
+relative novelty, not part of the well established module sequences that are 
+typically in use. Details on the event reconstruction using the \UMD and the 
+\RD data can be found in \cite{bottiAMIGAUndergroundMuon2021} and \todo{simons proceeding}, respectively. 
 
 \begingroup
 \renewcommand{\arraystretch}{1.2}
@@ -1123,29 +1127,30 @@ the most important reconstructed information is given in
 	 & $\mathbf{Q}$ & $\mathbf{\Delta Q}$ & Details & Ref. \\
 	\cline{2-5}
 	\ldelim\{{5}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Event level}}]
-	 & $E_\mathrm{SD}$ & \SI{14}{\percent} & The energy of the primary 
-	 particle, estimated from \SD data only & \\
+	 & $E_\mathrm{SD}$ & \SI{14}{\percent} & \SD-estimate of the primary 
+	 energy & \\
 	 & $E_\mathrm{FD}$ & \SI{14}{\percent} & \FD-estimate of the primary
 	 energy & \\ 
-	 & $(\theta, \phi)$ & \SI{1}{\percent} & Arrival direction of the 
-	 primary particle & \\
-	 & $(x, y)$ & \SI{10}{\percent}\tablefootnote{The percentage
- 	 uncertainty is given in terms of the SD-1500 array spacing 
-	 (\SI{1.5}{\kilo\meter})} & Intersect of \EAS axis and Earth surface 
-	 & \\ 
+	 & $(\theta, \phi)$ & $\SI{1}{\degree}\,$-$\,\SI{2}{\degree}$ & Arrival
+	 direction of the primary particle & 
+	 \cref{sssec:reconstruction-plane-fit} \\
+	 & $\vec{r}_\mathrm{bary.}$ & \SI{2}{\percent} & Shower core position 
+	 on Earth & \cref{sssec:reconstruction-plane-fit} \\ 
 	 & $\Xmax$ & \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
 	 size & \\
 	 \cline{2-5}
-	\ldelim\{{9}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Station/Telescope
-	level}}]
+	 \ldelim\{{9}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Station / 
+	 Telescope level}}]
 	 & \Ivem/\Qvem & \SI{2}{\percent} & Calibration factors for the \WCD 
 	 \LPMTs & \cref{sssec:reconstruction-histogram-fitter} \\
 	 & \Imip/\Qmip & \SI{2}{\percent} & Calibration factors for the \SSD 
 	 \PMT & \cref{sssec:reconstruction-histogram-fitter} \\
-	 & $Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$ &
-	 $\sim\SI{5}{\percent}$ & Integrated signal received by the \SD \PMTs &
+	 & $Q^\mathrm{total}_\mathrm{VEM}$ & $\sim\SI{5}{\percent}$ & 
+	 Integrated signal received by the \LPMTs &
 	 \cref{sssec:reconstruction-trace-calibrator} \\
-	 & & & & \\
+	 & Q^\mathrm{total}_\mathrm{MIP} & $\sim\SI{5}{\percent}$ & Integrated 
+	 signal received by the \SSD \PMT & 
+	 \cref{sssec:reconstruction-trace-calibrator} \\
 	 & & & & \\
 	 & & & & \\
 	 & & & & \\
@@ -1158,7 +1163,7 @@ the most important reconstructed information is given in
 \end{table}
 \endgroup
 
-\subsection{Surface Detector Reconstruction}
+\subsection{SD Reconstruction}
 \label{ssec:sd-reconstruction}
 
 \todo{write some shit here}
@@ -1174,7 +1179,7 @@ quality.
 
 First, quality cuts are applied to the \WCD \LPMTs that check several variables
 relating to the functionality of the \PMT. Namely, \PMTs are flagged as bad if
-\VemOnline or the standard deviation of the online estimated baseline (ref.
+\VemOnline or the standard deviation of the online estimated baseline (Ref.
 \cref{eq:peak-and-charge}) are outside of predefined ranges. The \LG-channel of
 the \PMT is flagged as bad if the dynode-to-anode ratio of the \PMT is outside
 of a nominal range. Stations for which none of the \LPMTs pass the selection 
@@ -1194,12 +1199,12 @@ flagged as rejected if any of the assertions made in the process fail.
 \subsubsection{SdHistogramFitterKG}
 \label{sssec:reconstruction-histogram-fitter}
 
-Rate-based estimators for \Ivem and \Imip exist on the station-level (ref. 
+Rate-based estimators for \Ivem and \Imip exist on the station-level (Ref. 
 \cref{sssec:wcd}, \todo{online mip reference}). During event reconstruction, a
 more robust method of estimating the peak and charge of the \LPMTs and the
 \SSD-\PMT are used. As detailed in \cref{sssec:muon-histograms}, information 
 exists on the distribution of pulse heights and integrals for the different 
-\PMTs in the \SIrange{1}{2}{\minute} leading up to the event (ref. 
+\PMTs in the \SIrange{1}{2}{\minute} leading up to the event (Ref. 
 \cref{fig:ssd-histo}). Crucially, all these histograms show a local maximum 
 that can be identified with the most probable peak/charge from a single 
 atmospheric muon.
@@ -1275,8 +1280,73 @@ fitting a Moyal distribution \cite{moyalXXXTheoryIonization1955} to the
 unsaturated portion of the \PMT trace, accounting for \PMT undershoot in the 
 process \cite{vebericEstimationSignalSaturated2013}.
 
+\subsubsection{SdEventSelectorOG}
+
+Just before the higher-level reconstruction begins, additional quality cuts are
+applied on a station level, where stations that are triggered by lightning are
+set as rejected, and on the event-level. The module serves serves mostly to 
+remove events that fall into bad periods, where data quality suffers due to 
+e.g.\ bad weather, but can also be manipulated to allow for the reconstruction 
+of events that do not pass T4 or T5 trigger criteria.
+
+\subsubsection{SdPlaneFitOG}
+\label{sssec:reconstruction-plane-fit}
+
+Stations that have not been removed by quality checks up to here are candidate
+stations for the \EAS reconstruction. In order to determine the location of the
+shower core and the orientation of the shower axis, a weighted sum over all
+candidate station gives the event barycenter of station positions and \TTWO 
+trigger times.
+
+\begin{equation}
+	\vec{r}_\mathrm{bary.} = \frac{1}{\mathrm{W}}\,\sum\limits_{i=1}^{n_\mathrm{cand.}} \omega_i\,\vec{r}_i,\qquad t_\mathrm{bary.} = \frac{1}{\mathrm{W}} \sum\limits_{i=1}^{n_\mathrm{cand.}} \omega_i\,t^\mathrm{T2}_i,
+\end{equation}
+
+where $\omega_i = \sqrt{\Qvem_i}$, and $\mathrm{W}=\sum\,\omega_i$. From this,
+a numerical optimizer delivers a first level approximation of the \EAS arrival 
+direction by finding the axis that minimizes the difference between the station
+trigger times, $t_i^\mathrm{T2}$, and the trigger times expected from a plane 
+moving along its' normal direction at the speed of light. $r_\mathrm{bary.}$ 
+serves as the pivot point of the shower plane axis during the optimization 
+process.
+
+To increase the accuracy on the estimated arrival direction, the procedure to 
+fit the shower axis to the station trigger times is repeated once more, using a
+non-linear parametrization that models the expansion of the \EAS more 
+realistically. The axis direction $(\theta,\,\phi)$ obtained from this fit 
+is the estimated arrival direction of the \EAS, and is accurate to within 
+$\SIrange{1}{2}{\degree}$ \cite{bonifaziAngularResolutionPierre2009}. The 
+relative uncertainty on the core position $r_\mathrm{bary.}$ is given as 
+\SI{2}{\percent} in \cite{ghiaStatisticalSystematicUncertainties2005}.
+
+Station trigger times are hereafter given relative to $t_\mathrm{bary.}$. The
+\SPD gives the minimum separation between a \SD-station and the (reconstructed)
+shower axis.
+
+\subsubsection{LDFFinderKG}
+\label{sssec:ldf-finder}
+
+An important step towards an \SD energy estimate is the parametrization of the
+\LDF. It characterizes the expected total signal, $\Qvem$ for a station in 
+terms of the \SPD. A well-suited parametrization is given by the modified \NKG 
+Equation (\ref{eq:NKG}).
+
+\begin{equation}
+\label{eq:NKG}
+S(r) = 3.47^{\,\beta}\,S(1000)\left[ \frac{r}{r_\mathrm{s}}\left(1+\frac{r}{r_\mathrm{s}}\right)\right]^{-\beta} .
+\end{equation}
+
+In \cref{eq:NKG}, it is $r_\mathrm{s}=\SI{100}{\meter}$, and 
+$\beta=2.16\,(\sec\,\theta - 1)$. $S(1000)$, often referred to as the shower 
+size, is a standardized parameter that gives the signal of a hypothetical 
+station located at a \SPD of exactly \SI{1000}{\meter}.
+
+% LDF plot with different beta?
+
+\subsection{FD Reconstruction}
+\label{ssec:fd-reconstruction}
+
 \subsubsection{FdCalibratorOG}
-\label{sssec:reconstruction}
 
 The next module in line is responsible for preparing \FD data for 
 reconstruction. First, timing corrections are applied to the \FD-\TTWO 
@@ -1299,4 +1369,5 @@ similar to how the \SD signal window is calculated.
 \subsubsection{FdApertureLightKG}
 \subsubsection{FdEnergyDepositFinderKG}
 
-\subsubsection{SdReco TODO!}
+\subsection{Hybrid Reconstruction}
+\label{ssec:hd-reconstruction}

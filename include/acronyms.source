@@ -21,12 +21,14 @@ FOV        Field Of View
 FPGA       Field Programmable Gate Array
 GAP        Giant Array Project
 GPS        Global Positioning System
+GZK        Greisen-Zatsepin-Kuzmin
 HEAT       High Elevation Auger Telescope
 HG         High Gain
 ICRC       International Cosmic Ray Conference
 IS         Integrating Sphere
 LA         Loma Amarilla
 LCU        LED Calibration Unit
+LDF        Lateral Distribution Function
 LED        Light Emitting Diode
 LG         Low Gain
 LL         Los Leones
@@ -35,6 +37,7 @@ LPMT       Large PMT
 LUT        Lookup Table
 MIP        Minimum Ionizing Particle
 MoPS       Multiplicity of Positive Steps
+NKG        Nishimura-Kamata-Greisen
 PAO        Pierre Auger Observatory
 PCB        Printed Circuit Board
 PMT        Photomultiplier Tube
@@ -47,6 +50,7 @@ SD         Surface Detector
 SDE        Surface Detector Electronics
 SLT        Second Level Trigger
 SOC        System On Chip
+SPD        Shower Plane Distance
 SPMT       Small PMT
 SRAM       Static Random Access Memory
 SSD        Surface Scintillator Detector
