@@ -1329,19 +1329,35 @@ shower axis.
 An important step towards an \SD energy estimate is the parametrization of the
 \LDF. It characterizes the expected total signal, $\Qvem$ for a station in 
 terms of the \SPD. A well-suited parametrization is given by the modified \NKG 
-Equation (\ref{eq:NKG}).
+Equation (\ref{eq:NKG}) \cite{kamataLateralAngularStructure1958, 
+greisenCosmicRayShowers1960a}.
 
 \begin{equation}
 \label{eq:NKG}
-S(r) = 3.47^{\,\beta}\,S(1000)\left[ \frac{r}{r_\mathrm{s}}\left(1+\frac{r}{r_\mathrm{s}}\right)\right]^{-\beta} .
+S(r) = S(1000)\,\left( \frac{r}{r_\mathrm{ref.}}  \right)^\beta\,\left( \frac{r + r_s}{r_\mathrm{ref.} + r_s}  \right)^{(\beta + \gamma)}
 \end{equation}
 
-In \cref{eq:NKG}, it is $r_\mathrm{s}=\SI{100}{\meter}$, and 
-$\beta=2.16\,(\sec\,\theta - 1)$. $S(1000)$, often referred to as the shower 
-size, is a standardized parameter that gives the signal of a hypothetical 
-station located at a \SPD of exactly \SI{1000}{\meter}.
+In \cref{eq:NKG}, $r_\mathrm{s}=\SI{1000}{\meter}$ gives the reference length 
+of the SD-1500 (different reference lengths are defined for the SD-750, and the
+SD-433). $\beta$ and $\gamma$ are the shape parameters of the \LDF, and
+determine the compactness of the shower. Example visualizations are offered in
+\cref{fig:ldf}. $S(1000)$, also called the shower size, is the value of the 
+\LDF at $r=\SI{1000}{\meter}$, and independent of the shower shape (i.e.\ of
+$\beta$ and $\gamma$).
 
-% LDF plot with different beta?
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.48\textwidth]{auger-observatory/ldf_beta.png}
+  \label{fig:ldf-beta}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.48\textwidth]{auger-observatory/ldf_gamma.png}
+  \label{fig:ldf-gamma}
+  }
+  \caption[]{\subref{fig:ldf-beta} adada \subref{fig:ldf-gamma} adada }
+  \label{fig:ldf}
+\end{figure}
+
+
 
 \subsection{FD Reconstruction}
 \label{ssec:fd-reconstruction}
@@ -1364,7 +1380,6 @@ of virtual pixel channels. Finally, the integration interval is determined
 similar to how the \SD signal window is calculated.
 
 \subsubsection{FD axis shit}
-
 \subsubsection{HybridGeometryFinderOG/WG}
 \subsubsection{FdApertureLightKG}
 \subsubsection{FdEnergyDepositFinderKG}
