@@ -962,10 +962,11 @@ the correct operation of the upgraded AugerPrime electronics
 	\SI{3000}{\kilo\meter\squared} & 
 	\SI{3e18}{\eV} \cite{abrahamTriggerApertureSurface2010} & \WCD, \SSD, 
 	\RD \\
-	\textbf{SD-750} & \SI{750}{\meter} & 61 & \SI{25}{\kilo\meter\squared} &
-	\SI{3e17}{\eV} \cite{fenuCosmicRayEnergy2023} & \WCD, \SSD, \RD, \UMD \\
+	\textbf{SD-750} & \SI{750}{\meter} & 61 & \SI{25}{\kilo\meter\squared} 
+	& \SI{3e17}{\eV} \cite{fenuCosmicRayEnergy2023} & \WCD, \SSD, \RD, 
+	\UMD \\
 	\textbf{SD-433} & \SI{433}{\meter} & 19 & \SI{2}{\kilo\meter\squared} &
-	\SI{5e16}{\eV} \cite{silliPerformance433Surface2022a}\tablefootnote{for 
+	\SI{5e16}{\eV} \cite{silliPerformance433Surface2022a}\tablefootnote{for
 	hadronic primaries with $\theta < 45^\circ$} & \WCD, \SSD, \RD, \UMD \\
   \bottomrule
 	\end{tabular*}
@@ -977,8 +978,9 @@ the correct operation of the upgraded AugerPrime electronics
 \section{Event Reconstruction}
 \label{sec:event-reconstruction}
 
-\todo{write some shit here}
-hallo bla bla
+The event reconstruction is the process of reconstructing physical quantities,
+like the energy of the primary particle, from the data gathered by the \FD and
+the \SD. 
 
 \subsection{Event Detection}
 \label{ssec:cdas}
@@ -1106,14 +1108,23 @@ of the analysis are written to an \ADST, a compact data structure based on the
 The goal of this reconstruction is the collection of several quantities that 
 can be used for higher-level physics analysis. An overview of the most 
 important reconstructed information for the \FD and the \SD is given in 
-\cref{tab:rec-quantities}.
+\cref{tab:rec-quantities}. Note that the table contains only quantities for the
+\FD, the \WCD, and the \SSD. The \UMD and the \RD are, given their relative 
+novelty, not part of the well established module sequences that are typically 
+in use. Details on the event reconstruction using the \UMD and the \RD data can
+be found in \cite{bottiAMIGAUndergroundMuon2021} and \todo{simons proceeding}, respectively. 
 
-The following sections detail the different modules that are executed during 
-a standard event reconstruction for the \FD, and the \SD (including only 
-information from the \WCD and the \SSD). The \UMD and the \RD are, given their 
-relative novelty, not part of the well established module sequences that are 
-typically in use. Details on the event reconstruction using the \UMD and the 
-\RD data can be found in \cite{bottiAMIGAUndergroundMuon2021} and \todo{simons proceeding}, respectively. 
+
+The following sections attempt to detail the different steps that are executed 
+during a standard event reconstruction. Where possible, the exact module names 
+(as implemented in Ref.\ 
+\cite{thepierreaugercollaborationOfficialOfflineRepository2025}) are used as 
+section headers. Wherever a secion header is marked with an asterisk, steps
+from different modules haven been combined, or details in a single module have
+been expanded, in order to boost readability. At several occasions
+simplifications are made, or details have been left out. As such, the following
+pages are meant to be understood as a surface level introduction to the 
+\Offline event reconstruction, not an in-depth discussion.
 
 \begingroup
 \renewcommand{\arraystretch}{1.2}
@@ -1130,11 +1141,12 @@ typically in use. Details on the event reconstruction using the \UMD and the
 	 energy & \\
 	 & $E_\mathrm{FD}$ & \SI{14}{\percent} & \FD-estimate of the primary
 	 energy & \\ 
-	 & $(\theta, \phi)$ & $\SI{1}{\degree}\,$-$\,\SI{2}{\degree}$ & Arrival
-	 direction of the primary particle & 
-	 \cref{sssec:reconstruction-plane-fit} \\
+	 & $(\theta, \phi)$ & $<\SI{2}{\degree}$ & Arrival direction of the 
+	 primary particle & \cref{sssec:reconstruction-plane-fit} \\
 	 & $\vec{r}_\mathrm{bary.}$ & \SI{2}{\percent} & Shower core position 
 	 on Earth & \cref{sssec:reconstruction-plane-fit} \\ 
+	 & $S(1000)$ & \SI{2}{\percent} & Shower size, \acs{LDF} value at 
+	 \SI{1000}{\meter} & \cref{sssec:reconstruction-ldf-finder} \\ 
 	 & $\Xmax$ & \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
 	 size & \\
 	 \cline{2-5}
@@ -1165,16 +1177,10 @@ typically in use. Details on the event reconstruction using the \UMD and the
 \subsection{SD Reconstruction}
 \label{ssec:sd-reconstruction}
 
-\todo{write some shit here}
-hallo bla bl asdasda
+The 
 
-\subsubsection{PMT Quality Cuts \& Station Selection}
+\subsubsection{PMT \& Station Selector*}
 \label{sssec:reconstruction-pmt-quality-cuts}
-
-It follows a discussion of several modules that, for the sake of clarity, are 
-grouped together in one section. They all have a common purpose in a first 
-level processing of the raw \SD detector data, and ensuring it is of good 
-quality.
 
 First, quality cuts are applied to the \WCD \LPMTs that check several variables
 relating to the functionality of the \PMT. Namely, \PMTs are flagged as bad if
@@ -1276,8 +1282,8 @@ trace is also saturated, and needs to be approximated. In such cases a signal
 recovery algorithm \cite{vebericEstimationSignalSaturated2013} estimates the 
 total charge $Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$ by
 fitting a Moyal distribution \cite{moyalXXXTheoryIonization1955} to the 
-unsaturated portion of the \PMT trace, accounting for \PMT undershoot in the 
-process \cite{vebericEstimationSignalSaturated2013}.
+unsaturated portion of the \PMT trace, also accounting for \PMT undershoot
+\cite{vebericEstimationSignalSaturated2013}.
 
 \subsubsection{SdEventSelectorOG}
 
@@ -1323,13 +1329,13 @@ Station trigger times are hereafter given relative to $t_\mathrm{bary.}$. The
 shower axis.
 
 \subsubsection{LDFFinderKG}
-\label{sssec:ldf-finder}
+\label{sssec:reconstruction-ldf-finder}
 
 An important step towards an \SD energy estimate is the parametrization of the
 \LDF. It characterizes the expected total signal, $\Qvem$ for a station in 
 terms of the \SPD. A well-suited parametrization is given by the modified \NKG 
 Equation (\ref{eq:NKG}) \cite{kamataLateralAngularStructure1958, 
-greisenCosmicRayShowers1960}. asdasd
+greisenCosmicRayShowers1960}.
 
 \begin{equation}
 \label{eq:NKG}
@@ -1338,11 +1344,19 @@ S(r) = S(1000)\,\left( \frac{r}{r_\mathrm{ref.}}  \right)^\beta\,\left( \frac{r 
 
 In \cref{eq:NKG}, $r_\mathrm{s}=\SI{1000}{\meter}$ gives the reference length 
 of the SD-1500 (different reference lengths are defined for the SD-750, and the
-SD-433). $\beta$ and $\gamma$ are the shape parameters of the \LDF, and
-determine the compactness of the shower. Example visualizations are offered in
-\cref{fig:ldf}. $S(1000)$, also called the shower size, is the value of the 
-\LDF at $r=\SI{1000}{\meter}$, and independent of the shower shape (i.e.\ of
-$\beta$ and $\gamma$).
+SD-433, respectively). $\beta$ and $\gamma$ are the shape parameters of the 
+\LDF, and determine the \LDF form. They are, in general, determined by the 
+zenith angle and the shower age.\footnote{The shower age can be thought of as 
+the distance of the shower core to the primary interaction point.} A closed 
+form for the exact dependence is difficult to establish, given the fact that 
+\EAS processes are highly stochastic in nature. It holds however that both an 
+increase in the \EAS inclination, as well as the shower age cause for a less 
+compact shower. The impact on the \LDF form that the choice of $\beta$ and 
+$\gamma$ has is visualized in \cref{fig:ldf}. $S(1000)$, also called the shower
+size, is the value of the \LDF at $r=\SI{1000}{\meter}$, and independent of the
+shower shape (i.e.\ of $\beta$ and $\gamma$). Real showers have \LDF forms that
+are strictly positive, and monotonically decreasing, or, in other words, have 
+$S(1000) > 0$ and $2\,\beta + \gamma < 0$.
 
 \begin{figure}[t]
  \centering
@@ -1358,9 +1372,33 @@ $\beta$ and $\gamma$).
 \subref{fig:ldf-gamma} similarly. Both plots have the same normalization on the
 y-axis, highlighting the dominance of $\beta$ over $\gamma$ in determining the
 \LDF shape. The value and location of $S(1000)$ is marked by dash-dotted
-lines.}
+lines. In \subref{fig:ldf-gamma} the \LDFs generated with $\gamma>1$ are 
+unphysical. For details see the main text.}
  \label{fig:ldf}
 \end{figure}
+
+The \LDF is estimated during event reconstruction by optimizing the parameters
+$S(1000)$, $\beta$, and $\gamma$ by performing a \NLL optimization to fit 
+\cref{eq:NKG} to the integrated signal $\Qvem$/$\Qmip$ observed at each station
+that is participating in the event. To boost the accuracy of the recovered fit 
+parameters the optimization is executed multiple times, first only optimizing
+the shower size, and gradually becoming more elaborate, also updating the 
+estimate of $r_\mathrm{bary.}$ in the process.
+
+The final estimate of $S(1000)$ has a systematic uncertainty of 
+\SI{2}{\percent} \cite{ghiaStatisticalSystematicUncertainties2005}.
+
+\subsubsection{Energy Estimator*}
+
+The shower size obtained in the previous step is a useful metric to estimate 
+the primary energy of the \CR particle, as detailed in 
+\cite{aabReconstructionEventsRecorded2020}. However, several steps are needed
+to calculate $E$ from $S(1000)$
+
+% geom correction
+% cic
+% s38
+% attenuation
 
 \subsection{FD Reconstruction}
 \label{ssec:fd-reconstruction}
