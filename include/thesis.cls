@@ -1,6 +1,8 @@
 \ProvidesClass{include/thesis}
 \LoadClass[a4paper, 11pt, twoside]{book}
 
+\usepackage[dvipsnames, table]{xcolor}
+
 % \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
@@ -28,7 +30,6 @@
 \newcommand{\word}[2]{\acro{#1}{\textit{#2}}}
 
 
-\usepackage[dvipsnames, table]{xcolor}
 \usepackage{changes}
 \usepackage{blindtext}
 \usepackage[b]{esvect}    % For \vv
@@ -109,7 +110,7 @@
 \usepackage{xspace}
 \usepackage{parskip}
 
-\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[activate={true,nocompatibility},final,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}
 % activate={true,nocompatibility} - activate protrusion and expansion
 % final - enable microtype; use "draft" to disable
 % tracking=true, kerning=true, spacing=true - activate these techniques
@@ -125,7 +126,10 @@
 \widowpenalty = 10000
 \usepackage{mathpazo}
 \extrafloats{100}
-\usepackage[style=numeric-comp, sorting=none, defernumbers=true]{biblatex}
+\usepackage[backend=biber,
+	    style=ieee, 
+	    sorting=none, 
+	    defernumbers=true]{biblatex}
 \addbibresource{bib/thesis.bib}
 \setcounter{biburllcpenalty}{10000}
 \setcounter{biburlucpenalty}{10000}
@@ -166,7 +170,9 @@
   tight-spacing = true,
   separate-uncertainty = true
 }
-  
+
+
+\setlength{\headheight}{13.6pt}
 \let\oldbaselinestretch=\baselinestretch%
 \renewcommand{\baselinestretch}{1.15}%
 \large\normalsize%

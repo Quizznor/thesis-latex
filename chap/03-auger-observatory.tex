@@ -140,7 +140,6 @@ closest to Malargüe, these sites are \LL, \LM, \LA, \CO2, and the \HEAT.
   \label{fig:pao-images}
 \end{figure}
 
-
 \subsection{Optical System}
 \label{ssec:fd-design}
 
@@ -165,10 +164,10 @@ are, in the order that light traverses them (see \cref{fig:fd-schematic},
   increase the light collection area, while minimizing spherical aberrations in
   the camera.
 
-  \item \textbf{The curtain} curtain provides a secondary failsafe that 
-  prevents high-intensity light from reaching the sensitive electronics. The 
-  curtain sits outside of the light path, but can be deployed in emergency 
-  situations, or during daytime work and maintenance.
+  \item \textbf{The curtain} provides a secondary failsafe that prevents 
+  high-intensity light from reaching the sensitive electronics. The curtain 
+  sits outside of the light path, but can be deployed in emergency situations, 
+  or during daytime work and maintenance.
 
   \item \textbf{The mirrors} are a set of 60 hexagonal glass segments (36 
   square segments from anodized aluminum in the case of \LL and \LM) aligned 
@@ -1148,8 +1147,8 @@ typically in use. Details on the event reconstruction using the \UMD and the
 	 & $Q^\mathrm{total}_\mathrm{VEM}$ & $\sim\SI{5}{\percent}$ & 
 	 Integrated signal received by the \LPMTs &
 	 \cref{sssec:reconstruction-trace-calibrator} \\
-	 & Q^\mathrm{total}_\mathrm{MIP} & $\sim\SI{5}{\percent}$ & Integrated 
-	 signal received by the \SSD \PMT & 
+	 & $Q^\mathrm{total}_\mathrm{MIP}$ & $\sim\SI{5}{\percent}$ & 
+	 Integrated signal received by the \SSD \PMT & 
 	 \cref{sssec:reconstruction-trace-calibrator} \\
 	 & & & & \\
 	 & & & & \\
@@ -1192,7 +1191,7 @@ information of the surviving stations are adjusted and corrected according to
 that influence any of the quantities.
 
 Additionally to the quality cuts on a \PMT level, stations are also checked for
-their \TTWO lifetime\footnote{\todo{wtf is this}}, quality of the \GPS timing 
+their \TTWO lifetime\footnote{todo}\todo{wtf is this}, quality of the \GPS timing 
 information, data integrity, and many other aspects. Individual stations are 
 flagged as rejected if any of the assertions made in the process fail.
 
@@ -1252,7 +1251,7 @@ stemming from atmospheric muons.
 Once no trace segments are left to merge, the window with the longest duration
 is chosen for each \WCD \PMT, and the \EAS start and stop time are calculated 
 as the average of the \PMT start/stop times. A buffer time of 
-\SI{250}{\nano\seconds} is appended to the stop time, to ensure containment of
+\SI{250}{\nano\second} is appended to the stop time, to ensure containment of
 any sub-threshold pulses. The integral of the \FADC trace within the determined
 signal window is calculated and divided by the corresponding charge calibration
 factor. The recovered quantity is the total \EAS signal 
@@ -1260,7 +1259,7 @@ $Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$.
 
 The uncertainty of the total estimated signal is highly non-linear, and
 increases from \SI{5}{\percent} for smaller signals to \SI{60}{\percent} at 
-very large signals of $\sim\SI{10}{\kilo\VEM} 
+very large signals of $\sim\SI{10}{\kilo\VEM}$
 \cite{aabReconstructionEventsRecorded2020}.
 
 \subsubsection{SdSignalRecoveryKLT}
@@ -1302,7 +1301,7 @@ trigger times.
 	\vec{r}_\mathrm{bary.} = \frac{1}{\mathrm{W}}\,\sum\limits_{i=1}^{n_\mathrm{cand.}} \omega_i\,\vec{r}_i,\qquad t_\mathrm{bary.} = \frac{1}{\mathrm{W}} \sum\limits_{i=1}^{n_\mathrm{cand.}} \omega_i\,t^\mathrm{T2}_i,
 \end{equation}
 
-where $\omega_i = \sqrt{\Qvem_i}$, and $\mathrm{W}=\sum\,\omega_i$. From this,
+where $\omega_i = \sqrt{\Qvem^i}$, and $\mathrm{W}=\sum\,\omega_i$. From this,
 a numerical optimizer delivers a first level approximation of the \EAS arrival 
 direction by finding the axis that minimizes the difference between the station
 trigger times, $t_i^\mathrm{T2}$, and the trigger times expected from a plane 
@@ -1330,11 +1329,11 @@ An important step towards an \SD energy estimate is the parametrization of the
 \LDF. It characterizes the expected total signal, $\Qvem$ for a station in 
 terms of the \SPD. A well-suited parametrization is given by the modified \NKG 
 Equation (\ref{eq:NKG}) \cite{kamataLateralAngularStructure1958, 
-greisenCosmicRayShowers1960a}.
+greisenCosmicRayShowers1960}. asdasd
 
 \begin{equation}
 \label{eq:NKG}
-S(r) = S(1000)\,\left( \frac{r}{r_\mathrm{ref.}}  \right)^\beta\,\left( \frac{r + r_s}{r_\mathrm{ref.} + r_s}  \right)^{(\beta + \gamma)}
+S(r) = S(1000)\,\left( \frac{r}{r_\mathrm{ref.}}  \right)^\beta\,\left( \frac{r + r_s}{r_\mathrm{ref.} + r_s}  \right)^{\beta + \gamma}
 \end{equation}
 
 In \cref{eq:NKG}, $r_\mathrm{s}=\SI{1000}{\meter}$ gives the reference length 
@@ -1346,18 +1345,22 @@ determine the compactness of the shower. Example visualizations are offered in
 $\beta$ and $\gamma$).
 
 \begin{figure}[t]
-  \centering
-  \subfloat[]{\includegraphics[height=0.48\textwidth]{auger-observatory/ldf_beta.png}
-  \label{fig:ldf-beta}
-  }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[height=0.48\textwidth]{auger-observatory/ldf_gamma.png}
-  \label{fig:ldf-gamma}
-  }
-  \caption[]{\subref{fig:ldf-beta} adada \subref{fig:ldf-gamma} adada }
-  \label{fig:ldf}
+ \centering
+ \subfloat[]{\includegraphics[height=0.37\textwidth]{auger-observatory/ldf_beta.png}
+ \label{fig:ldf-beta}
+ }\hspace{0.2cm}
+ \subfloat[]{\includegraphics[height=0.37\textwidth]{auger-observatory/ldf_gamma.png}
+ \label{fig:ldf-gamma}
+ }
+ \caption[]{The influence of the two shape parameters on the \LDF form. The 
+ impact of $\beta$ is highlighted in \subref{fig:ldf-beta} with $\gamma$ fixed 
+ and $\beta$ varying, and the impact of $\gamma$ is shown in 
+\subref{fig:ldf-gamma} similarly. Both plots have the same normalization on the
+y-axis, highlighting the dominance of $\beta$ over $\gamma$ in determining the
+\LDF shape. The value and location of $S(1000)$ is marked by dash-dotted
+lines.}
+ \label{fig:ldf}
 \end{figure}
-
-
 
 \subsection{FD Reconstruction}
 \label{ssec:fd-reconstruction}
