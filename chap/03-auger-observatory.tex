@@ -1143,8 +1143,8 @@ pages are meant to be understood as a surface level introduction to the
 	 energy & \\ 
 	 & $(\theta, \phi)$ & $<\SI{2}{\degree}$ & Arrival direction of the 
 	 primary particle & \cref{sssec:reconstruction-plane-fit} \\
-	 & $\vec{r}_\mathrm{bary.}$ & \SI{2}{\percent} & Shower core position 
-	 on Earth & \cref{sssec:reconstruction-plane-fit} \\ 
+	 & $(x,\,y)$ & \SI{2}{\percent} & Shower core position on Earth & 
+	 \cref{sssec:reconstruction-plane-fit} \\ 
 	 & $S(1000)$ & \SI{2}{\percent} & Shower size, \acs{LDF} value at 
 	 \SI{1000}{\meter} & \cref{sssec:reconstruction-ldf-finder} \\ 
 	 & $\Xmax$ & \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
@@ -1182,7 +1182,7 @@ The
 \subsubsection{PMT \& Station Selector*}
 \label{sssec:reconstruction-pmt-quality-cuts}
 
-First, quality cuts are applied to the \WCD \LPMTs that check several variables
+Quality cuts are applied to the \WCD \LPMTs that check several variables 
 relating to the functionality of the \PMT. Namely, \PMTs are flagged as bad if
 \VemOnline or the standard deviation of the online estimated baseline (Ref.
 \cref{eq:peak-and-charge}) are outside of predefined ranges. The \LG-channel of
@@ -1321,8 +1321,8 @@ non-linear parametrization that models the expansion of the \EAS more
 realistically. The axis direction $(\theta,\,\phi)$ obtained from this fit 
 is the estimated arrival direction of the \EAS, and is accurate to within 
 $\SIrange{1}{2}{\degree}$ \cite{bonifaziAngularResolutionPierre2009}. The 
-relative uncertainty on the core position $r_\mathrm{bary.}$ is given as 
-\SI{2}{\percent} in \cite{ghiaStatisticalSystematicUncertainties2005}.
+relative uncertainty on the core position $r_\mathrm{bary.} = (x,\,y)$ is given
+as \SI{2}{\percent} in \cite{ghiaStatisticalSystematicUncertainties2005}.
 
 Station trigger times are hereafter given relative to $t_\mathrm{bary.}$. The
 \SPD gives the minimum separation between a \SD-station and the (reconstructed)
@@ -1383,17 +1383,42 @@ $S(1000)$, $\beta$, and $\gamma$ by performing a \NLL optimization to fit
 that is participating in the event. To boost the accuracy of the recovered fit 
 parameters the optimization is executed multiple times, first only optimizing
 the shower size, and gradually becoming more elaborate, also updating the 
-estimate of $r_\mathrm{bary.}$ in the process.
+estimate of the location of the shower core $(x,\,y)$ in the process.
 
 The final estimate of $S(1000)$ has a systematic uncertainty of 
 \SI{2}{\percent} \cite{ghiaStatisticalSystematicUncertainties2005}.
 
 \subsubsection{Energy Estimator*}
+\label{sssec:reconstruction-energy-estimator}
 
 The shower size obtained in the previous step is a useful metric to estimate 
 the primary energy of the \CR particle, as detailed in 
 \cite{aabReconstructionEventsRecorded2020}. However, several steps are needed
-to calculate $E$ from $S(1000)$
+to calculate $E$ from $S(1000)$. First, a correction is applied to $S(1000)$ 
+that accounts for the effect of the Earths' geomagnetic field on the shower 
+evolution. 
+
+Next, a correction is applied to $S(1000)$ that aims to eliminate the 
+dependence of the shower size on the inclination of the \EAS. Consider 
+different \EAS of identical energy, but increasing $\theta$. It is easy to 
+verify that the horizontal air showers have a larger track length in the 
+atmosphere over the vertical ones. As a consequence, they are more attenuated, 
+and show a lower $S(1000)$. This is corrected via the \CIC, which applies an
+attenuation function, $f(\theta)$ to $S(1000)$. $f(\theta)$ is estimated in an 
+empirical procedure by comparing observed distributions of $S(1000)$ for 
+showers of different inclinations to the (without attenuation) expected 
+constant distribution. A parameter optimization finds
+
+\begin{equation}
+\label{eq:cic}
+f(\theta) = ax^3 + bx^2 + cx + 1, \mathrm{where} x = \cos^2(\theta) - \cos^2(\SI{38}{\degree}).
+\end{equation}
+
+The values of $a$, $b$, and $c$ in \cref{eq:cic} are given in 
+\cref{tab:cic-parameters}.
+
+
+that reverses the zenith-dependent attenuation on an event-level.
 
 % geom correction
 % cic
