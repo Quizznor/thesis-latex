@@ -1177,7 +1177,7 @@ pages are meant to be understood as a surface level introduction to the
 \subsection{SD Reconstruction}
 \label{ssec:sd-reconstruction}
 
-The 
+\halflift
 
 \subsubsection{PMT \& Station Selector*}
 \label{sssec:reconstruction-pmt-quality-cuts}
@@ -1403,27 +1403,41 @@ dependence of the shower size on the inclination of the \EAS. Consider
 different \EAS of identical energy, but increasing $\theta$. It is easy to 
 verify that the horizontal air showers have a larger track length in the 
 atmosphere over the vertical ones. As a consequence, they are more attenuated, 
-and show a lower $S(1000)$. This is corrected via the \CIC, which applies an
-attenuation function, $f(\theta)$ to $S(1000)$. $f(\theta)$ is estimated in an 
-empirical procedure by comparing observed distributions of $S(1000)$ for 
-showers of different inclinations to the (without attenuation) expected 
-constant distribution. A parameter optimization finds
+and show a lower $S(1000)$. The attenuation function $f(\theta)$ is estimated
+in an empirical manner by comparing observed distribution of the shower sizes 
+for different inclinations to a (without attenuation expected) constant 
+reference distribution. A third-degree polynomial approximates the attenuation
+factor sufficiently well. From this the zenith independent value $S_{38}$ is
+calculated via the \CIC. This represents the expected shower size that a given 
+\EAS would have if it had an inclination of $\SI{38}{\degree}$\footnote{
+$\SI{38}{\degree}$ is chosen as it is the median angle in the \EAS zenith 
+distribution}.
 
 \begin{equation}
 \label{eq:cic}
-f(\theta) = ax^3 + bx^2 + cx + 1, \mathrm{where} x = \cos^2(\theta) - \cos^2(\SI{38}{\degree}).
+S_{38} = \frac{S(1000)}{f(\theta)} = \frac{S(1000)}{ax^3 + bx^2 + cx + 1},\,\mathrm{with}\,x=\cos^2(\theta)-\cos^2(\SI{38}{\degree}).
 \end{equation}
 
 The values of $a$, $b$, and $c$ in \cref{eq:cic} are given in 
-\cref{tab:cic-parameters}.
+\cref{tab:cic-parameters}. Finally, $S_{38}$ is used to estimate the primary 
+energy of the \EAS as
 
+\begin{equation}
+\label{eq:energy-cross-calibration}
+E_\mathrm{SD} = A\,S_{38}^B.
+\end{equation}
 
-that reverses the zenith-dependent attenuation on an event-level.
+The power law relation with parameters $A$ and $B$ in 
+\cref{eq:energy-cross-calibration} is obtained from a subset of observed \EAS 
+that triggered the \FD and the \SD independently. Several quality cuts (see 
+Ref. \cite{aabReconstructionEventsRecorded2020}) ensure that the resulting \SD
+energy scale matches the \FD energy scale and spectrum as closely as possible.
+The numerical values of $A$ and $B$ are given in 
+\cref{tab:energy-cross-calibration}. The intermediate step of the 
+cross-calibration introduces an additional factor in the energy uncertainty 
+budget, which grows from $\sigma_{E_\mathrm{FD}}=\SI{14}{\percent}$\todo{revisit FD energy uncertainty} to 
+$\sigma_{E_\mathrm{SD}}=\SI{14}{\percent}$. 
 
-% geom correction
-% cic
-% s38
-% attenuation
 
 \subsection{FD Reconstruction}
 \label{ssec:fd-reconstruction}
