@@ -20,7 +20,6 @@
 \usepackage{mparhack}
 \usepackage{lipsum}
 \usepackage{enumitem}
-\usepackage{pdflscape}
 \usepackage{tablefootnote}
 \usepackage{tabularx}
 \usepackage{multirow}
@@ -306,7 +305,7 @@
 {%
  \sc{\thesubsection}\hspace{0.3cm}\sc{#1}
 }
-\titlespacing*{\subsection} {0pt}{-30pt}{5pt}
+\titlespacing*{\subsection} {0pt}{-10pt}{5pt}
 
 \titlecontents{subsection}[0.85cm]{}
 {\thecontentslabel\hspace{0.5em}}

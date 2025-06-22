@@ -355,8 +355,8 @@ In principle, the combination of Calibration A, B, and C allow to monitor the
 aging of the different detector components, and provide an end-to-end 
 calibration, in which the whole optical system of the telescopes is probed. 
 Only Calibration A is performed to track changes in the pixel-\PMTs in 
-practice. The  remaining telescope constituents have been shown to be stable 
-over the timespan of years \cite{brackAugerFluorescenceDetector2013, 
+practice. The  remaining telescope constituents are assumed to be stable over 
+the timespan of years \cite{brackAugerFluorescenceDetector2013, 
 dorofeevFDAbsoluteCalibration2013}.
 
 Two Calibration A measurements are performed during each night. One before the 
@@ -675,7 +675,7 @@ The \RD represents the last, and newest detector component that was added to
 the \SD. Since the completion of construction at the end of 2024 
 \cite{castellinaSeasonalGreetings202424}, all \SD stations have been equipped
 with \SALLAs, consisting of a dipole loop with radius \SI{60}{\centi\meter} 
-that are mounted on top of the \SSD (Ref. \cref{fig:sd-station-render}). This 
+that are mounted on top of the \SSD (Ref.\ \cref{fig:sd-station-render}). This 
 configuration allows the detection of the \EM signature of \EASs from arbitrary
 directions in the frequency band 
 \SIrange[range-units = single]{30}{80}{\mega\hertz} 
@@ -1132,41 +1132,47 @@ pages are meant to be understood as a surface level introduction to the
 	\begin{center}
 	\caption{List of quantities that are reconstructed during a standard 
 	\EAS reconstruction.}
-	\begin{tabular*}{1.0\textwidth}{M{0.6cm}M{1.7cm}M{1.1cm}|M{7.25cm}|M{2.6cm}}
+	\begin{tabular*}{1.0\textwidth}{M{0.6cm}M{1.7cm}M{1.1cm}|M{6.65cm}|M{2.6cm}M{0.6cm}}
   \toprule
-	 & $\mathbf{Q}$ & $\mathbf{\Delta Q}$ & Details & Ref. \\
+	 & $\mathbf{Q}$ & $\mathbf{\Delta Q}$ & Details & Ref.\ \\
 	\cline{2-5}
-	\ldelim\{{5}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Event level}}]
-	 & $E_\mathrm{SD}$ & \SI{14}{\percent} & \SD-estimate of the primary 
-	 energy & \\
-	 & $E_\mathrm{FD}$ & \SI{14}{\percent} & \FD-estimate of the primary
+	\ldelim\{{5}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{\FD 
+	Reconstruction}}]
+	 & $E_\mathrm{FD}$ & \SI{10}{\percent} & \FD-estimate of the primary
 	 energy & \\ 
-	 & $(\theta, \phi)$ & $<\SI{2}{\degree}$ & Arrival direction of the 
-	 primary particle & \cref{sssec:reconstruction-plane-fit} \\
+	 & $\Xmax$ & \SI{50}{\percent} & Atmospheric depth at which the \EAS
+	 reaches its' maximum multiplicity & \\
+	 & $(\theta_\mathrm{SPD},\,\chi_0)$ & $<\SI{1}{\degree}$ & Primary \CR 
+	 arrival direction & \cref{sssec:reconstruction-arrival-direction} \\
+	 & $R_p$ & $\sim\SI{1}{\percent}$ & Minimum separation between the 
+	 telescope and the shower axis & 
+	 \cref{sssec:reconstruction-arrival-direction} \\
+	 & $n_\gamma$ & $\SI{14}{\percent}$ & Number of photons per pixel-\PMT
+	 & \cref{sssec:reconstruction-pulse-finder} \\
+	 & $C^\mathrm{pixel}_\mathrm{abs.}$ & $\sim\SI{9}{\percent}$ & \FD 
+	 pixel calibration constants & 
+	 \cref{sssec:reconstruction-pixel-calibrator} \\
+	\cline{2-5}
+	\ldelim\{{7.75}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{\SD 
+	Reconstruction}}]
+	 & $E_\mathrm{SD}$ & \SI{14}{\percent} & Energy of the primary \CR & 
+	 \cref{sssec:sd-reconstruction-energy-estimator} & 
+	 \rdelim\}{4}{*}[\parbox{4mm}{\rotatebox[origin=c]{270}{Event 
+	 lvl.}}] \\
+	 & $(\theta, \phi)$ & $<\SI{2}{\degree}$ & Primary \CR arrival 
+	 direction & \cref{sssec:reconstruction-plane-fit} \\
 	 & $(x,\,y)$ & \SI{2}{\percent} & Shower core position on Earth & 
 	 \cref{sssec:reconstruction-plane-fit} \\ 
 	 & $S(1000)$ & \SI{2}{\percent} & Shower size, \acs{LDF} value at 
 	 \SI{1000}{\meter} & \cref{sssec:reconstruction-ldf-finder} \\ 
-	 & $\Xmax$ & \SI{50}{\percent} & Atmospheric depth at the max. \EAS 
-	 size & \\
-	 \cline{2-5}
-	 \ldelim\{{9}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{Station / 
-	 Telescope level}}]
-	 & \Ivem/\Qvem & \SI{2}{\percent} & Calibration factors for the \WCD 
-	 \LPMTs & \cref{sssec:reconstruction-histogram-fitter} \\
-	 & \Imip/\Qmip & \SI{2}{\percent} & Calibration factors for the \SSD 
-	 \PMT & \cref{sssec:reconstruction-histogram-fitter} \\
-	 & $Q^\mathrm{total}_\mathrm{VEM}$ & $\sim\SI{5}{\percent}$ & 
-	 Integrated signal received by the \LPMTs &
-	 \cref{sssec:reconstruction-trace-calibrator} \\
-	 & $Q^\mathrm{total}_\mathrm{MIP}$ & $\sim\SI{5}{\percent}$ & 
-	 Integrated signal received by the \SSD \PMT & 
-	 \cref{sssec:reconstruction-trace-calibrator} \\
-	 & & & & \\
-	 & & & & \\
-	 & & & & \\
-	 & & & & \\
-	 & & & & \\
+	 & $Q^\mathrm{total}_i$ & $\sim\SI{5}{\percent}$ & Integral of the 
+	 (calibrated) trace observed by the \WCD and the \SSD & 
+	 \cref{sssec:reconstruction-trace-calibrator} & 
+ 	 \rdelim\}{2.7}{*}[\parbox{4mm}{\rotatebox[origin=c]{270}{Station 
+	 lvl.}}] \\
+	 & $I_i$/$Q_i$ & \SI{2}{\percent} & Peak/Charge calibration factors for
+	 the \WCD \LPMTs and the \SSD \PMT & 
+	 \cref{sssec:reconstruction-histogram-fitter} \\
 \bottomrule
 	\end{tabular*}
 	\label{tab:rec-quantities}
@@ -1184,7 +1190,7 @@ pages are meant to be understood as a surface level introduction to the
 
 Quality cuts are applied to the \WCD \LPMTs that check several variables 
 relating to the functionality of the \PMT. Namely, \PMTs are flagged as bad if
-\VemOnline or the standard deviation of the online estimated baseline (Ref.
+\VemOnline or the standard deviation of the online estimated baseline (Ref.\
 \cref{eq:peak-and-charge}) are outside of predefined ranges. The \LG-channel of
 the \PMT is flagged as bad if the dynode-to-anode ratio of the \PMT is outside
 of a nominal range. Stations for which none of the \LPMTs pass the selection 
@@ -1204,12 +1210,12 @@ flagged as rejected if any of the assertions made in the process fail.
 \subsubsection{SdHistogramFitterKG}
 \label{sssec:reconstruction-histogram-fitter}
 
-Rate-based estimators for \Ivem and \Imip exist on the station-level (Ref. 
+Rate-based estimators for \Ivem and \Imip exist on the station-level (Ref.\ 
 \cref{sssec:wcd}, \todo{online mip reference}). During event reconstruction, a
 more robust method of estimating the peak and charge of the \LPMTs and the
 \SSD-\PMT are used. As detailed in \cref{sssec:muon-histograms}, information 
 exists on the distribution of pulse heights and integrals for the different 
-\PMTs in the \SIrange{1}{2}{\minute} leading up to the event (Ref. 
+\PMTs in the \SIrange{1}{2}{\minute} leading up to the event (Ref.\ 
 \cref{fig:ssd-histo}). Crucially, all these histograms show a local maximum 
 that can be identified with the most probable peak/charge from a single 
 atmospheric muon.
@@ -1389,7 +1395,7 @@ The final estimate of $S(1000)$ has a systematic uncertainty of
 \SI{2}{\percent} \cite{ghiaStatisticalSystematicUncertainties2005}.
 
 \subsubsection{Energy Estimator*}
-\label{sssec:reconstruction-energy-estimator}
+\label{sssec:sd-reconstruction-energy-estimator}
 
 The shower size obtained in the previous step is a useful metric to estimate 
 the primary energy of the \CR particle, as detailed in 
@@ -1430,38 +1436,139 @@ E_\mathrm{SD} = A\,S_{38}^B.
 The power law relation with parameters $A$ and $B$ in 
 \cref{eq:energy-cross-calibration} is obtained from a subset of observed \EAS 
 that triggered the \FD and the \SD independently. Several quality cuts (see 
-Ref. \cite{aabReconstructionEventsRecorded2020}) ensure that the resulting \SD
+Ref.\ \cite{aabReconstructionEventsRecorded2020}) ensure that the resulting \SD
 energy scale matches the \FD energy scale and spectrum as closely as possible.
 The numerical values of $A$ and $B$ are given in 
 \cref{tab:energy-cross-calibration}. The intermediate step of the 
 cross-calibration introduces an additional factor in the energy uncertainty 
-budget, which grows from $\sigma_{E_\mathrm{FD}}=\SI{14}{\percent}$\todo{revisit FD energy uncertainty} to 
+budget, which grows from $\sigma_{E_\mathrm{FD}}=\SI{10}{\percent}$ to 
 $\sigma_{E_\mathrm{SD}}=\SI{14}{\percent}$. 
 
 
 \subsection{FD Reconstruction}
 \label{ssec:fd-reconstruction}
 
+\halflift
+
 \subsubsection{FdCalibratorOG}
+\label{sssec:reconstruction-pixel-calibrator}
 
-The next module in line is responsible for preparing \FD data for 
-reconstruction. First, timing corrections are applied to the \FD-\TTWO 
-timestamps in order to synchronize measurement information across all 
-telescopes. 
+First, timing corrections are applied to the \FD-\TTWO timestamps in order to 
+synchronize measurement information across all telescopes that have observed 
+the \EAS event. 
 
-For each pixel the baseline is evaluated as the mean \ADC values of the first 
-300 samples of the corresponding trace. By subtracting the baseline and 
-applying the pixel calibration constants (see \cref{ssec:fd-calibration}) the 
-trace is converted from units of \ADC to numbers of photons at a reference 
-wavelength. This process is done in an identical manner to 
+For each pixel in each telescope the baseline is evaluated as the mean \ADC 
+values of the first 300 samples in the corresponding trace. Furthermore, the 
+pixel calibration constants that give the quantity of light that causes a 
+specific \ADC detector response are collected from an external database. As 
+outlined in \cref{ssec:fd-calibration}, two Calibration A measurements are 
+performed each night, once before, and once after \DAQ. The pixel calibration
+constants to which the detector data are normalized against stem from the 
+post-\DAQ Calibration A.
+
+By subtracting the baseline and applying the current pixel calibration 
+constants the trace is converted from units of \ADC to numbers of photons at 
+a reference wavelength. This process is done in an identical manner to 
 \cref{eq:offline-calibration}. Furthermore, every \PMT is checked for an \ADC 
 overflow, and an attempt is made to recover the saturated trace with the help 
-of virtual pixel channels. Finally, the integration interval is determined 
-similar to how the \SD signal window is calculated.
+of virtual pixel channels.
 
-\subsubsection{FD axis shit}
-\subsubsection{HybridGeometryFinderOG/WG}
+\subsubsection{FdPulseFinderOG}
+\label{sssec:reconstruction-pulse-finder}
+
+With the obtained calibrated trace, the exact window in which the \EAS signal 
+lies is determined by a pulse finding algorithm. A first approximation of the 
+pulse region is given by the sections of the trace that have an \FLT flag 
+(Ref.\ \cref{ssec:fd-triggers}). From this initial guess, an iterative process
+begins.
+
+Using the \RMS, $\sigma_B$, of the entire calibrated trace $s$, the \SNR of 
+the signal window, starting at bin $i$, and ending at bin $f$ is calculated. 
+Additionally the 1-bin- and 3-bin \SNR of the start and stop region are 
+determined.
+
+\begin{equation}
+\label{eq:pulse-finder-snr}
+\SNR^{\{i/f\}}_\mathrm{1-bin} = \frac{s_{\{i/f\}}}{\sigma_B},
+\qquad\SNR^{\{i/f\}}_\mathrm{3-bin} = \sum\limits_{n=-1}^{n=1} \frac{s_{\{i/f\} + n}}{\sigma_B} 
+\qquad\SNR = \sum\limits_{n=i}^{f} \frac{s_n}{\sigma_B}.
+\end{equation}
+
+A new signal window is determined by extending the window to the left 
+($i_\mathrm{new} = i-1$) if $s_i > s_f$, or to the right 
+($f_\mathrm{new} = f+1$) if $s_f > s_i$. The process halts and returns the 
+current signal window under the condition that $\SNR < 5\,\sigma_B$, or 
+$\SNR^{\{i/f\}}_\mathrm{3-bin} < \sqrt{3}\,\sigma_B$ and 
+$\SNR^{\{i/f\}}_\mathrm{1-bin} < \sigma_B$. The number of photons $n_\gamma$ 
+per \PMT is thus calculated as the integral trace from $i\rightarrow f$, and
+has an associated uncertainty of approximately \SI{14}{\percent} 
+\cite{abrahamFluorescenceDetectorPierre2010}.
+
+
+\subsubsection{Arrival Direction Estimator*}
+\label{sssec:reconstruction-arrival-direction}
+
+Before the arrival direction of the \EAS is determined, isolated pixels are 
+filtered from the \FD camera image. This is achieved by comparing the pointing 
+direction $\vec{P}$ of all pulsed pixels within a telescope with each other. 
+Pixels that have no pulsed neighbour within a minimum angular distance are 
+removed. The remaining pixels in which a pulse was found are the candidate 
+pixels used in the subsequent analysis.
+
+Next, the \SDP of the event is determined. The \SDP is the set of arrival 
+directions $(\theta,\,\phi)$, that, without trigger timing information, look 
+indistinguishable from each other. It is the 2D projection of the \EAS axis 
+onto the telescope viewing plane.
+
+The best fit \SDP with normal vector $\vec{n}$ is the one that maximizes the
+value of the cross-products $\vec{P}\times\vec{n}$. Its orientation is fully 
+described by the mean pointing direction of all pixels in the participating 
+telescopes (which is constant), and the angle between \SDP and the horizon, 
+$\theta_\mathrm{SPD}$ (Ref.\ \cref{fig:geometry-info}).
+
+Once the \SPD is determined (with an uncertainty of 
+$\sigma_{\theta_\mathrm{SPD}} < \SI{0.5}{\degree}$ 
+\cite{abrahamFluorescenceDetectorPierre2010}), the orientation of the shower 
+axis within the \SPD, $\chi_0$, as well as its minimum separation $R_p$, is 
+calculated from the trigger times of the candidate pixels in the track.
+
+It follows from geometric considerations that the trigger time $t_i$ of pixel 
+$i$ can be expressed in terms of both parameters.
+
+\begin{equation}
+\label{eq:fd-trigger-time}
+t_i = t_0 + R_p/c\,\tan\left(\frac{\chi_0 - /chi_i}{2}\right).
+\end{equation}
+
+All parameters in \cref{eq:fd-trigger-time} are explained visually in 
+\cref{fig:geometry-info}. Determining the \EAS axis thus becomes an exercise of
+fitting $R_p$ and $\chi_0$ to the observed pixel trigger times. Whereas earlier
+isolated pixels in space have been rejected for the analysis, isolated pixels 
+in time, meaning triggers outside of the expected propagation model in 
+\cref{eq:fd-trigger-time} are removed as well. On average, the recovered 
+arrival direction is accurate to within $\SI{1}{\degree}$ 
+\cite{abrahamFluorescenceDetectorPierre2010}.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{auger-observatory/fd_arrival_direction.png}
+  \label{fig:geometry-info}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{auger-observatory/fd_profile.png}
+  \label{fig:fd-profile}
+  }
+  \caption[]{\subref{fig:geometry-info} Visualization of the nomenclature used 
+  in the \FD arrival direction reconstruction. The shower axis is highlighted 
+  with a blue color. Adopted with changes from 
+  \cite{kuempelGeometryReconstructionFluorescence2008} \subref{fig:fd-profile} 
+  }
+  \label{fig:fd-reconstruction-info}
+\end{figure}
+
 \subsubsection{FdApertureLightKG}
+
+With the known 
+
 \subsubsection{FdEnergyDepositFinderKG}
 
 \subsection{Hybrid Reconstruction}
