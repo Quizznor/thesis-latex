@@ -1560,16 +1560,59 @@ arrival direction is accurate to within $\SI{1}{\degree}$
   \caption[]{\subref{fig:geometry-info} Visualization of the nomenclature used 
   in the \FD arrival direction reconstruction. The shower axis is highlighted 
   with a blue color. Adopted with changes from 
-  \cite{kuempelGeometryReconstructionFluorescence2008} \subref{fig:fd-profile} 
-  }
+  \cite{kuempelGeometryReconstructionFluorescence2008} \subref{fig:fd-profile}
+  The reconstructed longitudinal shower profile for a stereo \FD event from
+  the Auger open data catalogue 
+  \cite{pierreaugercollaborationPierreAugerObservatory2025}. The inset axis in
+  the lower left displays the shower track as seen in the camera\footnotemark
+
+    of one of the \FD sites. Trigger times are color coded from early (green) to 
+  late (yellow).}
   \label{fig:fd-reconstruction-info}
 \end{figure}
 
-\subsubsection{FdApertureLightKG}
+\footnotetext{The camera view is the mirror image of the sky view, due to the 
+convex mirror geometry.}
 
-With the known 
 
-\subsubsection{FdEnergyDepositFinderKG}
+\subsubsection{Energy Estimator*}
+
+With the reconstructed shower axis at hand, the longitudinal profile of the 
+\EAS can be constructed. This is done by backpropagating the light collected at
+the \FD aperture back to the shower axis, to calculate the total luminance of 
+the particle cascade. 
+
+Because the energy estimator in a later step relies on the emitted fluorescence
+light only, the different signal components, consisting of direct and scattered
+fluorescence light, as well as direct and scattered Cherenkov light, need to be
+separated. This is done via bootstrapping the total luminance calculated in the
+first step, and accounting for \UV-light attenuation in the atmosphere along
+the shower axis. 
+
+The so obtained longitudinal shower profile can be converted into an energy 
+loss per grammage via $n_\gamma$ and a good graps of the underlying hadronic
+interaction model. An example of a reconstructed shower profile is shown in 
+\cref{fig:fd-profile}. Finally, a Gaiser-Hillas function, using the \USP 
+explained in \cite{bellidoShowerProfileFitting2022}, is used to estimate 
+the shower maximum, and calculate the energy of the primary particle.
+
+\begin{equation}
+\label{eq:gaiser-hillas-energy}
+\frac{\mathrm{d}E}{\mathrm{d}X} = \left.\frac{\mathrm{d}E}{\mathrm{d}X}\right\vert_{\Xmax}\,\left( 1 + \frac{R(X-\Xmax)}{L}\right)^{R^{-2}}\,\exp\left(-\frac{X-\Xmax}{RL} \right).
+\end{equation}
+
+In \cref{eq:gaiser-hillas-energy} the shape parameters 
+$R = \sqrt{\lambda\,/\,|X_0-\Xmax|}$ and $L = \sqrt{\lambda\,|X_0-\Xmax|}$ are
+introduced. $\lambda$ and $X_0$ are discussed in 
+\cite{hillasCosmicRaysCommonwealth2013}. Once the maximum energy loss, shower
+maximum, and $R,\,L$ have been estimated from data, the energy is estimated as
+$E_\mathrm{FD} = \xi\,\int\frac{\mathrm{d}E}{\mathrm{d}X}\,\mathrm{d}X$. 
+$\xi>1$ is a correction factor that accounts for invisible energy that is 
+radiated away from the shower in the form of neutrinos. Its' value is derived 
+from Monte Carlo shower simulations 
+\cite{barbosaDeterminationCalorimetricEnergy2004}. The per-shower energy 
+resolution of the \FD is \SI{10}{\percent} 
+\cite{abrahamFluorescenceDetectorPierre2010}.
 
 \subsection{Hybrid Reconstruction}
 \label{ssec:hd-reconstruction}
