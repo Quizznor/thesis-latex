@@ -264,7 +264,7 @@
         \end{minipage}%
 	\begin{minipage}[t][][b]{0.85\textwidth}
           \begin{flushright}
-            \bfseries\Huge \sc{#1}
+            \bfseries\Huge \sc{\bfseries#1}
           \end{flushright}
 	\end{minipage}
     \fi
