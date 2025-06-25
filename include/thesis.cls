@@ -289,10 +289,13 @@
 
 % section
 \titleformat{\section}
-[display]
-{\newpage\normalfont\bfseries\huge}{}{0.3cm}
-{%
- \vspace{-50pt}\sc{\thesection}\hspace{0.3cm}\sc{#1}
+	[display]
+	{\newpage\normalfont\bfseries\huge}
+	{}
+	{0.3cm}
+	{%
+		\vspace{-1.8cm}
+		\sc{\thesection}\hspace{0.3cm}\sc{#1}
 }
 \titlespacing*{\section} {0pt}{0pt}{10pt}
 
@@ -304,12 +307,12 @@
 
 % subsection
 \titleformat{\subsection}
-[display]
-{\normalfont\bfseries\Large}{}{0.3cm}
-{%
- \sc{\thesubsection}\hspace{0.3cm}\sc{#1}
-}
-\titlespacing*{\subsection} {0pt}{-10pt}{5pt}
+	[display]
+	{\normalfont\bfseries\Large}{}{0.3cm}
+	{%
+		\sc{\thesubsection}\hspace{0.3cm}\sc{#1}
+	}
+\titlespacing*{\subsection}{0pt}{-10pt}{5pt}
 
 \titlecontents{subsection}[0.85cm]{}
 {\thecontentslabel\hspace{0.5em}}

@@ -9,18 +9,20 @@ which form the \SD, and 27 fluorescence telescopes, spread over five locations,
 that comprise the \FD. All data from \SD stations, \FD telescopes as well as 
 numerous atmospheric monitoring sites converge at a single location, the \CDAS
 in the nearby city of Malargüe. The observatory is designed to indirectly 
-detect \CRs of incredibly high energies, inferring their existence from large 
-particle cascades in the atmosphere. The \PAO achieves this in a hybrid 
-fashion, with the \FD being sensitive to the faint fluorescence light produced 
-in an \EAS, whereas the \SD samples the shower footprint on ground. The 
-simultaneous operation of the \FD and the \SD offers a unique possibility to 
-observe \UHECRs at the tail-end of the \CR energy spectrum. 
+detect \CRs of incredibly high energies. It infers their existence by observing
+large particle cascades in the atmosphere in a hybrid fashion. The \FD is 
+sensitive to the faint fluorescence light produced in an \EAS, and the \SD 
+samples the shower footprint on ground. The simultaneous operation of the \FD 
+and the \SD offers a unique possibility to observe \UHECRs at the tail-end of 
+the \CR energy spectrum, and makes the \PAO world-leading in the area of \UHECR
+research.
 
-This chapter introduces the observatory. A summary of the project history and
-the science case of the Pierre Auger collaboration is given in 
-\cref{sec:project-history-and-future}. \cref{sec:fd}, and \cref{sec:sd} detail 
-the hardware and software detector components of the \FD and the \SD 
-respectively. Finally, the analysis chain from \EAS detection to the estimation
+This chapter introduces the observatory and the collaboration operating it. A 
+summary of the project history, motivation and eventual science case of the 
+experiment is given in \cref{sec:project-history-and-future}. \cref{sec:fd},
+and \cref{sec:sd} detail the hardware components of the \FD and the \SD 
+respectively and introduce key concepts needed to follow the analysis in later
+chapters. Finally, the analysis chain from \EAS detection to the estimation
 of physics parameters during the event reconstruction is examined in 
 \cref{sec:event-reconstruction}.
 
@@ -37,31 +39,34 @@ spans more than three decades in total. First plans for a \CR detector of
 immense exposure were devised by Nobel laureate James Cronin 
 \cite{nobelprizeoutreach2025NobelPrizePhysics} and Faraday medalist Alan Watson
 \cite{FellowWinsIoP2011} at the 22nd \ICRC \cite{watsonDevelopmentPierreAuger}
-The two realized that the flux of \UHECRs is very low 
-($\approx\SI{1}{\per\km\squared\per\year}$ for energies above \SI{1e19}{\eV} 
-\cite{fenuCosmicRayEnergy2023}), and that one needs to observe a large area 
-over a long timespan to collect enough data for a statistically relevant 
-analysis of their dynamics. Cronin especially was interested in verifying the 
-possible detection of an astrophysical source of high-energy $\gamma$-rays 
-\cite{samorskiDetection2101983}. Moreover, the mere existence of some \UHECRs 
-was challenging astrophysical models \cite{birdDetectionCosmicRay1995, 
-naganoAstrophysicalAspectsMost1991, hayashidaObservationVeryEnergetic1994,
-lawrenceCosmicRayEnergy1991}. Naturally, probing the presence and possible 
-sources of such \CRs of extreme energy became a priority for the envisioned 
-experiment. Cronin and Watson gathered support for their ideas and, in 1995, 
-founded a collaboration of 140 scientists in 17 participating countries. A 
-white paper was published that outlined the construction, capabilities, and 
-cost of the \PAO \cite{thepierreaugercollaborationPierreAugerObservatory1997}. 
+The two realized that the flux of \UHECRs is very low, averaging about one 
+particle per square kilometer and year for energies above \SI{1e19}{\eV} 
+\cite{fenuCosmicRayEnergy2023}), and that one consequently needs to observe a 
+large area over a long timespan in order to collect enough data for a 
+statistically relevant analysis of \UHECR dynamics. Cronin especially was 
+interested in verifying the possible verification of an astrophysical source of
+high-energy $\gamma$-rays \cite{samorskiDetection2101983}. Moreover, the mere 
+existence of some \UHECRs was challenging astrophysical models 
+\cite{birdDetectionCosmicRay1995, naganoAstrophysicalAspectsMost1991, 
+hayashidaObservationVeryEnergetic1994, lawrenceCosmicRayEnergy1991}. Naturally,
+probing the presence and possible sources of \CRs of such extreme energies 
+became a priority for the envisioned experiment. Cronin and Watson gathered 
+support for their ideas and, in 1995, founded a collaboration of 140 scientists
+from 17 participating countries. A white paper was published that outlined the 
+design and capabilities of what would become the \acl{PAO} 
+\cite{thepierreaugercollaborationPierreAugerObservatory1997}. 
 
-The detector configuration presented in the document varies from the design in 
-use today. Most importantly, what was originally envisioned to be a detector 
-with an active area of \SI{6000}{\km\squared} spread over two locations (Auger 
-North and Auger South) had to be amended and only one site with and area of 
-\SI{3000}{\km\squared}, located in the Argentinian Pampa Amarilla in the 
-Mendoza province came to be. There, the construction of an Engineering Array, 
-a full scale prototype of the first \SD and \FD detectors was completed in 
-2001. More hardware was added after first successful measurements, making the 
-still incomplete detector the largest observatory for \CRs by the end of 2003.
+The detector configuration presented in
+\cite{thepierreaugercollaborationPierreAugerObservatory1997} varies from the 
+construction in use today. Most importantly, what was originally envisioned to 
+be a detector with an active area of \SI{6000}{\km\squared} spread over two 
+locations (Auger North and Auger South) had to be amended and only one site 
+with and area of \SI{3000}{\km\squared}, located in the Argentinian Pampa 
+Amarilla in the Mendoza province came to be. There, the construction of an 
+Engineering Array, a full scale prototype of the first \SD and \FD detectors 
+was completed in 2001. More hardware was added after first successful 
+measurements, making the still incomplete detector the largest observatory 
+for \CRs by the end of 2003.
 
 The \PAO has been operating almost continuously ever since, collecting a total
 exposure well surpassing \SI{100000}{\km\squared\sr\year} 
@@ -83,15 +88,15 @@ of independently working astrophysicists around the globe
 \label{ssec:augerprime-and-outlook}
 
 Many questions have been answered thanks to the data collected by the \PAO. 
-Naturally, new insights sprout new questions. The existence of \UHECRs beyond 
+Naturally, new insights sprout new questions. The existence of \UHECRs up to
 the \GZK-cutoff has been established unambigously. Now, their nature must be 
 studied more deeply. Of particular interest is the reconstruction of the mass
 of \UHECRs, as this influences their (reconstructed 
 \cite{yushkovMassCompositionCosmic2021}) energy, and evolution from the source
 to the earth \cite{strongCosmicRayPropagationInteractions2007, 
-flaggsStudyingMassSensitivity2024}. Information on the mass composition of \CRs
-will significantly advance our understanding of high-energy physics in 
-particular, and the cosmos as a whole.
+flaggsStudyingMassSensitivity2024}. Extended information on the mass 
+composition of \CRs will significantly advance our understanding of high-energy
+physics in particular, and the cosmos as a whole.
 
 The \PAO detectors have undergone a major upgrade in the past decade in order 
 to increase the observatories sensitivity to the primary particle mass. This 
@@ -102,12 +107,14 @@ have been developed to increase the fidelity and quality of collected data. The
 being tested.
 
 As of the completion of this thesis, the AugerPrime hardware and software 
-upgrade is completed and described in the following pages as well as in 
+upgrade is completed and the current state of the \PAO is summarized in the 
+following pages. An in-depth report can be found in Ref. 
 \cite{collaborationPierreAugerObservatory2011}. The observatory delivers data 
 with lower systematics. Additional information from new detectors assists the 
 interpretation of observed phenomena. The prospects of this detector upgrade 
-have astroparticle physicists excited, and resulted in the strong support to 
-extend the observatories funding until beyond the year 2030 
+have astroparticle physicists excited. An independent review of the recent 
+changes resulted in the strong support in the community to extend the 
+observatories funding until beyond the year 2030 
 \cite{castellinaOutcomeFinanceBoard2023}. The Phase-II of \DAQ (as opposed to 
 Phase-I pre- and during AugerPrime) will be the basis for many scientific 
 contributions that attempt to shed light into the physics of \UHECRs, with this
@@ -129,14 +136,14 @@ twiglight, and when the moon is not directly in the telescope \FOV, and not
 more than 70\% illuminated as seen from Earth \cite{mathesCriteriaFDShift}. 
 This drops the duty cycle to approximately 13\% 
 \cite{abrahamFluorescenceDetectorPierre2010}. Despite this drastic limitation, 
-the \FD is a crucial component in the analysis chain, as it is able to directly
-observe the longitudinal shower profile of an \EAS.
+the \FD is a crucial component for the analysis of \EASs, as it is able to 
+directly observe their longitudinal shower profile.
 
-The telescopes are grouped at five \FD sites, where a collection of six (three
-in one case) identical setups offer a $6\cdot30^\circ=180^\circ\times30^\circ$ 
-view (Azimuth $\times$ Elevation) over the \SD array. \cref{fig:auger-map} 
-shows their location. Starting anticlockwise with the telescopes located 
-closest to Malargüe, these sites are \LL, \LM, \LA, \CO2, and the \HEAT.
+The telescopes are grouped at five \FD sites, each supporting a collection of 
+six (three for \acs{HEAT}) identical setups offer a $180^\circ\times30^\circ$ 
+view in azimuth and elevation over the \SD array. \cref{fig:auger-map} shows 
+their location. Starting anticlockwise with the telescopes located closest to 
+Malargüe, these sites are \LL, \LM, \LA, \CO, and the \HEAT.
 
 \begin{figure}[t]
   \centering
@@ -166,7 +173,7 @@ are, in the order that light traverses them (see \cref{fig:fd-schematic},
 \cref{fig:fd-inside-view} and \cite{abrahamFluorescenceDetectorPierre2010}):
 
 \begin{enumerate}[label=(\Alph*)]
-  \item \textbf{The shutter}, which consists of two massive metal doors, 
+  \item \textbf{The shutter}, which consists of two massive metal doors. It 
   shields the aperture from atmospheric influences such as strong winds or 
   rain. It also serves as a light shield that protects the sensitive camera 
   electronics during the day.
@@ -182,16 +189,16 @@ are, in the order that light traverses them (see \cref{fig:fd-schematic},
   the camera.
 
   \item \textbf{The curtain} provides a secondary failsafe that prevents 
-  high-intensity light from reaching the sensitive electronics. The curtain 
-  sits outside of the light path, but can be deployed in emergency situations, 
-  or during daytime work and maintenance.
+  high-intensity light from reaching the sensitive electronics. Normally, the 
+  curtain sits outside of the light path, but can be deployed in emergency 
+  situations, or during daytime work and maintenance.
 
   \item \textbf{The mirrors} are a set of 60 hexagonal glass segments (36 
   square segments from anodized aluminum in the case of \LL and \LM) aligned 
   in a concave $\SI{3.6}{\meter}\times\SI{3.6}{\meter}$ shape, which reflects 
   and concentrates incoming light towards the camera.
 
-  \item For \textbf{the Camera} refer to the next \cref{ssec:fd-camera}.
+  \item For \textbf{the Camera} refer to \cref{ssec:fd-camera}.
 \end{enumerate}
 
 \subsubsection{High Elevation Auger Telescope}
@@ -199,12 +206,12 @@ are, in the order that light traverses them (see \cref{fig:fd-schematic},
 
 The fifth and newest \FD-site, the \acl{HEAT} commissioned 2009, is located 
 close to \CO, and looks out over the SD-750 array with three fluorescence 
-telescopes. The setup of the optical system is (conceptually) identical to that
-of the standard \FD-sites. However, in the case of \HEAT, the entire telescope 
-building can be rotated upwards by $30^\circ$. This allows the observation of 
-the upper atmosphere, where lower energy \EASs are more prevalent. \HEAT 
-extends the energy scale seen by the \FD by one order of magnitude 
-\cite{mathesHEATTelescopesPierre2011}.
+telescopes. The setup of the optical system is conceptually identical to that
+of the standard \FD-sites. However, in the case of \HEAT, the telescope 
+buildings can be rotated upwards by $30^\circ$. This allows the observation of 
+the atmosphere at higher elevations. There lower energy \EASs are more 
+prevalent. \HEAT thus extends the \FD energy scale downward by one order of 
+magnitude \cite{mathesHEATTelescopesPierre2011}.
 
 \subsection{Readout Electronics}
 \label{ssec:fd-camera}
@@ -214,44 +221,45 @@ as the individual pixels. The specific model is chosen because it minimizes
 afterpulsing in the anode trace, and has a reasonable quantum efficiency 
 ($\approx30\%$) at the target wavelength (\SIrange{350}{400}{\nano\meter}) that 
 the \FD monitors \cite{xiaoCalibrationPhotonisXP30622005}. The \PMTs are 
-arranged in 22 rows and 20 columns. Each pixel has a solid angle acceptance of 
-$\Omega = \SI{5.94e-4}{\sr}$. Reflective star shapes with threefold symmetry 
-sit between neighbouring pixels to boost light collection efficiency, as well 
-as increase the camera point resolution. Finally, the voltage at the anode of 
-the \PMTs is read out at a sampling frequency of \SI{10}{\mega\hertz} 
-(\SI{20}{\mega\hertz} for \HEAT) and digitized by 12-bit \ADC-converter stages. 
+arranged in a hexagonal grid with 22 rows and 20 columns. Each pixel has a 
+solid angle acceptance of $\Omega = \SI{5.94e-4}{\sr}$. Reflective star shapes 
+with threefold symmetry sit between neighbouring pixels to boost the light 
+collection efficiency, as well as increase the camera point resolution. 
+The voltage at the anode of the \PMTs is read out at a sampling frequency of 
+\SI{10}{\mega\hertz} (\SI{20}{\mega\hertz} for \HEAT) and digitized via 12-bit 
+\ADC-converter stages. 
 
 \subsection{Telescope Triggers}
 \label{ssec:fd-triggers}
 
-The accurate reconstruction of an \EAS requires the camera to have an excellent
-background rejection (of e.g.\ transient stars in the camera \FOV). On top of 
-this, signals must be processed quickly to keep a potential timing offset 
-between \FD and \SD minimal, and enable a hybrid reconstruction. The \FD 
-electronics achieve this via a simple, hierarchical trigger logic. A \FPGA 
+The accurate reconstruction of an \EAS requires the \FD-cameras to have an 
+excellent background rejection (of e.g.\ transient stars in the camera \FOV). 
+On top of this, the hybrid operation of the \FD detector requires that signals 
+must be processed quickly to keep a potential timing offset between \FD and \SD minimal. The \FD electronics achieve this via a simple, hierarchical trigger 
+logic. A \FPGA 
 scans the incoming signal from one column of pixels in a \FLT-stage. It 
-calculates the running sum of the last 16 (baseline\footnote{calculated as the 
-mean \ADC value over 65536 ($\cong\SI{6.554}{\milli\second}$) samples} 
-subtracted) \ADC samples per pixel and compares the result to a reference 
-threshold. If the sum exceeds the reference threshold a \FLT is issued and the 
-pixel data is written to a \SRAM. This achieves two things. First, the number 
-of \FLTs over a period of time is used to calculate an \FLT rate per pixel. The
-reference threshold is updated according to this trigger rate, such that the 
-\FLT matches a \SI{100}{\hertz} trigger rate. Secondly, the number of 
-simultaneous \FLTs per column, or multiplicity, is evaluated and passed on to 
-the \SLT-stage.
+calculates the running sum of the last 16 (baseline subtracted \footnote{
+calculated as the mean \ADC value over the last 65536 
+($\cong\SI{6.554}{\milli\second}$) samples}) \ADC samples per pixel and 
+compares the result to a reference threshold. If the sum exceeds the reference 
+threshold a \FLT is issued and the pixel data is written to a \SRAM. This is 
+done to achieve two things. First, the number of \FLTs over a period of time is
+used to calculate an \FLT rate per pixel. The reference threshold is updated 
+according to this trigger rate, such that the \FLT matches a \SI{100}{\hertz} 
+trigger rate. Secondly, the number of simultaneous \FLTs per column, or the 
+column multiplicity, is evaluated and passed on to the \SLT-stage.
 
-There, the active pixels (that have raised a trigger in the last 
+There, the active pixels (those that have raised a trigger in the last 
 \SI{100}{\nano\second}) are searched for spatial correlations. If a collection 
 of at least 4 pixels are found whose layout corresponds to a set of predefined
 masks a \SLT is issued. These predefined masks aim to identify straight tracks 
 in the camera \FOV, and decrease the trigger rate from 
 $\SI{100}{\hertz\per\mathrm{pixel}}$ in the \FLT to 
 $\SIrange[range-units = single]{0.1}{10}{\hertz\per\mathrm{telescope}}$ in the 
-\SLT. Following, a \TLT separates true air shower events from noise with 
+\SLT. Finally, a \TLT separates true air shower events from noise with 
 $\approx94\%$ accuracy by performing a data-based cut on the multiplicity of 
-active pixels \cite{abrahamFluorescenceDetectorPierre2010}. This reduces the 
-trigger rate to $\SI{0.01}{\hertz\per\mathrm{telescope}}$. 
+active pixels \cite{abrahamFluorescenceDetectorPierre2010}. This further 
+reduces the trigger rate to $\SI{0.01}{\hertz\per\mathrm{telescope}}$. 
 
 \subsection{Telescope Calibration}
 \label{ssec:fd-calibration}
@@ -262,49 +270,28 @@ photons incident on the \FD-camera need to be known. This poses a big
 challenge. While the camera signal response correlates with the number of 
 photons observed per \EAS, the correlation coefficient is completely determined
 by the gain of the telescope readout electronics, which need not be constant. 
-It has been shown that the camera response to the same signal can change by up 
-to $6\%$ under suboptimal conditions \cite{filipJumpsXYCalibration2024}.
+In fact, the camera response to the same signal can change by up to $6\%$ under
+suboptimal conditions \cite{filipJumpsXYCalibration2024} within the timespan of
+a few hours.
 
 To account for this, the \PMTs need to be calibrated on a nightly basis. During
 calibration the camera is exposed to a lightsource of known radiance, and the 
-camera response (in units of \ADC) is logged. Tying all information together, 
-this allows the calculation of (absolute) pixel calibration constants, 
-$C^\mathrm{pixel}_\mathrm{abs.}$, in units of \SI{}{$\gamma$\per\ADC}. It is
-imperative that these quantities are measured with high precision, as
-uncertainties on $C^\mathrm{pixel}_\mathrm{abs.}$ contribute linearly to the 
-uncertainty of the reconstructed primary particle energy. Currently, the pixel
-calibration constants are measured with an uncertainty of approximately $9\%$
+camera response (in units of \ADC) is logged. Tying both bits of information 
+together, this allows the calculation of pixel calibration constants, 
+$C^\mathrm{pixel}_\mathrm{abs.}$, in units of \SI{}{$\gamma$\per\ADC}. 
+Intuitively, $C^\mathrm{pixel}_\mathrm{abs.}$ holds the information of how many
+photons of a reference wavelength need to hit one pixel-\PMT to result in a 
+signal response of a given \ADC strenght. 
+
+It is imperative that the pixel calibration constants are measured with high 
+precision, as their uncertainties contribute linearly to the uncertainty of the
+reconstructed primary particle energy. Currently, the pixel calibration 
+constants are measured with an uncertainty of approximately $9\%$
 \cite{dawsonUpdateAugerEnergy13}. This represents the biggest contribution to 
 the total uncertainty in the \PAO energy scale of $14\%$ 
-\cite{verziEnergyScalePierre2013}.
-
-\subsubsection{Atmospheric Laser Shots}
-
-The \PAO operates two atmospheric lasers, the \CLF, and the \XLF 
-\cite{collaborationTechniquesMeasuringAerosol2013}. Their primary science case 
-is monitoring atmospheric conditions in order to model the development of \EASs
-accurately. The two instruments provide vertical laser beams with stable power,
-that, due to their very narrow frequency spectrum, translate to a stable
-output of photons. In theory, the number of photons that scatter off of air 
-molecules and hit the \FD-cameras per laser pulse is calculable. Analyzing the
-telescope response to these laser pulses allow for an absolute calibration of 
-\FD-\PMTs. In practice this proves impractical however. The air conditions in 
-the atmosphere are not known with sufficient precision. Moreover, not all
-pixels in all telescopes see the laser beams, which drastically lowers the 
-accuracy of the presented method.
-
-\subsubsection{Drone Based Calibration}
-
-A remote-controlled drone equipped with a light source is used to simulate a 
-distant point source in the \FD-\FOV \cite{wernerDesignTestFlying2010, 
-tomankovaOpticalPropertiesCalibration2016}. In principle the hardware can be
-used to calibrate the individual pixels of a camera, as the source radiance is
-known. In practice the drone based approach takes a long time to illuminate 
-every pixel. Other methods are less time intensive and therefore preferred. 
-Nevertheless, the drone proves useful in measuring the optical properties of 
-the \FD-mirrors, such as the \PSF \cite{ungerSimulationPointSpread2013}.
-
-\subsubsection{Drum Calibration}
+\cite{verziEnergyScalePierre2013}. In the following, several methods of probing
+$C^\mathrm{pixel}_\mathrm{abs.}$ are discussed. A further examination of the
+best-performing method is done in \todo{xy chapter ref}.
 
 \begin{figure}[t]
   \centering
@@ -325,17 +312,49 @@ the \FD-mirrors, such as the \PSF \cite{ungerSimulationPointSpread2013}.
   aperture of a telescope at \CO for an absolute calibration. From 
   \cite{crissUpdateRecentAbsolute2010}. \subref{fig:cal-a-example-response} The
   integral signal per pixel received by the camera in bay 2 of \CO for a 
-  relative calibration measurement (cal. A) before standard \DAQ on 2024-11-20.}
+  relative calibration measurement (Cal. A) before standard \DAQ on 2024-11-20.}
   \label{fig:camera-stuff}
 \end{figure}
 
+\subsubsection{Atmospheric Laser Shots}
+
+The \PAO operates two stationary atmospheric lasers, the \CLF, and the \XLF 
+\cite{collaborationTechniquesMeasuringAerosol2013}. Their primary science case 
+is monitoring atmospheric conditions in order to model the development of \EASs
+accurately. The two instruments provide vertical laser beams with stable power,
+that, due to their very narrow frequency spectrum, translate to a constant
+output of photons. In theory, the number of photons that scatter off of air 
+molecules and hit the \FD-cameras per laser pulse is calculable. Analyzing the
+telescope response to these laser pulses allow for an absolute calibration of 
+\FD-\PMTs. In practice this proves impractical however. The air conditions in 
+the atmosphere are not known with sufficient precision. Moreover, not all
+pixels in all telescopes see the laser beams, which drastically lowers the 
+accuracy of the presented method.
+
+A moveable laser source that would address both mentioned problems is in 
+development by collaboration members, and will serve as a useful method to 
+cross-calibrate the \FD-\PMTs \todo{rukjie ref}.
+
+\subsubsection{Drone Based Calibration}
+
+A remote-controlled drone equipped with a light source can be used to simulate 
+a distant point source in the \FD-\FOV \cite{wernerDesignTestFlying2010, 
+tomankovaOpticalPropertiesCalibration2016}. In principle the hardware can be
+used to calibrate the individual pixels of a camera, as the source radiance is
+known. In practice the drone based approach takes a long time to illuminate 
+every pixel. Other methods are less time intensive and therefore preferred. 
+Nevertheless, the drone proves useful in measuring the optical properties of 
+the \FD-mirrors, such as the \PSF \cite{ungerSimulationPointSpread2013}.
+
+\vspace*{5pt}
+\subsubsection{Drum Calibration}
 The absolute calibration method currently in use at the \PAO is the drum 
 calibration. The name derives from the shape of the light source, visible in 
 \cref{fig:drum-mounting}. It is a cylinder with a diameter of \SI{2.5}{\meter} 
 and depth of \SI{1.4}{\meter} with two NSHU550 \UV \LEDs installed at its' 
 center. A reflective laminate uniformly distributes the light from the \LED 
 over the interior of the drum \cite{brackAbsolutePhotometricCalibration2004}. 
-The radiance of the lightsource is carefully measured before, during, and afte 
+The radiance of the lightsource is carefully measured before, during, and after
 every \DAQ campaign \cite{brackAugerFluorescenceDetector2013}. To measure 
 $C^\mathrm{pixel}_\mathrm{abs.}$ via the drum lightsource the cylinder frame 
 has to be mounted on top of the \FD aperture. Once done, all pixels in the 
@@ -346,71 +365,6 @@ While the measurement itself is quick it requires time, manpower, and knowledge
 to set up. For this reason the last absolute calibration of the \FD-telescopes 
 with the drum lightsource has been conducted more than ten years ago in 2013 
 \cite{dorofeevFDAbsoluteCalibration2013}. 
-
-\subsubsection{Calibration A, B and C}
-
-In order to address the lack of a nightly absolute calibration relative 
-calibration systems exists to track the telescope evolution over time. These 
-relative calibration systems are a set of \LCUs and identical for each building
-\footnote{\HEAT has one copy for each of its' telescopes}.
-They consist of three central \LED light source and optical fibers that 
-transport photon signals to diffusers located at three different exit ports at 
-the six different telescopes \cite{robertsCalibrationPierreAuger2003}. The 
-location of the exit ports are as follows:
-
-\begin{enumerate}[label=(\Alph*)]
-	\item In the center of the mirror, directly illuminating the 
-	\FD-camera.
-	\item Above the camera body, illuminating the pixels indirectly via the
-	mirror.
-	\item Outside the \FD building and pointed towards the shutter.
-	Reflective liners on the inside of the shutter redirect the light into 
-	the aperture and eventually the camera.
-\end{enumerate}
-
-In principle, the combination of Calibration A, B, and C allow to monitor the 
-aging of the different detector components, and provide an end-to-end 
-calibration, in which the whole optical system of the telescopes is probed. 
-Only Calibration A is performed to track changes in the pixel-\PMTs in 
-practice. The  remaining telescope constituents are assumed to be stable over 
-the timespan of years \cite{brackAugerFluorescenceDetector2013, 
-dorofeevFDAbsoluteCalibration2013}.
-
-Two Calibration A measurements are performed during each night. One before the 
-start of \DAQ, and one after the data-taking ends. During the measurement the 
-\LED emits 50 light pulses with a duration of $\approx\SI{60}{\micro\second}$ 
-at a wavelength of \SI{470\pm25}{\nano\meter} 
-\cite{menshikovLEDCalibrationUnit}. The optical signal is guided through six 
-cables to the diffusers at the center of the mirror. A seventh fiber feeds the 
-light back to the \LCU, where a photodiode digitizes the signal 
-$S_\mathrm{LCU}$. The readout of pixel-data is forced via an external trigger 
-coincident with every light pulse. The overall signal recorded in the \FD time 
-trace from the calibration light pulse(s), $S_\mathrm{CalA}$, can be recovered 
-by first estimating and subtracting the trace baseline 
-\cite{schaferReconstructionBaselineUndershoot2022}, determining the pulse start
-and stop via a pulse-finding algorithm (see \todo{xy section ref here}), and 
-summing the \ADC bins within the pulse-window. 
-\cref{fig:cal-a-example-response} shows example data analyzed in this fashion. 
-From $S_\mathrm{LCU}$ and $S_\mathrm{CalA}$ the calibration constants measured 
-in a reference night via calibration method $i$ can be forward- or 
-backpropagated to an arbitrary point in time according to 
-\cite{salinaNewCalibrationTask2014, salinaAnalisiDatiXY2025} like
-
-\begin{equation}
-\label{eq:cal-a-propagation}
-C^{\mathrm{pixel},\,i}_{\mathrm{abs.}} = C^{\mathrm{pixel},\,i}_{\mathrm{abs.},\,\mathrm{ref}}\,\cdot\,\frac{S_\mathrm{LCU}}{S_\mathrm{LCU}^\mathrm{ref.}}\,\frac{S_\mathrm{CalA}^\mathrm{ref.}}{S_\mathrm{CalA}}\,c_\mathrm{LCU}^\mathrm{Corr.}\,c^\mathrm{Corr.}_\mathrm{Halo}.
-\end{equation}
-
-In \cref{eq:cal-a-propagation} the two factors $c^\mathrm{Corr.}_i$ give 
-different corrections to the end result that need to be considered. First, a 
-time-dependant factor $c^\mathrm{Corr.}_\mathrm{LCU}$ absorbs the change of 
-radiance in the \LCU \LED after a replacement in 2011/2012 took place in all 
-telescopes \cite{menshikovLEDCalibrationUnit}. A second factor accounts for the
-fact that not all photons that hit the camera body are registered in the \PMTs. 
-Some light is reflected away, and does not contribute to the absolute 
-calibration. Consequently, $C^{\mathrm{pixel},\,i}_\mathrm{abs.}$ would be 
-underestimated without a correction factor $c^\mathrm{Corr.}_\mathrm{Halo}$ 
-\cite{brackFluorescenceDetectorAbsolute13}.
 
 \subsubsection{XY Scanner}
 \label{sssec:xy-scanner}
@@ -426,27 +380,93 @@ resulting pixel calibration constants. The setup and analysis of the method are
 summarized in \todo{xy scanner chapter here}, and described in detail in 
 \cite{schaferXYScannerVersatileMethod2023}
 
+\subsubsection{Calibration A, B and C}
+
+In order to address the lack of a nightly absolute calibration relative 
+calibration systems exists to track the telescope evolution over time. These 
+relative calibration systems are a set of \LCUs and identical for each 
+building.\footnote{\HEAT has one copy for each of its' telescopes} Optical 
+fibers transport photon pulses from the \LCU to diffusers located at three 
+different exit ports in each of the six different telescopes per \FD site 
+\cite{robertsCalibrationPierreAuger2003}. The location of the exit ports give 
+raise to three different relative calibration methods:
+
+\begin{enumerate}[label=(\Alph*)]
+	\item In the center of the mirror, directly illuminating the 
+	\FD-camera.
+	\item Above the camera body, illuminating the pixels indirectly via the
+	mirror.
+	\item Outside the \FD building and pointed towards the shutter.
+	Reflective liners on the inside of the shutter redirect the light into 
+	the aperture and eventually the camera.
+\end{enumerate}
+
+In principle, the combination of Calibration A, B, and C allow to monitor the 
+aging of the different detector components, and provide an end-to-end relative
+calibration, in which the whole optical system of the telescopes is probed. 
+Only Calibration A is performed to track changes in the pixel-\PMTs in 
+practice. The  remaining telescope constituents are assumed to be stable over 
+the timespan of years \cite{brackAugerFluorescenceDetector2013, 
+dorofeevFDAbsoluteCalibration2013}. However, recent findings call these 
+assumptions into question (c.f.\ \todo{xy chapter}).
+
+Two Calibration A measurements are performed during each night. One before the 
+start of \DAQ, and one after the data-taking ends. During the measurement the 
+\LED emits 50 light pulses with a duration of $\approx\SI{60}{\micro\second}$\todo{wtf is this symbol}
+at a wavelength of \SI{470\pm25}{\nano\meter} 
+\cite{menshikovLEDCalibrationUnit}. The optical signal is guided to the 
+diffusers at the center of the mirrors. A seventh fiber feeds the light back to
+the \LCU, where a photodiode digitizes the signal $S_\mathrm{LCU}$. The 
+readout of pixel-data is forced via an external trigger coincident with every 
+light pulse. The overall signal recorded in the \FD time trace from the 
+calibration light pulse(s), $S_\mathrm{CalA}$, can be recovered by first 
+estimating and subtracting the trace baseline 
+\cite{schaferReconstructionBaselineUndershoot2022}, determining the pulse start
+and stop via a pulse-finding algorithm (Ref.\ 
+\cref{sssec:reconstruction-pulse-finder}), and summing the \ADC bins within 
+the pulse-window. \cref{fig:cal-a-example-response} shows the signal of an 
+example Cal.\ A measurement analyzed in this fashion. From $S_\mathrm{LCU}$ and
+$S_\mathrm{CalA}$ the calibration constants measured in a reference night via 
+calibration method $i$ can be forward- or backpropagated to an arbitrary point 
+in time according to \cite{salinaNewCalibrationTask2014, 
+salinaAnalisiDatiXY2025} like
+
+\begin{equation}
+\label{eq:cal-a-propagation}
+C^{\mathrm{pixel},\,i}_{\mathrm{abs.}} = C^{\mathrm{pixel},\,i}_{\mathrm{abs.},\,\mathrm{ref}}\,\cdot\,\frac{S_\mathrm{LCU}}{S_\mathrm{LCU}^\mathrm{ref.}}\,\frac{S_\mathrm{CalA}^\mathrm{ref.}}{S_\mathrm{CalA}}\,c_\mathrm{LCU}^\mathrm{Corr.}\,c^\mathrm{Corr.}_\mathrm{Halo}.
+\end{equation}
+
+In \cref{eq:cal-a-propagation} the two factors $c^\mathrm{Corr.}_i$ give 
+different corrections to the end result that need to be considered. First, a 
+time-dependant factor $c^\mathrm{Corr.}_\mathrm{LCU}$ absorbs the change of 
+radiance in the \LCU \LED after a replacement took place in all telescopes 
+in 2011/2012 \cite{menshikovLEDCalibrationUnit}. The second factor, 
+$c^\mathrm{Corr.}_\mathrm{Halo}$, accounts for the fact that not all photons 
+that hit the camera body are registered in the \PMTs. Some light is reflected 
+away, and does not contribute to the absolute calibration. Consequently, 
+$C^{\mathrm{pixel},\,i}_\mathrm{abs.}$ would be underestimated without the
+correction factor \cite{brackFluorescenceDetectorAbsolute13}.
+
 \section{The Surface Detector}
 \label{sec:sd}
 
-The \acf{SD} are a collection of more than 1660 stations spread in a regular 
+The \acf{SD} is a collection of more than 1660 stations spread in a regular 
 pattern over the surface of the Pampa Amarilla. The position of each station is
 shown in \cref{fig:auger-map}. Each station is equipped with hardware that 
 offers several detection channels to ionizing particles on the ground. Their 
 remote location complicates maintenance work and the transfer of measurement 
 data. For this reason the stations are operating largely autonomously, only 
-communicating essential information to the \CDAS (see \cref{sec:cdas}). They 
-derive their electrical power from a solar panel, and have (limited) 
-computational resources at hand that control communication with the \CDAS, data
-readout, and run procedures to self-calibrate the individual detectors. 
+communicating essential information to the \CDAS. They derive their electrical 
+power from a solar panel, and have (limited) computational resources at hand 
+to control the different station components.  
 
 \subsection{Detector Components}
 \label{ssec:detector-components}
 
-The main detector and processing components (\WCD, \UUB, etc.) are presented in
-the following subsections. Some auxiliary hardware components (auxiliary in the
-context of this work, not the function of the stations) are only briefly 
-mentioned here:
+The main detector and processing components are presented in the following 
+subsections. Some auxiliary hardware components are only briefly mentioned here
+\footnote{auxiliary in the context of this work, not the function of the 
+stations}:
 
 \begin{itemize}
 	\item Two $\SI{55}{\watt}_\mathrm{peak}$ solar panels provide 
@@ -486,49 +506,50 @@ mentioned here:
 The \acf{WCD} is the main detector component, and common to all \SD-stations 
 since the construction of the \PAO began. It is an oblate cylinder with a 
 diameter of \SI{3.6}{\meter} and height of $\SI{1.2}{\meter}$ as seen in 
-\cref{fig:sd-station-render}. The interior is filled with a sealed liner 
-containing \SI{12000}{\liter} of filtered water, and shielded from exterior 
-light via a polyethylene housing \cite{allekotteSurfaceDetectorSystem2008}. The
-darkness in the cylinder is occasionally interrupted by flashes of light 
-stemming from relativistic particles producing Cherenkov radiation in the 
-water. This light bounces off of the reflective interior walls until it reaches
-one of three identical \SI{230}{\milli\meter} Photonis XP1805 \LPMTs 
-\cite{tripathiSystematicStudyLarge2003} that are optically coupled to the 
-inside volume of the liner.
+\cref{fig:sd-station-render}. The interior is filled with a sealed, reflective 
+liner containing \SI{12000}{\liter} of filtered water, and shielded from 
+exterior light via a polyethylene housing 
+\cite{allekotteSurfaceDetectorSystem2008}. The darkness in the cylinder is 
+occasionally interrupted by flashes of light stemming from relativistic 
+particles producing Cherenkov radiation in the water. The Cherenkov light 
+scatters off the interior walls until it reaches one of three identical 
+\SI{230}{\milli\meter} Photonis XP1805 \LPMTs 
+\cite{tripathiSystematicStudyLarge2003} that are installed at the top of the 
+polyethylene tank, and that are optically coupled to the inside volume of the 
+liner.
 
 The \WCD needs to be able to accurately reconstruct a large dynamic range of
 signals, starting from individual particles to $>10^3$ muons entering the water
-\cite{abrahamTriggerApertureSurface2010}. To achieve this, the \LPMTs 
-characteristics are monitored by two channels, the \HG and the \LG. The \LG 
+\cite{abrahamTriggerApertureSurface2010}. To achieve this, the \LPMT signals 
+are read out in two channels, the \HG channel and the \LG channel. The \LG 
 is connected directly to the dynode of the \PMTs, whereas the \HG tracks the 
-anode voltage. The \HG-channel is thus amplified to have a gain ratio of 
-$\sim32$. Both channels are read out via 12-bit AD9628 \FADCs 
-\cite{analogdevicesinc.AD9628DatasheetProduct2015} at a sampling rate of \SI{120}{\mega\hertz} (corresponding to a binning of \SI{8.333}{\nano\second}). 
+anode voltage. The \HG-channel is amplified to have a gain ratio of $\sim32$. 
+Both channels are read out via 12-bit AD9628 \FADCs 
+\cite{analogdevicesinc.AD9628DatasheetProduct2015} at a sampling rate of 
+\SI{120}{\mega\hertz}, corresponding to a binning of \SI{8.333}{\nano\second}.
 
 A fourth, \SI{25}{\milli\meter} \SPMT of type Hamamatsu R8619 
 \cite{hamamatsuphotonicsPhotomultiplierTubeR8619} is installed near the center
-of the tank. It is exposed to less light due to its relatively small size, and 
-extends the dynamic range of the \WCD to about \SI{20000}{\VEM}.
+of the tank. It collects less light due to its smaller size, and can therefore
+handle higher particle densities before saturating. Consequently, it extends 
+the dynamic range of the \WCD to about $20\,000$ simultaneous particles.
 
-The same considerations as in \cref{ssec:fd-calibration} apply to the data
-recorded by the \WCD (and all other \SD components). The detector information 
-needs to be put into a physical context in order to be interpreted correctly.
-For the particle detectors at the \PAO (\WCD, \SSD, and \UMD) this context is 
-given by atmospheric muons, as they have a characteristic energy deposit and 
-signature in the active medium. The measurement data (in units of \ADC) is
-converted to the quantity of muons (or \MIPs, in the case of the \SSD) that
-would be needed to be injected vertically\footnote{To absorb dependencies of 
-the track length in the detector} in the detector to record the same signal 
-strenght. This, for the \WCD, gives raise to two quantities that need to be 
-tracked in order to provide calibrated data:
+Just like for the \FD the detector information of the \SD needs to be put into 
+a physical context in order to be interpreted correctly. For the particle 
+detectors at the \PAO this context is given by atmospheric muons, as they have 
+a characteristic energy deposit and signature in the active medium. The \WCD 
+measurement data is converted from units of \ADC to the quantity of muons that
+would need to pass vertically through the center of the water tank in order 
+to record the a signal of equal strenght. This gives raise to two quantities 
+that need to be tracked in order to provide calibrated data:
 
 \begin{itemize}
-	\item \Ivem is the most probable pulse height (in units of \ADC) 
+	\item \Ivem is the most probable pulse height in units of \ADC 
 	recorded by the \WCD \PMTs when a muon passes vertically through the 
 	center of the water volume.
-	\item \Qvem gives the most probable value (measured in \ADC as well) 
-	for the integral of the muon pulse, corresponding to the energy 
-	deposited in the detector by the particle.
+	\item \Qvem gives the most probable value for the sum of all \ADC 
+	samples (i.e.\ the integral) of the muon pulse, corresponding to the 
+	deposited energy in the detector by the particle.
 \end{itemize}
 
 The trigger thresholds (compare \cref{ssec:sd-triggers}) in the \WCD are set in
@@ -539,12 +560,12 @@ the true value of \Ivem.
 
 The value of \VemOnline is adjusted by a simple and robust algorithm. It 
 employs a calibration trigger that requires a coincident signal of at least 
-\SI{1.75}{\VemOnline} in all three \LPMTs. In the case of one or more tubes
-being broken the trigger thresholds are adjusted in order to ensure the stable 
-operation of the remaining \PMTs 
+$1.75\,\VemOnline$ in all three \LPMTs. In the case of one or more \PMTs
+being non-functional the trigger thresholds are adjusted in order to ensure 
+the stable operation of the remaining \PMTs 
 \cite{convengaLocalStationCalibrationDummies2023}.
 
-An additional cut of \SI{2.5}{\VemOnline} is applied per \LPMT, and the number 
+An additional cut of $2.5\,\VemOnline$ is applied per \LPMT, and the number 
 of triggers during a timespan measuring at most \SI{60}{\second} is tracked. If
 the trigger rate of the calibration trigger exceeds a target rate of 
 \SI{72}{\hertz} during this period, the value of \VemOnline is increased. This 
@@ -553,17 +574,17 @@ rate during the following \DAQ period. Similarly, the value of \VemOnline is
 decreased if the calibration trigger rate is lower than \SI{68}{\hertz}. If the
 trigger rate lies within \SI{70\pm2}{\hertz} the \DAQ period is increased 
 (beginning with \SI{10}{\second}) by \SI{5}{\second} to limit the influence of 
-Poissonian noise on the estimate \cite{bertouCalibrationSurfaceArray2006, 
+Poissonian noise on the final estimate \cite{bertouCalibrationSurfaceArray2006,
 convengaLocalStationCalibrationDummies2023}.
 
 Under nominal conditions, this results in the value of \VemOnline being updated
 every minute. Most importantly, this implies that the trigger thresholds of 
-station-level event triggers (see \cref{ssec:sd-triggers}) adjust to the
-changing environmental conditions in the array. Additionally, the value of 
-\VemOnline is packaged among other diagnostic information, and sent to the 
-\CDAS every \SI{400}{\second} for monitoring purposes. This allows for the easy
-identification of non-functioning stations, as these will show an abnormal 
-value or evolution of \VemOnline in one or more of the three \LPMTs. 
+station-level event triggers adjust to the changing environmental conditions in
+the array. Additionally, the value of \VemOnline is packaged among other 
+diagnostic information, and sent to the \CDAS every \SI{400}{\second} for 
+monitoring purposes. This allows for the easy identification of 
+non-functioning stations, as they will show an abnormal value or evolution of
+\VemOnline in one or more of the three \LPMTs. 
 
 An alternative method of calibration exists, that is used during event 
 reconstruction (i.e. not on a station-level). It analyzes the distribution of 
@@ -573,20 +594,20 @@ low-energy pulses in the detector, and forms a more accurate estimator,
 \subsubsection{Surface Scintillator Detector}
 \label{sssec:ssd}
 
-With the AugerPrime detector upgrade, the \SSD has been installed on every 
+With the AugerPrime detector upgrade, the \acf{SSD} has been installed on ever 
 \SD-station. It sits atop the \WCD as seen in \cref{fig:sd-station-render}, 
 with an aluminum box shielding the sensitive electronics from the environment. 
 As the name implies, the active area of the detector 
 (\SI{3.84}{\meter\squared}) is made up of polystyrene scintillator strips 
-measuring \SI{1600}{\centi\meter} in length, \SI{5}{\centi\meter} in width, and
+measuring \SI{160}{\centi\meter} in length, \SI{5}{\centi\meter} in width, and
 \SI{1}{\centi\meter} in thickness \cite{cataldiUpgradePierreAuger2022}. These 
 strips produce light via molecular (de-) excitation when ionizing particles 
 pass through them, with the amount of light being inversely proportional to the
 change in energy of the traversing particles.
 
 The scintillating light is reflected by a TiO$_2$ external coating of the bars,
-and eventually captured by \WLS cables running through the long end of each 
-segment. An example of this is given in \cref{fig:ssd-high-contrast}. From 
+and eventually captured by \acf{WLS} cables running through the long end of 
+each segment. An example of this is given in \cref{fig:ssd-high-contrast}. From
 there, the \WLSs are arranged in a "U" configuration, where both ends of each 
 cable are coupled via optical cement to a \SI{38}{\milli\meter} Hamamatsu R942 
 \PMT \cite{hamamatsuphotonicsPhotomultiplierTubeR9420}. This allows the 
@@ -602,24 +623,22 @@ and electrons. This is the science case of the \SSD. Utilizing the knowledge of
 the \WCD and \SSD allows the disentanglement of the individual shower 
 components. This results in an improved sensitivity to the primary particle
 mass (compare \todo{write \EAS chapter} and 
-\cref{ssec:augerprime-and-outlook}).
-
-Similar to the \WCD, the \SSD must be calibrated. For the case at hand, the 
-characteristic quantities that are of significance are those of an arbitrary 
-\acf{MIP}:
+\cref{ssec:augerprime-and-outlook}). Like the \WCD, the \SSD data must be 
+calibrated. Due to the different detector response the characteristic 
+quantities are derived from an arbitrary \acf{MIP}:
 
 \begin{itemize}
-	\item \Imip is the most probable pulse height (in units of \ADC) 
-	recorded by the \SSD \PMT when a \MIP passes vertically through a 
-	random location in the \SSD active medium.
+	\item \Imip is the most probable pulse height in units of \ADC recorded
+	by the \SSD \PMT when a \MIP passes vertically through a random 
+	location in the \SSD active medium.
 	\item \Qmip is the most probable pulse integral recorded during the 
 	aforementioned event.
 \end{itemize}
 
-The details of how \SSD data is calibrated during event reconstruction can be
-found in \todo{ref here}. Additionally, a novel algorithm developed in this
-work allows the estimation of \Imip on a station-level. Implementation details 
-can be found in \todo{ref here}.
+The \SSD data are calibrated during event reconstruction according to the 
+process outlined in \cref{sssec:reconstruction-histogram-fitter}. Additionally,
+a novel algorithm developed in this work allows the estimation of \Imip on a 
+station-level. Implementation details can be found in \todo{ref here}.
 
 \subsubsection{Underground Muon Detector}
 \label{sssec:umd}
@@ -642,8 +661,9 @@ can be found in \todo{ref here}.
   \label{fig:umd-and-uub}
 \end{figure}
 
+\todo[inline]{proofread until here}
 
-The \UMD represents another enhancement installed during the AugerPrime 
+The \acf{UMD} represents another enhancement installed during the AugerPrime 
 detector upgrade. It further boosts the observatories primary mass 
 discrimination abilities \cite{collaborationPierreAugerObservatory2016}. In 
 total 73 \UMDs are buried underground, each one in close vicinity to an SD-750 
