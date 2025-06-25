@@ -5,18 +5,24 @@
 
 The \PAO is the largest scientific experiment in the world, spanning an area of
 roughly \SI{3000}{\kilo\meter\squared}. It consists of an array of 1660 \WCDs, 
-which form the \SD, and 27 fluorescence telescopes, that comprise the \FD. All 
-data from \SD stations, \FD telescopes as well as numerous atmospheric 
-monitoring sites converge at one location, the \CDAS, in the nearby city of 
-Malargüe. The observatory is designed to indirectly detect \CRs of incredibly 
-high energies, inferring their existence from large particle cascades in the
-atmosphere. The \PAO is a hybrid detector. It detects faint fluorescence light
-during the formation of an \EAS via the \FD, and it samples the shower 
-footprint on ground via the \SD. The simultaneous operation of the \FD and the 
-\SD offers a unique possibility to observe \UHECRs at the tail-end of the \CR 
-energy spectrum. 
+which form the \SD, and 27 fluorescence telescopes, spread over five locations,
+that comprise the \FD. All data from \SD stations, \FD telescopes as well as 
+numerous atmospheric monitoring sites converge at a single location, the \CDAS
+in the nearby city of Malargüe. The observatory is designed to indirectly 
+detect \CRs of incredibly high energies, inferring their existence from large 
+particle cascades in the atmosphere. The \PAO achieves this in a hybrid 
+fashion, with the \FD being sensitive to the faint fluorescence light produced 
+in an \EAS, whereas the \SD samples the shower footprint on ground. The 
+simultaneous operation of the \FD and the \SD offers a unique possibility to 
+observe \UHECRs at the tail-end of the \CR energy spectrum. 
 
-
+This chapter introduces the observatory. A summary of the project history and
+the science case of the Pierre Auger collaboration is given in 
+\cref{sec:project-history-and-future}. \cref{sec:fd}, and \cref{sec:sd} detail 
+the hardware and software detector components of the \FD and the \SD 
+respectively. Finally, the analysis chain from \EAS detection to the estimation
+of physics parameters during the event reconstruction is examined in 
+\cref{sec:event-reconstruction}.
 
 \section{Project History and Future}
 \label{sec:project-history-and-future}
@@ -36,40 +42,38 @@ The two realized that the flux of \UHECRs is very low
 \cite{fenuCosmicRayEnergy2023}), and that one needs to observe a large area 
 over a long timespan to collect enough data for a statistically relevant 
 analysis of their dynamics. Cronin especially was interested in verifying the 
-possible detection of an astrophysical source of $\gamma$-rays 
+possible detection of an astrophysical source of high-energy $\gamma$-rays 
 \cite{samorskiDetection2101983}. Moreover, the mere existence of some \UHECRs 
 was challenging astrophysical models \cite{birdDetectionCosmicRay1995, 
 naganoAstrophysicalAspectsMost1991, hayashidaObservationVeryEnergetic1994,
 lawrenceCosmicRayEnergy1991}. Naturally, probing the presence and possible 
 sources of such \CRs of extreme energy became a priority for the envisioned 
-experiment.
-
-Cronin and Watson gathered support for their ideas and, in 1995, founded a 
-collaboration of 140 likeminded scientists in 17 participating countries. A 
+experiment. Cronin and Watson gathered support for their ideas and, in 1995, 
+founded a collaboration of 140 scientists in 17 participating countries. A 
 white paper was published that outlined the construction, capabilities, and 
 cost of the \PAO \cite{thepierreaugercollaborationPierreAugerObservatory1997}. 
+
 The detector configuration presented in the document varies from the design in 
 use today. Most importantly, what was originally envisioned to be a detector 
 with an active area of \SI{6000}{\km\squared} spread over two locations (Auger 
 North and Auger South) had to be amended and only one site with and area of 
 \SI{3000}{\km\squared}, located in the Argentinian Pampa Amarilla in the 
-Mendoza province, came to be. There, the construction of an Engineering Array, 
+Mendoza province came to be. There, the construction of an Engineering Array, 
 a full scale prototype of the first \SD and \FD detectors was completed in 
 2001. More hardware was added after first successful measurements, making the 
-\PAO the largest observatory for \CRs by the end of 2003.
+still incomplete detector the largest observatory for \CRs by the end of 2003.
 
-The detector has been operating almost continuously ever since, resulting in a 
-total exposure well surpassing \SI{100000}{\km\squared\sr\year} 
+The \PAO has been operating almost continuously ever since, collecting a total
+exposure well surpassing \SI{100000}{\km\squared\sr\year} 
 \cite{aabPierreAugerObservatory2020}. Thanks to this, the Pierre Auger 
 Collaboration has delivered key insights that advance our understanding of 
 astroparticle and high-energy physics. Most notably, the \PAO confirmed a 
 strong suppression of the \CR-flux for particles above 
-$E\approx\SI{4e19}{\eV}$ \cite{yamamotoUHECRSpectrumMeasured2007} (see 
-\todo{ref physics chapter}). Anisotropies in the arrival directions of \UHECRs 
-hint to their distant origins
-\cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017} (see 
-\todo{ref physics chapter}). Upper limits have been set on the \UHE photon and
-neutrino flux, which forces the reevaluation of certain astrophysical models 
+$E\approx\SI{4e19}{\eV}$ \cite{yamamotoUHECRSpectrumMeasured2007}. Anisotropies
+in the arrival directions of \UHECRs hint to their distant origins in other 
+galaxies \cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017}.
+Upper limits have been set on the \UHE photon and neutrino flux, which forces 
+the reevaluation of certain astrophysical models 
 \cite{collaborationPierreAugerObservatory2011, abreuSearchUltrahighEnergy2011}.
 Last but not least, regular releases of datasets to the public support the work
 of independently working astrophysicists around the globe 
@@ -81,17 +85,21 @@ of independently working astrophysicists around the globe
 Many questions have been answered thanks to the data collected by the \PAO. 
 Naturally, new insights sprout new questions. The existence of \UHECRs beyond 
 the \GZK-cutoff has been established unambigously. Now, their nature must be 
-studied more deeply. Of particular interest is the reconstruction of the 
-primary particle mass from \EAS-data, as this influences the \CRs 
-(reconstructed \cite{yushkovMassCompositionCosmic2021}) energy, and evolution 
-from the source to the earth \cite{strongCosmicRayPropagationInteractions2007, 
-flaggsStudyingMassSensitivity2024}.
+studied more deeply. Of particular interest is the reconstruction of the mass
+of \UHECRs, as this influences their (reconstructed 
+\cite{yushkovMassCompositionCosmic2021}) energy, and evolution from the source
+to the earth \cite{strongCosmicRayPropagationInteractions2007, 
+flaggsStudyingMassSensitivity2024}. Information on the mass composition of \CRs
+will significantly advance our understanding of high-energy physics in 
+particular, and the cosmos as a whole.
 
-The detectors have undergone a major upgrade in the past decade in order to 
-increase the observatories sensitivity to the primary particle mass. This 
-overhaul, called AugerPrime, equips the \SD stations with additional detector 
-channels and improved readout electronics. The \FD telescopes duty cycle was 
-improved, and new methods for data analysis are being tested.
+The \PAO detectors have undergone a major upgrade in the past decade in order 
+to increase the observatories sensitivity to the primary particle mass. This 
+overhaul, called AugerPrime, equips the \SD stations with several additional 
+detection channels. The \DAQ chain was improved and new readout electronics 
+have been developed to increase the fidelity and quality of collected data. The
+\FD telescopes duty cycle was improved, and new methods for data analysis are 
+being tested.
 
 As of the completion of this thesis, the AugerPrime hardware and software 
 upgrade is completed and described in the following pages as well as in 
@@ -101,9 +109,9 @@ interpretation of observed phenomena. The prospects of this detector upgrade
 have astroparticle physicists excited, and resulted in the strong support to 
 extend the observatories funding until beyond the year 2030 
 \cite{castellinaOutcomeFinanceBoard2023}. The Phase-II of \DAQ (as opposed to 
-Phase-I pre- and during AugerPrime) will be the basis for many contributions 
-that attempt to shed light into the physics of \UHECRs, with this work being 
-just one example.
+Phase-I pre- and during AugerPrime) will be the basis for many scientific 
+contributions that attempt to shed light into the physics of \UHECRs, with this
+work being just one example.
 
 \section{The Fluorescence Detector}
 \label{sec:fd}
@@ -112,7 +120,7 @@ The \acf{FD} of the \PAO is a set of 27 reflector telescopes tuned to detect
 faint sources of \UV light. More specifically, the aim of the \FD is to observe
 the \UV-emission of \EAS (see \todo{physics ref here}). However, since the 
 solar irradiance ($\approx\SI{120}{\watt\per\meter\squared}$ 
-\cite{leanContributionUltravioletIrradiance1989}) and even the lunar irradiance 
+\cite{leanContributionUltravioletIrradiance1989}) and even the lunar irradiance
 ($\approx\SI{16}{\nano\watt\per\meter\squared}$
 \cite{snowAbsoluteUltravioletIrradiance2013}) in the \UV-band far outshine the 
 emission of \UV-light by cosmic rays ($<\SI{1}{\nano\watt\per\meter\squared}$, 
@@ -120,7 +128,9 @@ see \cref{app:cr-uv-irradiance}), the \FD can only operate after astronomical
 twiglight, and when the moon is not directly in the telescope \FOV, and not
 more than 70\% illuminated as seen from Earth \cite{mathesCriteriaFDShift}. 
 This drops the duty cycle to approximately 13\% 
-\cite{abrahamFluorescenceDetectorPierre2010}.
+\cite{abrahamFluorescenceDetectorPierre2010}. Despite this drastic limitation, 
+the \FD is a crucial component in the analysis chain, as it is able to directly
+observe the longitudinal shower profile of an \EAS.
 
 The telescopes are grouped at five \FD sites, where a collection of six (three
 in one case) identical setups offer a $6\cdot30^\circ=180^\circ\times30^\circ$ 

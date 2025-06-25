@@ -2,6 +2,8 @@
 \LoadClass[a4paper, 11pt, twoside]{book}
 
 \usepackage[dvipsnames, table]{xcolor}
+\definecolor{RoyalRed}{RGB}{157,16, 45}
+\definecolor{RoyalBlue}{RGB}{0,70,202}
 
 % \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -17,6 +19,7 @@
 \usepackage{siunitx}
 \usepackage{rotating}
 \usepackage{subfig}
+\usepackage{anyfontsize}
 \usepackage{mparhack}
 \usepackage{lipsum}
 \usepackage{enumitem}
@@ -252,22 +255,25 @@
       \centering\normalfont\huge #1
       \hrule\vspace{-1cm}
     \else
-      \raisebox{-1.5pt}{\sc{\chaptername}~\thechapter}~\titlerule\newline
-      \begin{flushright}
-        \begin{minipage}[t]{0.85\textwidth}
+      \titlerule
+	\begin{minipage}[t][][b]{0.15\textwidth}
+	    \textcolor{RoyalRed}{%
+	    \fontsize{75pt}{0pt}\selectfont
+	    \texttt{\thechapter.}
+          }
+        \end{minipage}%
+	\begin{minipage}[t][][b]{0.85\textwidth}
           \begin{flushright}
             \bfseries\Huge \sc{#1}
           \end{flushright}
-        \end{minipage}
-      \end{flushright}
-      \vspace{-0.7cm}
+	\end{minipage}
     \fi
   }
   [%
     \ifnum\thechapter=0
       \vspace{0.1cm}
     \else
-      \raisebox{-1.5pt}{\sc{Contents}}~\titlerule\flushright
+      \raisebox{-1.5pt}{\textcolor{RoyalRed}{\Large\texttt{\bfseries Contents }}}~\titlerule\flushright
       \normalsize\normalfont\vspace{5pt}
       \printcontents{p}{2}{\setcounter{tocdepth}{3}}
       \vspace{5pt}\titlerule
@@ -365,9 +371,9 @@
   pdfkeywords = {astroparticle physics, ultra-high energy cosmic rays, Pierre Auger Observatory},
   colorlinks = true,
   plainpages = false,
-  linkcolor = blue,
-  citecolor = magenta,
-  urlcolor = blue,
+  linkcolor = RoyalRed,
+  citecolor = RoyalBlue,
+  urlcolor = RoyalBlue,
   bookmarksopen = false,
   linktocpage = true
 }
