@@ -255,24 +255,22 @@
       \centering\normalfont\huge #1
       \hrule\vspace{-1cm}
     \else
-      \titlerule
-	\begin{minipage}[t][][b]{0.15\textwidth}
-	    \textcolor{RoyalRed}{%
-	    \fontsize{75pt}{0pt}\selectfont
-	    \texttt{\thechapter.}
-          }
-        \end{minipage}%
-	\begin{minipage}[t][][b]{0.85\textwidth}
+      \titlerule\vspace{0.3cm}
+      \begin{flushright}
+	\begin{minipage}[t][][b]{0.86\textwidth}
           \begin{flushright}
             \bfseries\Huge \sc{\bfseries#1}
           \end{flushright}
 	\end{minipage}
+      \end{flushright}
     \fi
   }
   [%
     \ifnum\thechapter=0
       \vspace{0.1cm}
     \else
+      \vspace{-2.6cm}
+      {\fontsize{72pt}{0pt}\selectfont \textcolor{RoyalRed}{\texttt{\thechapter.}}}\newline
       \raisebox{-1.5pt}{\textcolor{RoyalRed}{\Large\texttt{\bfseries Contents }}}~\titlerule\flushright
       \normalsize\normalfont\vspace{5pt}
       \printcontents{p}{2}{\setcounter{tocdepth}{3}}
