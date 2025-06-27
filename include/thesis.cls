@@ -33,7 +33,6 @@
 \usepackage[printonlyused, withpage]{acronym}
 \newcommand{\word}[2]{\acro{#1}{\textit{#2}}}
 
-
 \usepackage{changes}
 \usepackage{blindtext}
 \usepackage[b]{esvect}    % For \vv
@@ -251,7 +250,7 @@
   {}
   {0pt}
   {%
-    \thispagestyle{empty}
+    \thispagestyle{plain}
     \startcontents
     \ifnum\thechapter=0
       \centering\normalfont\huge #1
@@ -272,8 +271,8 @@
       \vspace{0.1cm}
     \else
       \vspace{-2.6cm}
-      {\fontsize{72pt}{0pt}\selectfont \textcolor{RoyalRed}{\texttt{\thechapter.}}}\newline
-      \raisebox{-1.5pt}{\textcolor{RoyalRed}{\Large\texttt{\bfseries Contents }}}~\titlerule\flushright
+      {\fontsize{86pt}{0pt}\selectfont \textcolor{RoyalRed}{\texttt{\thechapter.}}}\newline
+      \raisebox{-1.5pt}{\textcolor{RoyalRed}{\Large\texttt{\bfseries Contents}}}~\titlerule\flushright
       \normalsize\normalfont\vspace{5pt}
       \printcontents{p}{2}{\setcounter{tocdepth}{3}}
       \vspace{5pt}\titlerule

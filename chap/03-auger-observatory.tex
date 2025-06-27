@@ -9,22 +9,18 @@ which form the \SD, and 27 fluorescence telescopes, spread over five locations,
 that comprise the \FD. All data from \SD stations, \FD telescopes as well as 
 numerous atmospheric monitoring sites converge at a single location, the \CDAS
 in the nearby city of Malargüe. The observatory is designed to indirectly 
-detect \CRs of incredibly high energies. It infers their existence by observing
-large particle cascades in the atmosphere in a hybrid fashion. The \FD is 
-sensitive to the faint fluorescence light produced in an \EAS, and the \SD 
-samples the shower footprint on ground. The simultaneous operation of the \FD 
-and the \SD offers a unique possibility to observe \UHECRs at the tail-end of 
-the \CR energy spectrum, and makes the \PAO world-leading in the area of \UHECR
+detect \CRs of incredibly high energies, inferring their existence from large 
+particle cascades in the atmosphere. The simultaneous operation of the \FD and 
+the \SD offers a unique possibility to observe \UHECRs at the tail-end of the 
+\CR energy spectrum, and makes the \PAO world-leading in the area of \UHECR 
 research.
 
 This chapter introduces the observatory and the collaboration operating it. A 
-summary of the project history, motivation and eventual science case of the 
-experiment is given in \cref{sec:project-history-and-future}. \cref{sec:fd},
-and \cref{sec:sd} detail the hardware components of the \FD and the \SD 
-respectively and introduce key concepts needed to follow the analysis in later
-chapters. Finally, the analysis chain from \EAS detection to the estimation
-of physics parameters during the event reconstruction is examined in 
-\cref{sec:event-reconstruction}.
+summary of the project history and science case is given in 
+\cref{sec:project-history-and-future}. \cref{sec:fd}, and \cref{sec:sd} detail 
+the hardware components of the \FD and the \SD respectively. Finally, 
+the analysis chain from \EAS detection to the estimation of physics parameters 
+during the event reconstruction is examined in \cref{sec:event-reconstruction}.
 
 \section{Project History and Future}
 \label{sec:project-history-and-future}
@@ -108,7 +104,7 @@ being tested.
 
 As of the completion of this thesis, the AugerPrime hardware and software 
 upgrade is completed and the current state of the \PAO is summarized in the 
-following pages. An in-depth report can be found in Ref. 
+following pages. An in-depth report can be found in Ref.\ 
 \cite{collaborationPierreAugerObservatory2011}. The observatory delivers data 
 with lower systematics. Additional information from new detectors assists the 
 interpretation of observed phenomena. The prospects of this detector upgrade 
@@ -295,13 +291,13 @@ best-performing method is done in \todo{xy chapter ref}.
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\includegraphics[height=0.32\textwidth]{auger-observatory/fd_camera.png}
+  \subfloat[]{\includegraphics[height=0.31\textwidth]{auger-observatory/fd_camera.png}
   \label{fig:fd-inside-view}
   }\hspace{0.1cm}
-  \subfloat[]{\includegraphics[height=0.32\textwidth]{auger-observatory/drum_mounting.png}
+  \subfloat[]{\includegraphics[height=0.31\textwidth]{auger-observatory/drum_mounting.png}
   \label{fig:drum-mounting}
   }\hspace{0.1cm}
-  \subfloat[]{\includegraphics[height=0.32\textwidth]{auger-observatory/cal_a_response.png}
+  \subfloat[]{\includegraphics[height=0.31\textwidth]{auger-observatory/cal_a_response.png}
   \label{fig:cal-a-example-response}
   }
   \caption[]{\subref{fig:fd-inside-view} View of the inside of an
@@ -312,7 +308,9 @@ best-performing method is done in \todo{xy chapter ref}.
   aperture of a telescope at \CO for an absolute calibration. From 
   \cite{crissUpdateRecentAbsolute2010}. \subref{fig:cal-a-example-response} The
   integral signal per pixel received by the camera in bay 2 of \CO for a 
-  relative calibration measurement (Cal. A) before standard \DAQ on 2024-11-20.}
+  relative calibration measurement (Cal. A) before standard \DAQ on 
+  \mbox{2024-11-20}. The colors reflect the value of the integral, from blue 
+  (low) to yellow (high).}
   \label{fig:camera-stuff}
 \end{figure}
 
@@ -412,15 +410,14 @@ assumptions into question (c.f.\ \todo{xy chapter}).
 
 Two Calibration A measurements are performed during each night. One before the 
 start of \DAQ, and one after the data-taking ends. During the measurement the 
-\LED emits 50 light pulses with a duration of $\approx\SI{60}{\micro\second}$\todo{wtf is this symbol}
-at a wavelength of \SI{470\pm25}{\nano\meter} 
-\cite{menshikovLEDCalibrationUnit}. The optical signal is guided to the 
-diffusers at the center of the mirrors. A seventh fiber feeds the light back to
-the \LCU, where a photodiode digitizes the signal $S_\mathrm{LCU}$. The 
-readout of pixel-data is forced via an external trigger coincident with every 
-light pulse. The overall signal recorded in the \FD time trace from the 
-calibration light pulse(s), $S_\mathrm{CalA}$, can be recovered by first 
-estimating and subtracting the trace baseline 
+\LED emits 50 light pulses with a duration of $\sim60\,\upmu\mathrm{s}$ at a 
+wavelength of \SI{470\pm25}{\nano\meter} \cite{menshikovLEDCalibrationUnit}. 
+The optical signal is guided to the diffusers at the center of the mirrors. A 
+seventh fiber feeds the light back to the \LCU, where a photodiode digitizes 
+the signal $S_\mathrm{LCU}$. The readout of pixel-data is forced via an 
+external trigger coincident with every light pulse. The overall signal recorded
+in the \FD time trace from the calibration light pulse(s), $S_\mathrm{CalA}$, 
+can be recovered by first estimating and subtracting the trace baseline 
 \cite{schaferReconstructionBaselineUndershoot2022}, determining the pulse start
 and stop via a pulse-finding algorithm (Ref.\ 
 \cref{sssec:reconstruction-pulse-finder}), and summing the \ADC bins within 
@@ -760,25 +757,21 @@ shower buffer.
 The former contains events that surpass $30\,\ADC$ ($70\,\ADC$) above baseline 
 in any of the \WCD \LPMTs (\SSD PMT) for at least one sample. Once such a pulse
 level is observed, the last 19 bins, the trigger latch bin, as well as the next
-49 bins (concluding in total 69 bins, or $\sim\SI{0.575}{\micro\second}$) from
-the \WCD and \SSD \HG channels are stored, with the \FPGA alternating writing 
-between both 
+49 bins (concluding in total 69 bins, or $\sim0.575\,\upmu\mathrm{s}$) from the
+\WCD and \SSD \HG channels are stored, with the \FPGA alternating writing 
+between both ring buffers, to avoid dead times. This process occurs at a rate 
+of $\sim\SI{3}{\kilo\Hz}$. The muon buffer is then read out by the \CPU in 
+real-time to construct muon histograms (Ref.\ \cref{sssec:muon-histograms}) 
+that provide an accurate method to calibrate the \WCD and \SSD.
 
-\todo[inline]{proofread until here}
-
-ring buffers, to avoid dead times. This process occurs at a rate of 
-$\sim\SI{3}{\kilo\Hz}$. The muon buffer is then read out by the \CPU in 
-real-time to construct muon histograms (see \cref{sssec:muon-histograms}) that 
-provide an accurate method to calibrate the \WCD and \SSD.
-
-The shower buffer contains events that satisfy \TTWOs (compare 
+The shower buffer contains events that satisfy \TTWOs (Ref.\ 
 \cref{ssec:sd-triggers}). These occur at a, due to the stations 
-self-calibration, fixed rate of $\sim\SI{20}{\hertz}$. This is a far lower rate
-than that of the muon buffer, but the volume of information contained in the 
-shower buffer is far more exhaustive. Upon a \TTWO, 2048 samples 
-($\cong\SI{17.07}{\micro\second}$) of all ten \HG and \LG channels are stored 
+self-calibration, fixed rate of $\sim\SI{20}{\hertz}$. While is a far lower 
+rate than that of the muon buffer, the volume of information contained in the 
+shower buffer is more exhaustive. Upon a \TTWO, 2048 samples 
+($\sim17.07\,\upmu\mathrm{s}$) of all ten \HG and \LG channels are stored 
 in the circular buffer. This data is the raw event data that gets sent to the 
-\CDAS upon a \TTHREE request (see \cref{sssec:sd-triggers}). In total, the two 
+\CDAS upon an \TTHREE request (Ref.\ \cref{ssec:cdas}). In total, the two 
 shower buffers can hold up to 1024 \TTWO events 
 \cite{wainbergDigitalElectronicsPierre2014}, meaning that at a nominal \TTWO
 rate, events are overwritten after $\sim\SI{50}{\second}$. In practice, not 
@@ -812,29 +805,30 @@ this, a fix was presented in \todo[inline]{cite icrc2025 proceeding}.}
 \end{figure}
 
 The muon buffers presented in \cref{sssec:fpga-buffers} contain data from short
-pulses recorded mostly from single muons passing through the water volume. 
-Since muons in \EASs are produced in the minimum of the Bethe-Bloch curve they 
-have a characteristic energy deposit and detector signature in the \WCD and 
-\SSD. To utilize this knowledge in calibrating the detectors, the \CPU analyzes
-all $n$ traces (containing 69 samples $b_i$ of data) collected in the muon 
-buffer over the last \SI{61}{\second} and calculates the baseline $B$, and 
-peaks $I_n$, and charges $Q_n$ per trace as 
+pulses recorded mostly from single muons passing through the internal water 
+volume. Since muons in \EASs are produced in the minimum of the Bethe-Bloch 
+curve they have a characteristic energy deposit and detector signature in the 
+\WCD and \SSD. To utilize this knowledge for the calibration of the detectors,
+the \CPU analyzes all $n$ traces (containing 69 samples $b_i$ of data) 
+collected in the muon buffer over the last \SI{61}{\second} and calculates 
+the baseline $B$, and peaks $I_n$, and charges $Q_n$ per trace as 
 
 \begin{equation}
 \label{eq:peak-and-charge}
 B = \frac{1}{n} \sum^n_{i=1} b_{0,\,i}\,, \qquad I_n = \mathrm{max}\left( b_{n} - B_\mathrm{prev.} \right), \qquad Q_n = \sum^{69}_{j=1} b_{j,\,n} - B_\mathrm{prev.}. 
 \end{equation}
 
-In \cite{satoUUBDAQRelease2024} $B_\mathrm{prev.}$ is the baseline $B$ of the 
-previous \DAQ interval. That is to say, $B_\mathrm{prev.}$ gives the mean of 
-the first bin of all traces of the previous \SI{61}{\second} interval that was
-analyzed \cite{satoUUBDAQRelease2024}. The distributions of $I_n$ and $Q_n$ are
-logged in histograms with predefined binning 
-\cite{bertouCalibrationSurfaceArray2006}. An example histogram for the \SSD
-charge, \Qmip, is shown in \cref{fig:ssd-histo}. Similar histograms are 
-constructed for all \WCD \LPMTs, and updated every \SI{61}{\second}. Upon a 
-\TTHREE request from the \CDAS, all histograms are sent to the central server 
-and used to approximate the minute values of \Ivem, \Qvem, \Imip, and \Qmip \todo{ref here}.
+In \cite{satoUUBDAQV128r0b0p292024} $B_\mathrm{prev.}$ is the baseline $B$ of 
+the previous \DAQ interval. That is to say that $B_\mathrm{prev.}$ gives the 
+mean of the first bin of all traces of the previous \SI{61}{\second} interval 
+that was analyzed. The distributions of $I_n$ and $Q_n$ are logged in 
+histograms with predefined binning \cite{bertouCalibrationSurfaceArray2006}.
+An example histogram for the \SSD charge is shown in \cref{fig:ssd-histo}. 
+Similar histograms are constructed for all \WCD \LPMTs, and updated every 
+\SI{61}{\second}. Upon a \TTHREE request from the \CDAS, all current histograms
+are sent to the central server and used to approximate the minute values of 
+\Ivem, \Qvem, \Imip, and \Qmip (Ref.\ 
+\cref{sssec:reconstruction-histogram-fitter}).
 
 \subsection{Station Triggers}
 \label{ssec:sd-triggers}
@@ -848,32 +842,34 @@ here have been in operation since many years, with the majority being present
 since the construction of the first \WCD tanks 
 \cite{thepierreaugercollaborationPierreAugerObservatory1997}. 
 
-Importantly, this means that the various trigger hyperparameters are optimized 
-for \UB electronics, which have a \SI{40}{\mega\hertz} sampling rate 
-(\SI{25}{\nano\second} binning), compared to what is in use today in the \UUB 
-(\SI{120}{\mega\hertz} sample rate, \SI{8.333}{\nano\second} binning). To 
-address this, the same trigger algorithms that were in use for the \UB are 
-operated with the same hyperparameters in a compatibility mode, where incoming 
-\UUB detector data is filtered and downsampled to resemble \UB data. More 
-specifically, a \acf{FDS} fake \UB trace $f$ (containing 682 samples) is 
-calculated from a weighted sum of the \acf{FBW} trace $b$ (2048 samples) 
-according to \cref{eq:filter-and-downsample} 
+\subsubsection{Compatibility Mode}
+
+Importantly, the maturity of the station triggers mean that the various trigger
+hyperparameters are optimized for \UB electronics, which have a 
+\SI{40}{\mega\hertz} sampling rate (\SI{25}{\nano\second} binning), compared to
+what is in use today in the \UUB (\SI{8.333}{\nano\second} binning). To address
+this, the same trigger algorithms that were in use for the \UB are operated 
+with the same hyperparameters in a compatibility mode, where incoming \UUB 
+detector data is \acf{FDS} to resemble \UB data. More specifically, a \FDS fake
+\UB trace $\hat{f}$ (containing 682 samples) is calculated from a weighted sum 
+of the \acf{FBW} trace $f$ (2048 samples) according to 
+\cref{eq:filter-and-downsample} 
 \cite{convengaLocalStationCalibrationDummies2023}.
 
 \begin{equation}
 \label{eq:filter-and-downsample} 
-f_i = \frac{1}{2048} \sum^{2 n}_{j = 0} b_{3i+p-j} \, \mathrm{FIR}_{n - \left| j-n \right|}, \qquad p = \left\{ 0, 1, 2 \right\}.
+\hat{f}_i = \frac{1}{2048} \sum^{2 n}_{j = 0} f_{3i+p-j} \, \mathrm{FIR}_{n - \left| j-n \right|}, \qquad p = \left\{ 0, 1, 2 \right\}.
 \end{equation}
 
-In \cref{eq:filter-and-downsample}, $p$ gives a phase offset for the 
-downsampling of the filtered trace, and is essentially random, and based on the
-uptime of the \FPGA. The \FIR weights applied to the \FBW trace are given as
+In \cref{eq:filter-and-downsample}, $p$ gives the phase offset for the 
+downsampling of the filtered trace, which is based on the uptime of the \FPGA.
+The \FIR weights applied to the \FBW trace are given as
 $\mathrm{FIR} = \left\{ 5, 0, 12, 22, 0, -61, -96, 0, 256, 551, 681 \right\}$, 
 and $n=10$. The normalizing factor $2048$ differs slightly from 
-$\sum^{2n}_{j=0} \mathrm{FIR}_{n-\left| j-n \right|} = 2059$, and is chosen 
-because the division by $2048 = 2^{11}$ can be realized by a bit shift to the 
-right. A comparison between a \FBW and \FDS trace of the same physical signal 
-are shown in \cref{fig:filter-and-downsample}.
+$\sum^{2n}_{j=0} \mathrm{FIR}_{n-\left| j-n \right|} = 2059$, and is chosen for
+simplicity because the division by $2048 = 2^{11}$ can be realized by a 11-bit 
+shift to the right. A comparison between a \FBW and \FDS trace of the same 
+physical signal is shown in \cref{fig:filter-and-downsample}.
 
 \subsubsection{Threshold Trigger}
 \label{sssec:threshold-t2}
@@ -891,29 +887,31 @@ are shown in \cref{fig:filter-and-downsample}.
 The simplest form of a station level trigger is a \SB threshold algorithm, that
 triggers a \TTWO whenever the \HG channels of all \WCD \LPMTs simulatenously 
 exceed the equivalent of \SI{3.2}{\VemOnline} / \SI{3.6}{\VemOnline} / 
-\SI{5.0}{\VemOnline} in \ADC counts above baseline for 3 / 2 / 1 working \LPMTs 
+\SI{5.0}{\VemOnline} in \ADC counts above baseline for 3 / 2 / 1 working \LPMTs
 respectively. The chosen thresholds stabilize the \TTWO rate generated by this
 \SB trigger to $\sim\SI{20}{\hertz}$ \cite{abrahamTriggerApertureSurface2010}.
 
-This trigger rate is much higher than the rate of "real" \EASs (i.e. \TTHREE 
-triggers), which measures $\sim\SI{2}{\per\minute}$ for the entire \SD. The 
-threshold trigger must consequently have a very poor purity. This is known, but
-must be accepted to retain event detection efficiency for inclined showers, 
-that might be induced by neutrinos 
+This trigger rate is much higher than the rate of \TTHREE triggers (i.e.\ \EAS
+events), which measures $\sim\SI{2}{\per\minute}$ for the entire \SD 
+\cite{ramellaT3RateCompatibility2025}. The threshold trigger must consequently
+have a very poor purity. This is known, but must be accepted to retain event 
+detection efficiency for inclined showers, that might be induced by neutrinos 
 \cite{anchordoquiExoticNeutrinoInteractions2006}.
 
 \subsubsection{Time Over Threshold}
 
 The \ToT trigger is an altered version of the threshold trigger. Instead of 
 requiring a \SB exceedance of a high threshold, the \ToT scans a window of 120
-samples of the \FDS detector signal. For each window and \WCD \PMT, the number 
-of bins above a threshold of \SI{0.2}{\VemOnline} are counted. If two or more
-\PMTs have a count of $>12$ bins above the threshold, a \TTWO is raised.
+samples of the \FDS detector signal for the repeated exceedance of a low 
+threshold. For each window and \WCD \PMT, the number of bins above a value of 
+\SI{0.2}{\VemOnline} are counted. If two or more \PMTs have a count of $>12$ 
+bins above the threshold, a \TTWO is raised.
 
 Applying a consecutivity requirement not only to the different \PMTs, but also 
 to the signal over time presents a simple change to the \SB threshold trigger, 
 but drastically improves the purity of the algorithm, as well as decrease the 
-trigger frequency of $\sim\SI{2}{\hertz}$.
+trigger frequency of $\sim\SI{2}{\hertz}$ 
+\cite{ramellaT3RateCompatibility2025}.
 
 \subsubsection{Time Over Threshold Deconvoluted}
 
@@ -925,7 +923,7 @@ flash.
 
 \begin{equation}
 \label{eq:totd-input}
-f^*_i = \left( f_i - f_{i-1} \, e^{-\SI{25}{\nano\second}/\SI{67}{\nano\second}} \right)\,/\,\left( 1 - e^{-\SI{25}{\nano\second}/\SI{67}{\nano\second} } \right).
+\hat{f}^*_i = \left( \hat{f}_i - \hat{f}_{i-1} \, e^{-\SI{25}{\nano\second}/\SI{67}{\nano\second}} \right)\,/\,\left( 1 - e^{-\SI{25}{\nano\second}/\SI{67}{\nano\second} } \right).
 \end{equation}
 
 \cite{billoirPeakSearchingSurface2002, colemanNewTriggerSettings2018} go into 
@@ -944,49 +942,48 @@ The \MoPS trigger is the last and most intricate addition to \SD \TTWO triggers
 \cite{billoirPropositionImproveLocal13}. Instead of relying on the \WCD signal
 amplitude, the \MoPS trigger is sensitive to the signal shape. Specifically, it
 scans the \LPMT traces for rising flanks, where consecutive bins show an
-increase in \ADC counts. After applying some selection criteria on the scale of
-the rising flank (see \cite{colemanNewTriggerSettings2018}), the number of 
-detected positive steps in a window of 120 bins is counted. If the number of 
-rising flanks exceeds $4$ for at least two \LPMTs, a final check on the 
-integral of the \FDS trace is made, that, if it succeeds results in the 
-deployment of a \TTWO to the \CDAS.
+increase in \ADC counts. After applying several selection criteria on the 
+magnitude of the rising flank (Ref.\ \cite{colemanNewTriggerSettings2018}), the
+number of detected positive steps in a window of 120 bins is counted. If the 
+number of rising flanks is four for at least two \LPMTs, a \TTWO is sent to the
+\CDAS.
 
 \subsection{Array Structure}
 \label{ssec:array-structure}
 
 The \SD is designed to detect the footprint of an \EAS on the surface of the 
 Earth. The choice of a detector segmented into many different sub-components is
-deliberate. Operating a detector with a continous active region is impractical, 
+deliberate. Operating a detector with a continous active region is impractical,
 as \EASs can reach many kilometers in extent. It is sufficient to probe the 
 shower footprint at select few positions and reconstruct the \EAS from this 
 limited knowledge. As already realized by Pierre Auger, the separation between 
 sampling points influences the types of air showers that can be detected 
-\todo{ref here}. The lower the separation, the more low-energy \EAS become 
-observable.
+\cite{augerExtensiveCosmicRayShowers1939}. The lower the separation, the more 
+low-energy \EAS become observable.
 
 Already before the construction of the \PAO it was decided that the \SD will 
 host sub-arrays of different sizes and separations 
 \cite{watsonDevelopmentPierreAuger}. This ensures that the observatory can 
 make accurate measurements of \EAS over many decades of energy. 
 \cref{tab:sub-array-details} lists the most important characteristics of the 
-individual sub-arrays. In all of them, the stations are arranged on a grid of 
+individual sub-arrays. In all of them, the stations are arranged in a grid of 
 isoceles triangles. The SD-1500, or main array, is the largest of the three 
-existing grids. It is currently the detector with the highest accumulated 
+existing grids. The number represents the side length of \SI{1500}{\meter} of
+the triangular grid. It is to date the detector with the highest accumulated 
 exposure to \CRs worldwide \cite{aabPierreAugerObservatory2020}.
 
-Inset in the north-west of the SD-1500 are the SD-750 (Infill), and SD-433
-(compare \cref{fig:auger-map}). Their vicinity to \CO and \HEAT ensure that the 
-hybrid reconstruction (see \cref{sec:event-reconstruction}) of \EAS remain 
-possible also for energies below \SI{1e17}{\eV}
-\cite{mathesHEATTelescopesPierre2011}. Contained within both arrays are several
-\RND environments, such as the \AERA \cite{fuchsAugerEngineeringRadio2012}, or 
-IceCube@Auger \cite{schroederIceTopAuger2025}. 
+Inset in the north-west of the SD-1500 are the SD-750 (Infill), and SD-433 as
+can be seen in \cref{fig:auger-map}. Their vicinity to \CO and \HEAT ensure 
+that the hybrid reconstruction of \EAS remain possible for energies below 
+\SI{1e17}{\eV} \cite{mathesHEATTelescopesPierre2011}. Contained within both 
+arrays are several \RND environments, such as the \AERA 
+\cite{fuchsAugerEngineeringRadio2012}, or IceCube@Auger 
+\cite{schroederIceTopAuger2025}. 
 
-The Infill is also home to doublet and triplet detectors, where two 
-\SD-stations (with e.g.\ different electronics) are installed at the same site.
-They are used to study timing offsets and (un)certainties, as well as verify 
-the correct operation of the upgraded AugerPrime electronics 
-\cite{payerasCompatibilityUBUUB2023}.
+The Infill is also home to doublet and triplet detectors, where two or more 
+\SD-stations are installed in close proximity to each other. These setups can
+be used to study timing offsets and (un)certainties in the signal readout chain
+of the \UUB electronics \cite{payerasCompatibilityUBUUB2023}.
 
 \begingroup
 \renewcommand{\arraystretch}{1.0}
@@ -996,9 +993,9 @@ the correct operation of the upgraded AugerPrime electronics
 	\begin{tabular*}{1.0\textwidth}{@{\extracolsep{\fill}} l|ccccl}
   \toprule
 	\hline
-	Array & Sep. & Stations & Area & full efficiency\tablefootnote{The full
-	efficiency gives the minimum energy for which the detection of the \EAS
-	is guaranteed.} & Station components \\
+	Array & Sep. & Stations & Area & full efficiency\tablefootnote{full 
+	efficiency gives the energy for which the probability to generate a 
+	\TTHREE surpasses \SI{96}{\percent}} & Station components \\
 	\hline
 	\textbf{SD-1500} & \SI{1500}{\meter} & 1669 & 
 	\SI{3000}{\kilo\meter\squared} & 
@@ -1008,8 +1005,8 @@ the correct operation of the upgraded AugerPrime electronics
 	& \SI{3e17}{\eV} \cite{fenuCosmicRayEnergy2023} & \WCD, \SSD, \RD, 
 	\UMD \\
 	\textbf{SD-433} & \SI{433}{\meter} & 19 & \SI{2}{\kilo\meter\squared} &
-	\SI{5e16}{\eV} \cite{silliPerformance433Surface2022a}\tablefootnote{for
-	hadronic primaries with $\theta < 45^\circ$} & \WCD, \SSD, \RD, \UMD \\
+	\SI{5e16}{\eV} \cite{silliPerformance433Surface2022a} & \WCD, \SSD, 
+	\RD, \UMD \\
   \bottomrule
 	\end{tabular*}
 	\label{tab:sub-array-details}
@@ -1032,23 +1029,23 @@ an air shower. Based on the hybridity of the observatory, this happens in a
 twofold way. Common to either case is the principle of a hierarchical trigger
 structure, where detector information is processed in-situ where possible, and 
 forwarded only if certain (trigger) conditions are met. The identification of
-an \EAS event the \PAO starts with an \acf{T3}, that occurs at the level
-of the \acf{CDAS}.
+an \EAS event at the \PAO starts with an \acf{T3}, that occurs at the level of
+the \CDAS.
 
 \subsubsection{Fluorescence Detector}
 
-The lower level triggers analyzing pixel, pixel column, and camera data have 
-been introduced in \cref{ssec:fd-triggers}. There, a \acf{TLT} represents the 
-stage at which it has been determined that an \FD-camera has seen an \EAS.
-\TLTs from all telescopes in a building are analyzed for events that pass the 
-\FOV of multiple cameras. Every \TLT is treated as a \FD-\TTHREE at the \CDAS 
-level, denoting an \EAS event detection by the fluorescence telescopes. 
-Possible hybrid events are checked for by comparing coincident \FD and \SD 
-\TTHREEs. In the case of the \SD not detecting an \EAS the approximate impact 
-time of the \EAS on ground is calculated via a preliminary reconstruction of 
-the \FD detector data. Stations closest to the given \FD building are checked 
-for \TTWOs that lie within \SI{20}{\micro\second} of this core time. If any 
-station has a matching trigger, it is added to the event
+The lower level triggers analyzing camera data have been introduced in 
+\cref{ssec:fd-triggers} and were split into \FLT, \SLT, and \acf{TLT}. \TLTs 
+from all telescopes in a building are analyzed for events that pass the \FOV of
+multiple cameras/telescopes. The \TLTs are promoted to \FD-\TTHREEs thereafter.
+
+The \CDAS scans the collection of \FD-\TTHREEs and \SD-\TTHREEs (Ref.\ next 
+section) for temporal coincidences in order to identify hybrid events. If no
+corresponding \SD-\TTHREE is recognized for a given \FD-\TTHREE, a preliminary
+analysis gives the approximate impact time of the \EAS on ground. The 
+\SD-stations closest to the participating \FD sites are checked for \TTWOs that
+lie within $20\,\upmu\mathrm{s}$ of this core time. All stations with a 
+matching trigger, are added to the \FD-event 
 \cite{abrahamFluorescenceDetectorPierre2010, 
 thepierreaugercollaborationPierreAugerCosmic2015}.
 
@@ -1062,12 +1059,12 @@ thepierreaugercollaborationPierreAugerCosmic2015}.
   \subfloat[]{\includegraphics[height=0.33\textwidth]{auger-observatory/t3_horizontal_mode.png}
   \label{fig:t3-horizontal}
   }
-  \caption[]{\subref{fig:t3-vertical} Example configuration for a 
-  $\ToT2C_1\&3C_2$ \TTHREE trigger made up of \ToT-like \TTWOs exclusively. 
-  Only the number of triggered stations within a crown matters, not their 
-  positioning. \subref{fig:t3-horizontal} Station trigger configuration that 
-  would result in a $2C_1\&3C_2\&4C_4$. Only one of the stations in the two 
-  outermost crowns is required to form the \TTHREE.}
+  \caption[]{\subref{fig:t3-vertical} Example configuration for a 3-fold 
+  \TTHREE trigger made up of \ToT-like \TTWOs exclusively. Only the number of 
+  triggered stations within a crown matters, not their positioning. 
+  \subref{fig:t3-horizontal} Station trigger configuration that would result in
+  a 4-fold \TTHREE. Only one of the stations in the two outermost crowns is 
+  required for \TTHREE formation.}
   \label{fig:}
 \end{figure}
 
@@ -1084,22 +1081,22 @@ the candidate station \cite{abrahamTriggerApertureSurface2010}. Two scanning
 strategies are utilized when searching for \acfp{T3}. Both rely on a 
 compactness criteria of the underlaying \TTWOs.
 
-The $\ToT2C_1\&3C_2$ mode requires all participating station triggers to be 
-\ToT-like, meaning \ToT, \ToTd, or \MoPS. Then, at least two \ToT-like stations
-(including the central station $C_0$) are required within $C_1$, and at least 
-three triggered stations must exist up to the $2\mathrm{nd}$ nearest neighbors 
-in $C_2$. \cref{fig:t3-vertical} gives example trigger configurations that 
-result in a $\ToT2C_1\&3C_2$ \TTHREE.
+The 3-fold mode requires all participating station triggers to be \ToT-like, 
+meaning \ToT, \ToTd, or \MoPS only are considered for the event formation.
+Then, at least two \ToT-like stations (including the central station $C_0$) are
+required within $C_1$, and at least three triggered stations must exist up to 
+the $2\mathrm{nd}$ nearest neighbors in $C_2$. \cref{fig:t3-vertical} gives an
+example station configuration that result in a 3-fold \TTHREE.
 
-An example of the second mode, the $2C_1\&3C_2\&4C_4$ \TTHREE trigger is shown
-in \cref{fig:t3-horizontal}. It accepts any kind of \TTWO, namely the noisy 
-threshold trigger (refer to \cref{sssec:threshold-t2}). It requires four 
-active stations. At least two stations (including the central station) in 
-$C_1$, at least three within $C_2$, and at least one more trigger anywhere 
-within $C_3$ or $C_4$.
+An example of the second mode, the 4-fold \TTHREE trigger is shown in 
+\cref{fig:t3-horizontal}. It accepts any kind of \TTWO, namely the noisy 
+threshold trigger (Ref.\ \cref{sssec:threshold-t2}). It requires four active 
+stations. At least two stations (including the central station) in 
+$C_1$, at least three within $C_2$, and one more trigger anywhere within $C_3$
+or $C_4$.
 
 Due to their respective selection criteria, both trigger configurations have 
-their own use case. The $\ToT2C_1\&3C_2$, due to the underlaying local triggers
+their own use case. The 3-fold \TTHREE, due to the \TOT-like \TTWO triggers
 providing an excellent background rejection, has a fraction of true \EAS events
 that surpasses \SI{95}{\percent} \todo{cite/write proceeding}. It provides the
 main trigger mode for showers impinging on the array with an inclination of up 
@@ -1126,8 +1123,10 @@ A final T5 check requires the station that received the most signal to have all
 6 nearest neighbour stations existing and functioning. While the requirement 
 reduces the effective size of the \SD-array by about \SI{10}{\percent} 
 \cite{abrahamTriggerApertureSurface2010}, it ensures the reconstructed 
-quantities are not biased by the geometry of the array, which occurs especially
-at the edges of the \SD array. 
+quantities are not biased by the geometry of the array, which can occur when an
+\EAS is detected at the edges of the \SD array especially. 
+
+\todo[inline]{proofread until here}
 
 \subsection{\Offline Framework}
 
