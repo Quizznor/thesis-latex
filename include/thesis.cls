@@ -1,11 +1,13 @@
 \ProvidesClass{include/thesis}
-\LoadClass[a4paper, 11pt, twoside]{book}
+\LoadClass[a4paper, 12pt, twoside]{book}
 
 \usepackage[dvipsnames, table]{xcolor}
 \definecolor{RoyalRed}{RGB}{157,16, 45}
 \definecolor{RoyalBlue}{RGB}{0,70,202}
 
-% \usepackage[utf8]{inputenc}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage[margin=1.1in]{geometry}

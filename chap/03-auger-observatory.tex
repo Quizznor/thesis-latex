@@ -661,12 +661,9 @@ station-level. Implementation details can be found in \todo{ref here}.
   \label{fig:umd-and-uub}
 \end{figure}
 
-\todo[inline]{proofread until here}
-
 The \acf{UMD} represents another enhancement installed during the AugerPrime 
-detector upgrade. It further boosts the observatories primary mass 
-discrimination abilities \cite{collaborationPierreAugerObservatory2016}. In 
-total 73 \UMDs are buried underground, each one in close vicinity to an SD-750 
+detector upgrade. It boosts the observatories primary mass discrimination 
+abilities \cite{collaborationPierreAugerObservatory2016}. In total 73 \UMDs are buried underground, each one in close vicinity to an SD-750 
 or SD-433 station. These installations comprise the \acf{AMIGA} detector.
 
 Each \UMD consists of three \SI{10}{\meter\squared} scintillator modules that 
@@ -675,35 +672,38 @@ are, like the \SSD, segmented themselves into bars to minimize signal pileup
 underground, as shown in \cref{fig:umd}. The soil above the detectors provides 
 an excellent attenuation for non-muonic particles in \EASs. Particularly, this 
 implies that the signals measured by the \UMD consist entirely of muons, 
-allowing the \PAO to e.g.\ probe the muon content of \EASs \todo{cite joachims thesis}.
+allowing the \PAO to e.g.\ probe the muon content of \EASs 
+\cite{jesusStudyMassComposition2025}.
 
-\WLS cables transport the light signal from the active medium of one bar to a 
-dedicated \SiPM. The output of the \SiPM array is digitized in two ways 
+\WLS cables transport the light signal from the active medium of each bar to a 
+dedicated \SiPM. 64 \SiPMs for the 64 bars in each module are bundled together.
+The output of the \SiPM arrays is digitized in two ways 
 \cite{aabCalibrationUndergroundMuon2021}:
 
 \begin{itemize}
 	\item 64 binary traces, that read either 1, or 0, depending on if the 
 	corresponding \SiPM signal is above or below a threshold of 
-	\SI{2.5}{photo-equivalents}\footnote{meaning roughly two and a half
-	(out of 1584) photo-diodes in the \SiPM trigger an electron avalanche.}
-	\cite{bottiStatusPerformanceUnderground2022}.
+	\SI{2.5}{photo-equivalents}\footnote{the photo-equivalent gives the 
+	number of photodiodes in the \SiPM (1584 in total) that are hit by 
+	light.} \cite{bottiStatusPerformanceUnderground2022}.
 	\item one \ADC trace that sums all 64 \SiPM signals. Split into \HG and
 	\LG channels.
 \end{itemize}
 
 This approach is chosen to retain the large dynamic range of signals that the 
 detector needs to support. Individual muons can be reconstructed by examining
-the binary mode of the \UMD, and the muon density of up to 
-$\sim\SI{30}{muons\per\meter\squared} $ during a high-energy \EAS event is 
-obtained from the \ADC mode \cite{bottiStatusPerformanceUnderground2022}.
+the binary mode of the \UMD, and a muon density of up to 
+$\sim\SI{30}{muons\per\meter\squared}$ during a high-energy \EAS event can be 
+constructed from the so-called \ADC mode 
+\cite{bottiStatusPerformanceUnderground2022}.
 
-This is done in practice by dividing the observed pulse integral, or charge, by
-the most probable charge obtained from a single-muon event, $Q_\mathrm{UMD}$. 
-This is a familiar problem, and has been solved for the \WCD already. A similar
-strategy for the calibration of the \UMD \EAS data is thus chosen during event 
-reconstruction \cref{ssec:offline-event-reconstruction}. The \UMD does not need
-to be self-calibrating, as it is run purely in a secondary mode to the \WCD, 
-and does not generate triggers itself \cite{aabCalibrationUndergroundMuon2021}.
+The muon density is recovered by dividing the observed pulse integral, or 
+charge, by the most probable charge obtained from a single-muon event, 
+$Q_\mathrm{UMD}$. This is a familiar problem, and has been solved for the \WCD 
+already. A similar strategy for the calibration of the \UMD data is thus 
+chosen. The \UMD does not need to be self-calibrating, as it is run purely in 
+a secondary mode to the \WCD, and does not generate triggers itself 
+\cite{aabCalibrationUndergroundMuon2021}.
 
 \subsubsection{Radio Detector}
 \label{sssec:rd}
@@ -721,22 +721,23 @@ of the \AERA prototype detector \cite{aabPierreAugerObservatory2020,
 fuchsAugerEngineeringRadio2012, aabEnergyEstimationCosmic2016}.
 
 The \RD is only sensitive to macroscopic changes in the \EM field, and cannot 
-rely on muon signals for calibration. For this reason, the signal power 
-received by the antenna is compared to the time- and frequency-dependent 
-expected signal of the galactic radio background instead. This provides a 
-measure of the antenna directional gain that agrees to within $\sim5\%$ with 
-simulations \cite{huegeRadioDetectorPierre2023, 
+rely on muonic signals for calibration. For this reason, the \RD too is not
+self-calibrating. \RD data are put into a physical context only during an \EAS
+event reconstruction. Then, the signal power received by the antenna is 
+compared to the time- and frequency-dependent expected signal of the galactic 
+radio background. This provides a measure of the antenna directional gain that 
+agrees to within $\sim5\%$ with simulations \cite{huegeRadioDetectorPierre2023,
 fodranFirstResultsAugerPrime2022}.
 
 \subsection{Station Electronics}
 \label{ssec:uub}
 
-The \UUB, replacing the \UB in the AugerPrime detector upgrade, hosts all main 
-electronic readout components of the station 
+The \acf{UUB}, replacing the \UB in the AugerPrime detector upgrade, hosts all 
+main electronic readout components of the station 
 \cite{collaborationPierreAugerObservatory2016}. \cref{fig:uub} and 
 \cref{fig:uub-circuit-diagram} show the design and architecture of the \UUB 
-\PCB respectively, and \cite{suomijarviNewElectronicsSurface2018} details the 
-exact implementation and purpose of each component. 
+\acf{PCB} respectively, and \cite{suomijarviNewElectronicsSurface2018} details
+the exact implementation and purpose of each component. 
 
 Highlighted for this work are the operative functions of the Artix-7 \FPGA 
 \cite{xilinx7SeriesFPGAs2020}, which is responsible for low-level signal 
@@ -747,20 +748,24 @@ logic.
 \subsubsection{FPGA and Memory Buffers}
 \label{sssec:fpga-buffers}
 
-The main purpose of the \FPGA is to read out the 
-$\SI{5}{\PMTs} \cdot (\HG + \LG) = 10$ different channels of detector data and 
-compare them against various trigger criteria (see \cref{sssec:wcd}, 
-\todo{ref}) \cite{nitzUUBV2Analog18}. If a trigger condition is met, the \FPGA 
-stores the data in memory for further processing. The memory address is 
-determined by the type of raised trigger. Four \FIFO ring buffers are available
-for writing and separated in their purpose. Two instances of these circular 
-memory modules comprise the muon buffer, and two form the shower buffer. 
+The main purpose of the \FPGA is to read out the 10 different channels 
+($\SI{5}{\PMTs} \times (\HG + \LG)$) of detector data and compare them against 
+various trigger criteria \cite{nitzUUBV2Analog18}. If a trigger condition is 
+met, the \FPGA stores the \HG and \LG data in memory for further processing. 
+The memory address is determined by the type of raised trigger. Four \FIFO ring
+buffers are available for writing and separated in their purpose. Two instances
+of the circular memory modules comprise the muon buffer, and two form the 
+shower buffer. 
 
-The former contains events that surpass \SI{30}{\ADC} (\SI{70}{\ADC}) above 
-baseline in any of the \WCD \LPMTs (\SSD PMT) for at least one sample. Once 
-this is the case, the last 19 bins, the latch bin, as well as the next 49 bins 
-(concluding in total 69 bins $\cong\SI{0.575}{\micro\second}$) from the \WCD 
-and \SSD \HG channels are stored, with the \FPGA alternating writing to both 
+The former contains events that surpass $30\,\ADC$ ($70\,\ADC$) above baseline 
+in any of the \WCD \LPMTs (\SSD PMT) for at least one sample. Once such a pulse
+level is observed, the last 19 bins, the trigger latch bin, as well as the next
+49 bins (concluding in total 69 bins, or $\sim\SI{0.575}{\micro\second}$) from
+the \WCD and \SSD \HG channels are stored, with the \FPGA alternating writing 
+between both 
+
+\todo[inline]{proofread until here}
+
 ring buffers, to avoid dead times. This process occurs at a rate of 
 $\sim\SI{3}{\kilo\Hz}$. The muon buffer is then read out by the \CPU in 
 real-time to construct muon histograms (see \cref{sssec:muon-histograms}) that 
