@@ -1,7 +1,0 @@
-%! TEX root = ../main.tex
-
-\chapter*{Introduction}
-\label{chap:introduction}
-
-asdasdasdasdasdasdasdasdasd
-\lipsum[1-3]
