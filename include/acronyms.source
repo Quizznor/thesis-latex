@@ -47,6 +47,7 @@ PSF        Point Spread Function
 RD         Radio Detector
 RMS        Root Mean Square
 RND        Research And Development
+RPC        Resistive Plate Chamber
 SALLA      Short Aperiodic Loaded Loop Antenna
 SB         Single Bin
 SD         Surface Detector
@@ -62,6 +63,7 @@ SSD        Surface Scintillator Detector
 SiPM       Silicon Photomultiplier
 T2         Station Level Trigger
 T3         Event Level Trigger
+TLE        Transient Luminous Event
 TLT        Third Level Trigger
 ToT        Time over Threshold
 ToTd       ToT deconvoluted
