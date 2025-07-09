@@ -430,7 +430,7 @@ salinaAnalisiDatiXY2025} like
 
 \begin{equation}
 \label{eq:cal-a-propagation}
-C^{\mathrm{pixel},\,i}_{\mathrm{abs.}} = C^{\mathrm{pixel},\,i}_{\mathrm{abs.},\,\mathrm{ref}}\,\cdot\,\frac{S_\mathrm{LCU}}{S_\mathrm{LCU}^\mathrm{ref.}}\,\frac{S_\mathrm{CalA}^\mathrm{ref.}}{S_\mathrm{CalA}}\,c_\mathrm{LCU}^\mathrm{Corr.}\,c^\mathrm{Corr.}_\mathrm{Halo}.
+C^{\mathrm{pixel},\,i}_{\mathrm{abs.}} = C^{\mathrm{pixel},\,i}_{\mathrm{abs.},\,\mathrm{ref.}}\,\cdot\,\frac{S_\mathrm{LCU}}{S_\mathrm{LCU}^\mathrm{ref.}}\,\frac{S_\mathrm{CalA}^\mathrm{ref.}}{S_\mathrm{CalA}}\,c_\mathrm{LCU}^\mathrm{Corr.}\,c^\mathrm{Corr.}_\mathrm{Halo}.
 \end{equation}
 
 In \cref{eq:cal-a-propagation} the two factors $c^\mathrm{Corr.}_i$ give 
