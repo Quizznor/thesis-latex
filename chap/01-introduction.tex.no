@@ -3,24 +3,23 @@
 \chapter*{Introduction}
 \label{chap:introduction}
 
-\setlength{\parindent}{20pt}
-\setlength{\parskip}{2pt}
-
 Roughly ten years ago, I, the author of this thesis, had just started my 
-undergraduate studies of physics at the Karlsruhe Institute of Technology. I still
-remember well how i was trying to keep up with all the different lectures I 
-attended. Sometimes, when the work load would be overwhelming, I would go for a 
-walk at night. I would find a bench to sit down on and look up into the night sky.
+undergraduate studies of physics at the Karlsruhe Institute of Technology. I 
+still remember well how i was trying to keep up with all the different lectures 
+I attended. Sometimes, when the work load would be overwhelming, I would go for 
+a walk at night. I would find a bench to sit down on and look up into the night 
+sky.
 
-My undergraduate years seem impossibly far back to me now. I invite you to think 
+My undergraduate years seem impossibly far back to me now. I invite you to think
 back to what your life was like ten years ago. So many things are not what they 
 used to be. Some things have changed for the better, and some have changed for 
 the worse. Moving past the ten year mark and personal anecdotes, the world has 
-shifted dramatically in the recent century. The story of the human technological 
-advance is nothing short of awe-inspiring. A person born in the late 19th century 
-grew up before the invention of airplanes. Just 60 years later, Neil Armstrong set 
-a foot on the moon. 60 years later still, a commercial smartphone can perform more 
-complex and faster calculations than the Apollo 11 navigation computers.
+shifted dramatically in the recent century. The story of the human technological
+advance is nothing short of awe-inspiring. A person born in the late 19th 
+century grew up before the invention of airplanes. Just 60 years later, Neil 
+Armstrong set a foot on the moon. 60 years later still, a commercial smartphone 
+can perform more complex and faster calculations than the Apollo 11 navigation 
+computers.
 
 What would Magellan or Columbus say to GPS sattelites? Would the wanderings of 
 Odysseus have been a similar epos had he had access to a sextant? Our 
@@ -34,7 +33,7 @@ Since the beginning of documented history we have looked to the stars. Whether
 it be for spiritual guidance or earthly navigation, the twinkling image of 
 faraway worlds has inspired a sense of wonder in us. We are curious about the 
 universe and want to know how things function. This curiosity has led us to 
-develop tools to test and describe the nature around us. It is the driving force 
+develop tools to test and describe the nature around us. It is the driving force
 behind our technological prowess, and what makes us human.
 
 Knowing this, one might say that the study of the cosmos is a frustrating 
@@ -44,6 +43,3 @@ observation rather than experiment.
 
 % photons? Better stop and wait where thesis goes...
 % somehow auger idk
-
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{7pt}
