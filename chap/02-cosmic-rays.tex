@@ -73,20 +73,101 @@ brief introduction to the most important properties.
 
 \subsubsection{Energy}
 
-The energy of the \CR particle is perhaps its' most defining observable. It
-dictates how and how far the \CR propagates through spacetime (\todo{ref}), as 
-well as the size of the atmospheric particle cascade it kicks of on Earth 
-(\todo{ref}).
+The energy of the \CR particle is perhaps its' most defining observable. After 
+a particle is ejected from a \CR acceleration mechanism (\todo{ref}) it begins
+a journey mostly consisting of adiabatic processes. This means the \CR energy 
+dictates how (and how far) the particle propagates through spacetime, as well as
+the size of the atmospheric particle cascade it kicks off on Earth.
+
+\todo{ref} will reveal that the energy distribution, also called the energy 
+spectrum, of most \CR accelerators is a power law $E^{-\alpha}$ with a single
+spectral index $\alpha$. The energy spectrum measured on Earth is not, as shown 
+in \cref{fig:cr-spectrum}. It shows several different kinks, corresponding to a 
+hardening (softening) of the spectrum, where the average energy of a \CR 
+increases (decreases). These kinks in general correspond to transition between 
+different \CR populations, that each have a respective particle flux, injection 
+and cutoff energy. An example of how these transitions result in kinks is shown 
+in \cref{fig:cr-spectrum-explanation}. To date, several transition have been 
+observed in the \CR spectrum observed on Earth:
+
+\begin{itemize}
+	\vspace{0.7cm}
+	\item \textbf{The knee} refers to a softening of the spectrum around 
+	\SI{4}{\peta\eV}. The spectral index changes from $\alpha\approx2.7$
+	below the knee to $\alpha\approx3.1$ above the knee 
+	\cite{blumerCosmicRaysKnee2009}. It has been shown that this coincides
+	with a transition in the mean mass of \CR particles 
+	\cite{lhaasocollaborationMeasurementsAllParticleEnergy2024}. The knee is
+	thus thought to mark the transition from light \CRs 
+	($m_\mathrm{CR} \leq m_\mathrm{He}$) to heavier hadronic cosmic rays.
+
+	\vspace{0.7cm}
+	\item \textbf{The second knee} is a further softening from 
+	$\alpha\approx3.0$ at an energy below roughly \SI{500}{\peta\eV} to 
+	$\alpha\approx3.25$ above \cite{naganoEnergySpectrumPrimary1992, 
+	lawrenceCosmicRayEnergy1991, birdEvidenceCorrelatedChanges1993, 
+	abu-zayyadMeasurementCosmicRayEnergy2001}. Like the softening that 
+	occurs at \SI{4}{\peta\eV}, this feature is assumed to be composition
+	related. However, mass sensitive studies around the second knee to date
+	have not been able to confirm this theory with sufficient certainty.
+
+	\vspace{0.7cm}
+	\item \textbf{The ankle} marks the transition from $\alpha\approx3.0$ to
+	$\alpha\approx2.5$ at an energy of roughly \SI{5}{\exa\eV} 
+	\cite{fenuCosmicRayEnergy2023}. The Pierre Auger Observatory has 
+	reported on a dipole in the arrival directions of \CRs above 
+	\SI{8}{\exa\eV} 
+	\cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017}, 
+	coincident with the hardening of the energy spectrum. Since the 
+	anisotropy points away from the galactic center the ankle is projected
+	to represent the transition from a predominantly galactic \CR population
+	to an extragalactic \CR population.
+
+	\vspace{0.7cm}
+	\item \textbf{The instep} is a softening of the \UHECR spectrum at 
+	\SI{13}{\exa\eV} where $\alpha$ decreases from $\sim2.5$ to $\sim3.0$
+	\cite{aabMeasurementCosmicrayEnergy2020}. This feature can be reproduced
+	in simulations when altering the \CR mass composition from extragalactic
+	light \CRs to extragalactic heavy \CRs 
+	\cite{tsunesadaJointAnalysisEnergy2022}. Similar to the second knee 
+	feature, experiments to date do not have a sufficiently good mass 
+	sensitivity to confirm this theory.
+
+	\vspace{0.7cm}
+	\item \textbf{The suppression} marks the steep falloff at the tail-end 
+	of the (measurable) \CR energy spectrum. At an energy above 
+	$\sim\SI{50}{\exa\eV}$ the spectral index drastically changes to 
+	$\alpha\approx5.4$ \cite{aabMeasurementCosmicrayEnergy2020}. Cosmic 
+	rays exceeding this energy are incredibly sparse. It is theorized that
+	no process exists in the (local) cosmos that can reliably accelerate 
+	particles beyond this cutoff energy 
+	\cite{tsunesadaJointAnalysisEnergy2022, greisenEndCosmicRaySpectrum1966,
+	kuzminCosmicrayInteractionsPhotons1968}.
+\end{itemize}
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\textwidth]{cosmic-rays/spectrum.png}
-  \caption{The distribution of energies of \CRs arriving on earth. Several 
-  transition regions are marked and explained in the main text. Data stems from 
-  \cite{re3data.orgKASCADECosmicRay2013} and 
-  \cite{yushkovMassCompositionCosmic2021}.}
-  \label{fig:spectrum}
+  \subfloat[]{\includegraphics[height=0.30\textwidth]{cosmic-rays/spectrum.png}
+  \label{fig:cr-spectrum}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.30\textwidth]{cosmic-rays/spectrum-explanation.png}
+  \label{fig:cr-spectrum-explanation}
+  }
+  \caption[]{\subref{fig:cr-spectrum} The distribution of energies of \CRs 
+	  arriving on earth. Several transition regions are marked and explained
+	  in the main text. Data stems from 
+	  \cite{re3data.orgKASCADECosmicRay2013} and 
+  	  \cite{yushkovMassCompositionCosmic2021}. 
+  	  \subref{fig:cr-spectrum-explanation} The observed energy spectrum 
+  	  (black) is the sum of different \CR populations (grey) that cannot
+ 	  easily be distinguished. The cutoff energies of the individual spectra
+  	  coincide with a softening of the total spectrum. The transition from 
+  	  one population to the other can result in a hardening of the \CR
+ 	  spectrum observed on Earth.}
+  \label{fig:energy-spectrum}
 \end{figure}
+
+\subsubsection{Mass}
 
 An almost negligible fraction of the total energy is (for massive particles) 
 given by the rest mass of the cosmic ray. Given the miniscule relative strength
@@ -104,8 +185,6 @@ be safely ignored in \CR acceleration and propagation.
 The electromagnetic charge of a cosmic ray defines how it interacts with 
 externel electric and magnetic fields. 
 
-\subsubsection{Mass}
-\subsubsection{Energy}
 \subsubsection{Rigidity}
 
 
