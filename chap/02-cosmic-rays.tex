@@ -103,7 +103,7 @@ observed in the \CR spectrum observed on Earth:
 
 	\vspace{0.7cm}
 	\item \textbf{The second knee} is a further softening from 
-	$\alpha\approx3.0$ at an energy below roughly \SI{500}{\peta\eV} to 
+	$\alpha\approx3.1$ at an energy below roughly \SI{500}{\peta\eV} to 
 	$\alpha\approx3.25$ above \cite{naganoEnergySpectrumPrimary1992, 
 	lawrenceCosmicRayEnergy1991, birdEvidenceCorrelatedChanges1993, 
 	abu-zayyadMeasurementCosmicRayEnergy2001}. Like the softening that 
@@ -112,9 +112,9 @@ observed in the \CR spectrum observed on Earth:
 	have not been able to confirm this theory with sufficient certainty.
 
 	\vspace{0.7cm}
-	\item \textbf{The ankle} marks the transition from $\alpha\approx3.0$ to
-	$\alpha\approx2.5$ at an energy of roughly \SI{5}{\exa\eV} 
-	\cite{fenuCosmicRayEnergy2023}. The Pierre Auger Observatory has 
+	\item \textbf{The ankle} marks the transition from $\alpha\approx3.25$ 
+	to $\alpha\approx2.5$ at an energy of roughly \SI{5}{\exa\eV} 
+	\cite{fenuCosmicRayEnergy2023}. The Pierre Auger observatory has 
 	reported on a dipole in the arrival directions of \CRs above 
 	\SI{8}{\exa\eV} 
 	\cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017}, 
@@ -170,14 +170,60 @@ observed in the \CR spectrum observed on Earth:
 \subsubsection{Mass}
 
 An almost negligible fraction of the total energy is (for massive particles) 
-given by the rest mass of the cosmic ray. Given the miniscule relative strength
-of gravity\footnote{Compared to the \EM-, strong or weak force.} mass terms can 
-be safely ignored in \CR acceleration and propagation. 
+given by the rest mass of the cosmic ray. 
 
+% injection?
 
-%	\item The \textbf{electromagnetic charge} of a cosmic ray defines how it
-%	      interacts with external electric and magnetic fields.
-%\end{enumerate}
+Given the miniscule relative strength
+of gravity,\footnote{Compared to the \EM-, strong or weak force.} mass terms can
+be safely ignored in \CR acceleration and propagation. However, for composite 
+particles the energy per nucleon, $E/A$, heavily influences the development of
+particle cascades stemming from inelastic interactions of the \CR with a target
+material (Ref.\ \todo{ref}).
+
+\cref{fig:cr-composition} shows the distribution of different \CR primaries 
+with energies up to a few \unit{\giga\eV} and sets them into context with the 
+elemental abundance in the solar system. Both distributions largely agree, with 
+an exception around the atomic number $Z=4$ (Beryllium) and $Z=23$ (Vanadium). 
+They are not common elements in the solar system due to radioactive instability.
+Meanwhile, the \CR mass composition shows an excess of these nuclei, which can 
+be explained by spallation of primary \CRs \cite{hillierGammaRayAstronomy1984}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{cosmic-rays/cr_composition.png}
+  \caption{The abundance of different elements relative to carbon ($=10^6$) as 
+  measured in the solar system (black) and in \CRs with energies up to several 
+  \unit{\giga\eV} (red), which appear to be more level. The data stem from 
+  \cite{hillierGammaRayAstronomy1984}.}
+  \label{fig:cr-composition}
+\end{figure}
+
+Moving to higher energies, a direct detection of \CRs (via e.g.\ sattelites or 
+balloons) becomes unfeasible, and ground-based \CR observatories take over. 
+Relying on indirect detection methods, these observatories do not have the same 
+mass sensitivity, and can typically only separate a light from a heavy component
+\cite{pereiramartinsSearchMassDependent2024} \todo{emilys thesis?}. \UHECR 
+analysis is usually grouped into four different mass proxies due to this
+inexactness. The chosen proxies are hydrogen ($Z=1$), helium ($Z=2$),
+iron ($Z=26$), and one (or all) of carbon, nitrogen, and oxygen 
+($Z\in[13,\,15]$).\footnote{The CNO-cycle leads to a roughly equal abundance of 
+all three elements, see \cref{fig:cr-composition}.} The relative fraction of 
+these proxies evolves over the \CR energy, as shown from measurements by the 
+Pierre Auger Collaboration in \cref{fig:auger-mix}. Hadronic interaction models
+suggest that light elements dominate the composition at low energies, whereas an
+increase in the mean logarithmic mass, $\langle\mathrm{ln}A\rangle$, is observed
+with an increase in energy \cite{mayotteMeasurementInterpretationUHECR2025}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{cosmic-rays/auger_mix.png}
+  \caption{The atomic composition of \CRs above $E>\SI{100}{\tera\eV}$ as
+  observed by the Pierre Auger observatory. The average mass increases with
+  energy. Data from \cite{mayotteMeasurementInterpretationUHECR2025}.}
+  \label{fig:auger-mix}
+\end{figure}
+
 
 
 \subsubsection{Charge}
