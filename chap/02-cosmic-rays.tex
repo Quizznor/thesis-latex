@@ -62,7 +62,7 @@ coincidences between several \CR detectors is directly proportional to their
 separation \cite{augerExtensiveCosmicRayShowers1939}. This marks the discovery 
 of \EAS, and the beginning of ground based \CR research in array detectors.
 
-\subsection{CR Observables}
+\subsection{Cosmic Ray Observables}
 
 The many discoveries of new fragments in the cosmic radiation has resulted in
 the creation of entirely new theories that aim to describe the diverse particle 
@@ -80,21 +80,22 @@ dictates how (and how far) the particle propagates through spacetime, as well as
 the size of the atmospheric particle cascade it kicks off on Earth.
 
 \todo{ref} will reveal that the energy distribution, also called the energy 
-spectrum, of most \CR accelerators is a power law $E^{-\alpha}$ with a single
-spectral index $\alpha$. The energy spectrum measured on Earth is not, as shown 
-in \cref{fig:cr-spectrum}. It shows several different kinks, corresponding to a 
-hardening (softening) of the spectrum, where the average energy of a \CR 
-increases (decreases). These kinks in general correspond to transition between 
-different \CR populations, that each have a respective particle flux, injection 
-and cutoff energy. An example of how these transitions result in kinks is shown 
-in \cref{fig:cr-spectrum-explanation}. To date, several transition have been 
+spectrum, of most \CR accelerators is a power law $E^{-\gamma}$ with a single
+spectral index $\gamma$ and eventual cutoff at a maximum attainable energy. The 
+energy spectrum measured on Earth is not, as shown in \cref{fig:cr-spectrum}. It
+shows several different kinks, corresponding to a hardening (softening) of the 
+spectrum, where the average energy of a \CR increases (decreases). These kinks 
+in general correspond to transition between different \CR populations, that each
+have a respective particle flux, injection and cutoff energy. An example of how 
+these transitions result in kinks is shown in 
+\cref{fig:cr-spectrum-explanation}. To date, several transition have been 
 observed in the \CR spectrum observed on Earth:
 
 \begin{itemize}
 	\vspace{0.7cm}
 	\item \textbf{The knee} refers to a softening of the spectrum around 
-	\SI{4}{\peta\eV}. The spectral index changes from $\alpha\approx2.7$
-	below the knee to $\alpha\approx3.1$ above the knee 
+	\SI{4}{\peta\eV}. The spectral index changes from $\gamma\approx2.7$
+	below the knee to $\gamma\approx3.1$ above the knee 
 	\cite{blumerCosmicRaysKnee2009}. It has been shown that this coincides
 	with a transition in the mean mass of \CR particles 
 	\cite{lhaasocollaborationMeasurementsAllParticleEnergy2024}. The knee is
@@ -103,8 +104,8 @@ observed in the \CR spectrum observed on Earth:
 
 	\vspace{0.7cm}
 	\item \textbf{The second knee} is a further softening from 
-	$\alpha\approx3.1$ at an energy below roughly \SI{500}{\peta\eV} to 
-	$\alpha\approx3.25$ above \cite{naganoEnergySpectrumPrimary1992, 
+	$\gamma\approx3.1$ at an energy below roughly \SI{500}{\peta\eV} to 
+	$\gamma\approx3.25$ above \cite{naganoEnergySpectrumPrimary1992, 
 	lawrenceCosmicRayEnergy1991, birdEvidenceCorrelatedChanges1993, 
 	abu-zayyadMeasurementCosmicRayEnergy2001}. Like the softening that 
 	occurs at \SI{4}{\peta\eV}, this feature is assumed to be composition
@@ -112,8 +113,8 @@ observed in the \CR spectrum observed on Earth:
 	have not been able to confirm this theory with sufficient certainty.
 
 	\vspace{0.7cm}
-	\item \textbf{The ankle} marks the transition from $\alpha\approx3.25$ 
-	to $\alpha\approx2.5$ at an energy of roughly \SI{5}{\exa\eV} 
+	\item \textbf{The ankle} marks the transition from $\gamma\approx3.25$ 
+	to $\gamma\approx2.5$ at an energy of roughly \SI{5}{\exa\eV} 
 	\cite{fenuCosmicRayEnergy2023}. The Pierre Auger observatory has 
 	reported on a dipole in the arrival directions of \CRs above 
 	\SI{8}{\exa\eV} 
@@ -125,7 +126,7 @@ observed in the \CR spectrum observed on Earth:
 
 	\vspace{0.7cm}
 	\item \textbf{The instep} is a softening of the \UHECR spectrum at 
-	\SI{13}{\exa\eV} where $\alpha$ decreases from $\sim2.5$ to $\sim3.0$
+	\SI{13}{\exa\eV} where $\gamma$ decreases from $\sim2.5$ to $\sim3.0$
 	\cite{aabMeasurementCosmicrayEnergy2020}. This feature can be reproduced
 	in simulations when altering the \CR mass composition from extragalactic
 	light \CRs to extragalactic heavy \CRs 
@@ -137,7 +138,7 @@ observed in the \CR spectrum observed on Earth:
 	\item \textbf{The suppression} marks the steep falloff at the tail-end 
 	of the (measurable) \CR energy spectrum. At an energy above 
 	$\sim\SI{50}{\exa\eV}$ the spectral index drastically changes to 
-	$\alpha\approx5.4$ \cite{aabMeasurementCosmicrayEnergy2020}. Cosmic 
+	$\gamma\approx5.4$ \cite{aabMeasurementCosmicrayEnergy2020}. Cosmic 
 	rays exceeding this energy are incredibly sparse. It is theorized that
 	no process exists in the (local) cosmos that can reliably accelerate 
 	particles beyond this cutoff energy 
@@ -170,11 +171,7 @@ observed in the \CR spectrum observed on Earth:
 \subsubsection{Mass}
 
 An almost negligible fraction of the total energy is (for massive particles) 
-given by the rest mass of the cosmic ray. 
-
-% injection?
-
-Given the miniscule relative strength
+given by the rest mass of the cosmic ray. Given the miniscule relative strength
 of gravity,\footnote{Compared to the \EM-, strong or weak force.} mass terms can
 be safely ignored in \CR acceleration and propagation. However, for composite 
 particles the energy per nucleon, $E/A$, heavily influences the development of
@@ -225,15 +222,65 @@ with an increase in energy \cite{mayotteMeasurementInterpretationUHECR2025}.
 \end{figure}
 
 
-
 \subsubsection{Charge}
 
-The electromagnetic charge of a cosmic ray defines how it interacts with 
-externel electric and magnetic fields. 
+The electromagnetic charge of a particle defines how strongly it couples to an
+external (electro-)magnetic field. As established before, the gravitational 
+influence on a \CR particle can be safely ignored due to its' miniscule mass.
 
-\subsubsection{Rigidity}
+Consequentially, only \EM-fields and the corresponding coupling parameter, the
+electric charge $Q$, are of importance when considering the \CRs movement 
+through the cosmos. In particular, the rigidity of a relativistic charged 
+particle (given in units of Volts) is defined as the ratio between energy and 
+charge of a particle:
+
+\begin{equation}
+\label{eq:rigidity}
+R = \frac{E}{Q}. 
+\end{equation}
+
+Physically, a high value of $R$ can represent different scenarios, a particle 
+of lower charge, or higher energy, for example. Mathematically, these examples 
+result in the same (smaller) Lorentz deflection of the cosmic ray. This is
+because a particle with lower charge couples less strongly to the \EM-field. A 
+\CR with higher energy retains a higher inertia, and is more resistant to 
+acceleration. Vice versa, particles of lower rigidity are influenced more 
+heavily by electromagnetic interactions, and move through galaxies in a more
+turbulent manner (c.f.\ \todo{ref galaxy plot}). Fundamentally, particles of equal rigidity behave equally in \EM-fields.
+
+\subsection{Implications for Sources}
+
+The next chapter discusses possible accelerator mechanisms of \CRs. Not much is 
+known with certainty about their origins and sources. Nevertheless, a lot can be
+learned about the nature of \CR sources from examining the distribution of \CR 
+observables measured on Earth. A list of key insights is given in the next 
+paragraphs.
+
+\subsubsection{Constraints from Energy Spectrum}
+
+The \CR energy spectrum (\cref{fig:cr-spectrum}) is well described by a broken
+power law. The fact that several sharp transitions between different spectral
+indices $\gamma$ exists is remarkable. A distribution of \CR sources with vastly
+different energy spectra could easily wash out the observed features. 
+Consequently, the presence of these breaks implies that the sources are similar
+in nature, possibly relying on the same acceleration mechanisms. Several 
+scenarions can be considered:
+
+\begin{itemize}
+\item Single source
+\end{itemize}
 
 
+
+\subsubsection{Constraints from Mass Composition}
+\subsubsection{Constraints from Arrival Directions}
+
+% galactic vs extragalactic transition
+% peters cycle
+% slide 8 teresas talk
+% source distribution (slide 10/11)
+% sharp-ish transition -> identical sources?
+% dipole
 
 \section{Origins of Cosmic Rays}
 \label{sec:cr-accelerators}
