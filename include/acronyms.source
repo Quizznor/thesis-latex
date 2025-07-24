@@ -21,6 +21,7 @@ FLT        First Level Trigger
 FOV        Field Of View
 FPGA       Field Programmable Gate Array
 GAP        Giant Array Project
+GC         Galactic Center
 GPS        Global Positioning System
 GZK        Greisen-Zatsepin-Kuzmin
 HEAT       High Elevation Auger Telescope
@@ -53,6 +54,7 @@ SB         Single Bin
 SD         Surface Detector
 SDE        Surface Detector Electronics
 SDP        Shower Detector Plane
+SGP        Supergalactic Plane
 SLT        Second Level Trigger
 SNR        Signal to Noise Ratio
 SOC        System On Chip

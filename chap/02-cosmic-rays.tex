@@ -117,8 +117,8 @@ observed in the \CR spectrum observed on Earth:
 	to $\gamma\approx2.5$ at an energy of roughly \SI{5}{\exa\eV} 
 	\cite{fenuCosmicRayEnergy2023}. The Pierre Auger observatory has 
 	reported on a dipole in the arrival directions of \CRs above 
-	\SI{8}{\exa\eV} 
-	\cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017}, 
+	\SI{8}{\exa\eV} (Ref.\ \cref{fig:dipole} and 
+	\cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017}), 
 	coincident with the hardening of the energy spectrum. Since the 
 	anisotropy points away from the galactic center the ankle is projected
 	to represent the transition from a predominantly galactic \CR population
@@ -148,10 +148,10 @@ observed in the \CR spectrum observed on Earth:
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\includegraphics[height=0.30\textwidth]{cosmic-rays/spectrum.png}
+  \subfloat[]{\includegraphics[height=0.37\textwidth]{cosmic-rays/spectrum.png}
   \label{fig:cr-spectrum}
   }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[height=0.30\textwidth]{cosmic-rays/spectrum-explanation.png}
+  \subfloat[]{\includegraphics[height=0.37\textwidth]{cosmic-rays/spectrum-explanation.png}
   \label{fig:cr-spectrum-explanation}
   }
   \caption[]{\subref{fig:cr-spectrum} The distribution of energies of \CRs 
@@ -214,11 +214,23 @@ with an increase in energy \cite{mayotteMeasurementInterpretationUHECR2025}.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\textwidth]{cosmic-rays/auger_mix.png}
-  \caption{The atomic composition of \CRs above $E>\SI{100}{\tera\eV}$ as
-  observed by the Pierre Auger observatory. The average mass increases with
-  energy. Data from \cite{mayotteMeasurementInterpretationUHECR2025}.}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{cosmic-rays/auger_mix.png}
   \label{fig:auger-mix}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{cosmic-rays/dipole.png}
+  \label{fig:dipole}
+  }
+  \caption[]{\subref{fig:auger-mix} The atomic composition of \CRs above 
+  $E>\SI{100}{\tera\eV}$ as observed by the Pierre Auger observatory. The 
+  average mass increases with energy. Data from 
+  \cite{mayotteMeasurementInterpretationUHECR2025}. \subref{fig:dipole} The 
+  difference in observed arrival directions of \CRs above \SI{8}{\exa\eV} from
+  an isotropic flux as measured by the Pierre Auger observatory. The plot is in
+  galactic coordinates with the \acf{GC} at the origin. The cross marks the
+  direction of the dipole. The dashed line gives the orientation of the 
+  \acf{SGP}. Data from 
+  \cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017}.}
+  \label{fig:blah}
 \end{figure}
 
 
@@ -262,9 +274,9 @@ The \CR energy spectrum (\cref{fig:cr-spectrum}) is well described by a broken
 power law. The fact that several sharp transitions between different spectral
 indices $\gamma$ exists is remarkable. A distribution of \CR sources with vastly
 different energy spectra could easily wash out the observed features. 
-Consequently, the presence of these breaks implies that the sources are similar
-in nature, possibly relying on the same acceleration mechanisms. Several 
-scenarions might be considered:
+The presence of these breaks implies that the sources must thus be similar in n
+ature, possibly relying on the same acceleration mechanisms. Several scenarios 
+might be considered:
 
 \begin{itemize}
 \item A \textbf{single source} 
