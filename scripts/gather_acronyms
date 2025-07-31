@@ -1,14 +1,16 @@
 #!/bin/bash
 
-DOCSTRING1="%! TEX root = ../main.tex\n"
-DOCSTRING2="% this file was automatically created"
-DOCSTRING3="% via make by ../scripts/gather_acronyms.tex\n"
-DOCSTRING4="\let\oldbaselinestretch=\\\baselinestretch%"
-DOCSTRING5="\\\renewcommand{\\\baselinestretch}{1.5}%"
-DOCSTRING6="\pagestyle{plain}\n"
-DOCSTRING7="\chapter*{Acronyms}"
-DOCSTRING8="\label{chapter:acronyms}\n"
-DOCSTRING9="This is a list of alphabetically sorted acronyms and abbreviations used in this work.\n"
+DOCSTRING01="%! TEX root = ../main.tex\n"
+DOCSTRING02="% this file was automatically created"
+DOCSTRING03="% via make by ../scripts/gather_acronyms.tex\n"
+DOCSTRING04="\let\oldbaselinestretch=\\\baselinestretch%"
+DOCSTRING05="\\\renewcommand{\\\baselinestretch}{1.5}%"
+DOCSTRING06="\pagestyle{plain}\n"
+DOCSTRING07="\chapter*{Acronyms}"
+DOCSTRING08="\label{chapter:acronyms}\n"
+DOCSTRING09="\\\begingroup\n\setlength{\parindent}{0pt}\n"
+DOCSTRING10="This is a list of alphabetically sorted acronyms and abbreviations used in this work.\n"
+DOCSTRING11="\\\endgroup\n"
 
 
 case $HOSTNAME in
@@ -31,15 +33,17 @@ esac
 
 TARGET="$BASE/acronyms.tex"
 
-echo -e $DOCSTRING1 > "$BASE/acronyms.tex"
-echo -e $DOCSTRING2 >> "$BASE/acronyms.tex"
-echo -e $DOCSTRING3 >> "$BASE/acronyms.tex"
-echo -e $DOCSTRING4 >> "$BASE/acronyms.tex"
-echo -e $DOCSTRING5 >> "$BASE/acronyms.tex"
-echo -e $DOCSTRING6 >> "$BASE/acronyms.tex"
-echo -e $DOCSTRING7 >> "$BASE/acronyms.tex"
-echo -e $DOCSTRING8 >> "$BASE/acronyms.tex"
-echo -e $DOCSTRING9 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING01 > "$BASE/acronyms.tex"
+echo -e $DOCSTRING02 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING03 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING04 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING05 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING06 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING07 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING08 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING09 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING10 >> "$BASE/acronyms.tex"
+echo -e $DOCSTRING11 >> "$BASE/acronyms.tex"
 
 echo -e "\\\begin{acronym}[AAAAA]" >> "$BASE/acronyms.tex" 
 echo -e "% some of the plural acros here are clearly bogus" > "$BASE/definitions.tex"

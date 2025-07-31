@@ -10,7 +10,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[margin=1.1in]{geometry}
+\usepackage[top=1in, inner=1.25in, bottom=1in, outer=1in, twoside]{geometry}
 \usepackage{amsfonts, amstext, amssymb}
 \usepackage{amsmath}
 \usepackage{mathtools}
@@ -18,6 +18,7 @@
 \usepackage[export]{adjustbox}
 \usepackage{ae, aecompl}
 \usepackage{listings}
+\usepackage{needspace}
 \usepackage{siunitx}
 \usepackage{rotating}
 \usepackage{subfig}
@@ -220,9 +221,9 @@
 \newcounter{prepostchapter}
 
 % custom sections, subsections, and subsubsections for minitocs
-\titlecontents{psection}[0.2cm]{\vspace{-0.1cm}\bfseries}{\thecontentslabel\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
-\titlecontents{psubsection}[5.1em]{\vspace{-0.2cm}}{\contentslabel{1.4cm}\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
-\titlecontents{psubsubsection}[5.1em]{\vspace{-0.2cm}}{\small\contentslabel{1.1cm}\hspace{0.5em}}{}{\normalfont\normalsize\titlerule*[1pc]{.}\contentspage}
+\titlecontents{psection}[0.2cm]{\vspace{-0.15cm}\bfseries}{\thecontentslabel\hspace{0.5em}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
+\titlecontents{psubsection}[5.1em]{\vspace{-0.15cm}}{\contentslabel{1.4cm}\hspace{1pt}}{}{\normalfont\titlerule*[1pc]{.}\contentspage}
+\titlecontents{psubsubsection}[5.1em]{\vspace{-0.15cm}}{\small\contentslabel{1.1cm}\hspace{0.5em}}{}{\normalfont\normalsize\titlerule*[1pc]{.}\contentspage}
 
 
 % chapter with automatic minitoc creation
@@ -308,12 +309,10 @@
 
 % subsection
 \titleformat{\subsection}
-	[display]
+	[hang]
 	{\normalfont\bfseries\Large}{}{0.3cm}
-	{%
-		\sc{\thesubsection}\hspace{0.3cm}\sc{#1}
-	}
-\titlespacing*{\subsection}{0pt}{-10pt}{5pt}
+	{\Needspace{5\baselineskip}\sc{\thesubsection}\hspace{0.3cm}\sc{#1}}
+\titlespacing*{\subsection}{0pt}{0pt}{5pt}
 
 \titlecontents{subsection}[0.85cm]{}
 {\thecontentslabel\hspace{0.5em}}
@@ -321,12 +320,10 @@
 
 % subsubsection
 \titleformat{\subsubsection}
-[display]
+[hang]
 {\normalfont\bfseries\large}{}{0.3cm}
-{%
- \sc{\thesubsubsection}\hspace{0.3cm}\sc{#1}
-}
-\titlespacing*{\subsubsection} {0pt}{-20pt}{5pt}
+{\Needspace{5\baselineskip}\sc{\thesubsubsection}\hspace{0.3cm}\sc{#1}}
+\titlespacing*{\subsubsection} {0pt}{0pt}{5pt}
 
 \titlecontents{subsubsection}
   [0.85cm]
