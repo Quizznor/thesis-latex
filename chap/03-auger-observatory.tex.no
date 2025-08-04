@@ -1272,23 +1272,23 @@ From this initial guess, an iterative process begins to estimate the signal
 window.
 
 Using the \RMS $\sigma_f$, of the uncalibrated trace $f^\mathrm{ADC}$, the 
-\SNR of the signal window, starting at bin $i$, and ending at bin $j$ is 
-calculated. Additionally the 1-bin- and 3-bin \SNR of the start and stop region
+\SN of the signal window, starting at bin $i$, and ending at bin $j$ is 
+calculated. Additionally the 1-bin- and 3-bin \SN of the start and stop region
 are determined.
 
 \begin{equation}
 \label{eq:pulse-finder-snr}
-\SNR^{\{i/j\}}_\mathrm{1-bin} = \frac{f^\mathrm{ADC}_{\{i/j\}}}{\sigma_f},
-\qquad\SNR^{\{i/j\}}_\mathrm{3-bin} = \sum\limits_{n=-1}^{n=1} \frac{f^\mathrm{ADC}_{\{i/j\} + n}}{\sigma_f} 
-\qquad\SNR = \sum\limits_{n=i}^{j} \frac{f^\mathrm{ADC}_n}{\sigma_f}.
+\SN^{\{i/j\}}_\mathrm{1-bin} = \frac{f^\mathrm{ADC}_{\{i/j\}}}{\sigma_f},
+\qquad\SN^{\{i/j\}}_\mathrm{3-bin} = \sum\limits_{n=-1}^{n=1} \frac{f^\mathrm{ADC}_{\{i/j\} + n}}{\sigma_f} 
+\qquad\SN = \sum\limits_{n=i}^{j} \frac{f^\mathrm{ADC}_n}{\sigma_f}.
 \end{equation}
 
 A new signal window is determined by extending the window to the left 
 ($i \rightarrow i-1$) if $s_i > s_j$, or to the right ($j \rightarrow j+1$) 
 if $s_j > s_i$. The process halts and returns the current signal window under 
-the condition that $\SNR < 5\,\sigma_f$, or 
-$\SNR^{\{i/f\}}_\mathrm{3-bin} < \sqrt{3}\,\sigma_f$ and 
-$\SNR^{\{i/f\}}_\mathrm{1-bin} < \sigma_f$. The number of photons $n_\gamma$ 
+the condition that $\SN< 5\,\sigma_f$, or 
+$\SN^{\{i/f\}}_\mathrm{3-bin} < \sqrt{3}\,\sigma_f$ and 
+$\SN^{\{i/f\}}_\mathrm{1-bin} < \sigma_f$. The number of photons $n_\gamma$ 
 per \PMT is thus calculated as the integral of the calibrated trace from 
 $i\rightarrow j$, and has an associated uncertainty of approximately 
 \SI{14}{\percent} \cite{abrahamFluorescenceDetectorPierre2010}.

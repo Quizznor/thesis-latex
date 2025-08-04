@@ -39,6 +39,8 @@
 \usepackage[b]{esvect}    % For \vv
 \usepackage{tikz}         % For arrow and dots in \xvec
 \usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows}
 \usepackage{xparse}
 \usepackage{listings}
 \usepackage{upgreek}

@@ -1,0 +1,24 @@
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[>=Latex, scale=1.2]
+
+% Shock front
+\draw[decorate, thick, decoration={zigzag, segment length=4pt, amplitude=1.2pt}] (0,-2) -- (0,2);
+
+% Particle jagged trajectory
+\draw[thick]
+  (0.2,0) -- (1,0.5) -- (1.5,0.2) -- (2,0.8);
+
+% E1 and E2 arrows
+\draw[->, thick] (-2,-1.2) -- (0,0) node[midway, below left=-1pt] {\small $E_1$};
+\draw[->, thick] (0,0) -- (-2,1.4) node[midway, above left=-1pt] {\small $E_2$};
+
+% Velocity vectors
+\draw[->, thick] (-2.5,-1.8) -- (-1.2,-1.8) node[midway, below] {\small $\vec{-u}_1$};
+\draw[->, thick] (2,-1.8) -- (0.8,-1.8) node[midway, below] {\small $\vec{V} = \vec{-u}_1 + \vec{u}_2$};
+
+% Text labels
+\node[below] at (-2.2,-2.1) {\small upstream};
+\node[below] at (2.0,-2.1) {\small downstream};
+
+\end{tikzpicture}
+

@@ -16,7 +16,7 @@ but can also improve the understanding of the cosmos over the largest distances.
 \section{Cosmic Ray Phenomenology}
 \label{sec:cr-phenomenology}
 
-\fulllift
+\halflift
 
 \subsection{Historical Discovery}
 \label{ssec:cr-history}
@@ -242,14 +242,14 @@ external (electro-)magnetic field. As established before, the gravitational
 influence on a \CR particle can be safely ignored due to its' miniscule mass.
 
 Consequentially, only \EM-fields and the corresponding coupling parameter, the
-electric charge $Q$, are of importance when considering the \CRs movement 
+electric charge $q$, are of importance when considering the \CRs movement 
 through the cosmos. In particular, the rigidity of a relativistic charged 
 particle (given in units of Volts) is defined as the ratio between energy and 
 charge of a particle:
 
 \begin{equation}
 \label{eq:rigidity}
-R = \frac{E}{Q}. 
+R = \frac{E}{q}. 
 \end{equation}
 
 Physically, a high value of $R$ can represent different scenarios, a particle 
@@ -304,26 +304,132 @@ The cosmic ray spectrum is made up of a galactic and an extragalactic component.
 Both components in turn can be divided into a population of light and heavy 
 \CRs. The sources, following a Peters cycle 
 \cite{petersPrimaryCosmicRadiation1961}, accelerate the particles to a cutoff
-energy $E_\mathrm{max}\propto Z$. Extragalactic sources in general have a higher
-cutoff energy. This explains the mixed constitution of \CRs at intermediate
-energies, which consists of the heavy galactic component and the light 
-extragalactic component.
+energy $E_\mathrm{max}\propto Z$. Extragalactic sources can have a higher
+cutoff energy than those within the milky way. This explains the mixed 
+composition of \CRs at intermediate energies. The \CR spectrum at energies up to
+$\sim\SI{1}{\exa\eV}$ consists of the heavy galactic component and the light 
+extragalactic component. In contrast, cosmic rays at higher energies originate
+from outside the milky way and tend towards heavier particles.
 
-% galactic vs extragalactic transition
-% peters cycle
-% slide 8 teresas talk
-% source distribution (slide 10/11)
-% sharp-ish transition -> identical sources?
-% dipole
 
 \section{Origins of Cosmic Rays}
 \label{sec:cr-accelerators}
 
-\section{Cosmic Ray Propagation}
-\label{sec:cr-propagation}
+\halflift
 
-\section{Extensive Air Showers}
-\label{sec:extensive-air-showers}
+\subsection{General Principles}
+\label{ssec:hillas-criterion}
+
+It has been established on the previous pages that \CR sources rely on similar,
+if not the same principles to accelerate particles up to extreme energies. The
+physical mechanism powering these processes must be the \EM force, as it is the 
+only long-range interaction of sufficient strength. All \CR source models thus
+require a strong electric or magnetic field with which particles can interact 
+and gain energy. For magnetic fields in particular an important criterion 
+applies. Because 
+$W_\mathrm{L}=\vec{F}_\mathrm{L}\cdot\vec{r}\propto\vec{v}\times\vec{r} = 0$, 
+the magnetic force acts purely adiabatically in the magnetostatic case. It 
+follows that the acceleration of a test particle with charge $q$ can only occur 
+if the source magnetic field lines are evolving over time. This is most easily 
+realized by rotating magnetic fields (of extent $L$ and strength $\vec{B}$, 
+rotating at a velocity $\vec{v}$), fueled e.g.\ by a dynamo effect 
+\cite{straussDynamoEffectFusion1985}. A heuristic argument can then be made 
+about the maximum energy $E_\mathrm{max}$ that a given accelerator can transfer
+to the test particle:
+
+\begin{equation}
+\label{eq:hillas-criterion}
+\frac{|\vec{B}|}{\unit{\upmu\gauss}}\,\frac{L}{\unit{\parsec}} > 2\,\frac{E_\mathrm{max}}{\unit{\peta\eV}}\,\frac{e}{q}\,\frac{v}{c}   
+\end{equation}
+
+The reasoning for this, as laid out in 
+\cite{hillasOriginUltraHighEnergyCosmic1984}, is simple; The test particle will 
+be accelerated while it remains in the magnetic field of the source. This leads
+to a steady increase in the energy and rigidity of the particle. With an
+increase in rigidity the Larmor radius $R_\mathrm{L} = q\,/\,E|\vec{B}|$ grows.
+\cref{eq:hillas-criterion} roughly marks the energy at which the Larmor radius 
+exceeds the size of the source magnetic field, and the test particle must 
+necessarily escape.
+
+This so-called Hillas criterion provides an easy way of grouping accelerators 
+based on their size and field strength. It also reveals that \CR sources have
+such similar spectra precisely because they are comparable in size and field 
+strength. \todo{hillas plot} shows the classes of \CR accelerators that can be distinguished this way. \cref{tab:hillas-parameters} gives the supplementary information about the different (potential) source classes that are in part discussed on the
+following pages.
+
+\begingroup
+\renewcommand{\arraystretch}{1.2}
+\begin{table}
+	\begin{center}
+	\caption{Typical magnetic field size and strength for a selection of \CR 	source candidates. $E_\mathrm{max}$ is calculated as per 
+	\cref{eq:hillas-criterion} using  $q\,/\,e=1$ (Protons), and 
+	$v\,/\,c=0.5$.}
+	\begin{tabular*}{1.0\textwidth}{@{\extracolsep{\fill}} c|cccc}
+  \toprule
+	\hline
+	& $L$ / \unit{pc} & $|\vec{B}|$ / $\unit{\upmu\gauss}$ & $E_\mathrm{max}$ & Ref. \\
+	\hline
+	Supernova Remnants & $1-200$ \cite{asvarovSizeDistributionSupernova2014}
+	& $5-5000$ \cite{reynoldsMagneticFieldsSupernova2012}
+	& $\sim\SI{1}{\tera\eV}$ & \cref{ssec:supernova-remnants} \\
+	
+	Active Galactic Nuclei & & & & \cref{ssec:active-galactic-nuclei} \\
+  \bottomrule
+	\end{tabular*}
+	\label{tab:hillas-parameters}
+	\end{center}
+\end{table}
+\endgroup
+
+\subsection{Supernova Remnants}
+\label{ssec:supernova-remnants}
+
+\SNRs are, as the name implies, what remains of massive stars after they meet 
+their violent end in a supernova. Whether a supernova is triggered by thermal 
+runaway or a core collapse, the stellar explosion releases a tremendous amount 
+of energy.
+
+For thermonuclear supernovae a runaway fusion reaction is thought to increase
+the stars' temperature thousandfold in the span of a few seconds 
+\cite{khokhlovLightCurvesType1993}. This rapid increase in internal energy far
+surpasses the gravitational binding energy. The luminosity of the system rapidly
+increases and the star disintegrates.
+
+On the contrary, core-collapse supernovae have the vast majority
+($>\SI{90}{\percent}$) of the energy escape immediately in the form of
+neutrinos \cite{odrzywolekProbingThermonuclearSupernova2011}. The burst of 
+weakly interacting particles is so immense that the escape blows off the outer 
+layers of the star in the process  leaving behind only the core of the 
+progenitor star \cite{walchEnergyMomentumInput2015}.
+
+In both cases a shockwave of plasma is formed that moves at 
+$<\SI{10}{\percent}$ of the speed of light into the surrounding \ISM. The 
+conductivity within the shockwave is (theoretically) infinite, as charge 
+carriers can move freely within the plasma. It follows that any internal 
+magnetic field lines are comoving within the plasma. This provides excellent 
+conditions for the genesis of cosmic rays.
+
+\subsubsection{Diffusive Shock Acceleration}
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\input{figures/cosmic-rays/plane_shock_front.tex}
+  \label{fig:fermi-type-i}
+  }\hspace{0.2cm}
+  \subfloat[]{\input{figures/cosmic-rays/curved_shock_front.tex}
+  \label{fig:fermi-type-ii}
+  }
+  \caption[]{\subref{fig:fermi-type-i}  \subref{fig:fermi-type-ii} }
+  \label{fig:fermi-acceleration}
+\end{figure}
+
+\DSA describes the process by which a test particle (to be cosmic ray) can gain
+energy from interacting elastically with the magnetic fields inside the shock 
+front. For a mathematical description of the process we define 
 
 
+%\section{Cosmic Ray Propagation}
+%\label{sec:cr-propagation}
 
+%\section{Extensive Air Showers}
+%\label{sec:extensive-air-showers}

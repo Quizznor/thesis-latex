@@ -1,6 +1,7 @@
 ADC        Analog Digital Count
 ADST       Advanced Data Summary Tree
 AERA       Auger Engineering Radio Array
+AGN        Active Galactic Nucleus
 AMIGA      Auger Muons And Infill For The Ground Array
 CDAS       Central Data Acquisition System
 CIC        Constant Intensity Cut
@@ -9,6 +10,7 @@ CO         Coihueco
 CPU        Central Processing Unit
 CR         Cosmic Ray
 DAQ        Data Acquisition
+DSA        Diffusive Shock Acceleration
 EAS        Extensive Air Shower
 EM         Electromagnetic
 FADC       Flash Analog Digital Converter
@@ -28,6 +30,7 @@ HEAT       High Elevation Auger Telescope
 HG         High Gain
 ICRC       International Cosmic Ray Conference
 IS         Integrating Sphere
+ISM        Interstellar Medium
 LA         Loma Amarilla
 LCU        LED Calibration Unit
 LDF        Lateral Distribution Function
@@ -56,7 +59,8 @@ SDE        Surface Detector Electronics
 SDP        Shower Detector Plane
 SGP        Supergalactic Plane
 SLT        Second Level Trigger
-SNR        Signal to Noise Ratio
+SN         Signal to Noise Ratio
+SNR        Supernova Remnant
 SOC        System On Chip
 SPD        Shower Plane Distance
 SPMT       Small PMT
@@ -71,7 +75,7 @@ ToT        Time over Threshold
 ToTd       ToT deconvoluted
 UB         Unified Board
 UHE        Ultra High Energy
-UHECR      UHE Cosmic Ray
+UHECR      Ultra High Energy Cosmic Ray
 UMD        Underground Muon Detector
 USP        Universal Shower Parametrization
 UUB        Upgraded Unified Board
