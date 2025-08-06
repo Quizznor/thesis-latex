@@ -399,7 +399,7 @@ On the contrary, core-collapse supernovae have the vast majority
 ($>\SI{90}{\percent}$) of the energy escape immediately in the form of
 neutrinos \cite{odrzywolekProbingThermonuclearSupernova2011}. The burst of 
 weakly interacting particles is so immense that the escape blows off the outer 
-layers of the star in the process  leaving behind only the core of the 
+layers of the star in the process, leaving behind only the core of the 
 progenitor star \cite{walchEnergyMomentumInput2015}.
 
 In both cases a shockwave of plasma is formed that moves at 
@@ -411,21 +411,84 @@ conditions for the genesis of cosmic rays.
 
 \subsubsection{Diffusive Shock Acceleration}
 
+\DSA describes the process by which a particle can gain energy and eventually 
+escape as a cosmic ray from interacting elastically with the magnetic fields 
+inside the shock front. For a mathematical description we consider a \SNR with 
+a magnetic field $\vec{B}$, expanding with some velocity $\beta = |\vec{v}|/c$. 
+Neither $\vec{B}$ nor $\beta$ are, in the general case, isotropic or constant. 
+We define $E_1 = \approx p_1c$ and $E_2 \approx p_2c$ as the energy of the 
+particle before and after traversing the shock front. Furthermore, the flow 
+direction of the shock front determines a reference system by which one can 
+describe the trajectory of the particle. With this in mind, $\theta_1$ and 
+$\theta_2$ mark the entrance and exit angles respectively. A reference of the 
+scenario is shown in \cref{fig:fermi-acceleration}.
+
 \begin{figure}[t]
   \centering
-  \subfloat[]{\input{figures/cosmic-rays/plane_shock_front.tex}
-  \label{fig:fermi-type-i}
-  }\hspace{0.2cm}
   \subfloat[]{\input{figures/cosmic-rays/curved_shock_front.tex}
   \label{fig:fermi-type-ii}
+  }\hspace{0.2cm}
+  \subfloat[]{\input{figures/cosmic-rays/plane_shock_front.tex}
+  \label{fig:fermi-type-i}
   }
   \caption[]{\subref{fig:fermi-type-i}  \subref{fig:fermi-type-ii} }
   \label{fig:fermi-acceleration}
 \end{figure}
 
-\DSA describes the process by which a test particle (to be cosmic ray) can gain
-energy from interacting elastically with the magnetic fields inside the shock 
-front. For a mathematical description of the process we define 
+All above quantities are defined w.r.t.\ a suitable, cosmic, restframe. The 
+initial energy of the particle as observed from the shock restframe is thus
+
+\begin{equation}
+E_1' = E_1\,\frac{\left( 1 + \beta\cos\theta_1 \right)}{\sqrt{1-\beta^2}}.
+\end{equation}
+
+Because the field lines are static in the shock front rest frame it is 
+$E_1' = E_2'$. Transforming back to the unprimed system, the fractional 
+energy change $\xi$ reads
+
+\begin{align}
+E_2 &= E_2'\,\frac{\left( 1 + \beta\cos\theta_2' \right)}{\sqrt{1-\beta^2}} \\
+    &= E_1\, \frac{(1+\beta\cos\theta_1)(1+\beta\cos\theta_2')}{1-\beta^2} \\
+\label{eq:fractional-energy-change}
+\Leftrightarrow\qquad\xi = \frac{E_2 - E_1}{E_1} &= \frac{1 
+		+ \beta\left(\cos\theta_1 + \cos\theta_2'\right) 
+		+ \beta^2 \cos\theta_1\,\cos\theta_2'}{1-\beta^2} - 1. 
+\end{align}
+
+The trivial cases $\beta=0$, $\theta_1 = \theta_2'=\pi$ yield the expected 
+$\xi=0$, corresponding to a static magnetic field or no (macroscopic) 
+scattering. For all other cases, one can average over the incident and 
+reflection angle as done in e.g.\ \cite{gaisserCosmicRaysParticle2016} to
+retrieve a mean enery change $\langle\xi\rangle$. When doing so, an edge case 
+of the cloud scattering (\cref{fig:fermi-type-ii}) becomes apparent;
+
+For a sufficiently large \SNR the scattering occurs at a shock front that is
+essentially plane (\cref{fig:fermi-type-i}). This changes the mean geometry,
+specifically
+
+\begin{equation}
+	\langle\cos\theta_1\rangle_\mathrm{cloud} = -\frac{\beta}{3},
+	\qquad\qquad 
+	\langle\cos\theta_2'\rangle_\mathrm{cloud} = 0,
+\end{equation}
+
+and
+
+\begin{equation}
+	\langle\cos\theta_1\rangle_\mathrm{plane} = -\frac{2}{3},
+	\qquad\qquad 
+	\langle\cos\theta_2'\rangle_\mathrm{plane} = \frac{2}{3}.
+\end{equation}
+
+The mean fractional change in energy for the two scenarios becomes thus
+
+\begin{equation}
+	\langle\xi\rangle_\mathrm{cloud} \sim \frac{4}{3}\,\beta^2, 
+	\qquad 
+	\langle\xi\rangle_\mathrm{plane} \sim \frac{4}{3}\,\beta.
+\end{equation}
+
+
 
 
 %\section{Cosmic Ray Propagation}

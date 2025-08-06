@@ -1,7 +1,9 @@
 \begin{tikzpicture}[scale=0.6]
 
 	% Dashed reference lines to show angles
-	\draw[dashed] (-5.05,-0.5) -- ++(10,0);
+	\coordinate (left) at (-5.05, -0.5);
+	\coordinate (rght) at (5.05, -0.5);
+	\draw[dashed] (left) -- (rght);
 
 	% Supernova Remnant
 	\draw[densely dotted, thick] 
@@ -26,46 +28,50 @@
 		(3.043,-2.499)
 		(3.573,-1.799)
 		(4.134,0.891)
-	};
-
+	}[postaction={decorate}, decoration={
+		markings,
+		mark=between positions 0.01 and 
+				       1.11 step 0.1
+		with {\arrow[yshift=-3.8pt, rotate=-90, scale=0.8]{latex};}
+	}];
 
 	% Incoming particle E1
- 	\draw[->, thick] (-5, -3) -- (-1.295,-1.478) 
-	node[pos=0.1, below left=8pt] {\small $E_1$};
-	\draw[dashed] (-1.295, -1.478) -- ++(6,2.4648); % reference for theta_1
-	\draw (1.320,-0.5) +(0:1.5) arc[start angle=0, end angle=26, radius=1.5];
-	\node at (2.50,-0.24) {\small $\theta_1$};
+	\coordinate (E1) at (-5, -3);
+	\coordinate (E1start) at (-1.295, -1.478);
+	\coordinate (E1cross) at (1.320, -0.500);
+	\coordinate (E1stop) at ($ (E1start) + (6, 2.4648) $);
 
-
-
-
+	\draw[>-, thick, rotate=-90] (E1) -- (E1start) node[pos=0.1, below left=4pt] {\small $E_1$};
+	%\draw[dashed] (E1start) -- (E1stop); % reference for theta_1
+	\pic [draw, -, angle radius=2cm] {angle = left--E1cross--E1start};
+	\node at ($(E1cross) - (2.4, 0.5)$) {\scriptstyle $\pi-\theta_1$};
 
 	% Outgoing particle E2
-	%\draw[->, thick] (-1.5, -1.5) -- (-4, -0.8) node[midway, below left=-2pt] {\small $E_2$};
+	\coordinate (E2) at (-5, 2.5);
+	\coordinate (E2start) at (-1.295, 0.178);
+	\coordinate (E2cross) at (-0.0220, -0.5);
+	\coordinate (E2stop) at ($(E2cross) + (3.8, -2.5) $);
 
-	% Velocity vector V (leftward, from scattering point)
-	%\draw[->, thick] (2.5, 2.0) -- (0.5, 2.0) node[midway, above] {\small $\vec{V}$};
-
-	% Dashed reference lines to show angles
-	%\draw[dashed] (2.5,2.0) -- ++(2,0); % reference for theta_1
-	%\draw[dashed] (2.5,2.0) -- ++(-2,2); % reference for theta_2
-
-	% Angle arcs
-	%\draw (2.5,2.0) +(0:1.0) arc[start angle=0, end angle=135, radius=1.0];
-	%\node at (1.9,2.9) {\small $\theta_2$};
-
-	%\draw (2.5,2.0) +(0:0.7) arc[start angle=0, end angle=-45, radius=0.7];
-	%\node at (3.1,1.5) {\small $\theta_1$};
+	\draw[->, thick] (E2start) -- (E2) node[pos=0.9, above left=8pt] {\small $E_2$};
+	%\draw[dashed] (E2start) -- (E2stop); % reference for theta_2
+	\pic [draw, -, angle radius=1.4cm] {angle = E2start--E2cross--left};
+	\node at ($(E2cross) - (1.8, -0.5)$) {\scriptstyle $\theta_2$};
 
 	% scatter path
-	\draw plot coordinates {
-	(-1.854, -0.474)
-	(-1.134,0.903)
-	(-2.138,0.149)
-	(0.184,-1.863)
-	(-0.075,1.512)
-	(0.666,0.841)
-	(-1.295,-1.478)
+	\draw[thick] plot[smooth, tension=0.4] coordinates {
+		(E1start)
+		(-0.243,-2.015)
+		(-1.58, -2.88)
+		(1.40, -2.58)
+		(0.91, -1.35)
+		(2.39, -0.57)
+		(2.10, 0.19)
+		(2.44, 2.3)
+		(-0.84, 1.67)
+		(0.07, 0.85)
+		(0.22, -0.1)
+		(E2start)
 	};
 
 \end{tikzpicture}
+

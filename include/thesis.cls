@@ -40,6 +40,9 @@
 \usepackage{tikz}         % For arrow and dots in \xvec
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.markings,arrows.meta}
+\usetikzlibrary{angles, quotes}
 \usetikzlibrary{arrows}
 \usepackage{xparse}
 \usepackage{listings}
