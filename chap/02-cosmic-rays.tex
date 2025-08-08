@@ -418,10 +418,10 @@ shown in \cref{fig:fermi-acceleration}; A \SNR with a magnetic field $\vec{B}$,
 expanding with some velocity $\beta = |\vec{v}|/c$ into which a particle enters.
 Neither $\vec{B}$ nor $\beta$ are, in the general case, isotropic or constant. 
 
-$E_1 \approx p_1c$ and $E_2 \approx p_2c$ denote the energy of the particle 
+$E_0 \approx p_0c$ and $E_1 \approx p_1c$ denote the energy of the particle 
 before and after traversing the shock front. Furthermore, the flow direction of 
 the shock front determines a reference system by which one can describe the 
-trajectory of the particle. As such, $\theta_1$ and $\theta_2$ mark the entrance
+trajectory of the particle. As such, $\theta_0$ and $\theta_1$ mark the entrance
 and exit angles with the shock front respectively.
 
 \begin{figure}[t]
@@ -432,10 +432,10 @@ and exit angles with the shock front respectively.
   \subfloat[]{\input{figures/cosmic-rays/plane_shock_front.tex}
   \label{fig:fermi-type-i}
   }
-  \caption[]{\subref{fig:fermi-type-i} A particle with energy $E_1$ enters a 
-  \SNR at an angle $\theta_1$. It scatters collisionless off of irregularities
-  in the internal magnetic field and exits the \SNR at an angle $\theta_2$ with
-  energy $E_2$. \subref{fig:fermi-type-ii} A special case of 
+  \caption[]{\subref{fig:fermi-type-i} A particle with energy $E_0$ enters a 
+  \SNR at an angle $\theta_0$. It scatters collisionless off of irregularities
+  in the internal magnetic field and exits the \SNR at an angle $\theta_1$ with
+  energy $E_1$. \subref{fig:fermi-type-ii} A special case of 
   \subref{fig:fermi-type-ii} where the \SNR reduces to a plane front.}
   \label{fig:fermi-acceleration}
 \end{figure}
@@ -444,21 +444,21 @@ All above quantities are defined w.r.t.\ a suitable, cosmic, restframe. The
 initial energy of the particle as observed from the shock restframe becomes
 
 \begin{equation}
-E_1' = E_1\,\frac{\left( 1 + \beta\cos\theta_1 \right)}{\sqrt{1-\beta^2}}.
+E_0' = E_0\,\frac{\left( 1 + \beta\cos\theta_0 \right)}{\sqrt{1-\beta^2}}.
 \end{equation}
 
 Because the field lines are static in the shock front rest frame it is 
-$E_1' = E_2'$. Transforming back to the unprimed system 
-($E_2=E_2'\,\left(1+\beta\cos\theta_2'\right)\,/\,\sqrt{1-\beta^2}$),
+$E_0' = E_1'$. Transforming back to the unprimed system 
+($E_1=E_1'\,\left(1+\beta\cos\theta_1'\right)\,/\,\sqrt{1-\beta^2}$),
 
 \begin{equation}
 \label{eq:fractional-energy-change}
-\qquad\xi = \frac{E_2 - E_1}{E_1} &= \frac{1 
-	+ \beta\left(\cos\theta_1 + \cos\theta_2'\right) 
-	+ \beta^2 \cos\theta_1\,\cos\theta_2'}{1-\beta^2} - 1. 
+\qquad\xi = \frac{E_1 - E_0}{E_0} &= \frac{1 
+	+ \beta\left(\cos\theta_0 + \cos\theta_1'\right) 
+	+ \beta^2 \cos\theta_0\,\cos\theta_1'}{1-\beta^2} - 1. 
 \end{equation}
 
-The trivial cases $\beta=0$, $\theta_1 = \theta_2'=\pi$ yield a fractional 
+The trivial cases $\beta=0$, $\theta_0 = \theta_1'=\pi$ yield a fractional 
 change in energy $\xi=0$ as expected. In the general case, one can average over 
 the incident and reflection angle as done in e.g.\ 
 \cite{gaisserCosmicRaysParticle2016} to retrieve a mean enery change 
@@ -470,17 +470,17 @@ essentially plane (\cref{fig:fermi-type-i}). This changes the mean geometry,
 specifically
 
 \begin{equation}
-	\langle\cos\theta_1\rangle_\mathrm{cloud} = -\frac{\beta}{3}, 
+	\langle\cos\theta_0\rangle_\mathrm{cloud} = -\frac{\beta}{3}, 
 	\,\,\mathrm{and}\qquad\qquad 
-	\langle\cos\theta_2'\rangle_\mathrm{cloud} = 0,
+	\langle\cos\theta_1'\rangle_\mathrm{cloud} = 0,
 \end{equation}
 
 while
 
 \begin{equation}
-	\langle\cos\theta_1\rangle_\mathrm{plane} = -\frac{2}{3},
+	\langle\cos\theta_0\rangle_\mathrm{plane} = -\frac{2}{3},
 	\,\,\mathrm{and}\qquad\qquad 
-	\langle\cos\theta_2'\rangle_\mathrm{plane} = \frac{2}{3}.
+	\langle\cos\theta_1'\rangle_\mathrm{plane} = \frac{2}{3}.
 \end{equation}
 
 The mean fractional change in energy for the two scenarios becomes thus
@@ -493,14 +493,58 @@ The mean fractional change in energy for the two scenarios becomes thus
 
 Since $0\leq\beta<1$, the mean fractional change in energy is strictly positive
 in either case. On average the particle gains energy from the interactions.
-Moreover, it gains more energy from the interaction with the plane front. 
-Considering the geometry in \cref{fig:fermi-type-i}, the process must be a
-(isotropic) reflection, with $\theta_1\lessgtr0$ and $\theta_2'\gtrless0$. As 
-such, the linear term in $\beta$ remains, unlike for the cloud scattering, which
-is quadratic in $\beta$.
+Moreover, it gains, on average, more energy from the interaction with the plane 
+front. Considering the geometry in \cref{fig:fermi-type-i}, the process must be 
+a (isotropic) reflection, with $\cos\theta_0<0$ and $\cos\theta_1'>0$. As such, 
+the linear term in $\beta$ remains, unlike for the cloud scattering, for which 
+the leading term is only quadratic in $\beta$.
+
+The two processes are known as type I (plane) and type II (cloud) Fermi
+acceleration, after the discovery of the effect by Enrico Fermi
+\cite{fermiOriginCosmicRadiation1949} in 1949.
 
 One interaction with the shock front can roughly double the energy of the 
-incident particle, but not more. 
+incident particle, but not more. In order to increase its energy substantially,
+the particle must cross the magnetic fields many times. After $n$ crossings the
+energy of the particle reads on average 
+
+\begin{equation}
+\langle E_n \rangle = E_0\left( 1 + \langle\xi\rangle \right)^n. 
+\end{equation}
+
+However, with each crossing there also exists a probability $P_\mathrm{esc.}$, 
+corresponding to the particle escaping instead of entering the accelerator for 
+an $n+1$th crossing. The number of particles above a given energy thus behaves 
+like 
+
+\begin{equation}
+	N(\geq E) &\sim \sum\limits_{m=n}^\infty \left( 1 
+	+ P_\mathrm{esc.}\right)^m 
+	= \frac{\left( 1-P_\mathrm{esc.} \right)^n}{P_\mathrm{esc.}}.
+\end{equation}
+
+The energy spectrum of particles accelerated by \SNR follows a power law with 
+spectral index $\gamma=\log\left(\frac{1}{1-P_\mathrm{esc.}}\right)\,/\,
+\log\left(1+\langle\xi\rangle\right)$. For type II acceleration, the numeric 
+value of $\gamma$ is determined by the cloud composition and extent, which 
+differ greatly across the galaxy. In any case, type II acceleration results in 
+general in a very hard spectum \cite{davisModifiedFermiMechanism1956}. For type 
+I acceleration, the spectral index can be rewritten in terms of the Mach number 
+$M=\beta c/v_\mathrm{sound}^\mathrm{ISM}$ of the shock 
+\cite{gaisserCosmicRaysParticle2016}.
+
+\begin{equation}
+	\gamma \sim 1 + \frac{4}{M^2} \stackrel{M\gg1}{\scalebox{3}[1]{\approx}} 1.7
+\end{equation}
+
+Since supernovae produce very fast moving shock fronts, the source spectral 
+index simplifies to a singular value, which, after accounting for diffusion, 
+matches the energy spectrum observed on earth below the knee almost perfectly 
+\cite{baloghPhysicsCollisionlessShocks2013}.
+
+\subsubsection{Injection \& Escape}
+
+Following 
 
 %\section{Cosmic Ray Propagation}
 %\label{sec:cr-propagation}
