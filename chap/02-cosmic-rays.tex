@@ -396,32 +396,33 @@ surpasses the gravitational binding energy. The luminosity of the system rapidly
 increases and the star disintegrates.
 
 On the contrary, core-collapse supernovae have the vast majority
-($>\SI{90}{\percent}$) of the energy escape immediately in the form of
-neutrinos \cite{odrzywolekProbingThermonuclearSupernova2011}. The burst of 
-weakly interacting particles is so immense that the escape blows off the outer 
-layers of the star in the process, leaving behind only the core of the 
-progenitor star \cite{walchEnergyMomentumInput2015}.
+($>\SI{90}{\percent}$) of the energy escape immediately in the form of neutrinos
+\cite{odrzywolekProbingThermonuclearSupernova2011}. The burst of weakly 
+interacting particles is so immense that the escape blows off the outer layers 
+of the star in the process, leaving behind only the core of the progenitor star
+\cite{walchEnergyMomentumInput2015}.
 
-In both cases a shockwave of plasma is formed that moves at 
-$<\SI{10}{\percent}$ of the speed of light into the surrounding \ISM. The 
-conductivity within the shockwave is (theoretically) infinite, as charge 
-carriers can move freely within the plasma. It follows that any internal 
-magnetic field lines are comoving within the plasma. This provides excellent 
-conditions for the genesis of cosmic rays.
+In both cases a shockwave of plasma is formed that moves at $<\SI{10}{\percent}$
+of the speed of light into the surrounding \ISM. Its' internal conductivity is 
+infinite, as the plasma potential is the same everywhere within the shock front.
+It follows that internal magnetic field lines must be comoving within the 
+plasma. Such moving magnetic fields provide an excellent condition for the 
+genesis of cosmic rays.
 
 \subsubsection{Diffusive Shock Acceleration}
 
 \DSA describes the process by which a particle can gain energy and eventually 
 escape as a cosmic ray from interacting elastically with the magnetic fields 
-inside the shock front. For a mathematical description we consider a \SNR with 
-a magnetic field $\vec{B}$, expanding with some velocity $\beta = |\vec{v}|/c$. 
+inside the shock front. For a mathematical description consider the scenarios
+shown in \cref{fig:fermi-acceleration}; A \SNR with a magnetic field $\vec{B}$,
+expanding with some velocity $\beta = |\vec{v}|/c$ into which a particle enters.
 Neither $\vec{B}$ nor $\beta$ are, in the general case, isotropic or constant. 
-We define $E_1 = \approx p_1c$ and $E_2 \approx p_2c$ as the energy of the 
-particle before and after traversing the shock front. Furthermore, the flow 
-direction of the shock front determines a reference system by which one can 
-describe the trajectory of the particle. With this in mind, $\theta_1$ and 
-$\theta_2$ mark the entrance and exit angles respectively. A reference of the 
-scenario is shown in \cref{fig:fermi-acceleration}.
+
+$E_1 \approx p_1c$ and $E_2 \approx p_2c$ denote the energy of the particle 
+before and after traversing the shock front. Furthermore, the flow direction of 
+the shock front determines a reference system by which one can describe the 
+trajectory of the particle. As such, $\theta_1$ and $\theta_2$ mark the entrance
+and exit angles with the shock front respectively.
 
 \begin{figure}[t]
   \centering
@@ -431,52 +432,54 @@ scenario is shown in \cref{fig:fermi-acceleration}.
   \subfloat[]{\input{figures/cosmic-rays/plane_shock_front.tex}
   \label{fig:fermi-type-i}
   }
-  \caption[]{\subref{fig:fermi-type-i}  \subref{fig:fermi-type-ii} }
+  \caption[]{\subref{fig:fermi-type-i} A particle with energy $E_1$ enters a 
+  \SNR at an angle $\theta_1$. It scatters collisionless off of irregularities
+  in the internal magnetic field and exits the \SNR at an angle $\theta_2$ with
+  energy $E_2$. \subref{fig:fermi-type-ii} A special case of 
+  \subref{fig:fermi-type-ii} where the \SNR reduces to a plane front.}
   \label{fig:fermi-acceleration}
 \end{figure}
 
 All above quantities are defined w.r.t.\ a suitable, cosmic, restframe. The 
-initial energy of the particle as observed from the shock restframe is thus
+initial energy of the particle as observed from the shock restframe becomes
 
 \begin{equation}
 E_1' = E_1\,\frac{\left( 1 + \beta\cos\theta_1 \right)}{\sqrt{1-\beta^2}}.
 \end{equation}
 
 Because the field lines are static in the shock front rest frame it is 
-$E_1' = E_2'$. Transforming back to the unprimed system, the fractional 
-energy change $\xi$ reads
+$E_1' = E_2'$. Transforming back to the unprimed system 
+($E_2=E_2'\,\left(1+\beta\cos\theta_2'\right)\,/\,\sqrt{1-\beta^2}$),
 
-\begin{align}
-E_2 &= E_2'\,\frac{\left( 1 + \beta\cos\theta_2' \right)}{\sqrt{1-\beta^2}} \\
-    &= E_1\, \frac{(1+\beta\cos\theta_1)(1+\beta\cos\theta_2')}{1-\beta^2} \\
+\begin{equation}
 \label{eq:fractional-energy-change}
-\Leftrightarrow\qquad\xi = \frac{E_2 - E_1}{E_1} &= \frac{1 
-		+ \beta\left(\cos\theta_1 + \cos\theta_2'\right) 
-		+ \beta^2 \cos\theta_1\,\cos\theta_2'}{1-\beta^2} - 1. 
-\end{align}
+\qquad\xi = \frac{E_2 - E_1}{E_1} &= \frac{1 
+	+ \beta\left(\cos\theta_1 + \cos\theta_2'\right) 
+	+ \beta^2 \cos\theta_1\,\cos\theta_2'}{1-\beta^2} - 1. 
+\end{equation}
 
-The trivial cases $\beta=0$, $\theta_1 = \theta_2'=\pi$ yield the expected 
-$\xi=0$, corresponding to a static magnetic field or no (macroscopic) 
-scattering. For all other cases, one can average over the incident and 
-reflection angle as done in e.g.\ \cite{gaisserCosmicRaysParticle2016} to
-retrieve a mean enery change $\langle\xi\rangle$. When doing so, an edge case 
-of the cloud scattering (\cref{fig:fermi-type-ii}) becomes apparent;
+The trivial cases $\beta=0$, $\theta_1 = \theta_2'=\pi$ yield a fractional 
+change in energy $\xi=0$ as expected. In the general case, one can average over 
+the incident and reflection angle as done in e.g.\ 
+\cite{gaisserCosmicRaysParticle2016} to retrieve a mean enery change 
+$\langle\xi\rangle$. When doing so, an edge case of the magnetic scattering off 
+the cloud (\cref{fig:fermi-type-ii}) becomes apparent;
 
 For a sufficiently large \SNR the scattering occurs at a shock front that is
 essentially plane (\cref{fig:fermi-type-i}). This changes the mean geometry,
 specifically
 
 \begin{equation}
-	\langle\cos\theta_1\rangle_\mathrm{cloud} = -\frac{\beta}{3},
-	\qquad\qquad 
+	\langle\cos\theta_1\rangle_\mathrm{cloud} = -\frac{\beta}{3}, 
+	\,\,\mathrm{and}\qquad\qquad 
 	\langle\cos\theta_2'\rangle_\mathrm{cloud} = 0,
 \end{equation}
 
-and
+while
 
 \begin{equation}
 	\langle\cos\theta_1\rangle_\mathrm{plane} = -\frac{2}{3},
-	\qquad\qquad 
+	\,\,\mathrm{and}\qquad\qquad 
 	\langle\cos\theta_2'\rangle_\mathrm{plane} = \frac{2}{3}.
 \end{equation}
 
@@ -488,8 +491,16 @@ The mean fractional change in energy for the two scenarios becomes thus
 	\langle\xi\rangle_\mathrm{plane} \sim \frac{4}{3}\,\beta.
 \end{equation}
 
+Since $0\leq\beta<1$, the mean fractional change in energy is strictly positive
+in either case. On average the particle gains energy from the interactions.
+Moreover, it gains more energy from the interaction with the plane front. 
+Considering the geometry in \cref{fig:fermi-type-i}, the process must be a
+(isotropic) reflection, with $\theta_1\lessgtr0$ and $\theta_2'\gtrless0$. As 
+such, the linear term in $\beta$ remains, unlike for the cloud scattering, which
+is quadratic in $\beta$.
 
-
+One interaction with the shock front can roughly double the energy of the 
+incident particle, but not more. 
 
 %\section{Cosmic Ray Propagation}
 %\label{sec:cr-propagation}
