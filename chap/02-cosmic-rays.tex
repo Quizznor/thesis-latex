@@ -362,7 +362,7 @@ following pages.
 \begin{table}
 	\begin{center}
 	\caption{Typical magnetic field size and strength for a selection of \CR 	source candidates. $E_\mathrm{max}$ is calculated as per 
-	\cref{eq:hillas-criterion} using  $q\,/\,e=1$ (Protons), and 
+	\cref{eq:hillas-criterion} using $q\,/\,e=1$ (Protons), and 
 	$v\,/\,c=0.5$.}
 	\begin{tabular*}{1.0\textwidth}{@{\extracolsep{\fill}} c|cccc}
   \toprule
@@ -373,8 +373,10 @@ following pages.
 	& $5-5000$ \cite{reynoldsMagneticFieldsSupernova2012}
 	& $\sim\SI{1}{\tera\eV}$ & \cref{ssec:supernova-remnants} \\
 	
-	Active Galactic Nuclei & & $10^{9}-10^{10}$ 
-	\cite{piotrovichDeterminationMagneticField2020} & & \cref{ssec:active-galactic-nuclei} \\
+	Active Galactic Nuclei & $5\times10^{-6}$ 
+	\cite{piotrovichDeterminationMagneticField2020} & $10^{9}-10^{10}$ 
+	\cite{piotrovichDeterminationMagneticField2020}	& 
+	$\sim\SI{1}{\zetta\eV}$ & \cref{ssec:active-galactic-nuclei} \\
   \bottomrule
 	\end{tabular*}
 	\label{tab:hillas-parameters}
@@ -552,6 +554,7 @@ Further following \cite{baloghPhysicsCollisionlessShocks2013}
 
 
 \subsection{Active Galactic Nuclei}
+\label{ssec:active-galactic-nuclei}
 
 Most (if not all) large galaxies host a \SMBH 
 \cite{kormendyInwardBoundSearch1995, kormendyCoevolutionNotSupermassive2013} at 
@@ -610,26 +613,39 @@ effectively prevented. The process continues and rotational energy of the
 magnetic field is transferred into plasma wave energy, the amplitude of the
 Langmuir waves grows.
 
-This is only stopped once the amplitude is so big that wave-driven pressure 
+This is only stopped once the amplitude is big enough that wave-driven pressure 
 differences cause the collapse of low-pressure cavities. The plasma wavelength 
-rapidly decreases because of this cave-in, and the phase velocity becomes 
+rapidly decreases because of this cave-in and the phase velocity becomes 
 sub-luminal. Suddenly, an overlap between particle speeds and the plasma phase 
 velocity enables Landau damping, and wave energy is passed onto the charge 
 carriers. For protons in particular the energy after collapse becomes
 
 \begin{equation}
+	\label{eq:langmuir-acceleration}
 	E \approx 6.4\times10^{17} \, \left( \frac{f}{10^{-3}} \right)^3
 	\, \left( \frac{10^2}{\gamma_2} \right)^5
-	\, \left( \frac{10^8\,M_\odot}{M_\mathrm{AGN}} 
-	\frac{L_\mathrm{AGN}}{10^{42}\,\unit{erg\per\second}} \right)^\frac{5}{2}
+	%\, \left( \frac{10^8\,M_\odot}{M_\mathrm{AGN}} 
+	%\frac{L_\mathrm{AGN}}{10^{42}\,\unit{erg\per\second}} \right)
+	%^\frac{5}{2}.
+	\sqrt{\left(
+		10^{34}\times
+		\frac{M_\odot}{M_\mathrm{AGN}}
+		\frac{L_\mathrm{AGN}}{\unit{erg\per\second}} 
+	\right)^5}.
 \end{equation}
 
+In \cref{eq:langmuir-acceleration} $f=\delta n/n_0$ denotes the magnitude of 
+irregularities $\delta n$ deviating from the nominal plasma density $n_0$. 
+$\gamma_2$ is the Lorentz factor of the ion plasma stream, $M_\mathrm{AGN}$ and
+$L_\mathrm{AGN}$ are the mass and luminosity of the \AGN respectively. 
+Observations of the plasma conditions in \AGNs place a realistic upper limit
+of this acceleration mechanism at 
+$\mathcal{O}(\unit{Z\eV} = \SI{1e21}{\ev})$.
+
+\subsubsection{Gamma Ray Bursts}
+\label{sssec:gamma-ray-bursts}
 
 
-
-% Blazar (viewing angle), radio galaxies, seyfert galaxies etc.
-% percentage of blazars among agns expected vs. detected -> blazars very bright
-% centrifugal acceleration
 
 %\section{Cosmic Ray Propagation}
 %\label{sec:cr-propagation}
