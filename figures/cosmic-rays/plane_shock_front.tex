@@ -54,10 +54,10 @@
 	\coordinate (E1cross) at (1.320, -0.500);
 	\coordinate (E1stop) at ($ (E1start) + (6, 2.4648) $);
 
-	\draw[>-, thick, rotate=-90] (E1) -- (E1start) node[pos=0.1, below left=4pt] {\small $E_1$};
+	\draw[>-, thick, rotate=-90] (E1) -- (E1start) node[pos=0.1, below left=4pt] {\small $E_0$};
 	%\draw[dashed] (E1start) -- (E1stop); % reference for theta_1
 	\pic [draw, -, angle radius=2cm] {angle = left--E1cross--E1start};
-	\node at ($(E1cross) - (2.4, 0.5)$) {\scriptsize $\pi-\theta_1$};
+	\node at ($(E1cross) - (2.4, 0.5)$) {\scriptsize $\pi-\theta_0$};
 
 	% Outgoing particle E2
 	\coordinate (E2) at (-5, 2.5);
@@ -65,10 +65,10 @@
 	\coordinate (E2cross) at (-0.0220, -0.5);
 	\coordinate (E2stop) at ($(E2cross) + (3.8, -2.5) $);
 
-	\draw[->, thick] (E2start) -- (E2) node[pos=0.9, above left=8pt] {\small $E_2$};
+	\draw[->, thick] (E2start) -- (E2) node[pos=0.9, above left=8pt] {\small $E_1$};
 	%\draw[dashed] (E2start) -- (E2stop); % reference for theta_2
 	\pic [draw, -, angle radius=1.4cm] {angle = E2start--E2cross--left};
-	\node at ($(E2cross) - (1.8, -0.5)$) {\scriptsize $\theta_2$};
+	\node at ($(E2cross) - (1.8, -0.5)$) {\scriptsize $\theta_1$};
 
 	% scatter path
 	\draw[thick] plot[smooth, tension=0.4] coordinates {

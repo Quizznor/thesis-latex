@@ -29,6 +29,7 @@ GZK        Greisen-Zatsepin-Kuzmin
 HEAT       High Elevation Auger Telescope
 HG         High Gain
 ICRC       International Cosmic Ray Conference
+ICS        Inverse Compton Scattering
 IS         Integrating Sphere
 ISM        Interstellar Medium
 LA         Loma Amarilla
@@ -59,6 +60,7 @@ SDE        Surface Detector Electronics
 SDP        Shower Detector Plane
 SGP        Supergalactic Plane
 SLT        Second Level Trigger
+SMBH       Supermassive Black Hole
 SN         Signal to Noise Ratio
 SNR        Supernova Remnant
 SOC        System On Chip

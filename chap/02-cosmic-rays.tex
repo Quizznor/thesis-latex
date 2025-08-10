@@ -373,7 +373,8 @@ following pages.
 	& $5-5000$ \cite{reynoldsMagneticFieldsSupernova2012}
 	& $\sim\SI{1}{\tera\eV}$ & \cref{ssec:supernova-remnants} \\
 	
-	Active Galactic Nuclei & & & & \cref{ssec:active-galactic-nuclei} \\
+	Active Galactic Nuclei & & $10^{9}-10^{10}$ 
+	\cite{piotrovichDeterminationMagneticField2020} & & \cref{ssec:active-galactic-nuclei} \\
   \bottomrule
 	\end{tabular*}
 	\label{tab:hillas-parameters}
@@ -419,10 +420,12 @@ expanding with some velocity $\beta = |\vec{v}|/c$ into which a particle enters.
 Neither $\vec{B}$ nor $\beta$ are, in the general case, isotropic or constant. 
 
 $E_0 \approx p_0c$ and $E_1 \approx p_1c$ denote the energy of the particle 
-before and after traversing the shock front. Furthermore, the flow direction of 
-the shock front determines a reference system by which one can describe the 
-trajectory of the particle. As such, $\theta_0$ and $\theta_1$ mark the entrance
-and exit angles with the shock front respectively.
+before and after traversing the shock front.\footnote{$E_0$ is not the rest mass
+of the particle, but its (relativistic) energy upon entering the mag. field.} 
+Furthermore, the flow direction of the shock front determines a reference system
+by which one can describe the trajectory of the particle. As such, $\theta_0$ 
+and $\theta_1$ mark the entrance and exit angles with the shock front 
+respectively.
 
 \begin{figure}[t]
   \centering
@@ -453,7 +456,7 @@ $E_0' = E_1'$. Transforming back to the unprimed system
 
 \begin{equation}
 \label{eq:fractional-energy-change}
-\qquad\xi = \frac{E_1 - E_0}{E_0} &= \frac{1 
+\qquad\xi = \frac{E_1 - E_0}{E_0} = \frac{1 
 	+ \beta\left(\cos\theta_0 + \cos\theta_1'\right) 
 	+ \beta^2 \cos\theta_0\,\cos\theta_1'}{1-\beta^2} - 1. 
 \end{equation}
@@ -518,33 +521,115 @@ an $n+1$th crossing. The number of particles above a given energy thus behaves
 like 
 
 \begin{equation}
-	N(\geq E) &\sim \sum\limits_{m=n}^\infty \left( 1 
+	N(\geq E) \sim \sum\limits_{m=n}^\infty \left( 1 
 	+ P_\mathrm{esc.}\right)^m 
 	= \frac{\left( 1-P_\mathrm{esc.} \right)^n}{P_\mathrm{esc.}}.
 \end{equation}
 
-The energy spectrum of particles accelerated by \SNR follows a power law with 
-spectral index $\gamma=\log\left(\frac{1}{1-P_\mathrm{esc.}}\right)\,/\,
+The source spectra of particles accelerated by \SNRs thus follow a power law 
+with spectral index $\gamma=\log\left(\frac{1}{1-P_\mathrm{esc.}}\right)\,/\,
 \log\left(1+\langle\xi\rangle\right)$. For type II acceleration, the numeric 
-value of $\gamma$ is determined by the cloud composition and extent, which 
-differ greatly across the galaxy. In any case, type II acceleration results in 
-general in a very hard spectum \cite{davisModifiedFermiMechanism1956}. For type 
-I acceleration, the spectral index can be rewritten in terms of the Mach number 
-$M=\beta c/v_\mathrm{sound}^\mathrm{ISM}$ of the shock 
+value of $\gamma$ is determined by the cloud composition and extent, and tend to
+be very soft ($\gamma\gg1$) \cite{davisModifiedFermiMechanism1956}. For type I 
+acceleration, the spectral index can be rewritten in terms of the Mach number 
+$M=\beta c/v_\mathrm{sound}^\mathrm{ISM}$ of the shock front
 \cite{gaisserCosmicRaysParticle2016}.
 
 \begin{equation}
-	\gamma \sim 1 + \frac{4}{M^2} \stackrel{M\gg1}{\scalebox{3}[1]{\approx}} 1.7
+	\label{eq:snr-spectral-index}
+	\gamma \approx 1 + \frac{4}{M^2}
 \end{equation}
 
-Since supernovae produce very fast moving shock fronts, the source spectral 
-index simplifies to a singular value, which, after accounting for diffusion, 
-matches the energy spectrum observed on earth below the knee almost perfectly 
+Assuming strong shocks ($M\gg1$), \cref{eq:snr-spectral-index} is well 
+approximated by $\gamma\approx1.7$, which, after accounting for diffusion 
+effects ($\gamma_\mathrm{Earth}\approx\gamma_\mathrm{Source}-1$), matches the 
+energy spectrum observed on earth below the knee almost perfectly 
 \cite{baloghPhysicsCollisionlessShocks2013}.
 
 \subsubsection{Injection \& Escape}
 
-Following 
+Further following \cite{baloghPhysicsCollisionlessShocks2013}
+
+
+\subsection{Active Galactic Nuclei}
+
+Most (if not all) large galaxies host a \SMBH 
+\cite{kormendyInwardBoundSearch1995, kormendyCoevolutionNotSupermassive2013} at 
+their center. Following the no-hair-theorem (Ref.\ 
+\cite{carterAxisymmetricBlackHole1971}), these \SMBHs should, assuming a similar
+cosmogenic evolution, not differ strongly. However, a subsection of galaxies 
+display a luminosity that far surpasses the median \GC luminosity observed 
+throughout the universe. Following the emission activity of the central region, 
+such a bright galaxy is called an \AGN.
+
+The object responsible for this energy discharge must be the \SMBH, as the 
+observed luminosity exceeds the Eddington limit, and cannot be explained by 
+stellar processes alone \cite{rybickiRadiativeProcessesAstrophysics2024}. 
+Instead, gravitational collapse is theorized to power the strong emission.
+Particles scatter inelastically in the accretion disk surrounding the \SMBH.
+The gravitational potential of one particle is passed onto a second particle, 
+which escapes the central region at a higher energy. Such processes can be 
+enhanced by the presence of strong magnetic fields with strengths up to 
+\SI{1}{\mega\gauss} \cite{piotrovichDeterminationMagneticField2020}.
+ 
+\subsubsection{Electromagnetic Centrifugal Acceleration}
+\label{sssec:centrifugal-acceleration}
+
+In particular, rotating magnetic field lines (caused by \SMBH rotating with an 
+angular velocity $\Omega$) forc charged particles orbiting at a distance $r$ to
+undergo centrifugal acceleration. This leads to a resonant interaction in which 
+rotational energy from the \SMBH is transferred to the particle like 
+
+\begin{equation}
+	\label{eq:centrifugal-acceleration}
+	E(r) = \frac{E_0}{1-\left(\frac{\Omega r}{c}\right)^2},
+\end{equation}
+
+as calculated in \cite{riegerParticleAccelerationRotating1999}. Clearly, 
+$\lim\limits_{\Omega r\to c} E(r) = \infty$, implying that the 
+outspiraling must be stopped at some point. In fact, gravitational friction
+above and below the accretion disks produces a strong photon packground in which
+accelerating particles lose energy via \ICS. This limits the maximum attainable
+energy of (direct) centrigfugal acceleration in \AGNs 
+to $\mathcal{O}(\unit{\exa\eV})$ 
+\cite{osmanovEfficiencyParticleAcceleration2007}.
+
+\subsubsection{Langmuir Damping \& Collapse}
+
+The plasma surrounding the \AGN can function as a catalyst for an immense 
+acceleration of cosmic rays \cite{osmanovExtremelyEfficientZevatron2014}. 
+Expanding from \cref{eq:centrifugal-acceleration}, it is evident that electrons 
+and ions undergo acceleration at different rates. This results in large-scale 
+charge separation within the plasma, and the formation of Langmuir waves. 
+
+Initially, the plasma waves have a large wavelength, and, because 
+$v_\mathrm{Phase} \propto \omega/\lambda$, a very high phase velocity 
+$v_\mathrm{Phase}>c$. Since the charge carriers cannot match this phase 
+velocity, Landau damping (Ref.\ \cite{landau61VibrationsElectronic1965}) is 
+effectively prevented. The process continues and rotational energy of the
+magnetic field is transferred into plasma wave energy, the amplitude of the
+Langmuir waves grows.
+
+This is only stopped once the amplitude is so big that wave-driven pressure 
+differences cause the collapse of low-pressure cavities. The plasma wavelength 
+rapidly decreases because of this cave-in, and the phase velocity becomes 
+sub-luminal. Suddenly, an overlap between particle speeds and the plasma phase 
+velocity enables Landau damping, and wave energy is passed onto the charge 
+carriers. For protons in particular the energy after collapse becomes
+
+\begin{equation}
+	E \approx 6.4\times10^{17} \, \left( \frac{f}{10^{-3}} \right)^3
+	\, \left( \frac{10^2}{\gamma_2} \right)^5
+	\, \left( \frac{10^8\,M_\odot}{M_\mathrm{AGN}} 
+	\frac{L_\mathrm{AGN}}{10^{42}\,\unit{erg\per\second}} \right)^\frac{5}{2}
+\end{equation}
+
+
+
+
+% Blazar (viewing angle), radio galaxies, seyfert galaxies etc.
+% percentage of blazars among agns expected vs. detected -> blazars very bright
+% centrifugal acceleration
 
 %\section{Cosmic Ray Propagation}
 %\label{sec:cr-propagation}
