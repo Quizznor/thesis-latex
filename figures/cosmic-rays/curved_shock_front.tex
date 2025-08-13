@@ -1,68 +1,110 @@
 \begin{tikzpicture}[scale=0.6]
 
 	% Dashed reference lines to show angles
-	\coordinate (left) at (-5.05, -0.5);
+	\coordinate (left) at (-6.05, -0.5);
 	\coordinate (rght) at (5.05, -0.5);
-	\draw[dashed] (left) -- (rght);
+	\draw[<-, dashed] (left) -- (rght);
+	\node at ($(left) + (0.7, 0.3)$) {\scriptsize $\beta c$};
+	
 
 	% Supernova Remnant
 	\draw[densely dotted, thick] 
-	plot[smooth, tension=0.7] 
+	plot[smooth, tension=0.8] 
 	coordinates {
-		(4.134,0.891)
-		(4.071,2.634)
-		(2.285,3.402)
-		(1.052,3.878)
-		(-0.016,3.066)
-		(-1.558,2.741)
-		(-2.596,2.731)
-		(-3.356,1.867)
-		(-3.770,0.759)
-		(-3.940,-0.056)
-		(-3.217,-2.399)
-		(-2.503,-2.231)
-		(-2.075,-3.634)
-		(-0.119,-4.770)
-		(1.043,-3.696)
-		(2.288,-3.416)
-		(3.043,-2.499)
-		(3.573,-1.799)
-		(4.134,0.891)
+		(-4.65, 0.64)
+		(-4.35, 1.66)
+		(-3.90, 2.00)
+		(-3.29, 2.52)
+		(-2.96, 3.07)
+		(-2.41, 3.36)
+		(-1.72, 3.66)
+		(-1.05, 3.77)
+		(-0.27, 3.89)
+		(0.52, 3.75)
+		(1.07, 3.76)
+		(1.74, 3.54)
+		(2.01, 3.19)
+		(2.59, 2.81)
+		(3.13, 2.45)
+		(3.66, 2.14)
+		(3.96, 1.76)
+		(4.43, 1.50)
+		(4.55, 1.14)
+		(4.68, 0.53)
+		(4.63, -0.14)
+		(4.63, -0.14)
+		(4.32, -0.47)
+		(4.19, -1.05)
+		(3.91, -1.53)
+		(3.80, -2.14)
+		(3.60, -2.83)
+		(2.98, -3.32)
+		(2.47, -3.79)
+		(1.90, -4.23)
+		(1.27, -4.57)
+		(0.52, -4.93)
+		(-0.30, -5.18)
+		(-1.04, -5.16)
+		(-1.78, -4.86)
+		(-2.45, -4.62)
+		(-2.75, -4.21)
+		(-2.98, -3.95)
+		(-3.39, -4.19)
+		(-3.79, -3.97)
+		(-4.17, -3.95)
+		(-4.36, -3.69)
+		(-4.45, -3.49)
+		(-4.47, -3.17)
+		(-4.80, -3.16)
+		(-5.27, -2.91)
+		(-5.54, -2.46)
+		(-5.71, -1.95)
+		(-5.70, -1.45)
+		(-5.53, -1.00)
+		(-5.24, -0.74)
+		(-4.79, -0.48)
+		(-4.81, -0.03)
+		(-4.89, 0.26)
+		(-4.65, 0.64)
 	}[postaction={decorate}, decoration={
 		markings,
-		mark=between positions 0.01 and 
-				       1.11 step 0.1
-		with {\arrow[yshift=-3.8pt, rotate=-90, scale=0.8]{latex};}
+		mark=between positions 0.02 and 
+				       1.02 step 0.05
+		with {\arrow[yshift=3.8pt, rotate=90, scale=0.8]{latex};}
 	}];
 
-	% Incoming particle E1
-	\coordinate (E1) at (-5, -3);
-	\coordinate (E1start) at (-1.295, -1.478);
-	\coordinate (E1cross) at (1.320, -0.500);
-	\coordinate (E1stop) at ($ (E1start) + (6, 2.4648) $);
+	% Incoming particle E0
+	\coordinate (E0) at (-4.5, -5);
+	\coordinate (E0start) at (-3, -3);
+	\coordinate (E0cross) at (-1.220, -0.500);
+	\coordinate (E0stop) at ($ (E0start) + (6, 2.4648) $);
 
-	\draw[>-, thick, rotate=-90] (E1) -- (E1start) node[pos=0.1, below left=4pt] {\small $E_0$};
-	%\draw[dashed] (E1start) -- (E1stop); % reference for theta_1
-	\pic [draw, -, angle radius=2cm] {angle = left--E1cross--E1start};
-	\node at ($(E1cross) - (2.4, 0.5)$) {\scriptsize $\pi-\theta_0$};
+	\draw[dashed] (E0start) -- (E0cross);
+	\draw[>-, thick, rotate=-90] (E0) -- (E0start) node[pos=0.1, below left=4pt] {\small $E_0$};
+	\pic [draw, -, angle radius=0.6cm] {angle = E0start--E0cross--rght};
+	\node at ($(E0cross) + (0.2, -0.4)$) {\scriptsize $\theta_0$};
 
 	% Outgoing particle E2
-	\coordinate (E2) at (-5, 2.5);
-	\coordinate (E2start) at (-1.295, 0.178);
-	\coordinate (E2cross) at (-0.0220, -0.5);
-	\coordinate (E2stop) at ($(E2cross) + (3.8, -2.5) $);
+	\coordinate (E1) at (-5, 2.5);
+	\coordinate (E1start) at (-1.295, 0.178);
+	\coordinate (E1cross) at (-0.0220, -0.5);
+	\coordinate (E1stop) at ($(E1cross) + (3.8, -2.5) $);
 
-	\draw[->, thick] (E2start) -- (E2) node[pos=0.9, above left=8pt] {\small $E_1$};
-	%\draw[dashed] (E2start) -- (E2stop); % reference for theta_2
-	\pic [draw, -, angle radius=1.4cm] {angle = E2start--E2cross--left};
-	\node at ($(E2cross) - (1.8, -0.5)$) {\scriptsize $\theta_1$};
+	\draw[dashed] (E1start) -- (E1cross);
+	\draw[->, thick] (E1start) -- (E1) node[pos=0.9, above left=8pt] {\small $E_1$};
+	\pic [draw, -, angle radius=1.4cm] {angle = E1start--E1cross--left};
+	\node at ($(E1cross) - (1.6, -0.4)$) {\scriptsize $\theta_1$};
 
 	% scatter path
 	\draw[thick] plot[smooth, tension=0.4] coordinates {
-		(E1start)
+		(E0start)
+		(-3.031, -2.6)
+		(-4.945, -1.54)
+		(-2.506, -0.71)
+		(-2.093, -2.22)
 		(-0.243,-2.015)
-		(-1.58, -2.88)
-		(1.40, -2.58)
+		(-1.58, -4.08)
+		(1.90, -2.58)
 		(0.91, -1.35)
 		(2.39, -0.57)
 		(2.10, 0.19)
@@ -70,7 +112,7 @@
 		(-0.84, 1.67)
 		(0.07, 0.85)
 		(0.22, -0.1)
-		(E2start)
+		(E1start)
 	};
 
 \end{tikzpicture}

@@ -354,35 +354,10 @@ necessarily escape.
 This so-called Hillas criterion provides an easy way of grouping accelerators 
 based on their size and field strength. It also reveals that \CR sources have
 such similar spectra precisely because they are comparable in size and field 
-strength. \todo{hillas plot} shows the classes of \CR accelerators that can be distinguished this way. \cref{tab:hillas-parameters} gives the supplementary information about the different (potential) source classes that are in part discussed on the
-following pages.
-
-\begingroup
-\renewcommand{\arraystretch}{1.2}
-\begin{table}
-	\begin{center}
-	\caption{Typical magnetic field size and strength for a selection of \CR 	source candidates. $E_\mathrm{max}$ is calculated as per 
-	\cref{eq:hillas-criterion} using $q\,/\,e=1$ (Protons), and 
-	$v\,/\,c=0.5$.}
-	\begin{tabular*}{1.0\textwidth}{@{\extracolsep{\fill}} c|cccc}
-  \toprule
-	\hline
-	& $L$ / \unit{pc} & $|\vec{B}|$ / $\unit{\upmu\gauss}$ & $E_\mathrm{max}$ & Ref. \\
-	\hline
-	Supernova Remnants & $1-200$ \cite{asvarovSizeDistributionSupernova2014}
-	& $5-5000$ \cite{reynoldsMagneticFieldsSupernova2012}
-	& $\sim\SI{1}{\tera\eV}$ & \cref{ssec:supernova-remnants} \\
-	
-	Active Galactic Nuclei & $5\times10^{-6}$ 
-	\cite{piotrovichDeterminationMagneticField2020} & $10^{9}-10^{10}$ 
-	\cite{piotrovichDeterminationMagneticField2020}	& 
-	$\sim\SI{1}{\zetta\eV}$ & \cref{ssec:active-galactic-nuclei} \\
-  \bottomrule
-	\end{tabular*}
-	\label{tab:hillas-parameters}
-	\end{center}
-\end{table}
-\endgroup
+strength. \cref{fig:hillas-plot} shows the classes of \CR accelerators that can
+be distinguished in this way. Moving on, this section focuses on the two source
+candidates that are thought to be the dominating contributors for galactic- and
+extragalactic \CRs, as well as the indirect production of uncharged \CRs.
 
 \subsection{Supernova Remnants}
 \label{ssec:supernova-remnants}
@@ -419,7 +394,7 @@ escape as a cosmic ray from interacting elastically with the magnetic fields
 inside the shock front. For a mathematical description consider the scenarios
 shown in \cref{fig:fermi-acceleration}; A \SNR with a magnetic field $\vec{B}$,
 expanding with some velocity $\beta = |\vec{v}|/c$ into which a particle enters.
-Neither $\vec{B}$ nor $\beta$ are, in the general case, isotropic or constant. 
+$\vec{B}$ nor $\beta$ are, in the general case, neither isotropic nor constant. 
 
 $E_0 \approx p_0c$ and $E_1 \approx p_1c$ denote the energy of the particle 
 before and after traversing the shock front.\footnote{$E_0$ is not the rest mass
@@ -431,17 +406,21 @@ respectively.
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\input{figures/cosmic-rays/curved_shock_front.tex}
-  \label{fig:fermi-type-ii}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{cosmic-rays/hillas_plot.png}
+  \label{fig:hillas-plot}
   }\hspace{0.2cm}
-  \subfloat[]{\input{figures/cosmic-rays/plane_shock_front.tex}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{cosmic-rays/diffusive_shock_acceleration.png}
   \label{fig:fermi-type-i}
-  }
-  \caption[]{\subref{fig:fermi-type-i} A particle with energy $E_0$ enters a 
-  \SNR at an angle $\theta_0$. It scatters collisionless off of irregularities
-  in the internal magnetic field and exits the \SNR at an angle $\theta_1$ with
-  energy $E_1$. \subref{fig:fermi-type-ii} A special case of 
-  \subref{fig:fermi-type-ii} where the \SNR reduces to a plane front.}
+  } 
+  \caption[]{\subref{fig:hillas-plot} Mean size and field strength for several \CR
+  accelerator candidates and their resulting maximum energy according to 
+  \cref{eq:hillas-criterion} for $q=e$ and $\beta=\frac{c}{2}$. The top axis gives 
+  a reference distance from Earth to some celestial objects. 
+  \subref{fig:fermi-type-i} A particle with energy $E_0$ enters a \SNR (moving on 
+  average at a velocity $\beta c$) at an angle $\theta_0$. It scatters 
+  collisionless off of irregularities in the internal magnetic field and exits the 
+  \SNR at an angle $\theta_1$ with energy $E_1$. The background image shows 
+  SN1604, from \cite{patnaudeOriginKeplersSupernova2012}.}
   \label{fig:fermi-acceleration}
 \end{figure}
 
@@ -468,7 +447,7 @@ change in energy $\xi=0$ as expected. In the general case, one can average over
 the incident and reflection angle as done in e.g.\ 
 \cite{gaisserCosmicRaysParticle2016} to retrieve a mean enery change 
 $\langle\xi\rangle$. When doing so, an edge case of the magnetic scattering off 
-the cloud (\cref{fig:fermi-type-ii}) becomes apparent;
+the cloud becomes apparent;
 
 For a sufficiently large \SNR the scattering occurs at a shock front that is
 essentially plane (\cref{fig:fermi-type-i}). This changes the mean geometry,
@@ -498,9 +477,9 @@ The mean fractional change in energy for the two scenarios becomes thus
 
 Since $0\leq\beta<1$, the mean fractional change in energy is strictly positive
 in either case. On average the particle gains energy from the interactions.
-Moreover, it gains, on average, more energy from the interaction with the plane 
-front. Considering the geometry in \cref{fig:fermi-type-i}, the process must be 
-a (isotropic) reflection, with $\cos\theta_0<0$ and $\cos\theta_1'>0$. As such, 
+Moreover, it gains more energy from the interaction with the plane front. 
+Considering the geometry in \cref{fig:fermi-type-i}, the process must be a 
+(isotropic) reflection, with $\cos\theta_0<0$ and $\cos\theta_1'>0$. As such, 
 the linear term in $\beta$ remains, unlike for the cloud scattering, for which 
 the leading term is only quadratic in $\beta$.
 
@@ -525,7 +504,8 @@ like
 \begin{equation}
 	N(\geq E) \sim \sum\limits_{m=n}^\infty \left( 1 
 	+ P_\mathrm{esc.}\right)^m 
-	= \frac{\left( 1-P_\mathrm{esc.} \right)^n}{P_\mathrm{esc.}}.
+	= \frac{\left( 1-P_\mathrm{esc.} \right)^n}{P_\mathrm{esc.}}
+	\propto \left(\frac{E}{E_0}\right)^{-\gamma}.
 \end{equation}
 
 The source spectra of particles accelerated by \SNRs thus follow a power law 
@@ -544,7 +524,7 @@ $M=\beta c/v_\mathrm{sound}^\mathrm{ISM}$ of the shock front
 
 Assuming strong shocks ($M\gg1$), \cref{eq:snr-spectral-index} is well 
 approximated by $\gamma\approx1.7$, which, after accounting for diffusion 
-effects ($\gamma_\mathrm{Earth}\approx\gamma_\mathrm{Source}-1$), matches the 
+effects ($\gamma_\mathrm{Earth}\approx\gamma_\mathrm{Source}+1$), matches the 
 energy spectrum observed on earth below the knee almost perfectly 
 \cite{baloghPhysicsCollisionlessShocks2013}.
 
@@ -552,18 +532,19 @@ energy spectrum observed on earth below the knee almost perfectly
 
 Further following \cite{baloghPhysicsCollisionlessShocks2013}
 
+After 
 
 \subsection{Active Galactic Nuclei}
 \label{ssec:active-galactic-nuclei}
 
-Most (if not all) large galaxies host a \SMBH 
-\cite{kormendyInwardBoundSearch1995, kormendyCoevolutionNotSupermassive2013} at 
-their center. Following the no-hair-theorem (Ref.\ 
-\cite{carterAxisymmetricBlackHole1971}), these \SMBHs should, assuming a similar
-cosmogenic evolution, not differ strongly. However, a subsection of galaxies 
-display a luminosity that far surpasses the median \GC luminosity observed 
-throughout the universe. Following the emission activity of the central region, 
-such a bright galaxy is called an \AGN.
+Most (if not all) large galaxies host a \SMBH at their center
+\cite{kormendyInwardBoundSearch1995, kormendyCoevolutionNotSupermassive2013}. 
+Following the no-hair-theorem (Ref.\ \cite{carterAxisymmetricBlackHole1971}), 
+these \SMBHs should, assuming a similar cosmogenic evolution, not differ 
+strongly. This does not fit to observational evidence. A subsection of 
+galaxies display a luminosity that far surpasses the median \GC luminosity 
+measured throughout the universe. Following the emission activity of the 
+central region, the central black hole is called an \AGN.
 
 The object responsible for this energy discharge must be the \SMBH, as the 
 observed luminosity exceeds the Eddington limit, and cannot be explained by 
@@ -622,11 +603,6 @@ carriers. For protons in particular the energy after collapse becomes
 
 \begin{equation}
 	\label{eq:langmuir-acceleration}
-	%E \approx 6.4\times10^{27} \, \left( \frac{f}{10^{-3}} \right)^3
-	%\, \left( \frac{10^2}{\gamma_2} \right)^5
-	%\, \left( \frac{10^8\,M_\odot}{M_\mathrm{AGN}} 
-	%\frac{L_\mathrm{AGN}}{10^{42}\,\unit{erg\per\second}} \right)
-	%^\frac{5}{2}.
 	E \approx 6.4\times10^{27}\,\, \frac{f^3}{\gamma_2^5} \,\,
 	\sqrt{\left(
 		10^{34}\times
@@ -641,12 +617,16 @@ $\gamma_2$ is the Lorentz factor of the ion plasma stream, $M_\mathrm{AGN}$ and
 $L_\mathrm{AGN}$ are the mass and luminosity of the \AGN respectively. 
 Observations of the plasma conditions in \AGNs place a realistic upper limit
 of this acceleration mechanism at 
-$\mathcal{O}(\unit{Z\eV} = \SI{1e21}{\ev})$.
+$\mathcal{O}(\unit{Z\eV} = \SI{1e21}{\eV})$.
 
-\subsubsection{Gamma Ray Bursts}
-\label{sssec:gamma-ray-bursts}
+\subsection{Indirect Production}
+\label{ssec:indirect-production}
 
-
+So far, \CR sources with strong electromagnetic fields have been discussed. 
+High-energy photons or neutrinos are observed in nature \todo{ref}, 
+but their existence cannot be explained using the presented acceleration 
+mechanisms, as neutral particles do not couple to electromagnetic fields, and
+are hence unaffected by them.
 
 %\section{Cosmic Ray Propagation}
 %\label{sec:cr-propagation}
