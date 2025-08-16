@@ -346,9 +346,9 @@ The reasoning for this, as laid out in
 \cite{hillasOriginUltraHighEnergyCosmic1984}, is simple; The test particle will 
 be accelerated while it remains in the magnetic field of the source. This leads
 to a steady increase in the energy and rigidity of the particle. With an
-increase in rigidity the Larmor radius $R_\mathrm{L} = q\,/\,E|\vec{B}|$ grows.
-\cref{eq:hillas-criterion} roughly marks the energy at which the Larmor radius 
-exceeds the size of the source magnetic field, and the test particle must 
+increase in rigidity the Larmor radius $R_\mathrm{L} = E\,/\,(qc|\vec{B}|)$
+grows. \cref{eq:hillas-criterion} roughly marks the energy at which the Larmor 
+radius exceeds the size of the source magnetic field, and the test particle must
 necessarily escape.
 
 This so-called Hillas criterion provides an easy way of grouping accelerators 
@@ -449,8 +449,7 @@ $\langle\xi\rangle$. When doing so, an edge case of the magnetic scattering off
 the cloud becomes apparent;
 
 For a sufficiently large \SNR the scattering occurs at a shock front that is
-essentially plane (\cref{fig:fermi-type-i}). This changes the mean geometry,
-specifically
+essentially plane. This changes the mean geometry, specifically
 
 \begin{equation}
 	\langle\cos\theta_0\rangle_\mathrm{cloud} = -\frac{\beta}{3}, 
@@ -475,16 +474,16 @@ The mean fractional change in energy for the two scenarios becomes thus
 \end{equation}
 
 Since $0\leq\beta<1$, the mean fractional change in energy is strictly positive
-in either case. On average the particle gains energy from the interactions.
-Moreover, it gains more energy from the interaction with the plane front. 
-Considering the geometry in \cref{fig:fermi-type-i}, the process must be a 
-(isotropic) reflection, with $\cos\theta_0<0$ and $\cos\theta_1'>0$. As such, 
+in either case. This implies that on average the particle gains energy from the 
+interactions. Moreover, it gains more energy from the interaction with the plane
+front. Considering the geometry in \cref{fig:fermi-type-i}, the process must be 
+a (isotropic) reflection, with $\cos\theta_0<0$ and $\cos\theta_1'>0$. As such, 
 the linear term in $\beta$ remains, unlike for the cloud scattering, for which 
 the leading term is only quadratic in $\beta$.
 
 The two processes are known as type I (plane) and type II (cloud) Fermi
-acceleration, after the discovery of the effect by Enrico Fermi
-\cite{fermiOriginCosmicRadiation1949} in 1949.
+acceleration, after the discovery of the effect by Enrico Fermi in 1949
+\cite{fermiOriginCosmicRadiation1949}.
 
 One interaction with the shock front can roughly double the energy of the 
 incident particle, but not more. In order to increase its energy substantially,
@@ -492,6 +491,7 @@ the particle must cross the magnetic fields many times. After $n$ crossings the
 energy of the particle reads on average 
 
 \begin{equation}
+\label{eq:energy-per-crossing}
 \langle E_n \rangle = E_0\left( 1 + \langle\xi\rangle \right)^n. 
 \end{equation}
 
@@ -510,9 +510,9 @@ like
 The source spectra of particles accelerated by \SNRs thus follow a power law 
 with spectral index $\gamma=\log\left(\frac{1}{1-P_\mathrm{esc.}}\right)\,/\,
 \log\left(1+\langle\xi\rangle\right)$. For type II acceleration, the numeric 
-value of $\gamma$ is determined by the cloud composition and extent, and tend to
-be very soft ($\gamma\gg1$) \cite{davisModifiedFermiMechanism1956}. For type I 
-acceleration, the spectral index can be rewritten in terms of the Mach number 
+value of $\gamma$ is determined by the cloud composition and extent, and tends 
+to be very soft ($\gamma\gg1$) \cite{davisModifiedFermiMechanism1956}. For type 
+I acceleration, the spectral index can be rewritten in terms of the Mach number 
 $M=\beta c/v_\mathrm{sound}^\mathrm{ISM}$ of the shock front
 \cite{gaisserCosmicRaysParticle2016}.
 
@@ -539,12 +539,53 @@ shock front and be injected into the accelerator.
 While many injection models exist (e.g.\ Ref.\ 
 \cite{galeevInjectionMechanismCosmic1989}), the precise mechanism remains
 unclear, which is referred to as the injection problem 
-\cite{baloghPhysicsCollisionlessShocks2013}.
+\cite{baloghPhysicsCollisionlessShocks2013}. In any case, data shows that a 
+reliable injection mechanism exists, and particles can and do cross the shock 
+front to enter into the acceleration cycle. The maximum energy that a given \CR 
+can attain is not constant, because $\frac{\mathrm{d}\beta}{\mathrm{dt}}<0$ and 
+$\frac{\mathrm{d}L}{\mathrm{dt}}>0$ as the \SNR ages.
 
-In any case, data shows that a reliable injection mechanism exists, and
-particles can and do cross the shock front and enter into the acceleration
-cycle. The maximum energy that a given \CR can attain from a \SNR is
-time-dependant.
+Inspecting \cref{eq:energy-per-crossing}, the energy of the \CR particle during 
+acceleration grows according to the period length of one crossing.
+
+\begin{equation}
+\label{eq:energy-budget}
+\frac{\mathrm{d}E}{\mathrm{dt}} = \frac{\langle\xi\rangle\cdot E}{T_\mathrm{Cycle}}.
+\end{equation}
+
+This duration consists of an inscattering phase (in the upstream region of the 
+shock), and an outscattering phase (downstream, after the shock). In both cases,
+the particle propagates in a quasi-random manner based on the irregularities 
+present in the \EM fields near the \SNR. Following 
+\cite{lagageMaximumEnergyCosmic1983} this implies
+
+\begin{equation}
+\label{eq:snr-cycle}
+T_\mathrm{Cycle} = \frac{4}{c^2} \left( \frac{D_\mathrm{upstream}}{\beta_\mathrm{upstream}} + \frac{D_\mathrm{downstream}}{\beta_\mathrm{downstream}} \right).
+\end{equation}
+
+During the free expansion phase of the \SNR the flow velocities remain nearly 
+constant. Thus, efficient acceleration is achieved for small diffusion 
+coefficients $D_i$. A lower limit for $D_i$ is given by the Larmor radius $R_L$,
+as the particle cannot be deflected by magnetic fields through which it moves 
+balistically \cite{lagageMaximumEnergyCosmic1983}. With 
+$D_\mathrm{min} = \frac{R_L\,c}{3}$ and again assuming a strong shock 
+($\beta_\mathrm{upstream} = 4\beta_\mathrm{downstream}$), integrating 
+\cref{eq:energy-budget} over the duration of the free expansion phase leads to
+
+\begin{equation}
+\label{eq:snr-max-energy}
+E_\mathrm{max} \leq \frac{3}{20} \int\limits_0^{T}\langle\xi\rangle q c^2 \left|\vec{B}\right| \beta_\mathrm{upstream}\, \mathrm{dE}.
+\end{equation}
+
+Interestingly, this leads to a maximum energy that only depends on the charge of
+the injected particle, not its initial energy. The higher total energy gain per 
+cycle is offset by a longer period length $T_\mathrm{Cycle} \propto E^{-1}$ of 
+each cycle.
+
+Inserting realistic parameters from observations, the maximum energy for \SNRs
+according to \cref{eq:snr-max-energy} is \SI{1}{\peta\eV}, in line with 
+predictions by the Hillas-criterion.
 
 \subsection{Active Galactic Nuclei}
 \label{ssec:active-galactic-nuclei}
@@ -676,16 +717,16 @@ with \CRs interacting with the \ISM. The invariant mass of the colliding system
 can exceed that of the \LHC ($\SI{14}{\tera\eV}$) by many orders of magnitude.  
 In the simplest case a high-energy proton interacts with ambient (stationary) 
 matter. The interaction channels with the highest branching ratio are those
-that produce light pions;
+that produce light pions.
 
 \vspace{0.5cm}
 \begin{centering}
 	
 	\begin{tikzpicture}
 		\node(initial_state){$p_\mathrm{CR} + \mathrm{gas}\,$};
-		\node(final_state1) [above right =-0.3em and 2em of initial_state]{$\,X + \pi^0 \, \longrightarrow X + \gamma\gamma\qquad\,\,\qquad$ \texttt{(A)}};
-		\node(final_state2) [right =2em of initial_state]{$\,X + \pi^+ \longrightarrow X + \mu^+ + \nu_\mu\qquad$ \texttt{(B)}};
-		\node(final_state3) [below right =-0.3em and 2em of initial_state]{$\,X + \pi^- \longrightarrow X + \mu^- + \bar{\nu}_\mu\qquad$ \texttt{(C)}};
+		\node(final_state1) [above right =-0.3em and 2em of initial_state]{$\,X + \pi^0 \, \longrightarrow X + \gamma\gamma$};
+		\node(final_state2) [right =2em of initial_state]{$\,X + \pi^+ \longrightarrow X + \mu^+ + \nu_\mu$};
+		\node(final_state3) [below right =-0.3em and 2em of initial_state]{$\,X + \pi^- \longrightarrow X + \mu^- + \bar{\nu}_\mu$};
 		\draw [->] (initial_state.east) to [out=0, in=180] (final_state1.west);
 	    	\draw [->] (initial_state.east) to [out=0, in=180] (final_state2.west);
 		\draw [->] (initial_state.east) to [out=0, in=180] (final_state3.west);
@@ -694,21 +735,16 @@ that produce light pions;
 \end{centering}
 \vspace{0.5cm}
 
-Case \texttt{(A)} has two photons in the final state that originate from the
-decay of an intermediate uncharged pion. In the rest frame of the $\pi^0$ the 
-photons are emitted back to back with an energy 
+In the first case, two photons are present in the final state that originate 
+from the decay of an intermediate uncharged pion. In the rest frame of the 
+$\pi^0$ the photons are emitted back to back with an energy 
 $\langle E'_\gamma\rangle = \frac{E_{\pi^0}}{2}$, which, after transforming back
 to an observer frame can correspond to a considerable fraction of the primary 
-energy for select final states $|X\rangle$.
+energy for select final states $|X\rangle$. \cref{fig:photon-limits} shows the 
+expected photon flux resulting from this process.
 
-The production of \UHE $\gamma$'s in this fashion occurs mostly in the galactic
-plane, where the \ISM provides a high enough number density to make an 
-interaction probable \cite{ackermannFERMILATOBSERVATIONSDIFFUSE2012}.
-\cref{fig:photon-limits} shows the expected photon flux resulting from this 
-process.
-
-In a similar fashion, case \texttt{(B)} and \texttt{(C)} have neutrinos in the
-final state whose energy behaves like 
+In a similar fashion, the production of charged pions result in neutrinos in the
+final state. Their energy behaves like 
 $\langle E_\nu\rangle=E_{\pi^\pm}-E_{\mu\pm}\approx\frac{E_{\pi^\pm}}{1000}$. 
 As before, for the right $|X\rangle$ this expression can approach the primary 
 particles energy $E_\mathrm{CR}$. Since the neutrinos are created as a secondary
@@ -724,8 +760,8 @@ models that predict cosmogenic neutrinos.
   \subfloat[]{\includegraphics[height=0.36\textwidth]{cosmic-rays/neutrino_limits.png}
   \label{fig:neutrino-limits}
   }
-  \caption[]{Expected flux of \UHE $\gamma$'s \subref{fig:photon-limits} and 
-  $\nu$'s \subref{fig:neutrino-limits}. Data for both plots from 
+  \caption[]{Expected flux of high-energy $\gamma$'s \subref{fig:photon-limits} 
+  and $\nu$'s \subref{fig:neutrino-limits}. Data from
   \cite{niechciolLatestResultsSearches2024}.}
   \label{fig:neutral-limits}
 \end{figure}
@@ -733,9 +769,7 @@ models that predict cosmogenic neutrinos.
 \subsubsection{Greisen-Zatsepin-Kuzmin Limit}
 \label{sssec:gzk-cutoff}
 
-With the density of the \ISM measuring on average only 
-\SI{1}{atom\per\meter\cubed} the mean free path of \CRs up to energies of 
-$\mathcal{O}(\unit{\exa\eV})$ is not significantly reduced by the interactions 
+The mean free path of \CRs is not significantly reduced by the interactions 
 described in \ref{sssec:deep-inelastic-scattering}. This changes drastically
 once the \GZK threshold is crossed. At an energy $>\SI{50}{\exa\eV}$ the 
 invariant mass of a proton \CR and a \CMB photon exceeds \SI{1232}{\mega\eV\per c^2}, this is enough to produce a spin-excitation of the proton.
@@ -759,12 +793,12 @@ With the \CMB number density measuring roughly \SI{400}{\per\centi\meter\cubed}
 threshold cannot freely propagate in the universe without losing a considerable
 amount of energy through this interaction. The mean free path shrinks to several
 \unit{\mega\parsec} \cite{greisenEndCosmicRaySpectrum1966}, implying that
-particles above the \GZK energy must have been produced locally.
+particles above the \GZK threshold energy must have been produced locally.
+
+\section{Cosmic Ray Propagation}
+\label{sec:cr-propagation}
 
 
-
-%\section{Cosmic Ray Propagation}
-%\label{sec:cr-propagation}
 
 %\section{Extensive Air Showers}
 %\label{sec:extensive-air-showers}
