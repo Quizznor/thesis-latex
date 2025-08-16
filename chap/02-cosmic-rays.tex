@@ -7,11 +7,11 @@
 speed of light. Their relativistic kinetic energy $pc$ far surpasses their rest 
 mass $mc^2$. In particular, \UHECRs are typically defined as \CRs with energies
 exceeding $\SI{1}{\exa\eV} = \SI{e18}{\eV}$ 
-\cite{alvesbatistaOpenQuestionsCosmicRay2019} These microscopic fragments 
-originate from some of the most dynamic processes in the universe. As such, they
-are of great interest to researchers. Not only do they hold the key to 
-understanding particle interactions at extremely high energies and small scales,
-but can also improve the understanding of the cosmos over the largest distances.
+\cite{alvesbatistaOpenQuestionsCR2019} These microscopic fragments originate 
+from some of the most dynamic processes in the universe. As such, they are of 
+great interest to researchers. Not only do they hold the key to understanding 
+particle interactions at extremely high energies and small scales, but can also 
+improve the understanding of the cosmos over the largest distances.
 
 \section{Cosmic Ray Phenomenology}
 \label{sec:cr-phenomenology}
@@ -32,8 +32,8 @@ difference in air ionization rates on the ground, at the top of the Eiffel Tower
 \cite{paciniRadiazionePenetranteAlla1912}. In 1912 Victor Hess continued this
 study by examining spontaneous ionization during ballon flights above Germany 
 and Austria \cite{hessElektrischeLeitfaehigkeitAtmosphaere1926}. With the 
-ionization rate increasing the higher the balloon flew Hess concluded that 
-energetic particles are present in the upper atmospher. His intuition proved 
+ionization rate increasing the higher the balloon flew, Hess concluded that 
+energetic particles are present in the upper atmosphere. His intuition proved 
 correct and would eventually be honored with a Nobel prize in 1936 
 \cite{nobelprizeoutreach2025NobelPrizePhysicsa}.
 
@@ -410,16 +410,15 @@ respectively.
   \label{fig:hillas-plot}
   }\hspace{0.2cm}
   \subfloat[]{\includegraphics[height=0.36\textwidth]{cosmic-rays/diffusive_shock_acceleration.png}
-  \label{fig:fermi-type-i}
-  } 
-  \caption[]{\subref{fig:hillas-plot} Mean size and field strength for several \CR
-  accelerator candidates and their resulting maximum energy according to 
-  \cref{eq:hillas-criterion} for $q=e$ and $\beta=\frac{c}{2}$. The top axis gives 
-  a reference distance from Earth to some celestial objects. 
-  \subref{fig:fermi-type-i} A particle with energy $E_0$ enters a \SNR (moving on 
-  average at a velocity $\beta c$) at an angle $\theta_0$. It scatters 
-  collisionless off of irregularities in the internal magnetic field and exits the 
-  \SNR at an angle $\theta_1$ with energy $E_1$. The background image shows 
+  \label{fig:fermi-type-i}}
+  \caption[]{\subref{fig:hillas-plot} Mean size and field strength for several 
+  \CR accelerator candidates and their resulting maximum energy according to 
+  \cref{eq:hillas-criterion} for $q=e$ and $\beta=\frac{c}{2}$. The top axis 
+  gives a reference distance from Earth to some celestial objects. 
+  \subref{fig:fermi-type-i} A particle with energy $E_0$ enters a \SNR (moving 
+  on average at a velocity $\beta c$) at an angle $\theta_0$. It scatters 
+  collisionless off of irregularities in the internal magnetic field and exits 
+  the \SNR at an angle $\theta_1$ with energy $E_1$. The background image shows 
   SN1604, from \cite{patnaudeOriginKeplersSupernova2012}.}
   \label{fig:fermi-acceleration}
 \end{figure}
@@ -530,9 +529,22 @@ energy spectrum observed on earth below the knee almost perfectly
 
 \subsubsection{Injection \& Escape}
 
-Further following \cite{baloghPhysicsCollisionlessShocks2013}
+In order for acceleration to occur the particle must enter the regime of moving
+magnetic fields, and cross into the shock front. As laid out in 
+\cite{baloghPhysicsCollisionlessShocks2013} this requires a kinetic energy that 
+surpasses the thermal motion of particles in the \ISM ahead of the shock. There
+is thus some need for a mechanism that gives them enough energy to cross the
+shock front and be injected into the accelerator.
 
-After 
+While many injection models exist (e.g.\ Ref.\ 
+\cite{galeevInjectionMechanismCosmic1989}), the precise mechanism remains
+unclear, which is referred to as the injection problem 
+\cite{baloghPhysicsCollisionlessShocks2013}.
+
+In any case, data shows that a reliable injection mechanism exists, and
+particles can and do cross the shock front and enter into the acceleration
+cycle. The maximum energy that a given \CR can attain from a \SNR is
+time-dependant.
 
 \subsection{Active Galactic Nuclei}
 \label{ssec:active-galactic-nuclei}
@@ -542,7 +554,7 @@ Most (if not all) large galaxies host a \SMBH at their center
 Following the no-hair-theorem (Ref.\ \cite{carterAxisymmetricBlackHole1971}), 
 these \SMBHs should, assuming a similar cosmogenic evolution, not differ 
 strongly. This does not fit to observational evidence. A subsection of 
-galaxies display a luminosity that far surpasses the median \GC luminosity 
+galaxies display a luminosity that far surpasses the median galactic luminosity 
 measured throughout the universe. Following the emission activity of the 
 central region, the central black hole is called an \AGN.
 
@@ -622,11 +634,134 @@ $\mathcal{O}(\unit{Z\eV} = \SI{1e21}{\eV})$.
 \subsection{Indirect Production}
 \label{ssec:indirect-production}
 
-So far, \CR sources with strong electromagnetic fields have been discussed. 
-High-energy photons or neutrinos are observed in nature \todo{ref}, 
-but their existence cannot be explained using the presented acceleration 
-mechanisms, as neutral particles do not couple to electromagnetic fields, and
-are hence unaffected by them.
+High-energy photons and neutrinos are observed in nature 
+\cite{lhaasocollaborationUltrahighenergyRayBubble2024,
+aielloObservationUltrahighenergyCosmic2025}, but their existence cannot be 
+explained using the acceleration mechanisms disussed previously. Being neutral 
+particles, photons and neutrinos do not couple to the electromagnetic fields 
+that charged \CRs rely on to gain immense energies.
+
+A straight-forward solution to this problem is given via indirect production of
+neutral \CRs. This refers to the various interaction channels by which a 
+high-energy charged \CR can transfer (part of) its' energy to a secondary, 
+uncharged \CR.
+
+
+\subsubsection{Synchrotron Emission}
+
+Whenever a charged particle changes its' trajectory, the surrounding 
+electromagnetic fields change as well. A distant observer measures a 
+retarded potential stemming from a particle moving at $\vec{v_1}$ initially, and
+$\vec{v_2}$ finally. The change in the electromagnetic fields is perceived as 
+photons whose wavelength and intensity scale with the magnitude of the 
+acceleration. This phenomenon is called Bremsstrahlung.
+
+\CR electrons, because of their low mass, are especially prone to acceleration 
+via \EM fields, both near the source, and during propagation via the \GMF. Near 
+the source in particular, the charged particles often move relativistically in a
+circular pattern (c.f.\ \cref{sssec:centrifugal-acceleration}). Under such
+circumstances the (by the electron) isotropically emitted Bremsstrahlung is 
+boosted into the direction of the electron motion. The brilliance and
+thus intensity of the light beam increases with the Lorentz factor of the 
+electron \cite{rybickiRadiativeProcessesAstrophysics2024}. This is called 
+synchrotron radiation, and is an important production mechanism for photons with
+energies up to few \unit{\kilo\eV} \cite{gaisserCosmicRaysParticle2016} around
+e.g.\ pulsars, or accreting black holes.
+
+\subsubsection{Deep inelastic scattering}
+\label{sssec:deep-inelastic-scattering}
+
+Deep inelastic scattering as studied at the \LHC also occurs readily in nature,
+with \CRs interacting with the \ISM. The invariant mass of the colliding system
+can exceed that of the \LHC ($\SI{14}{\tera\eV}$) by many orders of magnitude.  
+In the simplest case a high-energy proton interacts with ambient (stationary) 
+matter. The interaction channels with the highest branching ratio are those
+that produce light pions;
+
+\vspace{0.5cm}
+\begin{centering}
+	
+	\begin{tikzpicture}
+		\node(initial_state){$p_\mathrm{CR} + \mathrm{gas}\,$};
+		\node(final_state1) [above right =-0.3em and 2em of initial_state]{$\,X + \pi^0 \, \longrightarrow X + \gamma\gamma\qquad\,\,\qquad$ \texttt{(A)}};
+		\node(final_state2) [right =2em of initial_state]{$\,X + \pi^+ \longrightarrow X + \mu^+ + \nu_\mu\qquad$ \texttt{(B)}};
+		\node(final_state3) [below right =-0.3em and 2em of initial_state]{$\,X + \pi^- \longrightarrow X + \mu^- + \bar{\nu}_\mu\qquad$ \texttt{(C)}};
+		\draw [->] (initial_state.east) to [out=0, in=180] (final_state1.west);
+	    	\draw [->] (initial_state.east) to [out=0, in=180] (final_state2.west);
+		\draw [->] (initial_state.east) to [out=0, in=180] (final_state3.west);
+	\end{tikzpicture}
+
+\end{centering}
+\vspace{0.5cm}
+
+Case \texttt{(A)} has two photons in the final state that originate from the
+decay of an intermediate uncharged pion. In the rest frame of the $\pi^0$ the 
+photons are emitted back to back with an energy 
+$\langle E'_\gamma\rangle = \frac{E_{\pi^0}}{2}$, which, after transforming back
+to an observer frame can correspond to a considerable fraction of the primary 
+energy for select final states $|X\rangle$.
+
+The production of \UHE $\gamma$'s in this fashion occurs mostly in the galactic
+plane, where the \ISM provides a high enough number density to make an 
+interaction probable \cite{ackermannFERMILATOBSERVATIONSDIFFUSE2012}.
+\cref{fig:photon-limits} shows the expected photon flux resulting from this 
+process.
+
+In a similar fashion, case \texttt{(B)} and \texttt{(C)} have neutrinos in the
+final state whose energy behaves like 
+$\langle E_\nu\rangle=E_{\pi^\pm}-E_{\mu\pm}\approx\frac{E_{\pi^\pm}}{1000}$. 
+As before, for the right $|X\rangle$ this expression can approach the primary 
+particles energy $E_\mathrm{CR}$. Since the neutrinos are created as a secondary
+during the propagation of primary \CRs they are called cosmogenic neutrinos.
+\cref{fig:neutrino-limits} shows the expected flux of different astrophysical 
+models that predict cosmogenic neutrinos.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{cosmic-rays/photon_limits.png}
+  \label{fig:photon-limits}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{cosmic-rays/neutrino_limits.png}
+  \label{fig:neutrino-limits}
+  }
+  \caption[]{Expected flux of \UHE $\gamma$'s \subref{fig:photon-limits} and 
+  $\nu$'s \subref{fig:neutrino-limits}. Data for both plots from 
+  \cite{niechciolLatestResultsSearches2024}.}
+  \label{fig:neutral-limits}
+\end{figure}
+	
+\subsubsection{Greisen-Zatsepin-Kuzmin Limit}
+\label{sssec:gzk-cutoff}
+
+With the density of the \ISM measuring on average only 
+\SI{1}{atom\per\meter\cubed} the mean free path of \CRs up to energies of 
+$\mathcal{O}(\unit{\exa\eV})$ is not significantly reduced by the interactions 
+described in \ref{sssec:deep-inelastic-scattering}. This changes drastically
+once the \GZK threshold is crossed. At an energy $>\SI{50}{\exa\eV}$ the 
+invariant mass of a proton \CR and a \CMB photon exceeds \SI{1232}{\mega\eV\per c^2}, this is enough to produce a spin-excitation of the proton.
+
+\vspace{0.5cm}
+\begin{centering}
+	
+	\begin{tikzpicture}
+		\node(initial_state){$p_\mathrm{CR} + \gamma_\mathrm{CMB}\longrightarrow \Delta^+\,$};
+		\node(final_state1) [above right =-0.5em and 2em of initial_state]{$\,p + \pi^0$};
+		\node(final_state2) [below right =-0.5em and 2em of initial_state]{$\,n + \pi^+$};
+		\draw [->] (initial_state.east) to [out=0, in=180] (final_state1.west);
+	    	\draw [->] (initial_state.east) to [out=0, in=180] (final_state2.west);
+	\end{tikzpicture}
+
+\end{centering}
+\vspace{0.5cm}
+
+With the \CMB number density measuring roughly \SI{400}{\per\centi\meter\cubed} 
+\cite{adamPlanck2015Results2016} it is thought that \CRs exceeding the \GZK 
+threshold cannot freely propagate in the universe without losing a considerable
+amount of energy through this interaction. The mean free path shrinks to several
+\unit{\mega\parsec} \cite{greisenEndCosmicRaySpectrum1966}, implying that
+particles above the \GZK energy must have been produced locally.
+
+
 
 %\section{Cosmic Ray Propagation}
 %\label{sec:cr-propagation}

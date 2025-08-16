@@ -6,12 +6,14 @@ AMIGA      Auger Muons And Infill For The Ground Array
 CDAS       Central Data Acquisition System
 CIC        Constant Intensity Cut
 CLF        Central Laser Facility
+CMB        Cosmic Microwave Background
 CO         Coihueco
 CPU        Central Processing Unit
 CR         Cosmic Ray
 DAQ        Data Acquisition
 DSA        Diffusive Shock Acceleration
 EAS        Extensive Air Shower
+EGMF       Extragalactic Magnetic Field
 EM         Electromagnetic
 FADC       Flash Analog Digital Converter
 FBW        Full Bandwidth
@@ -24,8 +26,9 @@ FOV        Field Of View
 FPGA       Field Programmable Gate Array
 GAP        Giant Array Project
 GC         Galactic Center
+GMF        Galactic Magnetic Field
 GPS        Global Positioning System
-GZK        Greisen-Zatsepin-Kuzmin
+GZK        Greisen-Zatsepin-Kuzman
 HEAT       High Elevation Auger Telescope
 HG         High Gain
 ICRC       International Cosmic Ray Conference
@@ -37,6 +40,7 @@ LCU        LED Calibration Unit
 LDF        Lateral Distribution Function
 LED        Light Emitting Diode
 LG         Low Gain
+LHC        Large Hadron Collider
 LL         Los Leones
 LM         Los Morados
 LPMT       Large PMT
