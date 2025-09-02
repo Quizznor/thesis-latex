@@ -501,8 +501,8 @@ an $n+1$th crossing. The number of particles above a given energy thus behaves
 like 
 
 \begin{equation}
-	N(\geq E) \sim \sum\limits_{m=n}^\infty \left( 1 
-	+ P_\mathrm{esc.}\right)^m 
+	\langle N(\geq E_n)\rangle \sim \sum\limits_{m=n}^\infty 
+	\left( 1 + P_\mathrm{esc.}\right)^m 
 	= \frac{\left( 1-P_\mathrm{esc.} \right)^n}{P_\mathrm{esc.}}
 	\propto \left(\frac{E}{E_0}\right)^{-\gamma}.
 \end{equation}
@@ -656,12 +656,11 @@ carriers. For protons in particular the energy after collapse becomes
 
 \begin{equation}
 	\label{eq:langmuir-acceleration}
-	E \approx 6.4\times10^{27}\,\, \frac{f^3}{\gamma_2^5} \,\,
+	E \approx 6.4\times10^{112}\,\, \frac{f^3}{\gamma_2^5} \,\,
 	\sqrt{\left(
-		10^{34}\times
 		\frac{M_\odot}{M_\mathrm{AGN}}
 		\frac{L_\mathrm{AGN}}{\unit{erg\per\second}} 
-	\right)^5}.
+	      \right)^5}\,\mathrm{eV}.
 \end{equation}
 
 In \cref{eq:langmuir-acceleration} $f=\delta n/n_0$ denotes the magnitude of 
@@ -686,7 +685,6 @@ A straight-forward solution to this problem is given via indirect production of
 neutral \CRs. This refers to the various interaction channels by which a 
 high-energy charged \CR can transfer (part of) its' energy to a secondary, 
 uncharged \CR.
-
 
 \subsubsection{Synchrotron Emission}
 
@@ -770,7 +768,7 @@ models that predict cosmogenic neutrinos.
 \label{sssec:gzk-cutoff}
 
 The mean free path of \CRs is not significantly reduced by the interactions 
-described in \ref{sssec:deep-inelastic-scattering}. This changes drastically
+described in \cref{sssec:deep-inelastic-scattering}. This changes drastically
 once the \GZK threshold is crossed. At an energy $>\SI{50}{\exa\eV}$ the 
 invariant mass of a proton \CR and a \CMB photon exceeds \SI{1232}{\mega\eV\per c^2}, this is enough to produce a spin-excitation of the proton.
 
@@ -798,15 +796,22 @@ particles above the \GZK threshold energy must have been produced locally.
 \section{Cosmic Ray Propagation}
 \label{sec:cr-propagation}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=1.0\textwidth]{cosmic-rays/galactic_propagation_map.png}
-  \caption{asd}
-  \label{fig:galactic-propagation}
-\end{figure}
+The propagation of cosmic rays refers to their galactic and extragalactic 
+transport from a source region to Earth. This cosmic play occurs over timescales
+measuring hundreds of thousands of years. The stage through which the \CR actors 
+propagate is set up by various magnetic fields, as presented in 
+\cref{ssec:cosmic-magnetic-fields}. Different effects that can occur during the 
+transport are highlighted in \cref{ssec:galactic-transport} and 
+\cref{ssec:extragalactic-transport}.
 
 \subsection{Cosmic Magnetic Fields}
-\subsubsection{Galactic Magnetic Fields}
-\subsubsection{Extragalactic Magnetic Fields}
+\label{ssec:cosmic-magnetic-fields}
+
+\subsection{Galactic Transport}
+\label{ssec:galactic-transport}
+
+\subsection{Extragalactic Transport}
+\label{ssec:extragalactic-transport}
+
 %\section{Extensive Air Showers}
 %\label{sec:extensive-air-showers}
