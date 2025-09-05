@@ -802,8 +802,7 @@ transport from a source region to Earth. This cosmic play occurs over timescales
 measuring hundreds of thousands of years. The stage through which the \CR actors
 propagate is set up by various magnetic fields, as presented in 
 \cref{ssec:cosmic-magnetic-fields}. Different effects that can occur during the 
-transport are highlighted in \cref{ssec:galactic-transport} and 
-\cref{ssec:extragalactic-transport}.
+transport are highlighted in \cref{ssec:galactic-transport}.
 
 \subsection{Cosmic Magnetic Fields}
 \label{ssec:cosmic-magnetic-fields}
@@ -876,10 +875,11 @@ the relatively high rigidity of extragalactic \CRs (Ref.\ \cref{sssec:energy}),
 it is usually assumed that \CRs travel balistically in-between galaxies;
 Interactions with the \EGMF are neglected. 
 
-This has implications for the identification and search of extragalactic sourcesof \UHECRs, a well known example being Amaterasu
+This has implications for the identification and search of extragalactic sources
+of \UHECRs. A well known example of this is Amaterasu
 \cite{telescopearraycollaborationExtremelyEnergeticCosmic2023}, an \EAS with an 
 associated reconstructed primary energy of $E\approx\SI{240}{\exa\eV}$. 
-Conventional backtracking algorithms (neglecting the \EGMF) place the most 
+Neglecting the \EGMF, conventional backtracking algorithms place the most 
 probable origin of the primary particle in the local void 
 \cite{ungerWhereDidAmaterasu2024}, a region sparse in \UHECR sources 
 \cite{tullyNearbyGalaxiesCatalog1988}, and require transient production 
@@ -888,28 +888,61 @@ mechanisms which are not yet thoroughly understood at the highest energies
 \cite{bourricheLocalVoidComprehensive2024}\todo{change to updated version} constrains the source location to 
 a region with several candidates that can produce particles at the required
 energies. The question whether the \EGMF plays a considerable role in \CR 
-propagation is unanswered, and requires better models of the magnetic field 
-outside of galaxies.
+propagation is unanswered, and requires a better understanding of their 
+dynamics.
 
 \subsection{Galactic Transport}
 \label{ssec:galactic-transport}
 
-The transport of \CRs in the milky wat is goverened by many different processes.
+The transport of \CRs in the milky way is goverened by many different processes.
 In general, these processes are of stochastic nature. The examination of the 
 trajectory of a single \CR thus only gives an incomplete picture of the many 
 phenomena that can occur during transport. It is more instructive to consider a
-population of \CRs (of type $i$) and study how the population evolves in space
-and in time. \cref{eq:propagation-model} represents a comprehensive model for 
-its' development.
+population of \CRs (of type $i$) and study how the entire population evolves in 
+space and time. Without loss of generality, it is evident that the (diffusive) 
+magnetic transport along the turbulent component of the \GMF conserves the 
+number of particles $\mathcal{N}_i$,
 
 \begin{equation}
-\label{eq:propagation-model}
-\frac{\partial n_i(E, \vec{r}, t)}{\partial t} = 
-\underbrace{Q_i(E, \vec{r}, t)}_{\text{\cref{sssec:source-term}}}
+\label{eq:particle-conservation}
+\frac{\partial\mathcal{N}_i}{\partial t} - \nabla \cdot \bigg[\,\widetilde{D}_i(E,\vec{r}, t)\,\nabla\mathcal{N}_i\,\bigg] = 0.
 \end{equation}
 
-\subsubsection{Source term}
-\label{sssec:source-term}
+$\widetilde{D}_i(E,\vec{r}, t)$ in \cref{eq:particle-conservation} gives the 
+directionally depependent diffusion coefficients at point $\vec{r}$ and time 
+$t$ for particles of type $i$. Because the driving force powering the diffusion 
+is the Lorentz force, $\widetilde{D}$ is rigidity- and thus energy-dependent, 
+with higher energy \CRs diffusing quicker than lower energy \CRs.
+
+The diffusion only models the adiabatic transport of preexisting cosmic rays.
+Their creation can be described by adding a source term $Q_i(E, \vec{r}, t)$. 
+The instantaneous emission of \UHE photons during a \GRB can for example be 
+encoded as
+
+\begin{equation}
+\label{eq:grb-source-term}
+Q_\gamma(E, \vec{r}, t) = N_\gamma(E) \, \delta(\vec{r}-\vec{r}_\mathrm{GRB}) \, \delta(t-t_\mathrm{GRB}).
+\end{equation}
+
+During transport of particles of type $i$ the production of secondary \CRs of 
+type $j\neq i$ can occur (Ref.\ \cref{ssec:indirect-production}), the production
+rate is tied to the scattering cross section $\sigma_{ij}$ describing the 
+interaction $p_\mathrm{ISM} + \CR_i \rightarrow X + \CR_j$\footnote{For weakly 
+unstable primaries the decay can occur in vacuum as well.}, the initial \CR is 
+destroyed in the process and $\mathcal{N}_i$ decreases as a consequence.
+
+This can also happen in reverse, and \CRs of type $i$ can be produced in
+secondary interactions. In equilibrium, the population size during transport 
+remains constant, and secondary production and destruction play an equal role.
+
+\begin{equation}
+\label{eq:secondary-equilibrium}
+\underbrace{\sum\limits_{j\neq i} \sigma_{ij}(E) \, \rho_\mathrm{ISM} |\vec{v}_i|\, \mathcal{N}_i(E, \vec{r}, t) \vphantom{\Bigg[}}_\mathrm{Primary\,destruction} 
+	+ \underbrace{\vphantom{\Bigg[}}_\mathrm{Nucl. decay} 
+\end{equation}
+
+
+
 
 \begin{figure}[t]
   \centering
@@ -923,8 +956,6 @@ its' development.
   \label{fig:propagation}
 \end{figure}
 
-\subsection{Extragalactic Transport}
-\label{ssec:extragalactic-transport}
 
 %\section{Extensive Air Showers}
 %\label{sec:extensive-air-showers}
