@@ -73,6 +73,7 @@ genesis at the source, over propagation, to detection on Earth. It follows a
 brief introduction to the most important properties.
 
 \subsubsection{Energy}
+\label{sssec:energy}
 
 The energy of the \CR particle is perhaps its' most defining observable. After 
 a particle is ejected from a \CR acceleration mechanism (\todo{ref}) it begins
@@ -821,7 +822,8 @@ and a self-reinforcing process kicks off that leads to large-scale \EM fields
 with strength of several \unit{\upmu\gauss} 
 \cite{wangMagnetohydrodynamicSimulationsDisk2009, 
 kotarbaMagneticFieldStructure2009, gresselHybridDynamoModel2013}.
-\cref{fig:coherent-magnetic-field} shows the magnetic flux density 
+\cref{fig:coherent-magnetic-field} shows the magnetic flux density of the 
+coherent galactic magnetic field.
 
 \begin{figure}[t]
   \centering
@@ -836,18 +838,90 @@ kotarbaMagneticFieldStructure2009, gresselHybridDynamoModel2013}.
 	     used parameters displayed here is the \texttt{neCL} model presented
 	     in \cite{ungerCoherentMagneticField2024}. The position of the solar
      	     neighborhood is marked with a star. 
-     	     \subref{fig:flux-demagnification} . }
+     	     \subref{fig:flux-demagnification} The comparison between true
+     	     (solid points) and perceived (hollow points) arrival direction of 
+	     \CRs on earth after traversing the \GMF for a single simulation.
+	     Particle trajectories are calculated using \CRs with a rigidity of
+	     \SI{10}{\exa\volt} in \texttt{CRPropa} 
+	     \cite{batistaCRPropa32Advanced2022}, using the \texttt{JF12}-\GMF
+	     field model \cite{janssonGalacticMagneticField2012}. The shaded 
+	     region gives the distribution of true arrival directions that 
+	     arises from using different seeds for the turbulent component of 
+     	     the \GMF.}
   \label{fig:magnetic-field}
 \end{figure}
 
 \subsubsection{Turbulent Galactic Component}
 
-The turbulent component of the \GMF refers to 
+The turbulent component of the \GMF is the difference between the ordered 
+component discussed above and the total \GMF. Its' coherence length measures 
+typically $L_\mathrm{C} \leq \SI{5}{\parsec}$ 
+\cite{giacintiConstraintsPropertiesTurbulent2019}, and can be separated into 
+many individual Weissian domains that are oriented in a quasi-random manner.
+With field strenghts up to \SI{6}{\upmu\gauss} 
+\cite{hanSpatialEnergySpectrum2004} the turbulent \GMF represents a considerable
+fraction of the total galactic magnetic field, stronger than the coherent
+component in many regions. The chaotic orientation complicates \CR propagation
+to a (transient) random walk in three dimensions. 
+\cref{fig:flux-demagnification} shows the flux demagnification of \CR arrival 
+directions due to the \GMF and its' turbulent component in particular.
 
 \subsubsection{Extragalactic Component}
 
+The \EGMF influences the transport of \CRs between galaxies. Given the 
+relatively weak (estimated) strength of the \EGMF (ranging from 
+$\sim\SI{1}{\nano\gauss}$ \cite{brayUpperLimitStrength2018} to 
+$\sim\SI{1}{\upmu\gauss}$ \cite{valleeDetectingLargestMagnets1990}), as well as 
+the relatively high rigidity of extragalactic \CRs (Ref.\ \cref{sssec:energy}),
+it is usually assumed that \CRs travel balistically in-between galaxies;
+Interactions with the \EGMF are neglected. 
+
+This has implications for the identification and search of extragalactic sourcesof \UHECRs, a well known example being Amaterasu
+\cite{telescopearraycollaborationExtremelyEnergeticCosmic2023}, an \EAS with an 
+associated reconstructed primary energy of $E\approx\SI{240}{\exa\eV}$. 
+Conventional backtracking algorithms (neglecting the \EGMF) place the most 
+probable origin of the primary particle in the local void 
+\cite{ungerWhereDidAmaterasu2024}, a region sparse in \UHECR sources 
+\cite{tullyNearbyGalaxiesCatalog1988}, and require transient production 
+mechanisms which are not yet thoroughly understood at the highest energies 
+\cite{farrarBinaryNeutronStar2025}. Meanwhile, assuming a non-zero \EGMF,
+\cite{bourricheLocalVoidComprehensive2024}\todo{change to updated version} constrains the source location to 
+a region with several candidates that can produce particles at the required
+energies. The question whether the \EGMF plays a considerable role in \CR 
+propagation is unanswered, and requires better models of the magnetic field 
+outside of galaxies.
+
 \subsection{Galactic Transport}
 \label{ssec:galactic-transport}
+
+The transport of \CRs in the milky wat is goverened by many different processes.
+In general, these processes are of stochastic nature. The examination of the 
+trajectory of a single \CR thus only gives an incomplete picture of the many 
+phenomena that can occur during transport. It is more instructive to consider a
+population of \CRs (of type $i$) and study how the population evolves in space
+and in time. \cref{eq:propagation-model} represents a comprehensive model for 
+its' development.
+
+\begin{equation}
+\label{eq:propagation-model}
+\frac{\partial n_i(E, \vec{r}, t)}{\partial t} = 
+\underbrace{Q_i(E, \vec{r}, t)}_{\text{\cref{sssec:source-term}}}
+\end{equation}
+
+\subsubsection{Source term}
+\label{sssec:source-term}
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.37\textwidth]{cosmic-rays/galactic_propagation_map.png}
+  \label{fig:galactic-propagation}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.37\textwidth]{cosmic-rays/propagation_escape_comparison.png}
+  \label{fig:escape-comparison}
+  }
+  \caption[]{\subref{fig:galactic-propagation}  \subref{fig:escape-comparison} }
+  \label{fig:propagation}
+\end{figure}
 
 \subsection{Extragalactic Transport}
 \label{ssec:extragalactic-transport}
