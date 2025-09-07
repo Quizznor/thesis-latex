@@ -332,25 +332,25 @@ $W_\mathrm{L}=\vec{F}_\mathrm{L}\cdot\vec{r}\propto\vec{v}\times\vec{r} = 0$,
 the magnetic force acts purely adiabatically in the magnetostatic case. It 
 follows that the acceleration of a test particle with charge $q$ can only occur 
 if the source magnetic field lines are evolving over time. This is most easily 
-realized by rotating magnetic fields (of extent $L$ and strength $\vec{B}$, 
-rotating at a velocity $\vec{v}$), fueled e.g.\ by a dynamo effect 
+realized by rotating magnetic fields (of strength $\vec{B}$ and extent 
+$L_{\vec{B}}$, rotating at a velocity $\vec{v}$), fueled e.g.\ by a dynamo effect 
 \cite{straussDynamoEffectFusion1985}. A heuristic argument can then be made 
 about the maximum energy $E_\mathrm{max}$ that a given accelerator can transfer
 to the test particle:
 
 \begin{equation}
 \label{eq:hillas-criterion}
-\frac{|\vec{B}|}{\unit{\upmu\gauss}}\,\frac{L}{\unit{\parsec}} > 2\,\frac{E_\mathrm{max}}{\unit{\peta\eV}}\,\frac{e}{q}\,\frac{v}{c}   
+\frac{|\vec{B}|}{\unit{\upmu\gauss}}\,\frac{L_{\vec{B}}}{\unit{\parsec}} > 2\,\frac{E_\mathrm{max}}{\unit{\peta\eV}}\,\frac{e}{q}\,\frac{v}{c}   
 \end{equation}
 
 The reasoning for this, as laid out in 
-\cite{hillasOriginUltraHighEnergyCosmic1984}, is simple; The test particle will 
+\cite{hillasOriginUltraHighEnergyCosmic1984}, is simple; The test particle will
 be accelerated while it remains in the magnetic field of the source. This leads
 to a steady increase in the energy and rigidity of the particle. With an
 increase in rigidity the Larmor radius $R_\mathrm{L} = E\,/\,(qc|\vec{B}|)$
 grows. \cref{eq:hillas-criterion} roughly marks the energy at which the Larmor 
-radius exceeds the size of the source magnetic field, and the test particle must
-necessarily escape.
+radius exceeds the size of the source magnetic field, and the test particle 
+must necessarily escape.
 
 This so-called Hillas criterion provides an easy way of grouping accelerators 
 based on their size and field strength. It also reveals that \CR sources have
@@ -766,7 +766,7 @@ models that predict cosmogenic neutrinos.
 \end{figure}
 	
 \subsubsection{Greisen-Zatsepin-Kuzmin Limit}
-\label{sssec:gzk-cutoff}
+\label{sssec:gza-cutoff}
 
 The mean free path of \CRs is not significantly reduced by the interactions 
 described in \cref{sssec:deep-inelastic-scattering}. This changes drastically
@@ -916,8 +916,7 @@ with higher energy \CRs diffusing quicker than lower energy \CRs.
 
 The diffusion only models the adiabatic transport of preexisting cosmic rays.
 Their creation can be described by adding a source term $Q_i(E, \vec{r}, t)$. 
-The instantaneous emission of \UHE photons during a \GRB can for example be 
-encoded as
+For example, the prompt emission of \UHE photons during a \GRB can be encoded as
 
 \begin{equation}
 \label{eq:grb-source-term}
@@ -931,31 +930,105 @@ interaction $p_\mathrm{ISM} + \CR_i \rightarrow X + \CR_j$\footnote{For weakly
 unstable primaries the decay can occur in vacuum as well.}, the initial \CR is 
 destroyed in the process and $\mathcal{N}_i$ decreases as a consequence.
 
-This can also happen in reverse, and \CRs of type $i$ can be produced in
-secondary interactions. In equilibrium, the population size during transport 
-remains constant, and secondary production and destruction play an equal role.
+This also happens in reverse, and \CRs of type $i$ are produced in secondary 
+interactions. In equilibrium, the population size during transport remains 
+constant, implying that globally
+
+\begin{align}
+\frac{\partial \mathcal{N}_i}{\partial t} &= \int Q_i \, \mathrm{d}\vec{r} \nonumber \\
+					    &\qquad + \rho_\mathrm{ISM} \, \sum\limits_{j\neq i} \Bigg(\underbrace{\int \frac{\mathrm{d}\sigma_{ji}(E, E')}{\mathrm{d}E} |\vec{v}_j| \, \mathcal{N}_j \, \mathrm{d}E' \vphantom{\Bigg[}}_\mathrm{Secondary\,production} - \underbrace{\sigma_{ij}(E) \, |\vec{v}_i|\, \mathcal{N}_i \vphantom{\Bigg[}}_\mathrm{Primary\,destruction} \Bigg) \nonumber \\
+					    &\qquad + \sum\limits_{j\neq i} \Bigg(\underbrace{\lambda_{ji}\,\mathcal{N}_j - \lambda_{ij}\,\mathcal{N}_i \vphantom{\Bigg[}}_\mathrm{Weak\,decay}\Bigg) \nonumber \\
+					    &= 0. \label{eq:secondary-equilibrium}
+\end{align}
+
+Finally, \CRs can thermalize during transport via e.g.\ inelastic scattering
+processes. An example of this is the interactions of \UHECRs with the \CMB 
+covered in \cref{sssec:gzk-cutoff}. The energy loss models
+$\frac{\partial k_i}{\partial E} $ must be tailored for each \CR type 
+individually, as different primaries can posses different interaction channels.
+
+Combining \cref{eq:particle-conservation} through 
+(\ref{eq:secondary-equilibrium}), one arrives at a system of parabolic partial 
+differential equations that are in practice solved numerically by tools such as 
+\texttt{CRPropa} \cite{batistaCRPropa32Advanced2022} or \texttt{GALPROP}
+\todo{cite}. \cref{fig:galactic-propagation} shows the calculated trajectory of
+particles of different rigidities in the milky way, as well as their perceived
+origin.
+
+\subsection{(Nested) Leaky Box Model}
+\label{ssec:leaky-box-model}
+
+One can in principle solve the equation of state analytically for extremely
+simplified boundary conditions. In an illustrative example we neglect all 
+secondary interactions of \CRs during transport.\footnote{Meaning spallation, 
+radioactive decay, and energy losses.} Due to the oblate shape of the milky way
+it is sufficient to reduce calculations to the 1D case along the $z$-axis. The 
+parameters of interest are \todo{cite}
 
 \begin{equation}
-\label{eq:secondary-equilibrium}
-\underbrace{\sum\limits_{j\neq i} \sigma_{ij}(E) \, \rho_\mathrm{ISM} |\vec{v}_i|\, \mathcal{N}_i(E, \vec{r}, t) \vphantom{\Bigg[}}_\mathrm{Primary\,destruction} 
-	+ \underbrace{\vphantom{\Bigg[}}_\mathrm{Nucl. decay} 
+	Q(z, t) = \mathcal{N}_0 \, \delta(z)\delta(t), \qquad D_z = \frac{1}{3} \,\frac{\gamma|\vec{B}|\langle L_{\vec{B}} \rangle}{\sqrt{\mu_0\rho_\mathrm{ISM}}},
 \end{equation}
 
+and a particular solution to this initial value problem is given by
 
+\begin{equation}
+	\mathcal{N}(z, t) = \frac{\mathcal{N}_0}{\sqrt{4\pi\,D_z t}} \, e^{-z^2/(2D_z t)}.
+\end{equation}
 
+The fraction of particles escaping the galaxy after time $t$ can be found by
+integrating the \CR population along the height of the milky way. From this,
+the expected time to escape for an individual \CR is calculated as
+
+\begin{equation}
+	\langle\frac{1}{\tau_\mathrm{esc.}}\rangle = \int t \, r_\mathrm{esc}(t)\,\mathrm{d}t = \int t \, \left( 1 - \int\limits_{-H}^{H} \frac{\mathcal{N}(z, t)}{\mathcal{N}_0}\,\mathrm{d}z \right) \, \mathrm{d}t
+\end{equation}
+
+The full set of partial differential equations can be drastically simplified 
+with a related Ansatz. The diffusion term, secondary production and destruction
+are modeled stochastically via mean free path lengths and average lifetimes. 
+The equation of state in equilibrium becomes
+
+\begin{equation}
+\label{eq:leaky-box}
+\frac{\mathcal{N}_i}{\tau_\mathrm{esc.}} = Q_i - \left( \frac{|\vec{v}_i|\,\rho_\mathrm{ISM}}{\lambda_i} + \frac{1}{\gamma_i\tau_i}\right)\,\mathcal{N}_i + \sum\limits_{j\neq i} \left( \frac{|\vec{v}_j|\rho_\mathrm{ISM}}{\lambda_{ji}}  + \frac{1}{\gamma_j\tau_{ji}}\right)\,\mathcal{N}_j.
+\end{equation}
+
+This is the leaky box model \todo{cite}, and serves as a reasonable
+approximation for a steady-state solution of \CR transport. 
+\cref{fig:escape-comparison} shows the comparison between the mean escape time 
+in the leaky box model and the simulated escape time using \CR propagation 
+algorithms.
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\includegraphics[height=0.37\textwidth]{cosmic-rays/galactic_propagation_map.png}
+  \subfloat[]{\includegraphics[width=0.75\textwidth]{cosmic-rays/galactic_propagation_map.png}
   \label{fig:galactic-propagation}
   }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[height=0.37\textwidth]{cosmic-rays/propagation_escape_comparison.png}
+  \subfloat[]{\includegraphics[width=0.75\textwidth]{cosmic-rays/propagation_escape_comparison.png}
   \label{fig:escape-comparison}
   }
-  \caption[]{\subref{fig:galactic-propagation}  \subref{fig:escape-comparison} }
+  \caption[]{\subref{fig:galactic-propagation} Example trajectories of 
+	     particles with different rigidities obtained from numerical 
+	     integration using \texttt{CRPropa}. The dashed lines give the 
+	     perceived arrival direction on  Earth. 
+             \subref{fig:escape-comparison} The vertical lines give the 
+     	     expected escape time for the leaky box model (top) and (bottom) 
+	     moment of escape for individually simluated particles (see 
+	     \subref{fig:galactic-propagation}) of different rigidities. In the
+	     bottom plot $d_\mathrm{bal.}$ is the ballistic fraction of the 
+	     particle trajectory, defined as the distance from initial position
+     	     divided by the entire path length.}
   \label{fig:propagation}
 \end{figure}
 
+The model can be further refined by introducing nested boxes of high density 
+within the galaxy \todo{cite}. These model the regions around \SNRs and 
+increase the realism of the computed results.
 
-%\section{Extensive Air Showers}
-%\label{sec:extensive-air-showers}
+\section{Extensive Air Showers}
+\label{sec:extensive-air-showers}
+
+The creation and transport of \CRs has been extensively discussed in
+\cref{sec:cr-accelerators} and \cref{sec:cr-propagation} respectively. In this
+section the final stage of the life of a cosmic ray in the upper atmosphere of 
+the Earth is summarized. 
