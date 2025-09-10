@@ -383,3 +383,38 @@
 }
 
 \usepackage[capitalize]{cleveref}
+
+
+% for heitler matthews tikz plot
+\usetikzlibrary{calc}
+\usetikzlibrary{fadings}
+\usetikzlibrary{decorations}
+\usetikzlibrary{calligraphy}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{snake it/.style={decorate, decoration=snake}}
+
+\def\connect#1#2#3#4#5{%
+  % #1: starting coordinate
+  % #2: ending coordinate
+  % #3: node options
+  \path let
+    \p1 = ($#2-#1$),
+    \n1 = {veclen(\p1)},
+    \n2 = {atan2(\x1,\y1)}
+  in
+    #1 -- #2
+      node[#3, midway, sloped,
+           shading angle=\n2+90,
+           minimum width=\n1,
+           inner sep=0pt,
+           left color=#3,
+           right color=#4, #5] {};
+}
+
+\definecolor{gradA}{rgb}{0,0,0}                % black
+\colorlet{gradB}{black!66!white}               % medium gray
+\colorlet{gradC}{black!33!white}               % dark gray
+\colorlet{gradD}{black!10!white}               % dark gray
+\definecolor{gradE}{rgb}{1, 1, 1}                % white
