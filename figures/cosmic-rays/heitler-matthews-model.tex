@@ -1,7 +1,7 @@
 \begin{tikzpicture}
 
-    \draw[dashed, postaction={decorate,decoration={raise=1ex, text along path,text align=left,text={\scriptsize Space}}}] (-10.5,-2.4)+(0:0cm) arc[start angle=-160, end angle=-200, radius=7cm]; % Earth
-    \draw[dashed, thin, postaction={decorate,decoration={raise=-2.5ex, text along path,text align=right,text={\scriptsize Atmosphere}}}] (-10.5,-2.4)+(0:0cm) arc[start angle=-160, end angle=-200, radius=7cm]; % Earth
+    \draw[dashed, postaction={decorate,decoration={raise=1ex, text along path,text align=left,text={|\scriptsize|Space}}}] (-10.5,-2.4)+(0:0cm) arc[start angle=-160, end angle=-200, radius=7cm]; % Earth
+    \draw[dashed, thin, postaction={decorate,decoration={raise=-2.5ex, text along path,text align=right,text={|\scriptsize|Atmosphere}, text fontsize=40pt}}] (-10.5,-2.4)+(0:0cm) arc[start angle=-160, end angle=-200, radius=7cm]; % Earth
     % \node at (2.5, 0) {Earth};
     % \draw[dashed] (-10,1.5)+(0:0cm) arc[start angle=-200, end angle=-160, radius=5cm]; % Atmosphere
     % \node at (-11, 1.3) {Space};
@@ -69,30 +69,22 @@
                     \draw[densely dotted, thick] (-9.5 + \l*\lambdaI - \lambdaI, 0.) -- (\x,\y);
                     \draw[snake it] (\x, \y) -- (\x + 7/9*\lambdaR, \y - 0.8);  % photon 1
                     \draw (\x + 7/9*\lambdaR, \y - 0.8) -- (\x + 16/9*\lambdaR, \y - 0.6);    % electron 1
-                    \foreach\l in {0, 1} {
-                        \pgfmathsetmacro{\randyone}{-0.4 - rnd*1.4}
-                        \draw[snake it, path fading=east] (\x + 16/9*\lambdaR, \y - 0.6) -- (\x + 23/9*\lambdaR, \randyone);
-                    }
+                    \draw[snake it] (\x + 16/9*\lambdaR, \y - 0.6) -- (\x + 25/9*\lambdaR, -1.1);
+                    \draw[snake it] (\x + 16/9*\lambdaR, \y - 0.6) -- (\x + 25/9*\lambdaR, -1.3);
                     
                     
-                    \draw (\x + 7/9*\lambdaR, \y - 0.8) -- (\x + 16/9*\lambdaR, \y - 0.8);    % positron 1
-                    \foreach\l in {0, 1} {
-                        \pgfmathsetmacro{\randyone}{-0.4 - rnd*1.4}
-                        \draw[snake it, path fading=east] (\x + 16/9*\lambdaR, \y - 0.8) -- (\x + 23/9*\lambdaR, \randyone);
-                    }                 
+                    \draw (\x + 7/9*\lambdaR, \y - 0.8) -- (\x + 16/9*\lambdaR, \y - 0.8);    % positron 1          
+                    \draw[snake it] (\x + 16/9*\lambdaR, \y - 0.8) -- (\x + 25/9*\lambdaR, -1.7);
+                    \draw[snake it] (\x + 16/9*\lambdaR, \y - 0.8) -- (\x + 25/9*\lambdaR, -1.5);
                     
                     \draw[snake it] (\x, \y) -- (\x + 7/9*\lambdaR, \y);  % photon 2
                     \draw (\x + 7/9*\lambdaR, \y) -- (\x + 16/9*\lambdaR, \y + 0.2);    % electron 2
-                    \foreach\l in {0, 1} {
-                        \pgfmathsetmacro{\randyone}{-0.4 - rnd*1.4}
-                        \draw[snake it, path fading=east] (\x + 16/9*\lambdaR, \y + 0.2) -- (\x + 23/9*\lambdaR, \randyone);
-                    } 
+                    \draw[snake it] (\x + 16/9*\lambdaR, \y + 0.2) -- (\x + 25/9*\lambdaR, -0.5);
+                    \draw[snake it] (\x + 16/9*\lambdaR, \y + 0.2) -- (\x + 25/9*\lambdaR, -0.7);
                     
                     \draw (\x + 7/9*\lambdaR, \y) -- (\x + 16/9*\lambdaR, \y - 0.4);    % positron 2
-                    \foreach\l in {0, 1} {
-                        \pgfmathsetmacro{\randyone}{-0.4 - rnd*1.4}
-                        \draw[snake it, path fading=east] (\x + 16/9*\lambdaR, \y - 0.4) -- (\x + 23/9*\lambdaR, \randyone);
-                    } 
+                    \draw[snake it] (\x + 16/9*\lambdaR, \y - 0.4) -- (\x + 25/9*\lambdaR, -1.0);
+                    \draw[snake it] (\x + 16/9*\lambdaR, \y - 0.4) -- (\x + 25/9*\lambdaR, -0.85);
 
                     \pgfmathparse{\x}
                     \global\edef\emfirststep{\pgfmathresult}
@@ -101,23 +93,23 @@
                 \fi
             \else
                 \draw[densely dotted, thick, gray, path fading=south, top color=red] (-9.5+\l*\lambdaI - \lambdaI, 0.0) -- (\x,\y);
-                \foreach\q in {0,...,3} {
-                    \pgfmathsetmacro{\randywhatever}{-0.4 - rnd*1.4}
-                    \pgfmathsetmacro{\randywhateverone}{-0.4 - rnd*1.4}
-                    \pgfmathsetmacro{\randywhatevertwo}{-0.4 - rnd*1.4}
-                    \pgfmathsetmacro{\randywhateverthree}{-0.4 - rnd*1.4}
-                    \pgfmathsetmacro{\randywhateverfour}{-0.4 - rnd*1.4}
-                    \draw[gray, path fading=east, snake it] (\x, \y) -- (\x + \lambdaR, \randywhatever);
-                    \draw[gray, path fading=east] (\x + \lambdaR, \randywhatever) -- (\x + 2*\lambdaR, \randywhateverone);
-                    \draw[gray, path fading=east, snake it] (\x + 2*\lambdaR, \randywhateverone) -- (\x + 3*\lambdaR, \randywhateverthree);
+                % \foreach\q in {0,...,3} {
+                %     \pgfmathsetmacro{\randywhatever}{-0.4 - rnd*1.4}
+                %     \pgfmathsetmacro{\randywhateverone}{-0.4 - rnd*1.4}
+                %     \pgfmathsetmacro{\randywhatevertwo}{-0.4 - rnd*1.4}
+                %     \pgfmathsetmacro{\randywhateverthree}{-0.4 - rnd*1.4}
+                %     \pgfmathsetmacro{\randywhateverfour}{-0.4 - rnd*1.4}
+                %     \draw[gray, path fading=east, snake it] (\x, \y) -- (\x + \lambdaR, \randywhatever);
+                %     \draw[gray, path fading=east] (\x + \lambdaR, \randywhatever) -- (\x + 2*\lambdaR, \randywhateverone);
+                %     \draw[gray, path fading=east, snake it] (\x + 2*\lambdaR, \randywhateverone) -- (\x + 3*\lambdaR, \randywhateverthree);
 
-                    \draw[gray, path fading=east] (\x + \lambdaR, \randywhatever) -- (\x + 2*\lambdaR, \randywhatevertwo);
-                    \draw[gray, path fading=east, snake it] (\x + 2*\lambdaR, \randywhatever) -- (\x + 3*\lambdaR, \randywhateverthree);
-                    \ifnum\l<3
-                        \draw[gray, path fading=east] (\x + 3*\lambdaR, \randywhateverthree) -- (\x + 4*\lambdaR, \randywhateverfour);
-                        \draw[gray, path fading=east] (\x + 3*\lambdaR, \randywhateverthree) -- (\x + 4*\lambdaR, \randywhateverfour);
-                    \fi
-                }
+                %     \draw[gray, path fading=east] (\x + \lambdaR, \randywhatever) -- (\x + 2*\lambdaR, \randywhatevertwo);
+                %     \draw[gray, path fading=east, snake it] (\x + 2*\lambdaR, \randywhatever) -- (\x + 3*\lambdaR, \randywhateverthree);
+                %     \ifnum\l<3
+                %         \draw[gray, path fading=east] (\x + 3*\lambdaR, \randywhateverthree) -- (\x + 4*\lambdaR, \randywhateverfour);
+                %         \draw[gray, path fading=east] (\x + 3*\lambdaR, \randywhateverthree) -- (\x + 4*\lambdaR, \randywhateverfour);
+                %     \fi
+                % }
             \fi
         }
     }
@@ -128,8 +120,8 @@
     \draw[ultra thin, dashed] (\emfirststep + 16/9*\lambdaR, -0.4) -- (\emfirststep + 16/9*\lambdaR, -1.8);
     \draw[|<->|, thin] ((\emfirststep, -1.8) -- (\emfirststep + 7/9*\lambdaR, -1.8);
     \draw[|<->|, thin] ((\emfirststep + 7/9*\lambdaR, -1.8) -- (\emfirststep + 16/9*\lambdaR, -1.8);
-    \node at (\emfirststep + 0.5*7/9*\lambdaR, -2.1) {\tiny $\frac{7}{9}X_0$};
-    \node at (\emfirststep + + 11.5/9*\lambdaR, -2.1) {\tiny $X_0$};
+    \node at (\emfirststep + 0.5*7/9*\lambdaR, -2.1) {\scriptsize $\frac{7}{9}X_0$};
+    \node at (\emfirststep + + 11.5/9*\lambdaR, -2.1) {\scriptsize $X_0$};
 
     \pgfmathsetmacro{\emcounterstart}{\emfirststep + 16/9*\lambdaR};
     \foreach\p in {3,...,10} {
@@ -147,5 +139,40 @@
                 \fi
             \fi
         \fi
+    }
+
+    \pgfmathsetmacro{\x}{\emcounterstart + \lambdaR}
+    \foreach \y in {-0.5, -0.7, -0.85, -1.0, -1.1, -1.3, -1.5, -1.7} {
+        \pgfmathsetmacro{\randyone}{-0.4 - rnd*1.4}
+        \pgfmathsetmacro{\randytwo}{-0.4 - rnd*1.4}
+        \pgfmathsetmacro{\randythree}{-0.4 - rnd*1.4}
+        \pgfmathsetmacro{\yone}{\y}
+        \pgfmathsetmacro{\ytwo}{\y}
+        \pgfmathsetmacro{\ythree}{\y}
+        \pgfmathsetmacro{\xone}{\x}
+
+        \colorlet{color1}{black}
+        \foreach \q in {0,...,7} {
+            \pgfmathsetmacro{\xone}{\x + \q*\lambdaR}
+            \pgfmathsetmacro{\fractionone}{(7-\q)*100/7}
+            \pgfmathsetmacro{\fractiontwo}{(7-\q-1)*100/7}
+            \colorlet{color1}{black!\fractionone!white}
+            \colorlet{color2}{black!\fractiontwo!white}
+            \draw[color=color2, snake it] (\xone, \yone) -- (\xone + \lambdaR, \randyone);
+            % \draw[color=color] (\xone, \ythree) -- (\xone + \lambdaR, \randythree);
+            % \connect{(\xone, \y)}{(\xone + \lambdaR, \randytwo)}{color1}{color2}{minimum height=0.2pt};
+            % \connect{(\x, \ytwo)}{(\xone + \lambdaR, \randytwo)}{color1}{color2}{minimum height=0.2pt};
+            % \connect{(\xone, \yone)}{(\xone + \lambdaR, \randyone)}{color1}{color2}{minimum height=0.4pt}
+            \connect{(\xone, \ytwo)}{(\xone + \lambdaR, \randytwo)}{color1}{color2}{minimum height=0.4pt}
+
+            % \global\edef\xone{\xone + \lambdaR};
+            \global\edef\yone{\randyone};
+            \global\edef\randyone{-0.4 - rnd*1.4};
+            \global\edef\yone{\randytwo};
+            \global\edef\randytwo{-0.4 - rnd*1.4};
+            \global\edef\yone{\randythree};
+            \global\edef\randythree{-0.4 - rnd*1.4};
+            
+        }
     }
 \end{tikzpicture}
