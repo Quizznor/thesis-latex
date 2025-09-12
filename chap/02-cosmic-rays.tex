@@ -1063,7 +1063,7 @@ distributed to so many particles that they can become thermalized.
 \subsubsection{Heitler-Matthews-Model}
 \label{sssec:heitler-matthews-model}
 
-A simple but effective model to describe the developing avalanche is given by
+A simple but effective model to describe the avalanche is given by
 \cite{matthewsHeitlerModelExtensive2005}. The evolution of the \EAS can thus be
 separated into discrete steps. In the first step, the initial particle produces
 $N_\pi$ pions, with the primary energy $E_0$ being shared roughly equally among
@@ -1125,7 +1125,7 @@ relativistic muons. The shower evolution parameters proposed in
 The evolution of the shower is heavily stochastic, and shower-to-shower 
 fluctuations make every \EAS distinct. Still, there exist commonalities across
 all primaries and energies. These can be expressed through macroscopic 
-parameters, a collection of which is listed below
+parameters \cite{lipariConceptsAgeUniversality2009}, which are listed below
 
 \end{minipage}\hfill
 \begin{minipage}[t]{0.45\linewidth}
@@ -1144,7 +1144,27 @@ $E^\mathrm{crit.}_\mathrm{H}$ / $E^\mathrm{crit.}_\mathrm{EM}$ & \SI{20}{\giga\e
 \end{minipage}%
 \end{table}
 
+\begin{itemize}
+\item \textbf{The shower maximum} is the atmospheric depth at which the shower 
+measures its maximum multiplicity. It corresponds roughly to the point where
+the average energy per particle crosses the critical energy. \todo{measurements, elongation rate?} 
 
+\item \textbf{The shower age} of a cascade is a parameter that is monotonically
+increasing with the time after the first interaction. It can be understood as
+the $x$-axis in \cref{fig:heitler-matthews-cascade}. The shower age for 
+electromagnetic cascades is defined as 
+
+\begin{equation}
+\label{eq:shower-age}
+\bar{s}(X, X_\mathrm{max}) = \frac{1}{X_0} \frac{3X}{X + 2X_\mathrm{max}}.
+\end{equation}
+
+
+
+\end{itemize}
+
+\subsection{Different Primaries}
+\label{ssec:different-primaries}
 
 \subsection{Hadronic Interaction Models}
 \label{ssec:hadronic-interaction-models}
