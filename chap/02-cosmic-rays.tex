@@ -1058,7 +1058,8 @@ interaction takes place in which the primary particle is destroyed. The \UHE
 secondary particles, carrying the momentum of the impinging \CR, suffer a 
 similar fate and also interact non-elastically with surrounding air molecules. 
 A particle cascade kicks off that is only stopped once the primary energy is 
-distributed to so many particles that they can become thermalized.
+distributed to so many particles that they can become thermalized by secondary
+interactions.
 
 \subsubsection{Heitler-Matthews-Model}
 \label{sssec:heitler-matthews-model}
@@ -1068,23 +1069,20 @@ A simple but effective model to describe the avalanche is given by
 separated into discrete steps. In the first step, the initial particle produces
 $N_\pi$ pions, with the primary energy $E_0$ being shared roughly equally among
 them. Since the branching ratios for neutral and charged pions are roughly 
-equal, this amounts to $\frac{2}{3} N_\pi$ $\pi^\pm$ and $\frac{1}{3} N_\pi$ 
-$\pi^0$. 
+equal, this amounts to $\frac{2N_\pi}{3}$ charged $\pi^\pm$ and 
+$\frac{N_\pi}{3}$ uncharged $\pi^0$. 
 
 The lifetime of the uncharged pions ($\mathcal{O}(\unit{\atto\second})$ 
 \cite{nakamuraParticlePhysicsBooklet2010}) is much shorter than that of the 
 charged pions ($\mathcal{O}(\unit{\nano\second})$ 
 \cite{nakamuraParticlePhysicsBooklet2010}). In the context of the 
-Heitler-Matthews model they decay instantly into two equi-energetic photons. In
-summary, $\frac{2}{3} N_\pi$ charged pions with an energy of 
-$E_1 = \frac{E_0}{N_\pi}$ and $\frac{2}{3} N_\pi$ photons with energy 
-$\frac{E_1}{2}$ are present after the first interaction. 
+Heitler-Matthews model they decay instantly into two equi-energetic photons.
 
 Moving on, it is sensible to separate the \EAS into a hadronic and an \EM
-component. The charged pions, after traversing one nuclear interaction length 
-$\lambda_\mathrm{int}.$ produce another $N_\pi$ pions each, where the uncharged
-portion immediately decays and the charged portion fuels the hadronic cascade
-further.
+component. The charged pions, after traversing an atmospheric depth equal to 
+one nuclear interaction length $\lambda_\mathrm{int}.$ produce another $N_\pi$
+pions each, where the uncharged portion immediately decays and the charged 
+portion fuels the hadronic cascade.
 
 The photons from the $\pi^0$ decays are responsible for driving the \EM 
 component of the shower. After traversing close to one radiation length 
@@ -1120,54 +1118,59 @@ relativistic muons. The shower evolution parameters proposed in
 
 \subsubsection{Shower Observables}
 \begin{table}[h!]
-\begin{minipage}[t]{0.53\linewidth}
+\begin{minipage}[t]{0.70\linewidth}
 
-The evolution of the shower is heavily stochastic, and shower-to-shower 
-fluctuations make every \EAS distinct. Still, there exist commonalities across
-all primaries and energies. These can be expressed through macroscopic 
-parameters \cite{lipariConceptsAgeUniversality2009}, which are listed below
+The evolution of the shower is heavily stochastic. Shower-to-shower 
+fluctuations make every \EAS distinct. Still, there exist commonalities. 
+Ignoring characteristics of the primary particle (energy, inclination, and 
+type), one parameter describing the developing cascade is the shower age 
+\cite{lipariConceptsAgeUniversality2009}. It uniquely defines the angular 
+distribution of particles in the \EAS, and, for \EM showers, reads
+
+\begin{equation}
+\label{eq:shower-age}
+\bar{s}(X, \Xmax) = \frac{3X}{X + 2\Xmax}\ .
+\end{equation}
 
 \end{minipage}\hfill
-\begin{minipage}[t]{0.45\linewidth}
-\vspace{-0.3cm}
-\caption{Shower evolution and atmos. parameters proposed in 
+\begin{minipage}[t]{0.25\linewidth}
+\vspace{-0.4cm}
+\caption{Evolution parameters proposed in 
 \cite{matthewsHeitlerModelExtensive2005}.}
 \label{tab:shower-parameters}
 \begin{tabularx}{\textwidth}{cc}
 \toprule
-$N_\pi$ & 15 \\
-$\lambda_\mathrm{int.}$ / $X_0$ & \SI{120}{\gram\per\centi\meter\squared} / \SI{37}{\gram\per\centi\meter\squared} \\
-$E^\mathrm{crit.}_\mathrm{H}$ / $E^\mathrm{crit.}_\mathrm{EM}$ & \SI{20}{\giga\eV} / \SI{85}{\mega\eV} \\
+$N_\pi$ 		       & 15 \\
+$\lambda_\mathrm{int.}$        & \SI{120}{\gram\per\centi\meter\squared} \\
+$X_0$ 			       & \SI{37}{\gram\per\centi\meter\squared} \\
+$E^\mathrm{crit.}_\mathrm{H}$  & \SI{20}{\giga\eV} \\
+$E^\mathrm{crit.}_\mathrm{EM}$ & \SI{85}{\mega\eV} \\
 \bottomrule
 \end{tabularx}
 
 \end{minipage}%
 \end{table}
 
-\begin{itemize}
-\item \textbf{The shower maximum} is the atmospheric depth at which the shower 
-measures its maximum multiplicity. It corresponds roughly to the point where
-the average energy per particle crosses the critical energy. \todo{measurements, elongation rate?} 
-
-\item \textbf{The shower age} of a cascade is a parameter that is monotonically
-increasing with the time after the first interaction. It can be understood as
-the $x$-axis in \cref{fig:heitler-matthews-cascade}. The shower age for 
-electromagnetic cascades is defined as 
+$\bar{s}$ monotonically increases with the distance from the first interaction
+point. As such, it can be understood as the $x$-axis in 
+\cref{fig:heitler-matthews-cascade}. $\Xmax$ in \cref{eq:shower-age} gives the
+atmospheric depth at which the \EAS reaches its maximum multiplicity. Given
+that $N(X) = 2^{\lfloor X/X_0 \rfloor}$ and $E(X) = E_0 / N(X)$ for an \EM 
+shower, it follows that
 
 \begin{equation}
-\label{eq:shower-age}
-\bar{s}(X, X_\mathrm{max}) = \frac{1}{X_0} \frac{3X}{X + 2X_\mathrm{max}}.
+	\Xmax \sim \ln{E_0},\qquad N_\mathrm{max} \sim E_0,
 \end{equation}
 
+which holds also for hadronic primaries \todo{cite}.
 
-\end{itemize}
+\subsubsection{Hadronic Interaction Models}
+\label{sssec:hadronic-interaction-models}
+
+
 
 \subsection{Different Primaries}
 \label{ssec:different-primaries}
-
-\subsection{Hadronic Interaction Models}
-\label{ssec:hadronic-interaction-models}
-
 \subsection{Particle Signature}
 \label{ssec:particle-signature}
 \subsection{Photon Emission}
