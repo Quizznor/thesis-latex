@@ -1103,18 +1103,16 @@ visualized in \cref{fig:heitler-matthews-cascade}.
   \label{fig:heitler-matthews-cascade}
 \end{figure}
 
-The number of particles in the cascade quickly grows. After only five hadronic
-interaction lengths (corresponding to about $20\,X_0$) the number of particles
-in the shower jumps from one initially to $\sim10^6$. Energy conservation 
-requires that the energy per particle drops consequently. At a certain point, 
-this quantity drops below a critical energy ($E^\mathrm{crit.}_\mathrm{EM}$ for
-$e^\pm$, and $\upgamma$; $E^\mathrm{crit.}_\mathrm{H}$ for hadronic particles),
-where secondary interactions that do not increase the shower multiplicity 
-become important. Ionization processes become the dominant interaction channel,
-the shower freezes out, and the hadronic component decays primarily to 
-relativistic muons. The shower evolution parameters proposed in 
-\cite{matthewsHeitlerModelExtensive2005} are listed in
-\cref{tab:shower-parameters}.
+The number of particles in the cascade grows exponentially. After only five 
+hadronic interaction lengths ($\approx20\,X_0$) the number of particles
+in the shower is $\mathcal{O}(10^6)$. Energy conservation requires that the 
+energy per particle drops consequently. Eventually, the one-particle-energy 
+drops below a critical energy ($E^\mathrm{crit.}_\mathrm{EM}$ for $e^\pm$, 
+and $\upgamma$; $E^\mathrm{crit.}_\mathrm{H}$ for hadronic particles), where 
+ionization processes become the dominant interaction channel. The cascade 
+ceases multiplying, and the hadronic component decays to relativistic muons.
+The \EM component is absorbed or thermalized. The shower evolution parameters 
+modeling this are listed in \cref{tab:shower-parameters}.
 
 \subsubsection{Shower Observables}
 \begin{table}[h!]
@@ -1122,15 +1120,13 @@ relativistic muons. The shower evolution parameters proposed in
 
 The evolution of the shower is heavily stochastic. Shower-to-shower 
 fluctuations make every \EAS distinct. Still, there exist commonalities. 
-Ignoring characteristics of the primary particle (energy, inclination, and 
-type), one parameter describing the developing cascade well is the shower age 
-\cite{lipariConceptsAgeUniversality2009}. For \EM showers with a Greisen 
-profile the shower age reads \cite{rossiCosmicRayTheory1941}.
-
-\begin{equation}
-\label{eq:shower-age}
-\bar{s}(X, \Xmax) = \frac{3X}{X + 2\Xmax}\ .
-\end{equation}
+Every air shower is initiated by a single particle only, and quickly grows in
+size util the critical energy is reached. At roughly this moment the 
+multiplicity of the \EAS records its highest value. The atmospheric depth at 
+which this occurs, referred to as $\Xmax$, is similar for showers with like 
+primary particles. Given that $N(X) = 2^{\lfloor X/X_0 \rfloor}$ for the \EM 
+comonpent of the shower, and $E(X) = E_0 / N(X)$, it follows at the shower
+maximum 
 
 \end{minipage}\hfill
 \begin{minipage}[t]{0.25\linewidth}
@@ -1151,34 +1147,63 @@ $E^\mathrm{crit.}_\mathrm{EM}$ & \SI{85}{\mega\eV} \\
 \end{minipage}%
 \end{table}
 
-$\bar{s}$ monotonically increases with the distance from the first interaction
-point. As such, it can be understood as the $x$-axis in 
-\cref{fig:heitler-matthews-cascade}. $\Xmax$ in \cref{eq:shower-age} gives the
-atmospheric depth at which the \EAS reaches its maximum multiplicity. Given
-that $N(X) = 2^{\lfloor X/X_0 \rfloor}$ and $E(X) = E_0 / N(X)$ for an \EM 
-shower, it follows that
-
 \begin{equation}
-	\Xmax \propto \ln{E_0},\qquad N_\mathrm{max} \propto E_0.
+\label{eq:shower-maximum}
+N_\mathrm{max} \propto E_0, \qquad\Xmax \propto \ln{E_0}.
 \end{equation}
 
-This trend holds for hadronic primaries as well, despite shower-to-shower
-fluctuations playing a larger role \cite{gaisserCosmicRaysParticle2016}. The 
-theory of shower universality extends this likeness further
-\cite{rossiCosmicRayTheory1941}. Independent of the primary energy, 
-inclination, or particle type, all showers with the same shower age share 
-several characteristics. The angular and lateral distribution of particles in 
-the \EAS, as well as their energy composition is uniquely defined by $\bar{s}$.
+This relation is exact in the Heitler model, i.\ e.\ for electrically neutral
+particles \cite{HeitlerQuantumTheory}. Although shower-to-shower fluctuations 
+play a larger role for charged primaries, \cref{eq:shower-maximum} generalizes 
+especially for hadronic primaries as well \cite{gaisserCosmicRaysParticle2016,
+matthewsHeitlerModelExtensive2005}.
 
-What sets individual showers apart are, following universality, tiny deviations
-that get amplified during the buildup of the relativistic avalanche. Few 
-high-energy particles and their interactions shape the cascade at a higher 
-shower age.
+Moving past characteristics of the primary particle (energy, inclination, and 
+type), one parameter describing the developing cascade well is the shower age 
+\cite{rossiCosmicRayTheory1941}, 
+
+\begin{equation}
+\label{eq:shower-age}
+\bar{s}(X, \Xmax) = \frac{3X}{X + 2\Xmax}\ .
+\end{equation}
+
+Like the $x$-axis in \cref{fig:heitler-matthews-cascade}, $\bar{s}$ 
+monotonically increases with the distance from the first interaction point.
+Using this analogy, it is easy to see that energy distribution of particles is
+almost entirely characterized by $\bar{s}$.\footnote{Dependencies on $E_0$ are
+absorbed by defining the shower age in terms of $\Xmax$.} Similar connections 
+are found for the angular and lateral distribution of particles in the \EAS
+\cite{rossiCosmicRayTheory1941}, with both functions tending to broaden as the 
+shower age increases.
+
+What sets individual showers apart are, following this shower universality 
+theory, tiny deviations that get amplified during the buildup of the 
+relativistic avalanche. The exact kinematic variables of few high-energy 
+particles (which may not follow the mean kinematic variables in the shower 
+bulk) at an early stage are passed onto the shower bulk at an older shower age.
+
 
 \subsubsection{Hadronic Interaction Models}
 \label{sssec:hadronic-interaction-models}
 
-A feeling for the size of shower-to-shower fluctuations 
+A feeling for the size of shower-to-shower fluctuations can be gathered from 
+bootstrapping simulations of the same \CR primary particle interacting with the
+atmosphere. Multiple codes and frameworks exist that aim to balance the 
+physical accuracy of the reenactment versus the required computational power. A
+(non-exhaustive) list of different models is given here:
+
+\begin{itemize}
+	\item \texttt{EPOS LHC} \cite{pierogEPOSLHCTest2015}
+	\item \texttt{Sibyll} \cite{riehnHadronicInteractionModel2017}
+	\item \texttt{QGSJET-II} \cite{ostapchenkoMonteCarloTreatment2011} 
+\end{itemize}
+
+\todo{figure} compares the longitudinal profile of the same \EAS simulated with
+different hadronic interaction models and with data. 
+
+\vspace{0.5cm}
+\noindent Unless stated otherwise this work employs the \texttt{EPOS LHC} model
+for simulations.
 
 %\ref{sssec:heitler-matthews-model} gives 
 
