@@ -59,7 +59,13 @@ while read line; do
   if [ "$SHORT" = "T3" ]; then continue; fi
 
   echo -e \\\\"newcommand{"\\\\"$SHORT}{"\\\\"ac{$SHORT}\\\\xspace}" >> "$BASE/definitions.tex"
+  
+  if [ "$SHORT" = "QFT" ]; then
+	  echo -e \\\\"acrodefplural{QFT}{Quantum Field Theories}" >> "$BASE/definitions.tex"
+  fi
+
   echo -e \\\\"newcommand{"\\\\"$SHORT"s}{\\\\"acp{$SHORT}\\\\xspace}" >> "$BASE/definitions.tex"
+
 
 done < "$BASE/acronyms.source"
 echo -e "\\\end{acronym}\n" >> "$BASE/acronyms.tex"

@@ -1190,25 +1190,66 @@ A feeling for the size of shower-to-shower fluctuations can be gathered from
 bootstrapping simulations of the same \CR primary particle interacting with the
 atmosphere. Multiple codes and frameworks exist that aim to balance the 
 physical accuracy of the reenactment versus the required computational power. A
-(non-exhaustive) list of different models is given here:
+(non-exhaustive) list of different models is given here in no particular order:
 
 \begin{itemize}
-	\item \texttt{EPOS LHC} \cite{pierogEPOSLHCTest2015}
-	\item \texttt{Sibyll} \cite{riehnHadronicInteractionModel2017}
-	\item \texttt{QGSJET-II} \cite{ostapchenkoMonteCarloTreatment2011} 
+\vspace{0.1cm}
+\item \texttt{QGSJET-II} \cite{ostapchenkoMonteCarloTreatment2011} relies on 
+extrapolating predictions of \QFTs to the highest energies for phenomena such 
+as screening and multiple scattering. The models theoretical approach also has 
+drawbacks. The complex calculations result in a time intensive simulation 
+process. Moreover, the extrapolation of theoretical predictions is not perfect,
+\texttt{QGSJET-II} predicts a lower number of muons than what is observed in 
+air shower experiments.
+
+\vspace{0.1cm}
+\item \texttt{EPOS LHC} \cite{pierogEPOSLHCTest2015} (and the revised 
+\texttt{EPOS LHC R} \cite{pierogEPOSLHCRGlobalApproach2025}) aims to accurately
+model the central and forward particle production, that, while still 
+underpredicting data by $\sim\SI{30}{\percent}$, result in more realistic muon 
+yields. The model is slightly more performant than \texttt{QGSJET-II.04}
+
+\vspace{0.1cm}
+\item \texttt{Sibyll} \cite{riehnHadronicInteractionModel2017} is an efficient
+\MC based simulation framework designed with tuneability in mind. The models
+versatility makes it extremely useful in studies of the muonic component of
+\EASs.
 \end{itemize}
 
-\todo{figure} compares the longitudinal profile of the same \EAS simulated with
-different hadronic interaction models and with data. 
+\vspace{0.1cm}
+\cref{fig:eas-simulations} compares the particle count at sea level of the same
+\EAS simulated with different hadronic interaction models. 
 
 \vspace{0.5cm}
 \noindent Unless stated otherwise this work employs the \texttt{EPOS LHC} model
 for simulations.
 
-%\ref{sssec:heitler-matthews-model} gives 
-
 \subsection{Different Primaries}
 \label{ssec:different-primaries}
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{cosmic-rays/iron.png}
+  \label{fig:eas-iron}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{cosmic-rays/proton.png}
+  \label{fig:eas-proton}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{cosmic-rays/photon.png}
+  \label{fig:eas-photon}
+  }
+  \caption[]{\texttt{CORSIKA} 8 \cite{engelNextGenerationCORSIKA2018, 
+  alameddineSimulatingRadioEmission2025} simulations of an 
+  \subref{fig:eas-iron} iron, \subref{fig:eas-proton} proton, and 
+  \subref{fig:eas-photon} photon primary. The particle count at distance $r$ 
+  from the travel axis of the primary particle is compared for different 
+  primaries and different hadronic interaction models.}
+  \label{fig:eas-simulations}
+\end{figure}
+
+The Heitler-Matthews model of \EASs in \cref{ssec:cascade-model} considers a 
+proton primary as 
+
 \subsection{Particle Signature}
 \label{ssec:particle-signature}
 \subsection{Photon Emission}

@@ -46,6 +46,7 @@ LL         Los Leones
 LM         Los Morados
 LPMT       Large PMT
 LUT        Lookup Table
+MC         Monte Carlo
 MIP        Minimum Ionizing Particle
 MoPS       Multiplicity of Positive Steps
 NKG        Nishimura-Kamata-Greisen
@@ -54,6 +55,7 @@ PAO        Pierre Auger Observatory
 PCB        Printed Circuit Board
 PMT        Photomultiplier Tube
 PSF        Point Spread Function
+QFT        Quantum Field Theory
 RD         Radio Detector
 RMS        Root Mean Square
 RND        Research And Development
