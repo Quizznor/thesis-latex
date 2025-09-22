@@ -1261,7 +1261,36 @@ photon primaries from other air showers (Ref.\ \cref{sssec:photon-showers}).
 
 \subsubsection{Hadronic particles}
 
+Hadronic primaries refer to \CR particles bound by the (residual) strong force.
+The lightest hadronic primaries observed in nature are thus hydrogen ions 
+(i.e.\ protons) with an atomic number $Z=1$ for which the developing cascade 
+has been described in \cref{ssec:cascade-model}. Showers initiated by heavier 
+elements behave differently on average compared to the 1-nucleon model. 
 
+The average binding energy of nucleons is $\mathcal{O}(\unit{\mega\eV})$, and 
+much lower than the interaction energies. As such, the \CR with a mass number
+$A$ can be treated as $A$ \CRs, each with an energy $E_0/A$. The resulting \EAS
+is a superposition of all these 1-nucleon showers. From 
+\cref{eq:shower-maximum} it follows immediately that
+
+\begin{equation}
+\label{eq:superposition-model}
+\Xmax \propto \ln E_0/A.
+\end{equation}
+
+The heavier a shower primary particle, the higher up in the atmosphere the
+\EAS develops. The average multiplicity of the shower is mass dependant as
+well. Following the Heitler-Matthews model the energy, contained in the \EM
+and hadronic component after $n_\mathrm{H}$ splittings is
+
+\begin{equation}
+	\label{eq:component-energy}
+	\frac{E_\mathrm{EM}}{E_0} = 1 - \left(\frac{2}{3}\right)^{n_\mathrm{H}}, \qquad
+	\frac{E_\mathrm{had}}{E_0} = \left(\frac{2}{3}\right)^{n_\mathrm{H}}.
+\end{equation}
+
+Because of the decreased 1-nucleon energy fewer splittings are needed until 
+the critical energy is reached. This results 
 
 \subsubsection{Photon showers}
 \label{sssec:photon-showers}
