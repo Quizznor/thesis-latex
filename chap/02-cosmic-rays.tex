@@ -227,13 +227,13 @@ observed with an increase in energy
   \label{fig:dipole}
   }
   \caption[]{\subref{fig:auger-mix} The atomic composition of \CRs above 
-  $E>\SI{100}{\tera\eV}$ as observed by the Pierre Auger observatory. The 
-  average mass increases with energy. Data from 
-  \cite{mayotteMeasurementInterpretationUHECR2025}. \subref{fig:dipole} The 
-  difference in observed arrival directions of \CRs above \SI{8}{\exa\eV} from
-  an isotropic flux as measured by the Pierre Auger observatory. The plot is in
-  galactic coordinates with the \acf{GC} at the origin. The cross marks the
-  direction of the dipole. The dashed line gives the orientation of the 
+  $E>\SI{100}{\tera\eV}$ as predicted from data by the Pierre Auger 
+  observatory. The average mass increases with energy. 4-component Gaussian fit
+  from \cite{martinsEmpiricalDescriptionComposition2023}. \subref{fig:dipole} 
+  The difference in observed arrival directions of \CRs above \SI{8}{\exa\eV} 
+  from an isotropic flux as measured by the Pierre Auger observatory. The plot 
+  is in galactic coordinates with the \acf{GC} at the origin. The cross marks 
+  the direction of the dipole. The dashed line gives the orientation of the 
   \acf{SGP}. Data from 
   \cite{thepierreaugercollaborationObservationLargescaleAnisotropy2017}.}
   \label{fig:blah}
@@ -1275,30 +1275,72 @@ is a superposition of all these 1-nucleon showers. From
 
 \begin{equation}
 \label{eq:superposition-model}
-\Xmax \propto \ln E_0/A.
+\Xmax^A \propto \ln E_0/A.
 \end{equation}
 
-The heavier a shower primary particle, the higher up in the atmosphere the
-\EAS develops. Because the \EM 
-
-
-The average multiplicity of the shower is mass dependant as
-well. Following the Heitler-Matthews model the energy, contained in the \EM
-and hadronic component after $n_\mathrm{H}$ splittings is
+Thus, the heavier a shower primary particle, the higher up in the atmosphere 
+the \EAS develops, and the fewer splitting steps are needed until the shower 
+maximum is reached. Following the Heitler-Matthews model the energy fraction 
+contained in the hadronic and \EM component after $n_\mathrm{H}$ splittings is
 
 \begin{equation}
 	\label{eq:component-energy}
-	\frac{E_\mathrm{EM}}{E_0} = 1 -\left(\frac{2}{3}\right)^{n_\mathrm{H}},
-	\qquad\frac{E_\mathrm{had}}{E_0} = \left(\frac{2}{3}\right)^{n_\mathrm{H}}.
+	\frac{E_\mathrm{had}}{E_0} = \left(\frac{2}{3}\right)^{n_\mathrm{H}},
+	\qquad
+	\frac{E_\mathrm{EM}}{E_0} = 1 -\left(\frac{2}{3}\right)^{n_\mathrm{H}}.
 \end{equation}
 
-Because of the decreased 1-nucleon energy fewer splittings are needed until the
-critical energy is reached. This results 
+Combining both insights and approximating the number of particles in the shower 
+at the maximum as $N_i = E_i\,/\,E^\mathrm{crit.}_i$, it becomes evident that
+the hadronic fraction of air showers increases with $A$. This translates to 
+a higher muon content for primaries at the same energy, which can be seen in 
+\cref{fig:eas-simulations}.
 
 \subsubsection{Photon showers}
 \label{sssec:photon-showers}
 
-%\subsection{Particle Signature}
+This picture reverses for photon primaries. Almost no hadrons and muons are 
+present in the resulting air showers (Ref.\ \cref{fig:eas-photon}). However,
+conclusions on the nature of the primary particle based on an observed muon
+count are often flawed. 
+
+Low energy, light hadrons can have very low muon counts due to 
+shower-to-shower fluctuations. This makes them appear very similar to 
+photon-initiated \EASs. \cref{fig:muon-content} shows the distribution of 
+simulated muon densities for proton and photon showers at different sampling 
+points. While a clear difference between the distributions can be seen for the 
+two primaries, the aforementioned reasons make a discrimination on the basis 
+of a single observation very challenging. 
+
+The discrimination of photons and hadrons is thus usually done in a 
+probabilistic context. Instead of a single observation, the muon \LDF must be
+sampled at many distances from the primary axis for a given air shower event,
+and many air shower events must be analyzed for a complete picture
+\cite{gonzalezSearchesPrimaryPhotons2025}. 
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{cosmic-rays/protons_muon.png}
+  \label{fig:muon-content-proton}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{cosmic-rays/photon_muons.png}
+  \label{fig:muon-content-photon}
+  }
+  \caption[]{The reconstructed density of muons for simulated air showers 
+  of different energies for \subref{fig:muon-content-proton} protons, and 
+  \subref{fig:muon-content-photon} photons. Muons occur far less frequently 
+  for photonic showers, and are usually concentrated more closely to the 
+  shower axis.}
+  \label{fig:muon-content}
+\end{figure}
+
+\todo{redo plots with more data}
+
+\halflift
+\subsection{Particle Signature}
+
+
+
 %\label{ssec:particle-signature}
 %\subsection{Photon Emission}
 %\subsection{Radio Signal}
