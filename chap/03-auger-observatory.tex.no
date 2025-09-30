@@ -1567,49 +1567,10 @@ shower axis.
 \label{sssec:reconstruction-ldf-finder}
 
 An important step towards an \SD energy estimate is the parametrization of the
-\LDF. It characterizes the expected total signal, $\Qvem$ for a station in 
-terms of the \SPD. A well-suited parametrization is given by the modified \NKG 
-Equation (\ref{eq:NKG}) \cite{kamataLateralAngularStructure1958, 
-greisenCosmicRayShowers1960}.
-
-\begin{equation}
-\label{eq:NKG}
-S(r) = S(1000)\,\left( \frac{r}{r_\mathrm{ref.}}  \right)^\beta\,\left( \frac{r + r_s}{r_\mathrm{ref.} + r_s}  \right)^{\beta + \gamma}
-\end{equation}
-
-In \cref{eq:NKG}, $r_\mathrm{s}=\SI{1000}{\meter}$ gives the reference length 
-of the SD-1500 (different reference lengths are defined for the SD-750, and the
-SD-433, respectively). $\beta$ and $\gamma$ are the shape parameters of the 
-\LDF, and determine the \LDF form. They are, in general, determined by the 
-zenith angle and the shower age.\footnote{which can be thought of as the 
-distance of the shower core to the primary interaction point.} A closed 
-form for the exact dependence is difficult to establish, given the fact that 
-\EAS processes are highly stochastic in nature. It holds however that both an 
-increase in the \EAS inclination, as well as the shower age cause for a less 
-compact shower. The impact on the \LDF form that the choice of $\beta$ and 
-$\gamma$ has is visualized in \cref{fig:ldf}. Real showers have \LDF forms that
-are monotonically decreasing, or, in other words, have $2\,\beta + \gamma < 0$.
-$S(1000)$, also called the shower size, is the value of the \LDF at 
-$r=\SI{1000}{\meter}$, and independent of the shower shape. 
-
-\begin{figure}[t]
- \centering
- \subfloat[]{\includegraphics[height=0.37\textwidth]{auger-observatory/ldf_beta.png}
- \label{fig:ldf-beta}
- }\hspace{0.2cm}
- \subfloat[]{\includegraphics[height=0.37\textwidth]{auger-observatory/ldf_gamma.png}
- \label{fig:ldf-gamma}
- }
- \caption[]{The influence of the two shape parameters on the \LDF form. The 
- impact of $\beta$ is highlighted in \subref{fig:ldf-beta} with $\gamma$ fixed 
- and $\beta$ varying, and the impact of $\gamma$ is shown in 
-\subref{fig:ldf-gamma} similarly. Both plots have the same normalization on the
-y-axis, highlighting the dominance of $\beta$ over $\gamma$ in determining the
-\LDF shape. The value and location of $S(1000)$ is marked by dash-dotted
-lines. In \subref{fig:ldf-gamma} the \LDFs generated with $\gamma>1$ are 
-unphysical.}
- \label{fig:ldf}
-\end{figure}
+\LDF (Ref.\ \cref{sssec:particle-footprint}). It characterizes the expected 
+total signal, $\Qvem$ for a station in terms of the \SPD. Real showers have 
+\LDF forms that are monotonically decreasing, or, in other words, have 
+$2\,\beta + \gamma < 0$.
 
 The \LDF is estimated during event reconstruction by optimizing the parameters
 $S(1000)$, $\beta$, and $\gamma$ by performing a \NLL optimization to fit 

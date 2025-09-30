@@ -1278,10 +1278,10 @@ is a superposition of all these 1-nucleon showers. From
 \Xmax^A \propto \ln E_0/A.
 \end{equation}
 
-Thus, the heavier a shower primary particle, the fewer splitting steps are 
-needed until the shower maximum is reached. Following the Heitler-Matthews 
-model, the energy fraction contained in the hadronic and \EM component after 
-$n_\mathrm{H}$ splittings is
+Thus, the heavier a shower primary particle, the higher up in the atmosphere 
+the \EAS develops, and the fewer splitting steps are needed until the shower 
+maximum is reached. Following the Heitler-Matthews model the energy fraction 
+contained in the hadronic and \EM component after $n_\mathrm{H}$ splittings is
 
 \begin{equation}
 	\label{eq:component-energy}
@@ -1290,15 +1290,11 @@ $n_\mathrm{H}$ splittings is
 	\frac{E_\mathrm{EM}}{E_0} = 1 -\left(\frac{2}{3}\right)^{n_\mathrm{H}}.
 \end{equation}
 
-Combining both insights and approximating the number of particles in the shower
+Combining both insights and approximating the number of particles in the shower 
 at the maximum as $N_i = E_i\,/\,E^\mathrm{crit.}_i$, it becomes evident that
 the hadronic fraction of air showers increases with $A$. This translates to 
-a higher muon content for primaries at the same energy, which can be seen by
-comparing \cref{fig:eas-iron} and \cref{fig:eas-proton}. This phenomenon is 
-further enhanced in indirect measurements by the fact that heavier showers 
-develop higher in the atmosphere (Ref.\ \cref{eq:superposition-model}), where 
-the \EM component is further attenuated before reaching the detector.
-
+a higher muon content for primaries at the same energy, which can be seen in 
+\cref{fig:eas-simulations}.
 
 \subsubsection{Photon showers}
 \label{sssec:photon-showers}
@@ -1306,45 +1302,86 @@ the \EM component is further attenuated before reaching the detector.
 This picture reverses for photon primaries. Almost no hadrons and muons are 
 present in the resulting air showers (Ref.\ \cref{fig:eas-photon}). However,
 conclusions on the nature of the primary particle based on an observed muon
-count are incomplete. 
+count are often flawed. 
 
-Low energy, light hadrons can have very low muon counts, in part due to 
+Low energy, light hadrons can have very low muon counts due to 
 shower-to-shower fluctuations. This makes them appear very similar to 
-photon-initiated \EASs. \cref{fig:muon-content} shows the distribution of 
+photon-initiated \EASs. \cref{fig:muon-ldf} shows the distribution of 
 simulated muon densities for proton and photon showers at different sampling 
 points. While a clear difference between the distributions can be seen for the 
 two primaries, the aforementioned reasons make a discrimination on the basis 
 of a single observation very challenging. 
 
 The discrimination of photons and hadrons is thus usually done in a 
-probabilistic context. Instead of a single observation, the muon counts must be
-sampled at many distances from the primary axis for a given air shower event,
-and many air shower events must be analyzed for a complete picture
+probabilistic context. Instead of a single observation, the muon content must
+be sampled at many distances from the primary axis for a given air shower 
+event, and many air shower events must be analyzed for a complete picture
 \cite{gonzalezSearchesPrimaryPhotons2025}. 
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\includegraphics[height=0.34\textwidth]{cosmic-rays/protons_muon.png}
-  \label{fig:muon-content-proton}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{cosmic-rays/muon_ldf.png}
+  \label{fig:muon-ldf}
   }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[height=0.34\textwidth]{cosmic-rays/photon_muons.png}
-  \label{fig:muon-content-photon}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{cosmic-rays/ldf_beta.png}
+  \label{fig:beta-ldf}
   }
-  \caption[]{The reconstructed density of muons for simulated air showers 
-  of different energies for \subref{fig:muon-content-proton} protons, and 
-  \subref{fig:muon-content-photon} photons. Muons occur far less frequently 
-  for photonic showers, and are usually concentrated more closely to the 
-  shower axis.}
-  \label{fig:muon-content}
+  \caption[]{\subref{fig:muon-ldf} The reconstructed density of 
+  muons for simulated air showers of different energies for protons 
+  (\textit{top}), and photons (\textit{bottom}). Muons appear far less 
+  frequently for \EM showers, and are usually concentrated more closely to the 
+  shower axis. \subref{fig:beta-ldf} The influence of the $\beta$ shape 
+  parameters on the \acs{LDF} form. The value of the \acs{LDF} at the reference
+  length $r_\mathrm{ref.} = \SI{1000}{\meter}$ is marked with dash-dotted 
+  lines.}
+  \label{fig:muon-ldf}
 \end{figure}
 
 \todo{redo plots with more data}
 
-\halflift
 \subsection{Detection channels}
 
+After detailing the creation (Ref.\ \cref{sec:cr-accelerators}) and transport
+(Ref.\ \cref{sec:cr-propagation}), the final pages in this chapter are 
+dedicated to listing the methods by which modern \CR detect cosmic rays. With 
+this work in particular focusing on \CRs with energies surpassing 
+\SI{100}{\peta\eV}, the focus lies on the indirect detection via observations
+of \EASs.
 
-%\label{ssec:particle-signature}
-%\subsection{Photon Emission}
-%\subsection{Radio Signal}
+\subsubsection{Particle Footprint}
+\label{sssec:particle-footprint}
 
+The shower maximum of \EASs with energies above $\sim\SI{100}{\tera\eV}$ occurs
+sufficiently deep in the atmosphere such that secondary particles reach the
+ground before thermalizing \cite{schoorlemmerCharacteristicsExtensiveAir2019}. 
+\cref{fig:eas-simulations} in particular shows the distribution of muons for 
+air showers of many different energies simulated at a height of 
+\SI{1400}{\meter} above sea level.
+
+Like many air shower characteristics it is impossible to describe the 
+distribution of particles exactly. Instead, empirical or theoretical models can
+be employed to approximate the number of particles (of a certain type) that are
+expected for a given air shower event. These models are called \LDFs. One well
+known parametrization for the muon \LDF is given by the \NKG equation
+\cite{kamataLateralAngularStructure1958, greisenCosmicRayShowers1960}
+
+\begin{equation}
+\label{eq:NKG}
+S(r) = S(r_\mathrm{ref.})\,\left( \frac{r}{r_\mathrm{ref.}}  \right)^\beta\,\left( \frac{r + r_s}{r_\mathrm{ref.} + r_s}  \right)^{\beta + \gamma}.
+\end{equation}
+
+In \cref{eq:NKG}, $r_\mathrm{ref.}$ gives a constant reference length, 
+typically defined by detector characteristics, whereas $\beta$ and $\gamma$ are
+the shape parameters of the \LDF that determine the \LDF form. They are
+parametrized by the \EAS characteristics such as the zenith angle, energy or 
+shower age \cite{jesusStudyMassComposition2025}. The impact on the \LDF form 
+that the choice of $\beta$ has is visualized in \cref{fig:beta-ldf}. 
+
+\subsubsection{Fluorescence Light}
+\label{sssec:fluorescence-light}
+
+\subsubsection{Cherenkov Light}
+\label{sssec:cherenkov-light}
+
+\subsubsection{Radio Emission}
+\label{sssec:radio-emission}
