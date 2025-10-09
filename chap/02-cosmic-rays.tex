@@ -1423,4 +1423,29 @@ detailed in e.g.\ \cite{baixerasMAGICTelescope2003}.
 \label{sssec:radio-emission}
 
 Finally, the interplay between the particle cascade and the geomagnetic field 
-creates an additional channel by which \EASs can be observed.
+creates a radio wavelength signature by which \EASs can be detected. A given
+(charged) particle in the shower front experiences Lorentz deflection from 
+traversing the geomagnetic field, and emits faint Bremsstrahlung as a 
+consequence. On top of this, \EASs typically feature an excess of electrons 
+(over positrons) by $\sim\SI{10}{\percent}$
+\cite{askaryanExcessNegativeCharge1961}, in part due to the annihilation of 
+positrons in the dielectric medium. Due to this charge excess the emissions of 
+Cherenkov light, transition radiation, and Bremsstrahlung are altered according
+to the Askaryan effect. This boosts the \EM signature for all particles in the
+shower, albeit the mark left by a single particle traversing the atmosphere is
+still miniscule.
+
+The total radiation signal is given by the sum of contributions of all particle
+in the shower. These can (given the right circumstances) constructively 
+interfere with one another to yield strong electrical field strenghts, 
+characterized in \cite{horandelRadioDetectionExtensive2019, 
+allanProgressElementaryParticle1971} as
+
+\begin{equation}
+\label{eq:radio-ldf}
+|\vec{E}|(r) = \frac{10}{11} \left(\frac{E}{\SI{100}{\tera\eV}}\right)\left(\frac{\sin\alpha\cos\theta}{\sin\,\SI{45}{\degree}\cos\,\SI{30}{\degree}} \right)\exp\left(\frac{r}{\SI{110}{\meter}}\right)\,\unit{\upmu\volt\per\meter\per\mega\hertz}.
+\end{equation}
+
+The strong coherence criteria restrict the emission to the 
+\SIrange{30}{80}{\mega\hertz} frequency band, and close to the Cherenkov cone
+of the shower (Ref.\ \cref{sssec:cherenkov-light}).
