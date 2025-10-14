@@ -781,7 +781,7 @@ astrophysical models that predict cosmogenic neutrinos.
 \end{figure}
 	
 \subsubsection{Greisen-Zatsepin-Kuzmin Limit}
-\label{sssec:gza-cutoff}
+\label{sssec:gzk-cutoff}
 
 The mean free path of \CRs is not significantly reduced by the interactions 
 described in \cref{sssec:deep-inelastic-scattering}. This changes drastically
@@ -1053,7 +1053,7 @@ The creation and transport of \CRs has been extensively discussed in
 section the final stage of the life of a cosmic ray in the upper atmosphere of 
 the Earth is summarized. For this purpose, \cref{ssec:cascade-model} details
 the formation and evolution of \EASs. The possible detection channels through
-which \EASs can be observed are presented in \cref{ssec:particle-signature} and
+which \EASs can be observed are presented in \cref{ssec:detection-channels} and
 onwards.
 
 \subsection{Cascade Physics}
@@ -1230,11 +1230,8 @@ versatility makes it extremely useful in studies of the muonic component of
 \cref{fig:eas-simulations} compares the particle count at sea level of the same
 \EAS simulated with different hadronic interaction models. 
 
-\vspace{0.5cm}
 \noindent Unless stated otherwise this work employs the \texttt{EPOS LHC} model
 for simulations.
-
-\fulllift
 
 \subsection{Different Primaries}
 \label{ssec:different-primaries}
@@ -1350,6 +1347,7 @@ event, and many air shower events must be analyzed for a complete picture
 \todo{redo plots with more data}
 
 \subsection{Detection channels}
+\label{ssec:detection-channels}
 
 After detailing the creation (Ref.\ \cref{sec:cr-accelerators}) and transport
 (Ref.\ \cref{sec:cr-propagation}), the final pages in this chapter are 
