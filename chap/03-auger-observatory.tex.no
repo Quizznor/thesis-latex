@@ -364,7 +364,7 @@ to set up. For this reason the last absolute calibration of the \FD-telescopes
 with the drum lightsource has been conducted more than ten years ago in 2013 
 \cite{dorofeevFDAbsoluteCalibration2013}. 
 
-\subsubsection{XY Scanner}
+\subsubsection{XY-Scanner}
 \label{sssec:xy-scanner}
 
 The XY-Scanner is a novel end-to-end calibration method that aims to be the

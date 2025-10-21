@@ -6,6 +6,7 @@ AMIGA      Auger Muons And Infill For The Ground Array
 CDAS       Central Data Acquisition System
 CIC        Constant Intensity Cut
 CLF        Central Laser Facility
+CLS        Calibration Light Source
 CMB        Cosmic Microwave Background
 CO         Coihueco
 CPU        Central Processing Unit
@@ -54,6 +55,7 @@ NKG        Nishimura-Kamata-Greisen
 NLL        Negative Logarithmic Likelihood
 PAO        Pierre Auger Observatory
 PCB        Printed Circuit Board
+PD         Photodiode
 PMT        Photomultiplier Tube
 PSF        Point Spread Function
 QFT        Quantum Field Theory

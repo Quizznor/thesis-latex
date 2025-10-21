@@ -3,10 +3,48 @@
 
 blaglagla 
 
-\section{The XY Scanner}
+\section{The XY-Scanner}
 \label{sec:xy-scanner}
 
-alsdasdl
+The XY-Scanner (Ref.\ \cref{sssec:xy-scanner}) is a novel end-to-end calibration
+system that is used to estimate the \FD calibration constants with an accuracy 
+of $\sim\SI{5}{\percent}$. The measurement system as well as underlying analysis
+is presented in detail in \cite{schaferXYScannerVersatileMethod2023}. It follows
+a summary of Chapters 4, 6, and 7 of the aforementioned work.
+
+\subsection{Light Source Calibration}
+\label{ssec:xy-absolute-calibration}
+
+The spirit of the \FD calibration procedure relies on the \FD-camera being
+exposed to a light source of known radiance. This allows to tie the signal
+recorded in the pixel-\PMTs to an incident count of photons, which holds
+information about the energy of an \EAS (Ref.\ 
+\cref{sssec:fd-reconstruction-energy-estimator}).
+
+Different facilities have been set up to measure the radiance of the 
+XY lightsource, shown in \todo{figure} and hereafter referred to as \CLS, 
+independently \cite{heibgesPhotometricCharacterizationLight2020, 
+schaferXYScannerVersatileMethod2023, vaculaVyvojKalibracnihoSvetelneho2024}. 
+While precise implementation details differ, all test banks rely on measuring a 
+distance-dependent flux of photons on a \PD that is illuminated by the \CLS. The
+normalization of the expected inverse square law is given by the geometry of the
+setup, as well as the \CLS radiance, as expressed in \cref{eq:source-radiance}.
+
+\begin{equation}
+\label{eq:source-radiance}
+\Phi_\mathrm{PD}(r) = \left(\frac{\pi r_\mathrm{CLS} \, r_\mathrm{det}}{r}\right)^2\,L_\mathrm{CLS}.
+\end{equation}
+
+\todo{figure} shows the agreement between measurement setups when testing the 
+same \CLS. $L_\mathrm{CLS}$ can, thanks in part to this cross calibration, be 
+determined with an accuracy of \todo{number}. For detailed information regarding the individual setups see Ref.\
+\todo{abscalpaper}
+
+\subsection{Telescope Calibration}
+
+Once the radiance of the \CLS has been d
+
+\subsection{Advantages Over Drum}
 
 \section{Quality Assurance}
 \label{sec:quality-assurance}
@@ -18,7 +56,9 @@ oortuiyjrotijh
 
 v,nl m,vbmn ,vbnm,vb
 
-\section{Novel FD Energy Scale}
+\section{FD Energy Scale}
 \label{sec:fd-energy-scale}
 
 qweqweqweqweqwe
+
+\section{Summary}
