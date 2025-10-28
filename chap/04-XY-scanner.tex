@@ -27,8 +27,9 @@ independently \cite{heibgesPhotometricCharacterizationLight2020,
 schaferXYScannerVersatileMethod2023, vaculaVyvojKalibracnihoSvetelneho2024}. 
 While precise implementation details differ, all test banks rely on measuring a 
 distance-dependent flux of photons on a \PD that is illuminated by the \CLS. The
-normalization of the expected inverse square law is given by the geometry of the
-setup, as well as the \CLS radiance, as expressed in \cref{eq:source-radiance}.
+normalization of the expected inverse square law is given, to first order, by 
+the geometry of the setup, as well as the \CLS radiance, as expressed in 
+\cref{eq:source-radiance}.
 
 \begin{equation}
 \label{eq:source-radiance}
@@ -37,8 +38,8 @@ setup, as well as the \CLS radiance, as expressed in \cref{eq:source-radiance}.
 
 \todo{figure} shows the agreement between measurement setups when testing the 
 same \CLS. $L_\mathrm{CLS}$ can, thanks in part to this cross calibration, be 
-determined with an accuracy of \todo{number}. For detailed information regarding the individual setups see Ref.\
-\todo{abscalpaper}
+determined with an accuracy of $\lessapprox\SI{3}{\percent}$. For detailed 
+information regarding the individual setups see Ref.\ \todo{abscalpaper}
 
 \subsection{Telescope Calibration}
 
@@ -46,26 +47,38 @@ The precisely determined radiance of the \CLS is then used to connect
 calibration data of the \FD telescopes to a corresponding calibration constant.
 For this purpose the XY lightsource is installed in front of the \FD aperture on
 two motorized linear stages as shown in \todo{fig}. Over the course of a 
-measurement the light source tracks a path consisting of $>1500$ unique 
-positions distributed uniformly on a hexagonal grid that covers the entire 
-telescope frame. At each position the \CLS emits a flash of light directed at 
-the \FD-camera. The detector response is recorded for each flash.
+measurement the light source tracks a path consisting of $n_\mathrm{pos}>1500$ 
+unique positions distributed uniformly on a hexagonal grid that covers the 
+entire telescope frame. At each position the \CLS emits a flash of light 
+directed at the \FD-camera. The detector response is recorded for each position.
+
+This results in measurement data consisting of $n_\mathrm{pos}$ events, each
+containing the \ADC-traces digitized at the time of the \CLS flash for all 440 
+pixels of the \FD-camera. The calibration constant for a given pixel-\PMT is 
+then calculated from the measurement information according to the following 
+steps:
+
+\begin{enumerate}
+	\item The baseline (Ref.\ \cref{sssec:reconstruction-pixel-calibrator})
+	is subtracted from all traces in all \PMTs for all events.
+	\item A pulse finding algorithm 
+	(Ref.~\cite[][Section 7.1.1]{schaferXYScannerVersatileMethod2023}) 
+	determines the part of the trace that contains the signal from the \CLS.
+\end{enumerate}
+
 
 \subsection{Advantages Over Drum}
 
 \section{Quality Assurance}
 \label{sec:quality-assurance}
 
-oortuiyjrotijh
 
 \section{Telescope Aging}
 \label{sec:telescope-aging}
 
-v,nl m,vbmn ,vbnm,vb
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
 
-qweqweqweqweqwe
 
 \section{Summary}
