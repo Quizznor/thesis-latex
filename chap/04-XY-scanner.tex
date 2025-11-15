@@ -1,4 +1,4 @@
-\chapter{Revisiting The Auger FD Energy Scale}
+\chapter{A New Fluorescence Energy Scale}
 \label{chap:xy-scanner}
 
 blaglagla 
@@ -63,7 +63,16 @@ steps:
 	is subtracted from all traces in all \PMTs for all events.
 	\item A pulse finding algorithm 
 	(Ref.~\cite[][Section 7.1.1]{schaferXYScannerVersatileMethod2023}) 
-	determines the part of the trace that contains the signal from the \CLS.
+	determines the part of the trace that contains the light pulse from the 
+	calibration light source.
+	\item The integral of the pulse is calculated in units of \ADC, this
+	value is summed for all events in each pixel to yield a total signal.
+	\item The total number of photons received by each pixel-\PMT is 
+	calculated via the known source radiance. The camera geometry and 
+	reflectivity are taken into account.
+	\item The total signal in every \PMT (\ADC) is divided by the total
+	count of incident photons ($\gamma$) to calculate the pixel calibration
+	constant ($\ADC/\gamma$).
 \end{enumerate}
 
 
