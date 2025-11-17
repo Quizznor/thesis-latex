@@ -75,6 +75,47 @@ steps:
 	constant ($\ADC/\gamma$).
 \end{enumerate}
 
+The systematic and statistical uncertainties intrinsic to this process are
+listed in 
+
+\begingroup
+\renewcommand{\arraystretch}{1.3}
+\begin{table}
+	\begin{center}
+	\caption{Systematic and statistical uncertainties in the calculation of
+	pixel calibration constants using the XY-Scanner. Numbers from
+        \cite{schaferXYScannerVersatileMethod2023} and TODO.}
+	\begin{tabular*}{0.9\textwidth}{w{l}{0.5\textwidth}w{r}{0.23\textwidth}|w{c}{0.1\textwidth}}
+  	\toprule
+	\hline
+	Contribution & details & $\sigma$\\
+	\hline
+	Radiance of light source & & \\
+	Coverage factor & \cite[][p.~127]{schaferXYScannerVersatileMethod2023} &
+	\SI{1.3}{\percent}\\
+	Light source directional emission & 
+	\cite[][p.~83]{schaferXYScannerVersatileMethod2023} & 
+	\SI{1}{\percent} \\
+	Back reflection on camera & 
+	\cite[][p.~47]{schaferXYScannerVersatileMethod2023} & 
+	\SI{0.5}{\percent} \\
+	Signal in the pixel-\PMTs &
+	\cite[][p.~114]{schaferXYScannerVersatileMethod2023} & 
+	\SI{0.2}{\percent} \\
+	\hline
+	Statistical uncertainty (bootstrap) & 
+	\cite[][p.~116]{schaferXYScannerVersatileMethod2023} & 
+	\SI{2.1}{\percent} \\
+	\hline
+	Unaccounted uncertainty budget & & \\
+	\hline
+	\textbf{Total} & & \\ 
+  \bottomrule
+	\end{tabular*}
+	\label{tab:xy-systematics}
+	\end{center}
+\end{table}
+\endgroup
 
 \subsection{Advantages Over Drum}
 
