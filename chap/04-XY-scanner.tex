@@ -1,16 +1,16 @@
 \chapter{A New Fluorescence Energy Scale}
 \label{chap:xy-scanner}
 
-blaglagla 
+Reason why need for chapter -> umd phase 2 data needs new energy scale
 
 \section{The XY-Scanner}
 \label{sec:xy-scanner}
 
-The XY-Scanner (Ref.\ \cref{sssec:xy-scanner}) is a novel end-to-end calibration
-system that is used to estimate the \FD calibration constants with an accuracy 
-of $\sim\SI{5}{\percent}$. The measurement system as well as underlying analysis
-is presented in detail in \cite{schaferXYScannerVersatileMethod2023}. It follows
-a summary of Chapters 4, 6, and 7 of the aforementioned work.
+The XY-Scanner is a novel end-to-end calibration system that is used to estimate
+the \FD calibration constants with an accuracy of \todo{uncertainty}. The 
+measurement system as well as underlying analysis is presented in detail in 
+\cite{schaferXYScannerVersatileMethod2023}. It follows a brief summary of 
+Chapters 4, 6, and 7 of the aforementioned work.
 
 \subsection{Light Source Calibration}
 \label{ssec:xy-absolute-calibration}
@@ -46,7 +46,7 @@ information regarding the individual setups see Ref.\ \todo{abscalpaper}
 The precisely determined radiance of the \CLS is then used to connect 
 calibration data of the \FD telescopes to a corresponding calibration constant.
 For this purpose the XY lightsource is installed in front of the \FD aperture on
-two motorized linear stages as shown in \todo{fig}. Over the course of a 
+two motorized linear stages, as shown in \todo{fig}. Over the course of a 
 measurement the light source tracks a path consisting of $n_\mathrm{pos}>1500$ 
 unique positions distributed uniformly on a hexagonal grid that covers the 
 entire telescope frame. At each position the \CLS emits a flash of light 
@@ -75,23 +75,26 @@ steps:
 	constant ($\ADC/\gamma$).
 \end{enumerate}
 
-The systematic and statistical uncertainties intrinsic to this process are
-listed in 
+\vspace{0.7cm}
+
+The different systematic and statistical contributions intrinsic to this process
+are listed in \cref{tab:xy-systematics}. The total uncertainty, given as 
+$\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 
 \begingroup
 \renewcommand{\arraystretch}{1.3}
 \begin{table}
 	\begin{center}
-	\caption{Systematic and statistical uncertainties in the calculation of
-	pixel calibration constants using the XY-Scanner. Numbers from
-        \cite{schaferXYScannerVersatileMethod2023} and TODO.}
+	\caption{Uncertainties of pixel calibration constants measured by the 
+	XY-Scanner.}
 	\begin{tabular*}{0.9\textwidth}{w{l}{0.5\textwidth}w{r}{0.23\textwidth}|w{c}{0.1\textwidth}}
   	\toprule
 	\hline
-	Contribution & details & $\sigma$\\
+	Contribution & details & $\sigma_i$\\
 	\hline
 	Radiance of light source & & \\
-	Coverage factor & \cite[][p.~127]{schaferXYScannerVersatileMethod2023} &
+	Aperture coverage factor & 
+	\cite[][p.~127]{schaferXYScannerVersatileMethod2023} &
 	\SI{1.3}{\percent}\\
 	Light source directional emission & 
 	\cite[][p.~83]{schaferXYScannerVersatileMethod2023} & 
@@ -118,6 +121,9 @@ listed in
 \endgroup
 
 \subsection{Advantages Over Drum}
+\label{sec:advantages-over-drum}
+
+
 
 \section{Quality Assurance}
 \label{sec:quality-assurance}
