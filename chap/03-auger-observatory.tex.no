@@ -379,6 +379,7 @@ summarized in \todo{xy scanner chapter here}, and described in detail in
 \cite{schaferXYScannerVersatileMethod2023}
 
 \subsubsection{Calibration A, B and C}
+\label{sssec:relative-calibration}
 
 In order to address the lack of a nightly absolute calibration relative 
 calibration systems exists to track the telescope evolution over time. These 
@@ -1116,8 +1117,9 @@ place. Immediately after a \TTHREE is issued and low-level detector data is
 sent to the \CDAS, a T4 trigger rejects \TTHREE candidates whose participating
 station trigger timings do not fit a plane front hypothesis. Essentially, this 
 identifies \TTHREEs that are formed on the basis of random coincidences of 
-\TTWOs. The ratio of real \EAS events over generated T4s is about 
-\SIrange{98}{100}{\percent} \cite{abrahamTriggerApertureSurface2010}.
+\TTWOs. Additionally, distinct event-level triggers coincident in time and 
+space are merged into the same event. The ratio of real \EAS events over 
+generated T4s is roughly \SIrange{98}{100}{\percent} \cite{abrahamTriggerApertureSurface2010}. \todo{cite icrc abstract}
 
 A final T5 check requires the station that received the most signal to have all
 6 nearest neighbour stations existing and functioning. While the requirement 

@@ -1,16 +1,40 @@
 \chapter{A New Fluorescence Energy Scale}
 \label{chap:xy-scanner}
 
-Reason why need for chapter -> umd phase 2 data needs new energy scale
+The analysis in the subsequent chapters heavily relies on information measured 
+by the \WCD, \SSD, and \UMD. With the inauguration of the latter two detectors 
+ocurring roughly ten years after the last official measurement of \FD pixel 
+calibration constants \todo{cite}, the cross-calibration of the reconstructed 
+\UMD/\SSD energies (Ref.~\cref{sssec:sd-sd-reconstruction-energy-estimator}) 
+depend on measurement data that are more than a decade old. While the pixel 
+calibration constants are in principle updated using a nightly relative 
+calibration (Ref.~\cref{sssec:relative-calibration}) it is crucial to verify
+the integrity of the relative tracking and the employed energy calibration.
+
+The XY-Scanner is a novel end-to-end calibration system that is used to estimate
+the \FD pixel calibration constants with an accuracy of \todo{uncertainty}. It 
+is thus well suited to check the validity of the currently employed \FD 
+calibration, and the \FD energy scale by extension. The measurement system as 
+well as underlying analysis is presented in detail in 
+\cite{schaferXYScannerVersatileMethod2023}, and summarized in 
+\cref{sec:xy-scanner}.
+
+\cref{sec:quality-assurance} details extensive quality checks that have been
+developed in this work, and that are used to assure the reproducibility of XY 
+measurements and establish the trustworthiness of the gathered data.
+
+A comparison of XY measurement data to current pixel calibration constants can
+be found in \cref{sec:telescope-aging}, where possible reasons for discrepancies
+and an updated relative calibration tracking algorithm are given.
+
+Finally, an updated Fluorescence energy scale is constructed in 
+\cref{sec:fd-energy-scale}.
+
 
 \section{The XY-Scanner}
 \label{sec:xy-scanner}
 
-The XY-Scanner is a novel end-to-end calibration system that is used to estimate
-the \FD calibration constants with an accuracy of \todo{uncertainty}. The 
-measurement system as well as underlying analysis is presented in detail in 
-\cite{schaferXYScannerVersatileMethod2023}. It follows a brief summary of 
-Chapters 4, 6, and 7 of the aforementioned work.
+\fulllift
 
 \subsection{Light Source Calibration}
 \label{ssec:xy-absolute-calibration}
@@ -52,27 +76,33 @@ unique positions distributed uniformly on a hexagonal grid that covers the
 entire telescope frame. At each position the \CLS emits a flash of light 
 directed at the \FD-camera. The detector response is recorded for each position.
 
-This results in measurement data consisting of $n_\mathrm{pos}$ events, each
-containing the \ADC-traces digitized at the time of the \CLS flash for all 440 
-pixels of the \FD-camera. The calibration constant for a given pixel-\PMT is 
-then calculated from the measurement information according to the following 
-steps:
+The measurement process takes on average \SI{40}{\minute} without interruptions.
+To check the stability of the \DAQ readout chain, two Calibration A measurements
+with an open \FD shutter are performed immediately before and after the XY run.
+
+Afterwards, the measurement data to be analyzed consists of $n_\mathrm{pos}$ 
+($\mathcal{O}(1700)$) events, each containing the \ADC-traces digitized at the 
+time of the \CLS flash for all 440 pixels of the \FD-camera. The calibration 
+constant for a given pixel-\PMT is then calculated from the measurement 
+information according to the following steps:
 
 \begin{enumerate}
-	\item The baseline (Ref.\ \cref{sssec:reconstruction-pixel-calibrator})
+	\item The baseline (Ref.~\cref{sssec:reconstruction-pixel-calibrator})
 	is subtracted from all traces in all \PMTs for all events.
 	\item A pulse finding algorithm 
 	(Ref.~\cite[][Section 7.1.1]{schaferXYScannerVersatileMethod2023}) 
 	determines the part of the trace that contains the light pulse from the 
 	calibration light source.
-	\item The integral of the pulse is calculated in units of \ADC, this
-	value is summed for all events in each pixel to yield a total signal.
+	\item The integral of the pulse is calculated, this value is summed for 
+	all events in each pixel to yield a total signal per pixel in units of 
+	\ADC.
 	\item The total number of photons received by each pixel-\PMT is 
-	calculated via the known source radiance. The camera geometry and 
-	reflectivity are taken into account.
-	\item The total signal in every \PMT (\ADC) is divided by the total
-	count of incident photons ($\gamma$) to calculate the pixel calibration
-	constant ($\ADC/\gamma$).
+	calculated via the known source radiance. The non-uniform camera 
+	geometry and reflectivity are taken into account via simulation based 
+	correction factors for each pixel.
+	\item The total signal in every \PMT is divided by the total count of 
+	incident photons to calculate the pixel calibration constant in units of
+	$\ADC/\gamma$.
 \end{enumerate}
 
 \vspace{0.7cm}
@@ -96,7 +126,7 @@ $\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 	Aperture coverage factor & 
 	\cite[][p.~127]{schaferXYScannerVersatileMethod2023} &
 	\SI{1.3}{\percent}\\
-	Light source directional emission & 
+	Directional emission & 
 	\cite[][p.~83]{schaferXYScannerVersatileMethod2023} & 
 	\SI{1}{\percent} \\
 	Back reflection on camera & 
@@ -106,7 +136,7 @@ $\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 	\cite[][p.~114]{schaferXYScannerVersatileMethod2023} & 
 	\SI{0.2}{\percent} \\
 	\hline
-	Statistical uncertainty (bootstrap) & 
+	Statistical uncertainty & 
 	\cite[][p.~116]{schaferXYScannerVersatileMethod2023} & 
 	\SI{2.1}{\percent} \\
 	\hline
@@ -128,10 +158,17 @@ $\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 \section{Quality Assurance}
 \label{sec:quality-assurance}
 
+\subsection{Available Information}
+\subsection{Light Source Stability}
+\subsection{Measurement Setup}
+\subsection{Camera Stability}
 
 \section{Telescope Aging}
 \label{sec:telescope-aging}
 
+\subsection{Comparison of Drum and XY}
+\subsection{The Night Sky Background}
+\subsection{Effects Of Mirror Cleaning}
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
