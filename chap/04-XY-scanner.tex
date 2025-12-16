@@ -65,6 +65,7 @@ determined with an accuracy of $\lessapprox\SI{3}{\percent}$. For detailed
 information regarding the individual setups see Ref.\ \todo{abscalpaper}
 
 \subsection{Telescope Calibration}
+\label{ssec:fd-xy-calibration}
 
 The precisely determined radiance of the \CLS is then used to connect 
 calibration data of the \FD telescopes to a corresponding calibration constant.
@@ -115,34 +116,36 @@ $\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 \begin{table}
 	\begin{center}
 	\caption{Uncertainties of pixel calibration constants measured by the 
-	XY-Scanner.}
-	\begin{tabular*}{\textwidth}{lr|cc}
+	XY-Scanner. Comparisons to the Drum calibration, where possible, are 
+	taken from \cite{brackAbsoluteCalibrationLargediameter2013, 
+	brackFDAbsoluteCalibration, dorofeevFDAbsoluteCalibration}.}
+	\begin{tabular*}{\textwidth}{w{l}{0.35\textwidth}w{r}{0.35\textwidth}|w{c}{0.1\textwidth}w{c}{0.1\textwidth}}
   	\toprule
 	 & & XY & Drum \\
 	\hline
-	Contribution & details & $\sigma_i$\\
+	Contribution & details & \multicolumn{2}{c}{$\sigma_i$} \\
 	\hline
-	Radiance of light source & & \\
+	Radiance of light source & & & \SI{2.1}{\percent} \\
 	Aperture coverage factor & 
 	\cite[][p.~127]{schaferXYScannerVersatileMethod2023} &
-	\SI{1.3}{\percent} & \\
+	\SI{1.3}{\percent} & \SI{2}{\percent} \\
 	Directional emission & 
 	\cite[][p.~83]{schaferXYScannerVersatileMethod2023} & 
-	\SI{1}{\percent} & \\
+	\SI{1}{\percent} & $-$ \\
 	Back reflection on camera & 
 	\cite[][p.~47]{schaferXYScannerVersatileMethod2023} & 
-	\SI{0.5}{\percent} & \\
+	\SI{0.5}{\percent} & \SI{2}{\percent} \\
 	Signal in the pixel-\PMTs &
 	\cite[][p.~114]{schaferXYScannerVersatileMethod2023} & 
-	\SI{0.2}{\percent} & \\
+	\SI{0.2}{\percent} & \SI{2}{\percent} \\
 	\hline
 	Statistical uncertainty & 
 	\cite[][p.~116]{schaferXYScannerVersatileMethod2023} & 
-	\SI{2.1}{\percent} & \\
+	\SI{2.1}{\percent} & $-$ \\
 	\hline
-	Unaccounted uncertainty budget & & & \\
+	Unaccounted uncertainty budget & & & $\approx\SI{9}{\percent}$ \\
 	\hline
-	\textbf{Total} & & & \SI{9.9}{\percent} \\ 
+	\textbf{Total} & & & \textbf{\SI{9.9}{\percent}} \\ 
   \bottomrule
 	\end{tabular*}
 	\label{tab:xy-systematics}
@@ -154,13 +157,47 @@ $\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 \section{Quality Assurance}
 \label{sec:quality-assurance}
 
-\subsection{Available Information}
+By calculating \FD pixel calibration constants according to 
+\cref{ssec:fd-xy-calibration} one implicitly requires several assumptions to 
+be true, for example,
+
+\begin{itemize}
+\item the light collection efficiency of the pixel-\PMTs must be constant
+	during the measurement, else the total signal per pixel would be 
+	incorrect.
+\item the source radiance $L_\mathrm{CLS}$ must not change throughout the 
+	run, else the total signal per pixel would be incorrect due to the same
+	reasons as above.
+\item the XY scanner must be aligned correctly with the \FD aperture and scan
+	the complete filter, else the normalization to the total signal would be
+	wrong.
+\end{itemize}
+
+Thus, in order to ensure that the XY scanner delivers accurate and precise pixel
+calibration constants we must verify that these assumptions hold. We do this by 
+establishing a checklist of tests that must be executed and that have to pass 
+before accepting the results of XY measurement runs.
+
+The following sections detail what these tests are, and how failure states are 
+defined based on outlier identification and cross-correlation of available data.
+
 \subsection{Light Source Stability}
+
+The XY \LED is located inside the \CLS alongside a \PD that logs the intensity 
+of each flash. While it 
+
+\subsubsection{Temperature}
+\subsubsection{Time Drifts}
+\subsubsection{Interruptions}
+
 \subsection{Measurement Setup}
 \subsection{Camera Stability}
+\subsection{Reproducibility}
 
 \section{Telescope Aging}
 \label{sec:telescope-aging}
+
+% address \cref{tab:xy-systematics} unaccounted uncertainty budget and why
 
 \subsection{Comparison of Drum and XY}
 \subsection{The Night Sky Background}
