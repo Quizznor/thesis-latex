@@ -30,7 +30,6 @@ and an updated relative calibration tracking algorithm are given.
 Finally, an updated Fluorescence energy scale is constructed in 
 \cref{sec:fd-energy-scale}.
 
-
 \section{The XY-Scanner}
 \label{sec:xy-scanner}
 
@@ -117,42 +116,39 @@ $\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 	\begin{center}
 	\caption{Uncertainties of pixel calibration constants measured by the 
 	XY-Scanner.}
-	\begin{tabular*}{0.9\textwidth}{w{l}{0.5\textwidth}w{r}{0.23\textwidth}|w{c}{0.1\textwidth}}
+	\begin{tabular*}{\textwidth}{lr|cc}
   	\toprule
+	 & & XY & Drum \\
 	\hline
 	Contribution & details & $\sigma_i$\\
 	\hline
 	Radiance of light source & & \\
 	Aperture coverage factor & 
 	\cite[][p.~127]{schaferXYScannerVersatileMethod2023} &
-	\SI{1.3}{\percent}\\
+	\SI{1.3}{\percent} & \\
 	Directional emission & 
 	\cite[][p.~83]{schaferXYScannerVersatileMethod2023} & 
-	\SI{1}{\percent} \\
+	\SI{1}{\percent} & \\
 	Back reflection on camera & 
 	\cite[][p.~47]{schaferXYScannerVersatileMethod2023} & 
-	\SI{0.5}{\percent} \\
+	\SI{0.5}{\percent} & \\
 	Signal in the pixel-\PMTs &
 	\cite[][p.~114]{schaferXYScannerVersatileMethod2023} & 
-	\SI{0.2}{\percent} \\
+	\SI{0.2}{\percent} & \\
 	\hline
 	Statistical uncertainty & 
 	\cite[][p.~116]{schaferXYScannerVersatileMethod2023} & 
-	\SI{2.1}{\percent} \\
+	\SI{2.1}{\percent} & \\
 	\hline
-	Unaccounted uncertainty budget & & \\
+	Unaccounted uncertainty budget & & & \\
 	\hline
-	\textbf{Total} & & \\ 
+	\textbf{Total} & & & \SI{9.9}{\percent} \\ 
   \bottomrule
 	\end{tabular*}
 	\label{tab:xy-systematics}
 	\end{center}
 \end{table}
 \endgroup
-
-\subsection{Advantages Over Drum}
-\label{sec:advantages-over-drum}
-
 
 
 \section{Quality Assurance}
