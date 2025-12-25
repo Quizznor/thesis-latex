@@ -168,9 +168,8 @@ be true, for example,
 \item the source radiance $L_\mathrm{CLS}$ must not change throughout the 
 	run, else the total signal per pixel would be incorrect due to the same
 	reasons as above.
-\item the XY scanner must be aligned correctly with the \FD aperture and scan
-	the complete filter, else the normalization to the total signal would be
-	wrong.
+\item the XY scanner must scan the complete filter, and the aperture must be
+	onuccluded, else the normalization to the total signal is biased.
 \end{itemize}
 
 Thus, in order to ensure that the XY scanner delivers accurate and precise pixel
@@ -181,12 +180,20 @@ before accepting the results of XY measurement runs.
 The following sections detail what these tests are, and how failure states are 
 defined based on outlier identification and cross-correlation of available data.
 
+All data shown 
+
 \subsection{Light Source Stability}
 
 The XY \LED is located inside the \CLS alongside a \PD that logs the intensity 
-of each flash. While it 
+of each flash. While the \PD is not precise enough to track the source radiance
+exactly, it is sufficient enough to track the constant operation of the \LED. 
+Moreover, temperature sensors are installed within the sphere to monitor the 
+climate controlled environment of the \CLS.
 
 \subsubsection{Temperature}
+
+\todo[inline]{mean signal vs mean temperature plot}
+
 \subsubsection{Time Drifts}
 \subsubsection{Interruptions}
 
