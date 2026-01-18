@@ -10,7 +10,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[top=1in, inner=1.25in, bottom=1in, outer=1in, twoside]{geometry}
+\usepackage[top=1in, inner=1.25in, bottom=1in, outer=1in, twoside,]{geometry}
 \usepackage{amsfonts, amstext, amssymb}
 \usepackage{amsmath}
 \usepackage{mathtools}

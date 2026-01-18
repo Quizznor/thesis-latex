@@ -561,8 +561,7 @@ moving magnetic fields, and cross into the shock front. As laid out in
 \cite{baloghPhysicsCollisionlessShocks2013} this requires a kinetic energy that
 surpasses the thermal motion of particles in the \ISM ahead of the shock. There
 is thus some need for a mechanism that boosts the energy of particles in the 
-\ISM to such that they can cross the shock front and be injected into the 
-accelerator.
+\ISM such that they can be injected into the accelerator.
 
 While many injection models exist (e.g.\ Ref.\ 
 \cite{galeevInjectionMechanismCosmic1989}), the precise mechanism by which 
@@ -700,31 +699,20 @@ Observations of the plasma conditions in \AGNs place a realistic upper limit
 of this acceleration mechanism at 
 $\mathcal{O}(\unit{Z\eV} = \SI{1e21}{\eV})$.
 
-\todo[inline]{STOPPED READING HERE}
-
 \subsection{Indirect Production}
 \label{ssec:indirect-production}
 
-High-energy photons and neutrinos \CRs are observed in nature 
+Whereas particles with a charge of zero cannot be accelerated via the discussed
+mechanisms, neutral \CRs are observed in nature 
 \cite{lhaasocollaborationUltrahighenergyRayBubble2024,
-aielloObservationUltrahighenergyCosmic2025}, but their existence cannot be 
-explained using the acceleration mechanisms disussed previously. Being neutral 
-particles, photons and neutrinos do not couple to the electromagnetic fields 
-that charged \CRs rely on to gain immense energies.
-
-One straight-forward solution to this problem is given via indirect production 
-of neutral \CRs. This refers to the various interaction channels by which a 
-high-energy charged \CR can transfer (part of) its' energy to a secondary, 
-uncharged \CR.
+aielloObservationUltrahighenergyCosmic2025}. They must be created in a 
+secondary, indirect fashion, where a high-energy charged \CR can transfer 
+(part of) its' energy to a secondary, uncharged particle via interactions 
+either close to the source (Ref.\ \cref{sssec:synchrotron-emission}) or during 
+propagation (Ref.\ \cref{sssec:deep-inelastic-scattering}).
 
 \subsubsection{Synchrotron Emission}
-
-Whenever a charged particle changes its' trajectory, the surrounding 
-electromagnetic fields change as well. A distant observer measures a 
-retarded potential stemming from a particle moving at $\vec{v_1}$ initially, 
-and $\vec{v_2}$ finally. The change in the electromagnetic fields is perceived 
-as photons whose wavelength and intensity scale with the magnitude of the 
-acceleration. This phenomenon is called Bremsstrahlung.
+\label{sssec:synchrotron-emission}
 
 \CR electrons, because of their low mass, are especially prone to acceleration 
 via \EM fields, both near the source, and during propagation via the \GMF. Near
@@ -741,12 +729,13 @@ around e.g.\ pulsars, or accreting black holes.
 \subsubsection{Deep inelastic scattering}
 \label{sssec:deep-inelastic-scattering}
 
-Deep inelastic scattering as studied at the \LHC also occurs readily in nature,
-with \CRs interacting with the \ISM. The invariant mass of the colliding system
-can exceed that of the \LHC ($\SI{14}{\tera\eV}$) by many orders of magnitude. 
+Deep inelastic scattering as studied at the \LHC also occurs readily in nature
+when \CRs interact with the \ISM. The invariant mass of the colliding system
+often exceeds that of the \LHC ($\SI{14}{\tera\eV}$) by many orders of 
+magnitude. 
+
 In the simplest case a high-energy proton interacts with ambient (stationary) 
-matter. The interaction channels with the highest branching ratio are those
-that produce light pions.
+matter. This predominantly produces light pions that decay into photons.
 
 \vspace{0.5cm}
 \begin{centering}
@@ -764,13 +753,8 @@ that produce light pions.
 \end{centering}
 \vspace{0.5cm}
 
-In the first case, two photons are present in the final state that originate 
-from the decay of an intermediate uncharged pion. In the rest frame of the 
-$\pi^0$ the photons are emitted back to back with an energy 
-$\langle E'_\gamma\rangle = \frac{E_{\pi^0}}{2}$, which, after transforming 
-back to an observer frame can correspond to a considerable fraction of the 
-primary energy for select final states $|X\rangle$. \cref{fig:photon-limits} 
-shows the expected photon flux resulting from this process.
+The blue band in \cref{fig:photon-limits} shows the photon flux expected from 
+this model.
 
 In a similar fashion, the production of charged pions result in neutrinos in 
 the final state. Their energy behaves like 
@@ -818,13 +802,17 @@ invariant mass of a proton \CR and a \CMB photon exceeds \SI{1232}{\mega\eV\per 
 \vspace{0.5cm}
 
 With the \CMB number density measuring roughly \SI{400}{\per\centi\meter\cubed}
-\cite{adamPlanck2015Results2016} it is thought that \CRs exceeding the \GZK 
-threshold cannot freely propagate in the universe without losing a considerable
-amount of energy through this interaction. The mean free path shrinks to 
-several \unit{\mega\parsec} \cite{greisenEndCosmicRaySpectrum1966}, implying 
-that particles above the \GZK threshold energy must have been produced locally.
+\cite{adamPlanck2015Results2016} it is thought that photon \CRs exceeding the 
+\GZK threshold cannot freely propagate in the universe without losing a 
+considerable amount of energy through this interaction. The mean free path 
+shrinks to several \unit{\mega\parsec} \cite{greisenEndCosmicRaySpectrum1966}, 
+implying that photons above the \GZK threshold energy must have been produced 
+locally.
 
-\newpage
+A different loss model, called the \GDR 
+\cite{steckerPhotodisintegrationUltrahighEnergyCosmic1969}, suggests that this
+happens likewise for heavier particles at comparable energies.
+
 \section{Cosmic Ray Propagation}
 \label{sec:cr-propagation}
 
@@ -907,16 +895,16 @@ it is usually assumed that \CRs travel balistically in-between galaxies;
 Interactions with the \EGMF are neglected. 
 
 This has implications for the identification and search of extragalactic 
-sources of \UHECRs. A well known example of this is Amaterasu
+sources of \UHECRs. One example of this is the Amaterasu particle
 \cite{telescopearraycollaborationExtremelyEnergeticCosmic2023}, an \EAS with an
 associated reconstructed primary energy of $E\approx\SI{240}{\exa\eV}$. 
-Neglecting the \EGMF, conventional backtracking algorithms place the most 
-probable origin of the primary particle in the local void 
-\cite{ungerWhereDidAmaterasu2024}, a region sparse in \UHECR sources 
-\cite{tullyNearbyGalaxiesCatalog1988}, and require transient production 
-mechanisms which are not yet thoroughly understood at the highest energies 
-\cite{farrarBinaryNeutronStar2025}. Meanwhile, assuming a non-zero \EGMF,
-\cite{bourricheLocalVoidComprehensive2024}\todo{change to updated version} constrains the source location to 
+Neglecting the \EGMF, backtracking algorithms like 
+\cite{batistaCRPropa32Advanced2022} place the most probable origin of the 
+primary particle in the local void \cite{ungerWhereDidAmaterasu2024}, a region 
+sparse in \UHECR sources \cite{tullyNearbyGalaxiesCatalog1988}, and require 
+transient production mechanisms which are not yet thoroughly understood at the 
+highest energies \cite{farrarBinaryNeutronStar2025}. Meanwhile, assuming a 
+non-zero \EGMF, \cite{bourricheLocalVoidComprehensive2024}\todo{change to updated version} constrains the source location to 
 a region with several candidates that can produce particles at the required
 energies. The question whether the \EGMF plays a considerable role in \CR 
 propagation is unanswered, and requires a better understanding of their 
@@ -982,10 +970,10 @@ individually, as different primaries can posses different interaction channels.
 
 Combining \cref{eq:particle-conservation} through 
 (\ref{eq:secondary-equilibrium}), one arrives at a system of parabolic partial 
-differential equations that are in practice solved numerically by tools such as 
+differential equations that are in practice solved numerically by tools such as
 \texttt{CRPropa} \cite{batistaCRPropa32Advanced2022} or \texttt{GALPROP}
 \cite{strongGALPROPCosmicRayPropagation2009}. \cref{fig:galactic-propagation} 
-shows the calculated trajectory of particles of different rigidities in the 
+shows such calculated trajectories of particles of different rigidities in the 
 milky way, as well as their perceived origin.
 
 \halflift
@@ -993,11 +981,12 @@ milky way, as well as their perceived origin.
 \label{ssec:leaky-box-model}
 
 One can in principle solve the equation of state analytically for extremely
-simplified boundary conditions. For an illustrative example, one neglect all 
-secondary interactions of \CRs during transport.\footnote{Meaning spallation, 
-radioactive decay, and energy losses.} Due to the oblate shape of the milky way
-it is sufficient to reduce calculations to the 1D case along the $z$-axis. The 
-parameters of interest are \cite{skillingDiffusionCosmicRays1970}
+simplified boundary conditions. This is done here for an illustrative example 
+where all secondary interactions of \CRs during transport will be neglected.
+\footnote{Meaning spallation, radioactive decay, and energy losses.} Due to the
+oblate shape of the milky way escape from the galaxy occurs predominanly along
+the $z$-axis. The parameters of interest are, following 
+\cite{skillingDiffusionCosmicRays1970},
 
 \begin{equation}
 	Q(z, t) = \mathcal{N}_0 \, \delta(z)\delta(t), \qquad D_z = \frac{1}{3} \,\frac{\gamma|\vec{B}|L_{\vec{B}}}{\sqrt{\mu_0\rho_\mathrm{ISM}}},
@@ -1014,6 +1003,7 @@ integrating the \CR population along the height of the milky way. From this,
 the expected time to escape for an individual \CR is calculated as
 
 \begin{equation}
+	\label{eq:escape-time}
 	\langle\frac{1}{\tau_\mathrm{esc.}}\rangle = \int t \, r_\mathrm{esc}(t)\,\mathrm{d}t = \int t \, \left( 1 - \int\limits_{-H}^{H} \frac{\mathcal{N}(z, t)}{\mathcal{N}_0}\,\mathrm{d}z \right) \, \mathrm{d}t
 \end{equation}
 
@@ -1027,10 +1017,19 @@ The equation of state in equilibrium becomes
 \frac{\mathcal{N}_i}{\tau_\mathrm{esc.}} = Q_i - \left( \frac{|\vec{v}_i|\,\rho_\mathrm{ISM}}{\lambda_i} + \frac{1}{\gamma_i\tau_i}\right)\,\mathcal{N}_i + \sum\limits_{j\neq i} \left( \frac{|\vec{v}_j|\rho_\mathrm{ISM}}{\lambda_{ji}}  + \frac{1}{\gamma_j\tau_{ji}}\right)\,\mathcal{N}_j.
 \end{equation}
 
-This is called the leaky box model, and serves as a reasonable approximation 
-for a steady-state solution of \CR transport. \cref{fig:escape-comparison} 
-shows the comparison between the mean escape time in the leaky box model and 
-the simulated escape time using numerical \CR propagation algorithms.
+This is the leaky box model \cite{cowsik3degKBlackbodyRadiation1966,
+cowsikSteadyStateCosmicRay1967}, which can be extended by adding nested boxes 
+of high density in the galaxy \cite{cowsikResidenceTimeCosmic1973, 
+meneguzziEnergyDependencePrimary1973} that model \CR genitors.
+
+In any case, the leaky box model serves as a reasonable approximation for a 
+steady-state solution of \CR transport. \cref{fig:escape-comparison} shows the 
+comparison between \cref{eq:escape-time} and numerical simulations.
+
+A stark discrepancy between both models can be noted with increasing rigidity. 
+This implies that the assumption of a completely diffusive propagation in 
+\cref{eq:escape-time} does not hold at very high energies, where \CRs propagate
+balistically instead.
 
 \begin{figure}[t]
   \centering
@@ -1043,23 +1042,16 @@ the simulated escape time using numerical \CR propagation algorithms.
   \caption[]{\subref{fig:galactic-propagation} Example trajectories of 
 	     particles with different rigidities obtained from numerical 
 	     integration using \texttt{CRPropa}. The dashed lines give the 
-	     perceived arrival direction on  Earth. 
-             \subref{fig:escape-comparison} The vertical lines give the 
-     	     expected escape time for the leaky box model (top) and (bottom) 
-	     moment of escape for individually simluated particles (see 
-	     \subref{fig:galactic-propagation}) of different rigidities. In the
-	     bottom plot $d_\mathrm{bal.}$ is the ballistic fraction of the 
-	     particle trajectory, defined as the distance from initial position
-     	     divided by the entire path length.}
+	     perceived arrival direction on  Earth. Image from 
+	     \cite{nasa/jpl-caltechOurMilkyWay2008} 
+	     \subref{fig:escape-comparison} Comparison of escape trajectories 
+	     in the leaky box model versus \texttt{CRPropa} simulations. 
+	     $d_\mathrm{bal.}$ is the ballistic fraction of the particle 
+	     trajectory, defined as the distance from initial position divided
+     	     by the traversed path length.}
   \label{fig:propagation}
 \end{figure}
 
-The model can be further refined by introducing nested boxes of high density 
-within the galaxy \cite{cowsikResidenceTimeCosmic1973, 
-meneguzziEnergyDependencePrimary1973}. These model the regions around \SNRs and
-increase the applicability of the computed results.
-
-\newpage
 \section{Extensive Air Showers}
 \label{sec:extensive-air-showers}
 
@@ -1076,22 +1068,24 @@ onwards.
 
 Whereas \CRs can propagate almost unhindered in space, crossing a column 
 density of only $\lesssim\SI{8}{\gram\per\centi\meter\squared}$ on average
-before escaping \cite{gaisserCosmicRaysParticle2016}, this quickly changes upon
-entering the atmosphere of Earth. The mean free path of the \CR decreases 
-drastically due to the high(er) density surrounding, and a deeply inelastic 
-interaction takes place in which the primary particle is destroyed. The \UHE 
-secondary particles, carrying the momentum of the impinging \CR, suffer a 
-similar fate and also interact non-elastically with surrounding air molecules. 
-A particle cascade kicks off that is only stopped once the primary energy is 
-distributed to so many particles that they can become thermalized by secondary
-interactions.
+before entering the solar system \cite{gaisserCosmicRaysParticle2016}, this 
+quickly changes upon entering the atmosphere of Earth. The mean free path of 
+the \CR decreases drastically due to the high(er) density environment, and a 
+deeply inelastic interaction takes place in which the primary particle is 
+destroyed. 
+
+The \UHE secondary particles, carrying the momentum of the impinging \CR, 
+suffer a similar fate and also interact non-elastically with surrounding air 
+molecules. A particle cascade kicks off that is only stopped once the primary 
+energy is distributed to so many particles that they can thermalize in the
+atmosphere.
 
 \subsubsection{Heitler-Matthews-Model}
 \label{sssec:heitler-matthews-model}
 
-A simple but effective model to describe the avalanche is given by
+A simple but effective model to describe the particle avalanche is given by
 \cite{matthewsHeitlerModelExtensive2005}. The evolution of the \EAS can thus be
-separated into discrete steps. In the first step, the initial particle produces
+separated into discrete steps. In a first step, the initial particle produces
 $N_\pi$ pions, with the primary energy $E_0$ being shared roughly equally among
 them. Since the branching ratios for neutral and charged pions are roughly 
 equal, this amounts to $\frac{2N_\pi}{3}$ charged $\pi^\pm$ and 
@@ -1100,16 +1094,16 @@ $\frac{N_\pi}{3}$ uncharged $\pi^0$.
 The lifetime of the uncharged pions ($\mathcal{O}(\unit{\atto\second})$ 
 \cite{nakamuraParticlePhysicsBooklet2010}) is much shorter than that of the 
 charged pions ($\mathcal{O}(\unit{\nano\second})$ 
-\cite{nakamuraParticlePhysicsBooklet2010}). In the context of the 
-Heitler-Matthews model they decay instantly into two equi-energetic photons.
+\cite{nakamuraParticlePhysicsBooklet2010}). They decay (quasi) instantly into 
+two equi-energetic photons that carry their parents momentum forward.
 
 Moving on, it is sensible to separate the \EAS into a hadronic and an \EM
 component. The charged pions, after traversing an atmospheric depth equal to 
-one nuclear interaction length $\lambda_\mathrm{int}.$ produce another $N_\pi$
+one nuclear interaction length $\lambda_\mathrm{int.}$ produce another $N_\pi$
 pions each, where the uncharged portion immediately decays and the charged 
 portion fuels the hadronic cascade.
 
-The photons from the $\pi^0$ decays are responsible for driving the \EM 
+The photons produced in the $\pi^0$ decays are responsible for driving the \EM 
 component of the shower. After traversing close to one radiation length 
 $\frac{7}{9} X_0$ ($\neq \lambda_\mathrm{int.}$) the high-energy photons 
 undergo pair production, resulting in an $e^+ e^-$ pair, which, after 
@@ -1124,38 +1118,67 @@ visualized in \cref{fig:heitler-matthews-cascade}.
   \includegraphics[width=1.0\textwidth]{cosmic-rays/heitler_matthews_model.png}
   \caption{Schematic evolution of an \EAS in the Heitler-Matthews model after a
   	   proton interacts inelastically in the upper atmosphere. Hadronic
-   	   interaction lengths and radiation lengths are drawn in proportion.}
+   	   interaction lengths and radiation lengths are drawn in proportion.
+   	   The saturation of tracks proxies their energy.}
   \label{fig:heitler-matthews-cascade}
 \end{figure}
 
 The number of particles in the cascade grows exponentially. After only five 
-hadronic interaction lengths ($\approx20\,X_0$) the number of particles
-in the shower is $\mathcal{O}(10^6)$. Energy conservation requires that the 
-energy per particle drops consequently. Eventually, the one-particle-energy 
-drops below a critical energy ($E^\mathrm{crit.}_\mathrm{EM}$ for $e^\pm$, 
-and $\upgamma$; $E^\mathrm{crit.}_\mathrm{H}$ for hadronic particles), where 
-ionization processes become the dominant interaction channel. The cascade 
-ceases multiplying, and the hadronic component decays to relativistic muons.
-The \EM component is absorbed or thermalized. The shower evolution parameters 
-modeling this are listed in \cref{tab:shower-parameters}.
+hadronic interaction lengths the number of particles in the shower surpasses 
+$10^6$. 
+
+Energy conservation requires that the energy per particle drops consequently. 
+Eventually, the one-particle-energy drops below a critical energy 
+($E^\mathrm{crit.}_\mathrm{EM}$ for $e^\pm$, and 
+$\upgamma$; $E^\mathrm{crit.}_\mathrm{H}$ for hadronic particles), where 
+ionization processes become the dominant interaction channel for the shower 
+constituents. The cascade freezes out, the hadronic component decays to 
+relativistic muons, and the \EM component is absorbed or thermalized. The 
+shower evolution parameters that govern this are listed in \cref{tab:shower-parameters}.
+
+The Heitler-Matthews model provides a conceptually simple treatment of the 
+chaotic particle cascade. The generalizations function well in the high-entropy
+state, with many particles present in the cascade. However, like any chaotic 
+system, the evolution of the \EAS is extremely sensitive to initial conditions.
+Deviations from the mean behaviour (i.e.\ $N_\pi = 20$ instead of $15$) get 
+amplified in the early stages of the avalanche buildup, and result in large 
+shower-to-shower fluctuations.
 
 \subsubsection{Shower Observables}
+
+The evolution of the shower is heavily stochastic. The shower-to-shower 
+fluctuations discussed above make every \EAS distinct. Still, there exist 
+commonalities. Every air shower is initiated by a single particle only, and 
+quickly grows in size until the critical energy is reached. At roughly this 
+moment the multiplicity of the \EAS records its highest value. The atmospheric 
+depth at which this occurs, referred to as $\Xmax$, is similar for showers with
+the same primary particles and similar energy. Given that 
+$N(X) = 2^{\lfloor X/X_0 \rfloor}$ for the \EM component of the shower, and 
+$E(X) = E_0 / N(X)$, it follows at the shower maximum 
+
+
+
 \begin{table}[h!]
 \begin{minipage}[t]{0.70\linewidth}
 
-The evolution of the shower is heavily stochastic. Shower-to-shower 
-fluctuations make every \EAS distinct. Still, there exist commonalities. 
-Every air shower is initiated by a single particle only, and quickly grows in
-size util the critical energy is reached. At roughly this moment the 
-multiplicity of the \EAS records its highest value. The atmospheric depth at 
-which this occurs, referred to as $\Xmax$, is similar for showers with like 
-primary particles. Given that $N(X) = 2^{\lfloor X/X_0 \rfloor}$ for the \EM 
-comonpent of the shower, and $E(X) = E_0 / N(X)$, it follows at the shower
-maximum 
+\begin{equation}
+\label{eq:shower-maximum}
+N_\mathrm{max} \propto E_0, \qquad\Xmax \propto \ln{E_0}.
+\end{equation}
+
+This relation is exact for electrically neutral particles 
+\cite{HeitlerQuantumTheory}. While shower-to-shower fluctuations play a larger 
+role for charged primaries, \cref{eq:shower-maximum} generalizes especially for
+hadronic primaries as well \cite{gaisserCosmicRaysParticle2016,
+matthewsHeitlerModelExtensive2005}.
+
+Moving past characteristics of the primary particle (energy, inclination, and 
+type), one parameter describing characteristics of the developing cascade is 
+the shower age \cite{rossiCosmicRayTheory1941}, 
 
 \end{minipage}\hfill
 \begin{minipage}[t]{0.25\linewidth}
-\vspace{-0.4cm}
+\vspace{-0.1cm}
 \caption{Evolution parameters proposed in 
 \cite{matthewsHeitlerModelExtensive2005}.}
 \label{tab:shower-parameters}
@@ -1173,21 +1196,6 @@ $E^\mathrm{crit.}_\mathrm{EM}$ & \SI{85}{\mega\eV} \\
 \end{table}
 
 \begin{equation}
-\label{eq:shower-maximum}
-N_\mathrm{max} \propto E_0, \qquad\Xmax \propto \ln{E_0}.
-\end{equation}
-
-This relation is exact in the Heitler model, i.\ e.\ for electrically neutral
-particles \cite{HeitlerQuantumTheory}. Although shower-to-shower fluctuations 
-play a larger role for charged primaries, \cref{eq:shower-maximum} generalizes 
-especially for hadronic primaries as well \cite{gaisserCosmicRaysParticle2016,
-matthewsHeitlerModelExtensive2005}.
-
-Moving past characteristics of the primary particle (energy, inclination, and 
-type), one parameter describing the developing cascade well is the shower age 
-\cite{rossiCosmicRayTheory1941}, 
-
-\begin{equation}
 \label{eq:shower-age}
 \bar{s}(X, \Xmax) = \frac{3X}{X + 2\Xmax}\ .
 \end{equation}
@@ -1201,13 +1209,6 @@ are found for the angular and lateral distribution of particles in the \EAS
 \cite{rossiCosmicRayTheory1941}, with both functions tending to broaden as the 
 shower age increases.
 
-What sets individual showers apart are, following this shower universality 
-theory, tiny deviations that get amplified during the buildup of the 
-relativistic avalanche. The exact kinematic variables of few high-energy 
-particles (which may not follow the mean kinematic variables in the shower 
-bulk) at an early stage are passed onto the shower bulk at an older shower age.
-
-
 \subsubsection{Hadronic Interaction Models}
 \label{sssec:hadronic-interaction-models}
 
@@ -1219,7 +1220,7 @@ physical accuracy of the reenactment versus the required computational power. A
 
 \begin{itemize}
 \vspace{0.1cm}
-\item \texttt{QGSJET-II} \cite{ostapchenkoMonteCarloTreatment2011} relies on 
+\item \texttt{QGSJET-III} \cite{ostapchenkoMonteCarloTreatment2011} relies on 
 extrapolating predictions of \QFTs to the highest energies for phenomena such 
 as screening and multiple scattering. The models theoretical approach also has 
 drawbacks. The complex calculations result in a time intensive simulation 
@@ -1232,21 +1233,18 @@ air shower experiments.
 \texttt{EPOS LHC R} \cite{pierogEPOSLHCRGlobalApproach2025}) aims to accurately
 model the central and forward particle production, that, while still 
 underpredicting data by $\sim\SI{30}{\percent}$, result in more realistic muon 
-yields. The model is slightly more performant than \texttt{QGSJET-II.04}
+yields. 
 
 \vspace{0.1cm}
 \item \texttt{Sibyll} \cite{riehnHadronicInteractionModel2017} is an efficient
 \MC based simulation framework designed with tuneability in mind. The models
-versatility makes it extremely useful in studies of the muonic component of
-\EASs.
+versatility makes it extremely useful in phenomenological studies of the muonic
+component of \EASs.
 \end{itemize}
 
 \vspace{0.1cm}
-\cref{fig:eas-simulations} compares the particle count at sea level of the same
-\EAS simulated with different hadronic interaction models. 
-
-\noindent Unless stated otherwise this work employs the \texttt{EPOS LHC} model
-for simulations.
+\noindent\cref{fig:eas-simulations} compares \EAS particle counts between 
+different hadronic interaction models. 
 
 \subsection{Different Primaries}
 \label{ssec:different-primaries}
@@ -1273,36 +1271,38 @@ for simulations.
 
 The Heitler-Matthews model of \EASs in \cref{ssec:cascade-model} considers a 
 proton as the primary particle. While the long range interactions during 
-acceleration and transport are sensitive to the rigidity of the \CR,\footnote{
-which is determined by the \textit{total} mass and \textit{total} charge} the 
-destruction in the Earths atmosphere occurs at close range. As such, the exact 
-nuclear composition of the primary is important. The resonant interaction of a 
-e.g.\ iron core with air will look different than the deep-inelastic scattering
-of a proton. Of particular significance for this work is the distinction of 
-photon primaries from other air showers (Ref.\ \cref{sssec:photon-showers}).
+acceleration and transport are sensitive to the rigidity of the \CR only,
+\footnote{Which is determined by the \textit{total} mass and \textit{total} 
+charge} the destruction in the Earths atmosphere occurs at close range. As 
+such, the exact nuclear composition of the primary is important. The resonant 
+interaction of a e.g.\ iron core with air will look different than the 
+deep-inelastic scattering of a proton. Of particular significance for this work
+is the distinction of photon primaries from other \CRs (Ref.\ 
+\cref{sssec:photon-showers}).
 
-\subsubsection{Hadronic particles}
+\subsubsection{Hadronic Particles}
 \label{sssec:hadronic-primaries}
 
-Hadronic primaries refer to \CR particles bound by the (residual) strong force.
-The lightest hadronic primaries observed in nature are thus hydrogen ions 
-(i.e.\ protons) with an atomic number $Z=1$ for which the developing cascade 
-has been described in \cref{ssec:cascade-model}. Showers initiated by heavier 
-elements behave differently on average compared to the 1-nucleon model. 
+Hadronic primaries refer to \CR particles that are bound by the (residual) 
+strong force. The lightest hadronic primaries observed in nature are thus 
+hydrogen ions (i.e.\ protons) with an atomic number $Z=1$ for which the 
+developing cascade has been described in \cref{ssec:cascade-model}. Showers 
+initiated by heavier elements behave differently on average compared to the 
+1-nucleon model. 
 
 The average binding energy of nucleons is $\mathcal{O}(\unit{\mega\eV})$, and 
-much lower than the interaction energies. As such, the \CR with a mass number
-$A$ can be treated as $A$ \CRs, each with an energy $E_0/A$. The resulting \EAS
-is a superposition of all these 1-nucleon showers. From 
-\cref{eq:shower-maximum} it follows immediately that
+much lower than the interaction energies. Consequently, the \CR with a mass 
+number $A$ can be treated as $A$ free hadrons, each with an energy $E_0/A$. The
+\EAS resulting from the inelastic interaction of the primary is therefore a 
+superposition of all 1-nucleon showers. 
 
 \begin{equation}
 \label{eq:superposition-model}
 \Xmax^A \propto \ln E_0/A.
 \end{equation}
 
-Thus, the heavier a shower primary particle, the higher up in the atmosphere 
-the \EAS develops, and the fewer splitting steps are needed until the shower 
+Thus, the heavier the primary particle, the higher up in the atmosphere the 
+\EAS develops, and the fewer splitting steps are needed until the shower 
 maximum is reached. Following the Heitler-Matthews model the energy fraction 
 contained in the hadronic and \EM component after $n_\mathrm{H}$ splittings is
 
@@ -1313,43 +1313,44 @@ contained in the hadronic and \EM component after $n_\mathrm{H}$ splittings is
 	\frac{E_\mathrm{EM}}{E_0} = 1 -\left(\frac{2}{3}\right)^{n_\mathrm{H}}.
 \end{equation}
 
-Combining both insights and approximating the number of particles in the shower 
+Combining both insights and approximating the number of particles in the shower
 at the maximum as $N_i = E_i\,/\,E^\mathrm{crit.}_i$, it becomes evident that
-the hadronic fraction of air showers increases with $A$. This translates to 
-a higher muon content for primaries at the same energy, which can be seen in 
-\cref{fig:eas-simulations}.
+the hadronic fraction of air showers increases with $A$. This directly 
+translates to a higher muon content for primaries at the same energy, which can
+be verified in \cref{fig:eas-simulations}.
 
-\subsubsection{Photon showers}
+\subsubsection{Photon Showers}
 \label{sssec:photon-showers}
 
-This picture reverses for photon primaries. Almost no hadrons and muons are 
+This picture reverses for photon primaries. Only few hadrons and muons are 
 present in the resulting air showers (Ref.\ \cref{fig:eas-photon}). However,
 conclusions on the nature of the primary particle based on an observed muon
 count are often flawed. 
 
 Low energy, light hadrons can have very low muon counts due to 
 shower-to-shower fluctuations. This makes them appear very similar to 
-photon-initiated \EASs. \cref{fig:muon-ldf} shows the distribution of 
+photon-initiated \EASs. \cref{fig:mu-primaries} shows the distribution of 
 simulated muon densities for proton and photon showers at different sampling 
 points. While a clear difference between the distributions can be seen for the 
-two primaries, the aforementioned reasons make a discrimination on the basis 
-of a single observation very challenging. 
+two primaries, a considerable overlap exists. This makes a discrimination on 
+the basis of a single observation very challenging. 
 
-The discrimination of photons and hadrons is thus usually done in a 
+The discrimination of photons and hadrons is thus usually conducted in a 
 probabilistic context. Instead of a single observation, the muon content must
 be sampled at many distances from the primary axis for a given air shower 
 event, and many air shower events must be analyzed for a complete picture
-\cite{gonzalezSearchesPrimaryPhotons2025}. 
+\cite{gonzalezSearchesPrimaryPhotons2025}, as done in \todo{discrimination 
+chapter}.
 
 \begin{figure}[t]
   \centering
   \subfloat[]{\includegraphics[height=0.34\textwidth]{cosmic-rays/muon_ldf.png}
-  \label{fig:muon-ldf}
+  \label{fig:mu-primaries}
   }\hspace{0.2cm}
   \subfloat[]{\includegraphics[height=0.34\textwidth]{cosmic-rays/ldf_beta.png}
   \label{fig:beta-ldf}
   }
-  \caption[]{\subref{fig:muon-ldf} The reconstructed density of 
+  \caption[]{\subref{fig:mu-primaries} The reconstructed density of 
   muons for simulated air showers of different energies for protons 
   (\textit{top}), and photons (\textit{bottom}). Muons appear far less 
   frequently for \EM showers, and are usually concentrated more closely to the 
@@ -1362,15 +1363,14 @@ event, and many air shower events must be analyzed for a complete picture
 
 \todo{redo plots with more data}
 
-\subsection{Detection channels}
+\subsection{Detection Channels}
 \label{ssec:detection-channels}
 
-After detailing the creation (Ref.\ \cref{sec:cr-accelerators}) and transport
-(Ref.\ \cref{sec:cr-propagation}), the final pages in this chapter are 
-dedicated to listing the methods by which modern \CR detect cosmic rays. With 
-this work in particular focusing on \CRs with energies surpassing 
-\SI{100}{\peta\eV}, the focus lies on the indirect detection via observations
-of \EASs.
+The final pages in this chapter are dedicated to listing the observables by 
+which modern \CR observatories detect cosmic rays. With this work in particular
+focusing on \CRs with energies surpassing \SI{100}{\peta\eV}, the focus lies on
+the indirect detection via observations of \EASs. See for reference also
+\cref{chap:pierre-auger-observatory}.
 
 \subsubsection{Particle Footprint}
 \label{sssec:particle-footprint}
@@ -1378,16 +1378,17 @@ of \EASs.
 The shower maximum of \EASs with energies above $\sim\SI{100}{\tera\eV}$ occurs
 sufficiently deep in the atmosphere such that secondary particles reach the
 ground before thermalizing \cite{schoorlemmerCharacteristicsExtensiveAir2019}. 
-\cref{fig:eas-simulations} in particular shows the distribution of muons for 
-air showers of many different energies simulated at a height of 
-\SI{1400}{\meter} above sea level.
+\cref{fig:eas-simulations} in particular shows the distribution of particles at
+sea level for a variation of primary particles with an energy of 
+\SI{100}{\tera\eV}.
 
 Like many air shower characteristics it is impossible to describe the 
-distribution of particles exactly. Instead, empirical or theoretical models can
-be employed to approximate the number of particles (of a certain type) that are
-expected for a given air shower event. These models are called \LDFs. One well
-known parametrization for the muon \LDF is given by the \NKG equation
-\cite{kamataLateralAngularStructure1958, greisenCosmicRayShowers1960}
+distribution of particles on the ground exactly. Instead, empirical or 
+theoretical models can be employed to approximate the number of particles (of a
+certain type) that are expected for a given air shower event. These models are 
+called \LDFs. One well known parametrization for the muon \LDF is given by the 
+\NKG equation \cite{kamataLateralAngularStructure1958, 
+greisenCosmicRayShowers1960}
 
 \begin{equation}
 \label{eq:NKG}
@@ -1455,9 +1456,8 @@ consequence. On top of this, \EASs typically feature an excess of electrons
 \cite{askaryanExcessNegativeCharge1961}, in part due to the annihilation of 
 positrons in the dielectric medium. Due to this charge excess the emissions of 
 Cherenkov light, transition radiation, and Bremsstrahlung are altered according
-to the Askaryan effect. This boosts the \EM signature for all particles in the
-shower, albeit the mark left by a single particle traversing the atmosphere is
-still miniscule.
+to the Askaryan effect \cite{askaryanExcessNegativeCharge1961}. This resonantly
+boosts the \EM signature for all charged particles in the shower front.
 
 The total radiation signal is given by the sum of contributions of all particle
 in the shower. These can (given the right circumstances) constructively 
