@@ -1244,8 +1244,8 @@ reference for all following information.
 	 \cref{sssec:sd-reconstruction-energy-estimator} & 
 	 \rdelim\}{4}{*}[\parbox{4mm}{\rotatebox[origin=c]{270}{Event 
 	 lvl.}}] \\
-	 & $(\theta, \phi)$ & $<\SI{2}{\degree}$ & Primary \CR arrival 
-	 direction & \cref{sssec:reconstruction-plane-fit} \\
+	 & $(\theta_\mathrm{rec.},\,\phi_\mathrm{rec.})$ & $<\SI{2}{\degree}$ &
+	 Primary \CR arrival direction & \cref{sssec:reconstruction-plane-fit} 		\\
 	 & $(x,\,y)$ & \SI{2}{\percent} & Shower core position on Earth & 
 	 \cref{sssec:reconstruction-plane-fit} \\ 
 	 & $S(r_\mathrm{ref.})$ & \SI{2}{\percent} & Shower size, \acs{LDF} 
@@ -1615,11 +1615,11 @@ fit the shower axis to the station trigger times is repeated once more, using a
 non-linear parametrization that models the expansion of the \EAS more 
 realistically. 
 
-The axis direction $(\theta,\,\phi)$ obtained from this fit is the estimated 
-arrival direction of the \EAS, and is accurate to within 
-$\SIrange{1}{2}{\degree}$ \cite{bonifaziAngularResolutionPierre2009}. The 
-relative uncertainty on the core position $r_\mathrm{bary.} = (x,\,y)$ is given
-as \SI{2}{\percent} in \cite{ghiaStatisticalSystematicUncertainties2005}.
+The axis direction $(\theta_\mathrm{rec.},\,\phi_\mathrm{rec.})$ obtained from
+this fit is the estimated arrival direction of the \EAS, and is accurate to 
+within $\SIrange{1}{2}{\degree}$ \cite{bonifaziAngularResolutionPierre2009}. 
+The relative uncertainty on the core position $r_\mathrm{bary.} = (x,\,y)$ is 
+given as \SI{2}{\percent} in \cite{ghiaStatisticalSystematicUncertainties2005}.
 
 Station trigger times are hereafter given relative to $t_\mathrm{bary.}$, and 
 the \SPD of a station denotes its smallest separation from the shower axis.
@@ -1686,7 +1686,7 @@ $\theta_\mathrm{ref.}$. It is
 
 \begin{equation}
 \label{eq:cic}
-S_{\theta_\mathrm{ref.}} = \frac{S(1000)}{f(\theta)} = \frac{S(1000)}{ax^3 + bx^2 + cx + 1},\,\mathrm{with}\,x=\cos^2(\theta)-\cos^2(\theta_\mathrm{ref.}).
+S_{\theta_\mathrm{ref.}} = \frac{S(1000)}{f(\theta_\mathrm{rec.})} = \frac{S(1000)}{ax^3 + bx^2 + cx + 1},\,\mathrm{with}\,x=\cos^2(\theta_\mathrm{rec.})-\cos^2(\theta_\mathrm{ref.}).
 \end{equation}
 
 For the \SD-1500 $\theta_\mathrm{ref.} = \SI{38}{\degree}$, and in the \SD-750 
@@ -1697,10 +1697,10 @@ as
 
 \begin{equation}
 \label{eq:energy-cross-calibration}
-E_\mathrm{SD} = A\,S_{38}^B.
+E_\mathrm{SD} = A\,S_{38}^B,
 \end{equation}
 
-The power law relation with parameters $A$ and $B$ in 
+where the power law relation with parameters $A$ and $B$ in 
 \cref{eq:energy-cross-calibration} is obtained from a subset of observed \EAS 
 that trigger the \FD and the \SD independently. Several quality cuts (Ref.\ 
 \cite{aabReconstructionEventsRecorded2020}) ensure that the resulting \SD 
@@ -1755,11 +1755,36 @@ The muon count taking pileup into account can be recovered as detailed in
 
 \begin{equation}
 	\label{eq:pileup-correction}
-	N^\mathrm{PU}_\mu = -n_s\,\ln\left(1-\frac{1}{n_s}\right)\,\hat{N}_\mu.
+	\hat{N}^\mathrm{PU}_\mu = -n_s\,\ln\left(1-\frac{1}{n_s}\right)\,\hat{N}_\mu.
 \end{equation}
 
-Second, there exists a non-zero probability that the trajectory of an inclined muon passes more than one bar, resulting in a count of two (or more) stemming 
-from a single, corner-clipping muon. The corner-clipping probability 
+Second, there exists a non-zero probability that the trajectory of an inclined muon crosses more than one bar, resulting in a count of $N_\mu\geq2$ stemming 
+from a single muon. The corner-clipping probability as determined in 
+\cite{jesusStudyMassComposition2025} reads
+
+\begin{equation}
+	\label{eq:corner-clipping-probability}
+	P^\mathrm{CC}(\theta, \Delta\phi) = m(\theta) \left(\left|\sin\Delta\phi\right| - 0.5 \right) + b(\theta), 
+\end{equation}
+
+where
+
+\begin{align}
+	m(\theta) &= m_0 + m_1\,\left(\sec\theta - 1.2\right), \\
+	b(\theta) &= b_1 + b_1\,\left(\sec\theta - 1.2\right),
+\end{align}
+
+and $\Delta\phi = \phi_\mathrm{rec} - \phi_\mathrm{MD}$ gives the azimuth
+enclosed between the \EAS arrival direction and the \UMD module orientation. 
+The corrected muon count becomes
+
+\begin{equation}
+	\label{eq:corner-clipping-correction}
+	\hat{N}^\mathrm{CC}_\mu = \frac{\hat{N}^\mathrm{PU}_\mu}{1 + P^\mathrm{CC}(\theta_\mathrm{rec.}, \Delta\phi)}.
+\end{equation}
+
+The uncertainty on the final estimator of the muon count per module is \todo{find this out}.
+
 
 \todo[inline]{STOPPED READING HERE}
 
