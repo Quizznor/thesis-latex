@@ -303,9 +303,9 @@ of \SI{1}{\ADC} in a given pixel-\PMT.
 It is imperative that the $C^\mathrm{pixel}_\mathrm{abs.}$ are measured with 
 high precision, as their uncertainties contribute linearly to the uncertainty 
 of the reconstructed primary particle energy. Currently, the pixel calibration 
-constants are measured with an uncertainty of approximately $9\%$
+constants are measured with an uncertainty of approximately \SI{9}{\percent}
 \cite{dawsonUpdateAugerEnergy13}. This represents the biggest contribution to 
-the total uncertainty in the \PAO energy scale of $14\%$ 
+the total uncertainty in the \PAO energy scale of \SI{10}{\percent} 
 \cite{verziEnergyScalePierre2013}. In the following, several methods are 
 discussed that all aim to probe the pixel calibration constants. A further 
 examination of the best-performing method is done in \cref{sec:xy-scanner}.
@@ -761,7 +761,7 @@ detector upgrade. It boosts the observatories primary mass discrimination
 abilities \cite{collaborationPierreAugerObservatory2016}. In total 73 \UMDs are buried underground, each one in close vicinity to an SD-750 
 or SD-433 station. These installations comprise the \acf{AMIGA} detector.
 
-Each \UMD consists of three \SI{10.5}{\meter\squared} scintillator modules tha 
+Each \UMD consists of three \SI{10.5}{\meter\squared} scintillator modules that
 are, like the \SSD, segmented themselves into bars to minimize signal pileup
 \cite{bottiStatusPerformanceUnderground2022}. They are buried \SI{2.3}{\meter} 
 underground, as shown in \cref{fig:umd}. The soil above the detectors provides 
@@ -1218,7 +1218,7 @@ reference for all following information.
 	\cline{2-5}
 	\ldelim\{{7.6}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{\FD 
 	Reconstruction}}]
-	 & $E_\mathrm{FD}$ & \SI{14}{\percent} & \FD-estimate of the primary
+	 & $E_\mathrm{FD}$ & \SI{10}{\percent} & \FD-estimate of the primary
 	 energy & \cref{sssec:fd-reconstruction-energy-estimator} &
 	 \rdelim\}{5.3}{*}[\parbox{4mm}{\rotatebox[origin=c]{270}{Event 
 	 level}}] \\
@@ -1230,7 +1230,7 @@ reference for all following information.
 	 & $R_p$ & $\sim\SI{1}{\percent}$ & Minimum separation between the 
 	 telescope and the shower axis & 
 	 \cref{sssec:reconstruction-arrival-direction} \\
-	 & $n_\gamma$ & $\SI{14}{\percent}$ & Number of photons per pixel-\PMT
+	 & $n_\gamma$ & $\SI{9}{\percent}$ & Number of photons per pixel-\PMT
 	 & \cref{sssec:reconstruction-pulse-finder} & 
  	 \rdelim\}{1.8}{*}[\parbox{4mm}{\rotatebox[origin=c]{270}{Tel.\ lvl.}}]
 	 \\
@@ -1248,8 +1248,8 @@ reference for all following information.
 	 direction & \cref{sssec:reconstruction-plane-fit} \\
 	 & $(x,\,y)$ & \SI{2}{\percent} & Shower core position on Earth & 
 	 \cref{sssec:reconstruction-plane-fit} \\ 
-	 & $S(1000)$ & \SI{2}{\percent} & Shower size, \acs{LDF} value at 
-	 \SI{1000}{\meter} & \cref{sssec:reconstruction-ldf-finder} \\ 
+	 & $S(r_\mathrm{ref.})$ & \SI{2}{\percent} & Shower size, \acs{LDF} 
+	 value at $r_\mathrm{ref.}$ & \cref{sssec:reconstruction-ldf-finder} \\
 	 & $Q^\mathrm{total}_i$ & $\sim\SI{5}{\percent}$ & Integral of the 
 	 (calibrated) trace observed by the \WCD and the \SSD & 
 	 \cref{sssec:reconstruction-trace-calibrator} & 
@@ -1330,7 +1330,7 @@ or $\SN^{\{i/f\}}_\mathrm{3-bin} < \sqrt{3}\,\sigma_f$ and
 $\SN^{\{i/f\}}_\mathrm{1-bin} < \sigma_f$. The number of photons $n_\gamma$ 
 per \PMT is then calculated as the integral of the calibrated trace from 
 $i\rightarrow j$, and has an associated uncertainty of approximately 
-\SI{14}{\percent} \cite{abrahamFluorescenceDetectorPierre2010}.
+\SI{9}{\percent} \cite{abrahamFluorescenceDetectorPierre2010}.
 
 \subsubsection{Arrival Direction Estimator*}
 \label{sssec:reconstruction-arrival-direction}
@@ -1352,10 +1352,10 @@ timing information, look indistinguishable in the \FD-camera. The best fit
 $\vec{P}\times\vec{n}$. The orientation of the \SDP is thus fully described by 
 the mean pointing direction of all candidate pixels.
 
-Once the \SPD is determined (with an uncertainty of 
-$\sigma_{\theta_\mathrm{SPD}} < \SI{0.5}{\degree}$ 
+Once the \SDP is determined (with an uncertainty of 
+$\sigma_{\theta_\mathrm{SDP}} < \SI{0.5}{\degree}$ 
 \cite{abrahamFluorescenceDetectorPierre2010}), the orientation of the shower 
-axis within the \SPD, $\chi_0$, as well as its minimum separation $R_p$, is 
+axis within the \SDP, $\chi_0$, as well as its minimum separation $R_p$, is 
 calculated from trigger timing information.
 
 It follows from geometric considerations that the trigger time $t_i$ of pixel 
@@ -1440,15 +1440,26 @@ $\xi>1$ is a correction factor that accounts for invisible energy that is
 radiated away from the shower in the form of neutrinos. The value of $\xi$ is 
 derived from Monte Carlo shower simulations 
 \cite{barbosaDeterminationCalorimetricEnergy2004}. The per-shower energy 
-resolution of the \FD is \SI{14}{\percent} 
+resolution of the \FD is \SI{10}{\percent} 
 \cite{abrahamFluorescenceDetectorPierre2010}.
-
-\todo{verify energy uncertainty}
 
 \subsection{SD Reconstruction}
 \label{ssec:sd-reconstruction}
 
-\halflift
+This section details the event reconstruction, which is the recovery of 
+high-level physics observables such as the energy of the primary \CR from 
+low-level detector measurements like the \WCD \PMT traces and calibration 
+histograms.
+
+The reconstruction process is similar for all sub-arrays (Ref.\ 
+\cref{ssec:array-structure}) in the surface detector. However, due to the 
+grids reaching full efficiency at different energies due to dissimilar detector
+spacing, different reference values, quality cuts, and normalization factors 
+must be applied during event reconstruction. 
+
+The following sections detail the event reconstruction in the \SD-1500 main 
+array, whereas the rest of this work focuses heavily on the \SD-750 infill 
+array. Distinctions in the reconstruction process are marked where necessary.
 
 \subsubsection{PMT \& Station Selector*}
 \label{sssec:reconstruction-pmt-quality-cuts}
@@ -1504,15 +1515,13 @@ filipCalibrationScintillatorSurface2025}
 \subsubsection{SdBaselineFinderKG}
 \label{sssec:reconstruction-baseline-finder}
 
-\todo[inline]{STOPPED READING HERE}
-
 The \PMT baseline estimate (Ref.\ \cref{eq:peak-and-charge}) is equally 
 revisited. An algorithm scans the
 trace before and after the \EAS signal, and builds a running baseline estimate
 that accounts for \PMT undershoot, electronic fluctuations and other hardware 
 effects that falsify the physical signal \cite{schulzNewBaselineAlgorithm2023}.
 It is crucial to characterize these accurately, as to not bias the calculation 
-of trace integrals, since such biases distort the estimate of the primary 
+of trace integrals, as these will influence the estimate of the primary 
 particle energy.
 
 \subsubsection{SdTraceCalibratorOG}
@@ -1530,20 +1539,24 @@ f^\mathrm{VEM/MIP}_i = \left( f^\mathrm{ADC}_i - b_i \right)\,/\,I_\mathrm{VEM/M
 Furthermore, the signal window is determined according to the procedure defined
 in \cite[Sec. 3.3 of][]{aabReconstructionEventsRecorded2020}. Regions where the
 trace exceeds \SI{3}{\ADC} above baseline are identified as signal fragments. 
-These signal pieces are iteratively combined under two conditions. Fragment B
-must start latest $\SI{500}{\nano\second} + t_A$ after fragment A (with 
-duration $t_A$) ends. Additionally, the segments are only merged if the charge 
-$Q$ or peak $I$ of both windows fulfill the conditions $Q_A > 0.3\,Q_B$, or 
-$I_B < 5\,\Ivem$. Both checks ensure the exclusion of random coincidences 
+These signal pieces are iteratively combined in a pairwise fashion under two 
+conditions. 
+
+Fragment B must start latest $\SI{500}{\nano\second} + t_A$ after fragment A 
+(with duration $t_A$) ends. Additionally, the segments are only merged if the 
+charge $Q$ or peak $I$ of both windows fulfill the conditions $Q_A > 0.3\,Q_B$,
+or $I_B < 5\,\Ivem$. Both checks ensure the exclusion of random coincidences 
 stemming from atmospheric muons.
 
 Once no trace segments are left to merge, the window with the longest duration
 is chosen for each \WCD \PMT, and the \EAS start and stop time are calculated 
-as the average of the \PMT start/stop times. A buffer time of 
-\SI{250}{\nano\second} is appended to the stop time, to ensure containment of
-any sub-threshold pulses. The integral of the \FADC trace within the determined
-signal window is calculated and divided by the corresponding charge calibration
-factor. The recovered quantity is the total \EAS signal 
+as the average of the single-\PMT start/stop times. A buffer time of 
+\SI{250}{\nano\second} is appended to the stop time, to ensure containment of 
+any sub-threshold pulses. 
+
+The integral of the \FADC trace within the determined signal window is 
+calculated and divided by the corresponding charge calibration factor. The 
+recovered quantity is the total \EAS signal 
 $Q^\mathrm{total}_\mathrm{VEM}$/$Q^\mathrm{total}_\mathrm{MIP}$. The 
 uncertainty of the total estimated signal is highly non-linear, and increases 
 from \SI{5}{\percent} for smaller signals to \SI{60}{\percent} at very large 
@@ -1571,7 +1584,7 @@ undershoot \cite{vebericEstimationSignalSaturated2013}.
 Just before the higher-level reconstruction begins, additional quality cuts are
 applied on a station level and event level. Stations that are triggered by 
 non-\EAS phenomena (lightning or other \TLEs 
-\cite{mussaMultipleELVESOther2025}) are rejected. The module serves mostly to 
+\cite{mussaMultipleELVESOther2025}) are rejected. This module serves mostly to 
 remove events that fall into bad periods, where data quality suffers due to 
 e.g.\ bad weather, but can also be manipulated to allow for the reconstruction 
 of events that do not pass T4 or T5 trigger criteria.
@@ -1600,35 +1613,46 @@ during the optimization process.
 To increase the accuracy on the estimated arrival direction, the procedure to 
 fit the shower axis to the station trigger times is repeated once more, using a
 non-linear parametrization that models the expansion of the \EAS more 
-realistically. The axis direction $(\theta,\,\phi)$ obtained from this fit 
-is the estimated arrival direction of the \EAS, and is accurate to within 
+realistically. 
+
+The axis direction $(\theta,\,\phi)$ obtained from this fit is the estimated 
+arrival direction of the \EAS, and is accurate to within 
 $\SIrange{1}{2}{\degree}$ \cite{bonifaziAngularResolutionPierre2009}. The 
 relative uncertainty on the core position $r_\mathrm{bary.} = (x,\,y)$ is given
 as \SI{2}{\percent} in \cite{ghiaStatisticalSystematicUncertainties2005}.
 
-Station trigger times are hereafter given relative to $t_\mathrm{bary.}$. The
-\SPD gives the minimum separation between a \SD-station and the (reconstructed)
-shower axis.
+Station trigger times are hereafter given relative to $t_\mathrm{bary.}$, and 
+the \SPD of a station denotes its smallest separation from the shower axis.
 
 \subsubsection{LDFFinderKG}
 \label{sssec:reconstruction-ldf-finder}
 
-An important step towards an \SD energy estimate is the parametrization of the
-\LDF (Ref.\ \cref{sssec:particle-footprint}). It characterizes the expected 
-total signal, $\Qvem$ for a station in terms of the \SPD. Real showers have 
-\LDF forms that are monotonically decreasing, or, in other words, have 
-$2\,\beta + \gamma < 0$.
+The next step towards an energy estimate is the parametrization of the \LDF 
+(Ref.\ \cref{sssec:particle-footprint}), giving the expected signal, 
+$\langle Q_{i} \rangle$ in terms of the \SPD at point $r_i$. Specifically
+important for the further event reconstruction is the expected signal 
+$S(r_\mathrm{ref.})$ at a shower plane distance $r_\mathrm{ref.}$. This 
+parameter is called the shower size.
 
-The \LDF is estimated during event reconstruction by optimizing the parameters
-$S(1000)$, $\beta$, and $\gamma$ by performing a \NLL optimization to fit 
-\cref{eq:NKG} to the integrated signal $\Qvem$/$\Qmip$ observed at each station
-that is participating in the event. To boost the accuracy of the recovered fit 
-parameters the optimization is executed multiple times, first only optimizing
-the shower size, and gradually becoming more elaborate, also updating the 
-estimate of the location of the shower core (and thus $r$) in the process.
+Intuitively, $\langle Q_i \rangle$ of candidate detector $i$ must decrease with
+increasing \SPD, implying that strictly $\frac{\mathrm{d}S}{\mathrm{d}r}<0$ and
+by extension $2\,\beta + \gamma < 0$ (Ref.\ \cref{eq:NKG}).
 
-The final estimate of $S(1000)$ has a systematic uncertainty of 
-\SI{2}{\percent} \cite{ghiaStatisticalSystematicUncertainties2005}.
+This constraint on the \LDF slope is used in a numerical fitting algorithm that
+finds the parameters $S(r_\mathrm{ref.})$, $\beta$, and $\gamma$ via a \NLL 
+optimization that tailors \cref{eq:NKG} to $\Qvem$/$\Qmip$ of each candidate 
+station.
+
+To boost the accuracy of the recovered fit parameters the optimization is 
+executed multiple times, first optimizing the shower size, and gradually 
+becoming less constrained, also updating the estimate of $r_\mathrm{bary.}$
+(and thus $r$) in the process.
+
+The final estimate of $S(r_\mathrm{ref.})$ has a systematic uncertainty of 
+\SI{2}{\percent} \cite{ghiaStatisticalSystematicUncertainties2005}. The main 
+array uses $r_\mathrm{ref.} = \SI{1000}{\meter}$, whereas the \SD-750 employs
+a smaller reference distance of \SI{450}{\meter} 
+\cite{sanchezAMIGADetectorPierre2011}.
 
 \subsubsection{Energy Estimator*}
 \label{sssec:sd-reconstruction-energy-estimator}
@@ -1636,33 +1660,40 @@ The final estimate of $S(1000)$ has a systematic uncertainty of
 The shower size obtained in the previous step is a useful metric to estimate 
 the primary energy of the \CR particle, as detailed in 
 \cite{aabReconstructionEventsRecorded2020}. However, several steps are needed
-to calculate $E$ from $S(1000)$. First, a correction is applied to $S(1000)$ 
-that accounts for the effect of the Earths' geomagnetic field on the shower 
-evolution. 
+to recover an accurate estimator $E_\mathrm{SD}$ from $S(r_\mathrm{ref.})$. 
 
-Next, another correction is applied to $S(1000)$ that aims to eliminate the 
-dependence of the shower size on the inclination of the \EAS. Consider 
-different \EAS of identical energy, but increasing $\theta$. It is easy to 
-verify that the horizontal air showers have a larger track length in the 
-atmosphere over the vertical ones. As a consequence, they are more attenuated, 
-and show a lower $S(1000)$. The attenuation function $f(\theta)$ is estimated
-in an empirical manner by comparing observed distribution of the shower sizes 
-for different inclinations to a (without attenuation expected) constant 
-reference distribution. A third-degree polynomial approximates the attenuation
-factor sufficiently well. From this the zenith independent value $S_{38}$ is
-calculated via the \CIC. This represents the expected shower size that a given 
-\EAS would have if it had an inclination of $\SI{38}{\degree}$\footnote{
-$\SI{38}{\degree}$ is chosen as it is the median angle in the \EAS zenith 
-distribution}.
+First, a correction is applied to the shower size that accounts for the effect 
+of the Earths' geomagnetic field on the shower evolution. Then, another 
+correction is applied to $S(r_\mathrm{ref.})$ that aims to eliminate the 
+dependence of the shower size on the inclination of the \EAS, i.e.\ arrival 
+direction of the primary particle. 
+
+Consider different \EAS of identical energy, but increasing $\theta$. It is 
+easy to verify that the track length in the atmosphere grows with increasing 
+inclination. As a consequence, horizontal showers are more attenuated, and show
+a lower $S(r_\mathrm{ref.})$. 
+
+The attenuation function $f(\theta)$ that describes this phenomenon is 
+estimated in an empirical manner by comparing observed distribution of 
+$S_\mathrm{ref.}$ for different inclinations to a (without attenuation 
+expected) constant reference distribution. 
+
+A third-degree polynomial approximates the attenuation factor sufficiently 
+well. From this the zenith independent value $S_{\theta_\mathrm{ref.}}$ is 
+calculated via the \CIC. This thus represents the expected shower size that a 
+given \CR would have induced if it had an inclination of 
+$\theta_\mathrm{ref.}$. It is
 
 \begin{equation}
 \label{eq:cic}
-S_{38} = \frac{S(1000)}{f(\theta)} = \frac{S(1000)}{ax^3 + bx^2 + cx + 1},\,\mathrm{with}\,x=\cos^2(\theta)-\cos^2(\SI{38}{\degree}).
+S_{\theta_\mathrm{ref.}} = \frac{S(1000)}{f(\theta)} = \frac{S(1000)}{ax^3 + bx^2 + cx + 1},\,\mathrm{with}\,x=\cos^2(\theta)-\cos^2(\theta_\mathrm{ref.}).
 \end{equation}
 
-The values of $a$, $b$, and $c$ in \cref{eq:cic} are given in 
-\cref{tab:cic-parameters}. Finally, $S_{38}$ is used to estimate the primary 
-energy of the \EAS as
+For the \SD-1500 $\theta_\mathrm{ref.} = \SI{38}{\degree}$, and in the \SD-750 
+$\theta_\mathrm{ref.} = \SI{35}{\degree}$. The values of $a$, $b$, and $c$ in 
+\cref{eq:cic} are given in \cref{tab:cic-parameters}. Finally, 
+$S_{\theta_\mathrm{ref.}}$ is used to estimate the primary energy of the \EAS 
+as
 
 \begin{equation}
 \label{eq:energy-cross-calibration}
@@ -1671,14 +1702,67 @@ E_\mathrm{SD} = A\,S_{38}^B.
 
 The power law relation with parameters $A$ and $B$ in 
 \cref{eq:energy-cross-calibration} is obtained from a subset of observed \EAS 
-that triggered the \FD and the \SD independently. Several quality cuts (Ref.\ 
+that trigger the \FD and the \SD independently. Several quality cuts (Ref.\ 
 \cite{aabReconstructionEventsRecorded2020}) ensure that the resulting \SD 
 energy scale matches the \FD energy scale and spectrum as closely as possible.
 The numerical values of $A$ and $B$ are given in 
 \cref{tab:energy-cross-calibration}. The intermediate step of the 
 cross-calibration introduces an additional factor in the energy uncertainty 
-budget, which grows from $\sigma_{E_\mathrm{FD}}=\SI{10}{\percent}$ to 
-$\sigma_{E_\mathrm{SD}}=\SI{14}{\percent}$. 
+budget, which grows to $\sigma_{E_\mathrm{SD}}=\SI{14}{\percent}$. 
+
+\subsection{UMD Reconstruction}
+\label{ssec:umd-reconstruction}
+
+Observables pertaining to the muon content of \EASs are reconstructed in a 
+distinct event reconstruction chain, utilizing data from the \UMD (Ref.\ 
+\cref{sssec:umd}).
+
+\subsubsection{MdPatternFinder}
+
+In a first step, the number of muons hitting the \UMD is estimated for every 
+bar in every module that passes predefined quality cuts.\footnote{One 
+example being if the corresponding \SD-station did not record any trigger.}
+
+Muonic signals are identified by the pattern they leave in the binary trace of
+a bar. Namely, runs of 4 or more consecutive ones in the binary trace are 
+considered to be caused by a muon. An inhibition window of 12 samples after the
+pattern start ensures that large single-muon signals are not overcounted as 
+distinct pattern matches. This results in an estimated per-bar number of muons 
+$n_{\mu,\,i}$.
+
+An infinite window strategy \cite{hayashidaMuons1GeV1995, 
+gesualdiMuonContentAtmospheric2023} is used in which the number of bars with
+pattern matches, $k$, out of all $n_b$ bars per module is tied to the binomial 
+probability $P(k\,|\,N_\mu)$ of observing $k$ active bars in the module given 
+$N_\mu$ impinging muons. The maximum likelihood estimator for $N_\mu$ becomes 
+\cite{supanitskyEstimationNumberMuons2021}
+
+\begin{equation}
+	\label{eq:muon-number}
+	\hat{N}_\mu = \left(1 - \frac{k}{n_s}\right)\,/\,\left(1 - \frac{1}{n_s}\right).
+\end{equation}
+
+\subsubsection{Pileup and Corner Cliping Correction*}
+
+Two effects can skew the value of $\hat{N}_\mu$ away from the true number of 
+impinging muons per module. First, the nature of the binary trace makes it 
+impossible to recognize two muons entering the same bar at the same time. This
+pileup happens especially for $N_\mu \gg 1$ and results in an underestimation 
+of the \UMD signal.
+
+The muon count taking pileup into account can be recovered as detailed in
+\cite{scornavaccheMuonContentExtensive2025}:
+
+\begin{equation}
+	\label{eq:pileup-correction}
+	N^\mathrm{PU}_\mu = -n_s\,\ln\left(1-\frac{1}{n_s}\right)\,\hat{N}_\mu.
+\end{equation}
+
+Second, there exists a non-zero probability that the trajectory of an inclined muon passes more than one bar, resulting in a count of two (or more) stemming 
+from a single, corner-clipping muon. The corner-clipping probability 
+
+\todo[inline]{STOPPED READING HERE}
 
 
-
+\subsubsection{MdEventSelectorAG}
+\subsubsection{MdLDFFinderAG}
