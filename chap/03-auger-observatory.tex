@@ -1258,7 +1258,25 @@ reference for all following information.
 	 & $I_i$/$Q_i$ & \SI{2}{\percent} & Peak/Charge calibration factors for
 	 the \WCD \LPMTs and the \SSD \PMT & 
 	 \cref{sssec:reconstruction-histogram-fitter} \\
-\bottomrule
+	 \cline{2-5}
+	 \ldelim\{{6.2}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{\UMD 
+	 Reconstruction}}]
+	 & $S_\mu(r_\mathrm{ref})$ & XXX & \UMD shower size, $\upmu$LDF value
+	 at \SD-750 reference $r_\mathrm{ref.} = \SI{450}{\meter}$ & 
+	 \cref{sssec:umd-reconstruction-ldf} &
+ 	 \rdelim\}{2.4}{*}[\parbox{4mm}{\rotatebox[origin=c]{270}{Evt. lvl.}}] 
+	 \\
+	 & \beta & XXX & Slope of the $\upmu\mathrm{LDF}$ & 
+	 \cref{sssec:umd-reconstruction-ldf} \\
+	 & $P_\mathrm{PU}$ & XXX & Probability of muon pileup & 
+	 \cref{sssec:umd-reconstruction-corrections} & 
+	\rdelim\}{3.8}{*}[\parbox{4mm}{\rotatebox[origin=c]{270}{Module lvl.}}]
+	\\
+	& $P_\mathrm{CC}$ & XXX & Muon corner clipping probability & 
+	\cref{sssec:umd-reconstruction-corrections} \\
+	& $\hat{N}^\mathrm{PU}_\mu$ & XXX & Count of observed muons, pileup and
+	corner clipping corrected & \cref{sssec:umd-reconstruction-patterns} \\
+	\bottomrule
 	\end{tabular*}
 	\label{tab:rec-quantities}
 	\end{center}
@@ -1718,6 +1736,7 @@ distinct event reconstruction chain, utilizing data from the \UMD (Ref.\
 \cref{sssec:umd}).
 
 \subsubsection{MdPatternFinder}
+\label{sssec:umd-reconstruction-patterns}
 
 In a first step, the number of muons hitting the \UMD is estimated for every 
 bar in every module that passes predefined quality cuts.\footnote{One 
@@ -1743,15 +1762,15 @@ $N_\mu$ impinging muons. The maximum likelihood estimator for $N_\mu$ becomes
 \end{equation}
 
 \subsubsection{Pileup and Corner Cliping Correction*}
+\label{sssec:umd-reconstruction-corrections}
+
 
 Two effects can skew the value of $\hat{N}_\mu$ away from the true number of 
 impinging muons per module. First, the nature of the binary trace makes it 
 impossible to recognize two muons entering the same bar at the same time. This
 pileup happens especially for $N_\mu \gg 1$ and results in an underestimation 
-of the \UMD signal.
-
-The muon count taking pileup into account can be recovered as detailed in
-\cite{scornavaccheMuonContentExtensive2025}:
+of the \UMD signal. The muon count taking pileup into account can be recovered 
+as detailed in \cite{scornavaccheMuonContentExtensive2025}:
 
 \begin{equation}
 	\label{eq:pileup-correction}
@@ -1762,16 +1781,11 @@ Second, there exists a non-zero probability that the trajectory of an inclined m
 from a single muon. The corner-clipping probability as determined in 
 \cite{jesusStudyMassComposition2025} reads
 
-\begin{equation}
-	\label{eq:corner-clipping-probability}
-	P^\mathrm{CC}(\theta, \Delta\phi) = m(\theta) \left(\left|\sin\Delta\phi\right| - 0.5 \right) + b(\theta), 
-\end{equation}
-
-where
-
 \begin{align}
-	m(\theta) &= m_0 + m_1\,\left(\sec\theta - 1.2\right), \\
-	b(\theta) &= b_1 + b_1\,\left(\sec\theta - 1.2\right),
+	\label{eq:corner-clipping-probability}
+	P^\mathrm{CC}(\theta, \Delta\phi) &= m(\theta) \left(\left|\sin\Delta\phi\right| - 0.5 \right) + b(\theta). \\ 
+	\text{Where}\,\, m(\theta) &= m_0 + m_1\,\left(\sec\theta - 1.2\right), \\
+	\text{and}\,\, b(\theta) &= b_1 + b_1\,\left(\sec\theta - 1.2\right),
 \end{align}
 
 and $\Delta\phi = \phi_\mathrm{rec} - \phi_\mathrm{MD}$ gives the azimuth
@@ -1783,11 +1797,32 @@ The corrected muon count becomes
 	\hat{N}^\mathrm{CC}_\mu = \frac{\hat{N}^\mathrm{PU}_\mu}{1 + P^\mathrm{CC}(\theta_\mathrm{rec.}, \Delta\phi)}.
 \end{equation}
 
-The uncertainty on the final estimator of the muon count per module is \todo{find this out}.
+The uncertainty on the final estimator of the muon count per module is 
+\todo{find this out}.
 
-
-\todo[inline]{STOPPED READING HERE}
-
-
-\subsubsection{MdEventSelectorAG}
 \subsubsection{MdLDFFinderAG}
+\label{sssec:umd-reconstruction-ldf}
+
+If the sample of well reconstructed $\hat{N}^\mathrm{PU}_\mu$ is big enough and
+sufficiently spread out over a range of \SPDs,\footnote{As determined by the
+module \texttt{MdEventSelectorAG}.} the muonic \LDF (referenced as the 
+$\upmu\LDF$) of the air shower can be estimated with sufficient precision. It
+takes the form \cite{thepierreaugercollaborationOfficialOfflineRepository2025,
+desouzaDirectMeasurementMuon2009}
+
+\begin{equation}
+\label{eq:muon-ldf}
+S_\mu(r) = S_\mu(r_\mathrm{ref.}) \left(\frac{r}{r_\mathrm{ref.}}\right)^\alpha \left(\frac{r_0 + r_\mathrm{ref.}}{r_0 + r}\right)^\beta \left(\frac{(10\,r_0)^2 + r_\mathrm{ref.}^2}{(10\,r_0)^2 + r^2}\right)^\gamma
+\end{equation}
+
+The values $r_0$ and $r_\mathrm{ref}$ are defined as \SI{320}{\meter} (Ref.\ 
+\cite{jesusStudyMassComposition2025}) and \SI{450}{\meter} (Ref.\ p.\ 
+\pageref{sssec:reconstruction-ldf-finder}) respectively. Furthermore, studies
+at previous experiments  have shown that degeneracies in \cref{eq:muon-ldf} can
+be avoided by fixing $\alpha=0.75$, $\gamma=3$, and parametrizing 
+$\beta = \beta(E)$ in terms of the primary \CR energy 
+\cite{desouzaDirectMeasurementMuon2009}.
+
+A binomial likelihood is used to find the optimal estimator for the \UMD shower
+size, and the slope of the $\upmu\LDF$, Both quantities carry an uncertainty of
+\todo{find this out}.

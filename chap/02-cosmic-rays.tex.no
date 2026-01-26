@@ -1439,7 +1439,7 @@ emission that is emitted isotropically, the Cherenkov radiation has a
 (comparably) high brilliance. The opening angle of the emitted \UV light cone, 
 $\cos\theta_\mathrm{C} = 1 / n\beta$, is very shallow. Typically the footprint 
 of the Cherenkov light is contained within \SI{100}{\meter}, slightly more than
-one Molière radius \cite{nerlingDescriptionCherenkovLight2005, 
+one Molière radius, $r_0$ \cite{nerlingDescriptionCherenkovLight2005, 
 pierreaugercollaborationAtmosphericEffectsExtensive2009}. This compactness 
 allows for the efficient observation of \EASs with earthbound \UV telescopes as
 detailed in e.g.\ \cite{baixerasMAGICTelescope2003}.
