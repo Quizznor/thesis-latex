@@ -9,16 +9,16 @@ cross-calibration of the reconstructed \UMD/\SSD energies (Ref.\
 \cref{sssec:sd-sd-reconstruction-energy-estimator}) depend on measurement data 
 that are more than a decade old. 
 
-While the pixel 
-calibration constants are in principle updated using a nightly relative 
-calibration (Ref.~\cref{sssec:relative-calibration}) it is crucial to verify
-the integrity of the relative tracking and the employed energy calibration.
+While the pixel calibration constants are in principle updated using a nightly 
+relative calibration (Ref.~\cref{sssec:relative-calibration}) it is crucial to 
+verify the integrity of the relative tracking and the employed energy 
+calibration.
 
 The XY-Scanner is a novel end-to-end calibration system that is used to estimate
 the \FD pixel calibration constants with an accuracy of \todo{uncertainty}. It 
-provides an excellent alternative to check the validity of the \FD calibration, 
-and the \FD energy scale by extension. The measurement system as well as 
-underlying analysis is presented in detail in 
+provides an excellent method of verifying the validity of the currently employed
+pixel calibration constants, and the \FD energy scale by extension. The 
+measurement system as well as underlying analysis is presented in detail in 
 \cite{schaferXYScannerVersatileMethod2023}, and summarized in 
 \cref{sec:xy-scanner}.
 
@@ -26,9 +26,11 @@ underlying analysis is presented in detail in
 developed in this work, and that are used to assure the reproducibility of XY 
 measurements and establish the trustworthiness of the gathered data.
 
-A comparison of XY measurement data to current pixel calibration constants can
-be found in \cref{sec:telescope-aging}, where possible reasons for discrepancies
-and an updated relative calibration tracking algorithm are given.
+After ensuring the quality of the novel calibration method, the results of 
+various XY measurement campaigns are compared to current pixel calibration 
+constants can. \cref{sec:telescope-aging} details this comparison and details
+possible reasons for discrepancies. An updated relative calibration tracking 
+algorithm is equally given.
 
 Finally, an update to the \FD energy scale is presented in 
 \cref{sec:fd-energy-scale}.
@@ -48,8 +50,8 @@ holds information about the energy of an \EAS (Ref.\
 \cref{sssec:fd-reconstruction-energy-estimator}).
 
 Different facilities have been set up to measure the radiance of the 
-XY lightsource, shown in \todo{figure} and hereafter referred to as \CLS, 
-independently \cite{heibgesPhotometricCharacterizationLight2020, 
+XY lightsource, shown in \cref{fig:xy-light-source} and hereafter referred to as
+\CLS, independently \cite{heibgesPhotometricCharacterizationLight2020, 
 schaferXYScannerVersatileMethod2023, vaculaVyvojKalibracnihoSvetelneho2024}. 
 While precise implementation details differ, all test banks rely on measuring a 
 distance-dependent flux of photons on a \PD that is illuminated by the \CLS. The
@@ -58,15 +60,34 @@ the geometry of the setup, as well as the \CLS radiance as
 
 \begin{equation}
 \label{eq:source-radiance}
-\Phi_\mathrm{PD}(r) = \left(\frac{\pi r_\mathrm{CLS} \, r_\mathrm{det}}{r}\right)^2\,L_\mathrm{CLS}.
+\Phi_\mathrm{PD}(r) = \left(\frac{\pi r_\mathrm{CLS} \, r_\mathrm{PD}}{r}\right)^2\,\tilde{L}_\mathrm{CLS}.
 \end{equation}
 
-$L_\mathrm{CLS}$ in \cref{eq:source-radiance} gives the \CLS source radiance 
-folded with the response function of the measurement setup.\footnote{Including
-a conversion from light signal to \PD response.} By controlling the laboratory 
-environment precisely, the source radiance can be determined with an accuracy of
-$\lessapprox\SI{3}{\percent}$. \todo{figure} and \todo{abscalpaper} detail the 
-agreement of the cross-calibration between different measurement facilities.
+$\tilde{L}_\mathrm{CLS}$ in \cref{eq:source-radiance} gives the \CLS source 
+radiance folded with the response function of the measurement 
+setup.\footnote{Including e.g.\ a conversion from light signal to \PD response.}
+By controlling the laboratory environment precisely, the source radiance can be 
+determined with an accuracy of $\lessapprox\SI{3}{\percent}$. \todo{figure} and 
+\todo{abscalpaper} detail the agreement of the cross-calibration between 
+different measurement facilities.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/xy_light_source.jpg}
+  \label{fig:xy-light-source}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/xy_pattern.png}
+  \label{fig:xy-flash-pattern}
+  }
+  \caption[]{\subref{fig:xy-light-source} The XY calibration light source 
+  mounted in a test setup in Karlsruhe. Photo from 
+  \cite{schaferXYScannerVersatileMethod2023} \subref{fig:xy-flash-patther} The
+  XY scanner, consisting of light source, horizontal and vertical axles, as well
+  as the electronics box on the top right, mounted in front of an \FD telescope.
+  Photo from \cite{schaferXYScannerVersatileMethod2023}. Flasher positions are 
+  superimposed as grey hexagons.}
+  \label{fig:xy-hardware}
+\end{figure}
 
 \subsection{Telescope Calibration}
 \label{ssec:fd-xy-calibration}
@@ -74,11 +95,12 @@ agreement of the cross-calibration between different measurement facilities.
 The precisely determined radiance of the \CLS is then used to connect 
 calibration data of the \FD telescopes to a corresponding calibration constant.
 For this purpose the XY lightsource is installed in front of the \FD aperture on
-two motorized linear stages, as shown in \todo{fig}. Over the course of a 
-measurement the light source tracks a path consisting of $n_\mathrm{pos}>1500$ 
-unique positions distributed uniformly on a hexagonal grid that covers the 
-entire telescope frame. At each position the \CLS emits a flash of light 
-directed at the \FD-camera. The detector response is recorded for each position.
+two motorized linear stages, as shown in \ref{fig:xy-flash-pattern}. Over the 
+course of a measurement the light source tracks a path consisting of 
+$n_\mathrm{pos}>1500$ unique positions distributed uniformly on a hexagonal grid
+that covers the entire telescope frame. At each position the \CLS emits a flash 
+of light directed at the \FD-camera. The detector response is recorded for each 
+position.
 
 The measurement process takes on average \SI{40}{\minute} without interruptions.
 To check the stability of the \FD \DAQ readout chain, two Calibration A 
