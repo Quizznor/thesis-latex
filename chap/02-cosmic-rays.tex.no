@@ -41,30 +41,34 @@ Theodor Wulf, who, in 1909, developed an electrometer that is able to measure
 the ionization rate of the atmosphere. His invention was used to show the 
 difference in air ionization rates on the ground, at the top of the Eiffel 
 Tower \cite{wulfBeobachtungenUberStrahlung1910} and underwater
-\cite{paciniRadiazionePenetranteAlla1912}. A general consensus was not reached,
-but all evidence seemed to suggest an altitude dependence of electrometer 
-ionization rates. In 1912 Victor Hess continued this study by examining 
-spontaneous ionization during ballon flights above Germany and Austria 
-\cite{hessElektrischeLeitfaehigkeitAtmosphaere1926}. With the ionization rate 
-increasing the higher the balloon flew, Hess concluded that energetic particles
-are present in the atmosphere, and that their density profile increases at 
-altitude. His intuition proved correct and would eventually be honored with a 
-Nobel prize in 1936 \cite{nobelprizeoutreach2025NobelPrizePhysicsa}.
+\cite{paciniRadiazionePenetranteAlla1912}. 
+
+A general consensus was not reached, but all evidence seemed to suggest an 
+altitude dependence of electrometer ionization rates. In 1912 Victor Hess 
+continued this study by examining spontaneous ionization during ballon flights 
+above Germany and Austria \cite{hessElektrischeLeitfaehigkeitAtmosphaere1926}. 
+With the ionization rate increasing the higher the balloon flew, Hess concluded
+that energetic particles are present in the atmosphere, and that their density 
+profile increases at altitude. His intuition proved correct and would 
+eventually be honored with a Nobel prize in 1936 
+\cite{nobelprizeoutreach2025NobelPrizePhysicsa}.
 
 Given the context of research at the time, these energetic particles were
 thought to be \EM radiation. Their extraterrestrial origin was demonstrated by 
 Hess himself, as well as Werner Kolhörster in 1913/1914 
 \cite{kolhorsterMeasurementsPenetratingRadiation1913}. Consequentially, the 
-term \textit{cosmic rays} was coined for the phenomenon. In 1929 Walter Bothe 
-and Kolhörster attempted to investigate the nature of cosmic rays further by 
-studying their interactions with high-Z materials, assuming that the proposed
-\EM-nature of the cosmic rays would not allow them to traverse deeply into the
-absorbers \cite{botheNaturHohenstrahlung1929}. They were surprised to find out 
-that the particles they investigated had a penetrating power uncharacteristic 
-for $\upgamma$-radiation. They concluded that \CRs are therefore made up of, at
-least partially, corpuscular radiation, rather than photons. This started a 
-subsequent investigation of the type and nature of \CRs and was an important 
-milestone for the field of astroparticle physics.
+term \textit{cosmic rays} was coined for the phenomenon. 
+
+In 1929 Walter Bothe and Kolhörster attempted to investigate the nature of 
+cosmic rays further by studying their interactions with high-Z materials, 
+assuming that the proposed \EM-nature of the cosmic rays would not allow them 
+to traverse deeply into the absorbers \cite{botheNaturHohenstrahlung1929}. They
+were surprised to find out that the particles they investigated had a 
+penetrating power uncharacteristic for $\upgamma$-radiation. They concluded 
+that \CRs are therefore made up of, at least partially, corpuscular radiation, 
+rather than photons. This started a subsequent investigation of the type and 
+nature of \CRs and was an important milestone for the field of astroparticle 
+physics.
 
 Since then, the study of \CRs has lead to the discovery of the positron 
 (Anderson 1933, Ref.\ \cite{andersonPositiveElectron1933}), the muon (Anderson,

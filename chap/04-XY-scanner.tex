@@ -38,6 +38,24 @@ Finally, an update to the \FD energy scale is presented in
 \section{The XY-Scanner}
 \label{sec:xy-scanner}
 
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/xy_light_source.jpg}
+  \label{fig:xy-light-source}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/xy_pattern.png}
+  \label{fig:xy-flash-pattern}
+  }
+  \caption[]{\subref{fig:xy-light-source} The XY calibration light source 
+  mounted in a test setup in Karlsruhe. Photo from 
+  \cite{schaferXYScannerVersatileMethod2023} \subref{fig:xy-flash-pattern} The
+  XY scanner, consisting of light source, horizontal and vertical axles, as well
+  as the electronics box on the top right, mounted in front of an \FD telescope.
+  Photo from \cite{schaferXYScannerVersatileMethod2023}. Flasher positions are 
+  superimposed as grey hexagons.}
+  \label{fig:xy-hardware}
+\end{figure}
+
 \fulllift
 
 \subsection{Light Source Calibration}
@@ -54,48 +72,48 @@ XY lightsource, shown in \cref{fig:xy-light-source} and hereafter referred to as
 \CLS, independently \cite{heibgesPhotometricCharacterizationLight2020, 
 schaferXYScannerVersatileMethod2023, vaculaVyvojKalibracnihoSvetelneho2024}. 
 While precise implementation details differ, all test banks rely on measuring a 
-distance-dependent flux of photons on a \PD that is illuminated by the \CLS. The
-normalization of the expected inverse square law is given, to first order, by 
-the geometry of the setup, as well as the \CLS radiance as
+distance-dependent flux, $\Phi_\mathrm{PD}(r)$, of photons with wavelength 
+$\lambda$ on a \PD illuminated by the \CLS. This flux follows, to first order,
+an inverse-square law, supplemented by higher orders that consider the view 
+factor $F_{\mathrm{PD},\,\mathrm{CLS}}$ that depends on the aperture radii
+$R_\mathrm{PD}$, $R_\mathrm{CLS}$ of the \PD- and \CLS aperture respectively.
 
 \begin{equation}
 \label{eq:source-radiance}
-\Phi_\mathrm{PD}(r) = \left(\frac{\pi r_\mathrm{CLS} \, r_\mathrm{PD}}{r}\right)^2\,\tilde{L}_\mathrm{CLS}.
+F_{\mathrm{PD},\,\mathrm{CLS}} &= \frac{1}{2}\,\left[ 1 + \left(\frac{r-r_0}{R_\mathrm{CLS}}\right)^2 + \left(\frac{R_\mathrm{PD}}{R_\mathrm{CLS}}\right)^2 - \sqrt{1 + \left(\frac{r-r_0}{R_\mathrm{CLS}}\right)^2 - 3\left(\frac{R_\mathrm{PD}}{R_\mathrm{CLS}}\right)^2} \right] \\
 \end{equation}
 
-$\tilde{L}_\mathrm{CLS}$ in \cref{eq:source-radiance} gives the \CLS source 
-radiance folded with the response function of the measurement 
-setup.\footnote{Including e.g.\ a conversion from light signal to \PD response.}
-By controlling the laboratory environment precisely, the source radiance can be 
-determined with an accuracy of $\lessapprox\SI{3}{\percent}$. \todo{figure} and 
+The diode at distance $r-r_0$ from the \CLS consequently measures a flux 
+
+\begin{equation}
+\Phi_\mathrm{PD}(r) &= \frac{hc}{\lambda}\,\tilde{S}_\mathrm{setup}\,L_\mathrm{CLS},
+\end{equation}
+
+where $\tilde{S}_\mathrm{setup}$ in \cref{eq:source-radiance} gives the response
+function of the \PD.\footnote{Which will in general depend on the entire test
+setup, not just the \PD.} By controlling the laboratory environment precisely, 
+the source radiance can be determined with an accuracy of 
+$\lessapprox\SI{3}{\percent}$. \cref{fig:absolute-calibration} and 
 \todo{abscalpaper} detail the agreement of the cross-calibration between 
 different measurement facilities.
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/xy_light_source.jpg}
-  \label{fig:xy-light-source}
-  }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/xy_pattern.png}
-  \label{fig:xy-flash-pattern}
-  }
-  \caption[]{\subref{fig:xy-light-source} The XY calibration light source 
-  mounted in a test setup in Karlsruhe. Photo from 
-  \cite{schaferXYScannerVersatileMethod2023} \subref{fig:xy-flash-patther} The
-  XY scanner, consisting of light source, horizontal and vertical axles, as well
-  as the electronics box on the top right, mounted in front of an \FD telescope.
-  Photo from \cite{schaferXYScannerVersatileMethod2023}. Flasher positions are 
-  superimposed as grey hexagons.}
-  \label{fig:xy-hardware}
+  \includegraphics[width=1.0\textwidth]{xy-scanner/abs_calib.png}
+  \caption{\PD signal information from measurements of $L_\mathrm{CLS}$ at two
+  different test setups located in Olomouc and Karlsruhe. Data with 
+  acknowledgement from \textbf{CITE} ??.}
+  \label{fig:absolute-calibration}
 \end{figure}
 
 \subsection{Telescope Calibration}
 \label{ssec:fd-xy-calibration}
 
-The precisely determined radiance of the \CLS is then used to connect 
-calibration data of the \FD telescopes to a corresponding calibration constant.
+The precisely determined radiance of the \CLS is then used to connect the \FD 
+response after a \CLS light flash to a corresponding calibration constant.
+
 For this purpose the XY lightsource is installed in front of the \FD aperture on
-two motorized linear stages, as shown in \ref{fig:xy-flash-pattern}. Over the 
+two motorized linear stages, as shown in \cref{fig:xy-flash-pattern}. Over the 
 course of a measurement the light source tracks a path consisting of 
 $n_\mathrm{pos}>1500$ unique positions distributed uniformly on a hexagonal grid
 that covers the entire telescope frame. At each position the \CLS emits a flash 
@@ -107,36 +125,42 @@ To check the stability of the \FD \DAQ readout chain, two Calibration A
 measurements with an open \FD shutter are performed immediately before and after
 the XY run.
 
-Afterwards, the measurement data to be analyzed consists of $n_\mathrm{pos}$ 
-($\mathcal{O}(1700)$) events, each containing the \ADC-traces digitized at the 
-time of the \CLS flash for all 440 pixels of the \FD-camera. The calibration 
-constant for a given pixel-\PMT is then calculated from the measurement 
-information according to the following steps:
+A complete XY measurement thus consist of $n_\mathrm{pos}$ \FD events, each 
+containing the \ADC-traces digitized at the time of the \CLS flash for all 440 
+pixels of the \FD-camera. The calibration constant for a given pixel-\PMT is 
+then calculated from this information according to the steps listed below.
 
+\vspace{1cm}
 \begin{enumerate}
-	\item The baseline (Ref.~\cref{sssec:reconstruction-pixel-calibrator})
-	is subtracted from all traces in all \PMTs for all events.
+	\item The baseline $b_i$ is calculated per \PMT and subtracted from all 
+	traces $t_i$.
 	\item A pulse finding algorithm 
 	(Ref.~\cite[][Section 7.1.1]{schaferXYScannerVersatileMethod2023}) 
-	determines the part of the trace that contains the light pulse from the 
-	calibration light source.
+	determines the trace interval $[k_\mathrm{start}, k_\mathrm{stop}]$ that
+	contains the light pulse from the calibration light source.
 	\item The integral of the pulse is calculated, this value is summed for 
 	all events in each pixel to yield a total signal per pixel in units of 
 	\ADC.
 	\item The total number of photons received by each pixel-\PMT is 
-	calculated via the known source radiance. The non-uniform camera 
+	estimated via the known source radiance. The non-uniform camera 
 	geometry and reflectivity are taken into account via simulation based 
-	correction factors for each pixel.
+	correction factors $F_{i,\,\mathrm{CLS}}$.
 	\item The total signal in every \PMT is divided by the total count of 
 	incident photons to calculate the pixel calibration constant in units of
 	$\ADC/\gamma$.
 \end{enumerate}
 
-\vspace{0.7cm}
+In summary, the calibration constant $C^{\mathrm{pixel},\,i}_\mathrm{abs.}$ for 
+pixel $i$ is calculated as 
+
+\begin{equation}
+	\label{eq:xy-scanner-calib-calculation}
+	C^{\mathrm{pixel},\,i}_\mathrm{abs.} = \sum\limits_{j=1}^{n_\mathrm{pos}} \left[ \sum\limits_{k = k_\mathrm{start}}^{k_\mathrm{stop}} t_{i,\,k} - b_i \right]\,\bigg/\,n_\mathrm{pos}L_\mathrm{CLS}\,F_{i,\,\mathrm{CLS}}.
+\end{equation}
 
 The different systematic and statistical contributions intrinsic to this process
 are listed in \cref{tab:xy-systematics}. The total uncertainty, given as 
-$\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
+$\sqrt{\sum\sigma_i^2}$, amounts to \todo{uncertainty}.
 
 \begingroup
 \renewcommand{\arraystretch}{1.3}
@@ -144,8 +168,8 @@ $\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 	\begin{center}
 	\caption{Uncertainties of pixel calibration constants measured by the 
 	XY-Scanner. Comparisons to the Drum calibration, where possible, are 
-	taken from \cite{brackAbsoluteCalibrationLargediameter2013, 
-	brackFDAbsoluteCalibration, dorofeevFDAbsoluteCalibration}.}
+	taken from \cite{brackAugerFluorescenceDetector2013, 
+	crissUpdateRecentAbsolute2010, dorofeevFDAbsoluteCalibration}.}
 	\begin{tabular*}{\textwidth}{w{l}{0.35\textwidth}w{r}{0.35\textwidth}|w{c}{0.1\textwidth}w{c}{0.1\textwidth}}
   	\toprule
 	 & & XY & Drum \\
@@ -184,9 +208,12 @@ $\sqrt{\sum\sigma_i^2}$, is quoted as \todo{uncertainty}.
 \section{Quality Assurance}
 \label{sec:quality-assurance}
 
-By calculating \FD pixel calibration constants according to 
-\cref{ssec:fd-xy-calibration} one implicitly requires several assumptions to 
-be true, for example,
+\todo[inline]{STOPPED READING HERE}
+
+By calculating \FD pixel calibration constants as a sum over many individual 
+light flashes according to \cref{eq:xy-scanner-calib-calculation} in 
+\cref{ssec:fd-xy-calibration}, one implicitly requires several assumptions to be
+true, namely,
 
 \begin{itemize}
 \item the light collection efficiency of the pixel-\PMTs must be constant
