@@ -67,8 +67,8 @@ recorded in the pixel-\PMTs to an incident count of photons, which, during \DAQ
 holds information about the energy of an \EAS (Ref.\ 
 \cref{sssec:fd-reconstruction-energy-estimator}).
 
-Different facilities have been set up to measure the radiance of the 
-XY lightsource, shown in \cref{fig:xy-light-source} and hereafter referred to as
+Different facilities have been set up to measure the radiance of the XY \LED, 
+shown in \cref{fig:xy-light-source} and hereafter referred to as
 \CLS, independently \cite{heibgesPhotometricCharacterizationLight2020, 
 schaferXYScannerVersatileMethod2023, vaculaVyvojKalibracnihoSvetelneho2024}. 
 While precise implementation details differ, all test banks rely on measuring a 
@@ -80,30 +80,36 @@ $R_\mathrm{PD}$, $R_\mathrm{CLS}$ of the \PD- and \CLS aperture respectively.
 
 \begin{equation}
 \label{eq:source-radiance}
-F_{\mathrm{PD},\,\mathrm{CLS}} &= \frac{1}{2}\,\left[ 1 + \left(\frac{r-r_0}{R_\mathrm{CLS}}\right)^2 + \left(\frac{R_\mathrm{PD}}{R_\mathrm{CLS}}\right)^2 - \sqrt{1 + \left(\frac{r-r_0}{R_\mathrm{CLS}}\right)^2 - 3\left(\frac{R_\mathrm{PD}}{R_\mathrm{CLS}}\right)^2} \right] \\
+F_{\mathrm{PD},\,\mathrm{CLS}} = \frac{1}{2}\,\left[ 1 + \left(\frac{r-r_0}{R_\mathrm{CLS}}\right)^2 + \left(\frac{R_\mathrm{PD}}{R_\mathrm{CLS}}\right)^2 - \sqrt{1 + \left(\frac{r-r_0}{R_\mathrm{CLS}}\right)^2 - 3\left(\frac{R_\mathrm{PD}}{R_\mathrm{CLS}}\right)^2} \right] \\
 \end{equation}
 
 The diode at distance $r-r_0$ from the \CLS consequently measures a flux 
 
 \begin{equation}
-\Phi_\mathrm{PD}(r) &= \frac{hc}{\lambda}\,\tilde{S}_\mathrm{setup}\,L_\mathrm{CLS},
+\Phi_\mathrm{PD}(r) = \frac{hc}{\lambda}\,\tilde{S}_\mathrm{setup}\,L_\mathrm{CLS},
 \end{equation}
 
 where $\tilde{S}_\mathrm{setup}$ in \cref{eq:source-radiance} gives the response
 function of the \PD.\footnote{Which will in general depend on the entire test
 setup, not just the \PD.} By controlling the laboratory environment precisely, 
 the source radiance can be determined with an accuracy of 
-$\lessapprox\SI{3}{\percent}$. \cref{fig:absolute-calibration} and 
+$\lessapprox\SI{3}{\percent}$. \cref{fig:abs-calib-measurements} and 
 \todo{abscalpaper} detail the agreement of the cross-calibration between 
 different measurement facilities.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\textwidth]{xy-scanner/abs_calib.png}
-  \caption{\PD signal information from measurements of $L_\mathrm{CLS}$ at two
-  different test setups located in Olomouc and Karlsruhe. Data with 
-  acknowledgement from \textbf{CITE} ??.}
-  \label{fig:absolute-calibration}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{xy-scanner/abs_calib_jlo.png}
+  \label{fig:abs-calib-jlo}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{xy-scanner/abs_calib_kit.png}
+  \label{fig:abs-calib-kit}
+  }
+  \caption[]{The signal response versus distance of a \PD is used to estimate 
+  the source radiance of the \CLS. Shown are results for the same \CLS tested 
+  \subref{fig:abs-calib-jlo} in Olomouc, Czech Republic, and 
+  \subref{fig:abs-calib-kit} in Karlsruhe, Germany.}
+  \label{fig:abs-calib-measurements}
 \end{figure}
 
 \subsection{Telescope Calibration}
@@ -208,47 +214,132 @@ $\sqrt{\sum\sigma_i^2}$, amounts to \todo{uncertainty}.
 \section{Quality Assurance}
 \label{sec:quality-assurance}
 
-\todo[inline]{STOPPED READING HERE}
-
 By calculating \FD pixel calibration constants as a sum over many individual 
 light flashes according to \cref{eq:xy-scanner-calib-calculation} in 
 \cref{ssec:fd-xy-calibration}, one implicitly requires several assumptions to be
 true, namely,
 
+\vspace{0.4cm}
+\begingroup
+\renewcommand\arraystretch{1.3}
 \begin{itemize}
-\item the light collection efficiency of the pixel-\PMTs must be constant
-	during the measurement, else the total signal per pixel would be 
-	incorrect.
-\item the source radiance $L_\mathrm{CLS}$ must not change throughout the 
-	run, else the total signal per pixel would be incorrect due to the same
-	reasons as above.
-\item the XY scanner must scan the complete filter, and the aperture must be
-	onuccluded, else the normalization to the total signal is biased.
+\item the source radiance $L_\mathrm{CLS}$ remains constant during the 
+measurement.
+\item the \CLS flashes cover the complete filter, and the aperture is 
+unoccluded.
+\item the sensitivity of the pixel-\PMTs is constant during the measurement.
 \end{itemize}
+\endgroup
+\vspace{0.4cm}
 
 Thus, in order to ensure that the XY scanner delivers accurate and precise pixel
-calibration constants we must verify that these assumptions hold. We do this by 
-establishing a checklist of tests that must be executed and that have to pass 
-before accepting the results of XY measurement runs.
+calibration constants one must verify that these assumptions hold. This can be
+done by establishing a checklist of tests that must be executed and that have to
+pass before accepting the results of XY measurement runs.
 
 The following sections detail what these tests are, and how failure states are 
-defined based on outlier identification and cross-correlation of available data.
+defined based on outlier identification and cross-correlation of available XY
+data.
 
-All data shown 
+\subsection{Preselection of XY Runs}
 
+To date, six measurement campaigns have been conducted that have probed the
+calibration constants in all 27 telescopes at least once. With the XY scanner 
+actively being developed during the early phases of measuring, many different 
+run configurations have been tested throughout the different campaigns. 
+
+A long-term strategy has emerged from the prototyping phase that compromises 
+between ease-of-use, long-term feasibility, and systematic uncertainty 
+\cite{filipQualityAssuranceXY2024}. The run configuration of the XY scanner 
+measurements are defined as:\footnote{Details on the nomenclature are found in 
+\cite{schaferXYScannerVersatileMethod2023}.}
+
+\vspace{0.4cm}
+\begin{itemize}
+\item Use a type \textbf{3P-GPS-053-S} integrating sphere sporting a modified 
+baffle to improve the Lambertian diffuse emission profile of the XY light 
+source.
+
+\item Install \textbf{Generation 2 LED head} in the \IS, which supports three
+\LEDs of type UVLED365-110E \cite{alldatasheet.comUVLED365110EDownload}. A thin 
+diffusive material that covers the \LEDs, as well as a shielding baffle improve
+the emission profile.
+
+\item Employ a \textbf{stepsize of 6 cm}. The step size between individual 
+flasher positions directly influences the coverage factor of the telescope 
+aperture. The smaller the step size, the lower the systematic uncertainty of the
+calibration constants
+
+\item Flash the \LED using a \textbf{current of 15.9 mA}, which compromises 
+between \FD signal strength (and thus accuracy) and long-term operation of the 
+\LED.
+
+\end{itemize}
+\vspace{0.4cm}
+
+All data shown in the upcoming quality assurance analysis has been preselected
+to adhere to these standards. A list of used measurements can be found in
+\cref{tab:xy-runlist}.
+
+\halflift
 \subsection{Light Source Stability}
 
 The XY \LED is located inside the \CLS alongside a \PD that logs the intensity 
 of each flash. While the \PD is not precise enough to track the source radiance
-exactly, it is sufficient enough to track the constant operation of the \LED. 
+exactly, it is sufficient enough for monitoring the nominal \LED operation. 
 Moreover, temperature sensors are installed within the sphere to monitor the 
-climate controlled environment of the \CLS.
+climate controlled environment of the \CLS. 
 
 \subsubsection{Temperature}
 
-\todo[inline]{mean signal vs mean temperature plot}
+The emission characteristics of the \CLS \LED are temperature dependent 
+\cite{alldatasheet.comUVLED365110EDownload}. For this reason, the inside of the
+\IS is kept at a constant operating temperature of $\SI{30}{\celsius}$. External
+factors such as wind gusts can cause temporary deviations from the nominal 
+temperature, in an extreme case, this influences the total emitted signal, and
+pixel calibration constants as a consequence.
+
+In the following, we estimate the influence of temperature on the emissivity. We
+do this by examining both the signal seen by the \PD, as well as the much more 
+accurate \ADC integral recorded by the \FD camera.
+
+The \PD signal measures the \LED intensity directly and can be taken as is. For 
+the \FD signal, to isolate effects of temperature, only flashes at the center of
+the aperture are compared to one another. Moreover, to account for varying \FD 
+camera efficiency the integral signal is normalized by the mean camera signal 
+during the open shutter Cal A measurements before and after the corresponding 
+run. 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/temperature_stability.png}
+  \caption{The influence of the \LED temperature on the flash intensity as seen
+  by the \FD camera (blue) and the internal \PD (red). The dashed lines give 
+  linear fits to the mean signal per temperature for temperatures with $>10$ 
+  recorded flashes.}
+  \label{fig:temperature-stability}
+\end{figure}
+
+\cref{fig:temperature-stability} shows the distribution of recorded signals for
+the \FD and the \PD. No clear trend is identifiable in the \FD camera signal 
+(likely due to the limited sample size and temperature range). For the \PD, a 
+downwards trend in signal is found with increasing temperature, which matches 
+expectations from \cite{alldatasheet.comUVLED365110EDownload}.
+
+To construct meaningful quality cuts based on these findings we form the 
+conservative assumption that flashes outside the temperature range from 
+$\SIrange{29}{31}{\celsius}$ deviate from the mean signal on average by 
+\SI{10}{\percent}. With $n_\mathrm{pos} \gg 1000$ flashes per XY run, this 
+implies a single flash outside of the 1-degree temperature range impacts the 
+total signal by less than $1\permil$. Limiting the allowed magnitude of the 
+temperature dependency on the emitted signal to $<\SI{0.2}{\percent}$ 
+(Ref.~\cref{tab:xy-systematics}), we accept an XY run if it has $\leq2$ flashes 
+that do not fall in the interval $\SIrange{29}{31}{\celsius}$.
 
 \subsubsection{Time Drifts}
+
+
+
 \subsubsection{Interruptions}
 
 \subsection{Measurement Setup}

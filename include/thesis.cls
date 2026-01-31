@@ -20,6 +20,7 @@
 \usepackage{listings}
 \usepackage{needspace}
 \usepackage{siunitx}
+\usepackage{wasysym}
 \usepackage{rotating}
 \usepackage{subfig}
 \usepackage{anyfontsize}
