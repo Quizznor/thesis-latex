@@ -227,7 +227,7 @@ true, namely,
 measurement.
 \item the \CLS flashes cover the complete filter, and the aperture is 
 unoccluded.
-\item the sensitivity of the pixel-\PMTs is constant during the measurement.
+\item the sensitivity of the \FD pixel-\PMTs is constant during the measurement.
 \end{itemize}
 \endgroup
 \vspace{0.4cm}
@@ -291,6 +291,7 @@ Moreover, temperature sensors are installed within the sphere to monitor the
 climate controlled environment of the \CLS. 
 
 \subsubsection{Temperature}
+\label{sssec:xy-qa-temperature}
 
 The emission characteristics of the \CLS \LED are temperature dependent 
 \cite{alldatasheet.comUVLED365110EDownload}. For this reason, the inside of the
@@ -301,18 +302,19 @@ pixel calibration constants as a consequence.
 
 In the following, we estimate the influence of temperature on the emissivity. We
 do this by examining both the signal seen by the \PD, as well as the much more 
-accurate \ADC integral recorded by the \FD camera.
+accurate \ADC integral recorded by the \FD camera, normalized to the source
+radiance at the time of measurement.
 
 The \PD signal measures the \LED intensity directly and can be taken as is. For 
 the \FD signal, to isolate effects of temperature, only flashes at the center of
 the aperture are compared to one another. Moreover, to account for varying \FD 
 camera efficiency the integral signal is normalized by the mean camera signal 
 during the open shutter Cal A measurements before and after the corresponding 
-run. 
+run.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\textwidth]{xy-scanner/temperature_stability.png}
+  \includegraphics[width=1.0\textwidth]{xy-scanner/led_temperature_stability.png}
   \caption{The influence of the \LED temperature on the flash intensity as seen
   by the \FD camera (blue) and the internal \PD (red). The dashed lines give 
   linear fits to the mean signal per temperature for temperatures with $>10$ 
@@ -321,28 +323,90 @@ run.
 \end{figure}
 
 \cref{fig:temperature-stability} shows the distribution of recorded signals for
-the \FD and the \PD. No clear trend is identifiable in the \FD camera signal 
-(likely due to the limited sample size and temperature range). For the \PD, a 
-downwards trend in signal is found with increasing temperature, which matches 
-expectations from \cite{alldatasheet.comUVLED365110EDownload}.
+the \FD and the \PD. No clear trend is identifiable in both the \PD response, as
+well as the \FD camera signal.
 
-To construct meaningful quality cuts based on these findings we form the 
-conservative assumption that flashes outside the temperature range from 
-$\SIrange{29}{31}{\celsius}$ deviate from the mean signal on average by 
-\SI{10}{\percent}. With $n_\mathrm{pos} \gg 1000$ flashes per XY run, this 
-implies a single flash outside of the 1-degree temperature range impacts the 
-total signal by less than $1\permil$. Limiting the allowed magnitude of the 
-temperature dependency on the emitted signal to $<\SI{0.2}{\percent}$ 
-(Ref.~\cref{tab:xy-systematics}), we accept an XY run if it has $\leq2$ flashes 
-that do not fall in the interval $\SIrange{29}{31}{\celsius}$.
+Expecting in theory a positive correlation between temperature and \LED 
+emissivity in the considered temperature ranges 
+(Ref.~\cite[p.~2, lower left]{alldatasheet.comUVLED365110EDownload}), we 
+construct quality cuts by forming the very cautious assumption that flashes 
+outside the temperature range from $\SIrange{29}{31}{\celsius}$ deviate from the
+mean signal by $\approx\SI{5}{\percent}$. 
 
-\subsubsection{Time Drifts}
+With $n_\mathrm{pos} \gg 1000$ flashes per run, a single flash outside of this
+2-degree range impacts the total signal by less $1\permil$. Limiting the 
+allowed magnitude of the temperature dependency on the emitted signal to 
+$<\SI{0.2}{\percent}$ (Ref.~\cref{tab:xy-systematics}), we accept an XY run if 
+it has $\leq4$ flashes where 
+$T_\mathrm{LED}\notin[\SI{29}{\celsius},\,\SI{31}{\celsius}]$.
 
+While the aforementioned assumption of a $\SI{5}{\percent}$ bias is very 
+conservative, the effect on data is marginal. Most runs have all data points 
+within $\SIrange{29}{31}{\celsius}$. There exists one run with a single flash at
+$\SI{28.5}{\celsius}$, and two (rejected) runs with 11 and 19 bad temperatures 
+respectively, clearly marked as outliers in this analysis.
 
+\subsubsection{Temporal Drifts}
+\label{sssec:xy-qa-led-drift}
+
+The pulse-to-pulse stability of the \CLS during radiance measurements is 
+\SI{2}{\percent} \cite[p.~100]{schaferXYScannerVersatileMethod2023}. We can 
+verify that this assumption holds during XY scans as well by examining the data
+from the \PD mounted inside the integrating sphere. 
+
+Examining the same data as in \cref{sssec:xy-qa-temperature}, we identify 
+possible drifts in the source radiance by fitting a first order polynomial to 
+the \PD signal for each run. In doing this, we need to account for the inherent 
+variance in the \PD signal, which is far greater than the systematic uncertainty
+of the remaining components. Examining all runs thus far, $\sigma_\mathrm{PD}$ 
+seems to be well described by a normal distribution 
+$\mathcal{N}(\mu = \SI{0.583}{\ADC\per\giga\photon},\, 
+\sigma^2=\SI{0.009}{\square\ADC\per\giga\square\photon})$ 
+(Ref.~\cref{fig:sigma-pd}).
+
+With the resulting linear model $\hat{S}_\mathrm{PD}$ that approximates the 
+measured signal $S_\mathrm{PD}$, it becomes trivial to check the minimum 
+pulse-to-pulse stability by calculating the percentual difference in $\hat{S}$ 
+between the first and last emitted flash of the XY run.
+
+\cref{fig:pd-drift} shows the distribution of this percentual difference. The
+\PD, and by extension the \CLS \LED operate stable during \DAQ. All runs pass 
+this quality test. 
+
+In practice, we are unable to distinguish a drift in the \LED from a drift in 
+the \PD, meaning there exists the possibility to discard "good" data due to a 
+"bad" \PD. This makes the above quality cut a cautious (but for the time being) 
+correct choice.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/sigma_pd.png}
+  \label{fig:sigma-pd}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/pd_drift.png}
+  \label{fig:pd-drift}
+  }
+  \caption[]{\subref{fig:sigma-pd} Noise level of the \CLS \PD, normalized to
+  the respective $L_\mathrm{CLS}$. \subref{fig:pd-drift} Difference in signal 
+  strength between the first and last flash extrapolated from a linear fit. The 
+  red histogram marks runs that have already been rejected in \cref{sssec:xy-qa-temperature}.}
+  \label{fig:pd-noise-level-and-drift}
+\end{figure}
 
 \subsubsection{Interruptions}
 
+Next, we estimate the influence of \DAQ interruptions on the \CLS stability.
+These interruptions may occur if the XY scanner encounters hardware/software
+problems during a measurement, and were especially frequent prior to November 
+2023 \cite{filipFixfilespy2023}.
+
+For the sake of this discussion, an interruption is classified as the scenario
+in which more than $\SI{20}{\second}$ pass between consecutive flashes (Ref.)
+
 \subsection{Measurement Setup}
+
+
+
 \subsection{Camera Stability}
 \subsection{Reproducibility}
 
