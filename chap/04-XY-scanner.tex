@@ -426,6 +426,7 @@ e.g.~misaligning the \CLS with respect to the \FD, which needs to be checked
 for.
 
 \subsubsection{Positional alignment}
+\label{sssec:xy-qa-filter-estimation}
 
 We first check that the coordinate system of the XY-Scanner is correctly set,
 meaning that $(0, 0)$ coincides with the center of the \FD aperture. Flasher 
@@ -433,7 +434,29 @@ positions are defined relative to this origin, implying that a misalignment
 between the two reference points will result in an improperly illuminated 
 aperture, and bias calibration results.
 
-adada
+Examining \cref{fig:filter-structure-real}, we note that the \UV filter of every
+\FD telescope is segmented by a symmetric (around the center of the aperture) 
+support structure. This support structure blocks a measureable quantity of light
+during XY-Scans, and can be used to estimate the position of the XY-Scanner 
+relative to the \FD filter.
+
+We identify the shadow of the filter structure by first grouping the flasher 
+positions into rows and columns. We restrict our analysis to flasher positions 
+where $\SI{500}{\milli\meter} < r < \SI{1100}{\milli\meter}$, which is the 
+region of the aperture where the \FD mirror is only occluded by the filter 
+structure (and not by the \FD camera or aperture).
+
+Next, the average signal $\langle S \rangle$ recorded by the \FD is calculated 
+for every row and column. A first estimate of the filter arm positions follow 
+from this by searching for peaks in the negative average signal, we require the 
+peaks to have a prominence of $>\SI{7}{\percent}$ and a peak-to-peak distance of
+$>\SI{480}{\milli\meter}$.\footnote{This corresponds to passing 
+\lstinline[language=python]|\{prominence=0.07*max(-cols), distance=14\}| or 
+\lstinline[language=python]|\{prominence=0.07*max(-rows), distance=8\}| to 
+pythons \lstinline[language=python]|scipy.signal.find_peaks|
+\cite{virtanenSciPy10Fundamental2020}.} As evident in 
+\cref{fig:filter-alignment}, the found locations coincide well with the true 
+position of filter arms.
 
 \begin{figure}[t]
   \centering
@@ -443,19 +466,99 @@ adada
   \subfloat[]{\includegraphics[width=0.44\textwidth]{xy-scanner/filter_structure_real.png}
   \label{fig:filter-structure-real}
   }
-  \caption[]{\subref{fig:filter-structure-estimated}  \subref{fig:filter-structure-real} }
+  \caption[]{\subref{fig:filter-structure-estimated} Integral camera signal 
+  recorded at every flash position. The two tiny subplots give the average \FD
+  signal per column/row for flashes contained within the two red circles. 
+  \subref{fig:filter-structure-real} Example image of the \FD filter structure.
+  From \cite{horvathRequestImages2024}.}
   \label{fig:filter-alignment}
 \end{figure}
 
+Finally, because the filter structure can fall between a row/column, the exact
+$x$ and $y$ coordinates are interpolated by calculating a weighted average over
+the nearest neighbors of the peak row/column $p$:
+
+\begin{equation}
+\label{eq:filter-position}
+X = \sum\limits_{i = p-1}^{p+1} \frac{\langle S \rangle_i}{\langle S \rangle_p} \,x_i\,\bigg/\,\sum\limits_{i = p-1}^{p+1} \frac{\langle S \rangle_i}{\langle S \rangle_p},\qquad
+Y = \sum\limits_{i = p-1}^{p+1} \frac{\langle S \rangle_i}{\langle S \rangle_p} \,y_i\,\bigg/\,\sum\limits_{i = p-1}^{p+1} \frac{\langle S \rangle_i}{\langle S \rangle_p}
+\end{equation}
+
+The uncertainty on the filter position is at most of the order of the XY 
+stepsize (\SI{6}{\centi\meter}). In practice, the filter center, calculated as
+the mean position of all found filter structures, is grouped much tighter, as 
+shown in \cref{fig:cls-alignment}, and lines up with the origin of the 
+XY-Scanner coordinate system. 
+
+In order for an XY calibration to pass the positional alignment check, we 
+require the calculated filter center to lie within \SI{20}{\milli\meter} of the 
+XY origin. All but one run pass this quality check. The rejected run fails this
+quality check due to an occluded aperture, which will be investigated more
+closely in \cref{sssec:xy-qa-aperture-occlusion}.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/CLS_alignment.png}
+  \label{fig:cls-alignment}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/curtain_block.png}
+  \label{fig:occluded-aperture}
+  }
+  \caption[]{\subref{fig:cls-alignment} Location of the filter center (blue) and
+  signal barycenter (red) for all considered XY runs. 
+  \subref{fig:occluded-aperture} Radial distribution of camera signal for all 
+  XY runs. The vertical red line signifies the edge of the \FD aperture. Runs 
+  with flashes below the horizontal red line are rejected due to aperture 
+  occlusion.}
+  \label{fig:measurement-setup-checks}
+\end{figure}
 
 \subsubsection{Directional alignment}
 
-We first check that the \CLS faces the \FD camera as intended. That is to say
+Next we ensure that the \CLS faces the \FD camera as intended. That is to say
 the plexiglass surface of the spheres exit port is parallel to the \UV-filter. 
 
-Given the Lambertian emission characteristic of the \CLS, 
+Given the Lambertian emission characteristic of the \CLS, a misaligned light
+source will overilluminate one portion of the mirror while underexposing
+other parts. This effect will be visible in the comparison of camera signal 
+corresponding to flashes at different positions of the aperture.
+
+Thus, in order to check directional alignment of the \CLS, we calculate the
+barycenter of all light flashes (weighing by the corresponding integral \FD 
+signal) and require for its $x$ coordinate to be within \SI{60}{\milli\meter} of
+the origin. We restrict this quality check to one dimension only because, due to
+the camera blocking part of the mirror from view, we do not expect a symmetric 
+distribution of signals in the $y$ direction. Moreover, given the measurement 
+setup, it is easier to misalign the \CLS on the $x$-axis, calling for special 
+care here.
+
+\cref{fig:cls-alignment} shows the distribution of signal barycenters from all 
+considered XY measurements. None of the examined runs fail this quality check.
 
 \subsubsection{Aperture Occlusion}
+\label{sssec:xy-qa-aperture-occlusion}
+
+Examining the run rejected in \cref{sssec:xy-qa-filter-estimation}, it becomes 
+apparent that the reason for rejection is the curtain being placed in the camera
+\FOV, and the filter finding algorithm mistaking the shadow left by the curtain
+as an additional filter structure. We can search for more instances of an 
+abnormally occluded aperture by examining outliers in the radial distribution of
+camera signals. 
+
+For every XY run, we normalize the camera signal of each flash to the maximum 
+camera signal recorded throughout the measurement, and bin them according to the
+radial position of the XY-Scanner at the time of recording. 
+\cref{fig:occluded-aperture} shows the histogram of this data over all 
+considered XY runs.
+
+Almost no light is received from flashing positions beyond the aperture. 
+Notably, there also exists a small fraction of flashes that are emitted within 
+view of the camera where $<\SI{10}{\percent}$ of light ends up in the \FD. In 
+these cases, we reject the run.
+
+Apart from the XY measurement with the curtain in view, an additional run is 
+identified as problematic due to the obstruction of a single flash, which the
+\FD camera did not register.
 
 \subsection{Camera Stability}
 \subsection{Reproducibility}
