@@ -49,7 +49,7 @@ Finally, an update to the \FD energy scale is presented in
   \caption[]{\subref{fig:xy-light-source} The XY calibration light source 
   mounted in a test setup in Karlsruhe. Photo from 
   \cite{schaferXYScannerVersatileMethod2023} \subref{fig:xy-flash-pattern} The
-  XY scanner, consisting of light source, horizontal and vertical axles, as well
+  XY-Scanner, consisting of light source, horizontal and vertical axles, as well
   as the electronics box on the top right, mounted in front of an \FD telescope.
   Photo from \cite{schaferXYScannerVersatileMethod2023}. Flasher positions are 
   superimposed as grey hexagons.}
@@ -232,7 +232,7 @@ unoccluded.
 \endgroup
 \vspace{0.4cm}
 
-Thus, in order to ensure that the XY scanner delivers accurate and precise pixel
+Thus, in order to ensure that the XY-Scanner delivers accurate and precise pixel
 calibration constants one must verify that these assumptions hold. This can be
 done by establishing a checklist of tests that must be executed and that have to
 pass before accepting the results of XY measurement runs.
@@ -244,13 +244,13 @@ data.
 \subsection{Preselection of XY Runs}
 
 To date, six measurement campaigns have been conducted that have probed the
-calibration constants in all 27 telescopes at least once. With the XY scanner 
+calibration constants in all 27 telescopes at least once. With the XY-Scanner 
 actively being developed during the early phases of measuring, many different 
 run configurations have been tested throughout the different campaigns. 
 
 A long-term strategy has emerged from the prototyping phase that compromises 
 between ease-of-use, long-term feasibility, and systematic uncertainty 
-\cite{filipQualityAssuranceXY2024}. The run configuration of the XY scanner 
+\cite{filipQualityAssuranceXY2024}. The run configuration of the XY-Scanner 
 measurements are defined as:\footnote{Details on the nomenclature are found in 
 \cite{schaferXYScannerVersatileMethod2023}.}
 
@@ -285,10 +285,10 @@ to adhere to these standards. A list of used measurements can be found in
 \subsection{Light Source Stability}
 
 The XY \LED is located inside the \CLS alongside a \PD that logs the intensity 
-of each flash. While the \PD is not precise enough to track the source radiance
-exactly, it is sufficient enough for monitoring the nominal \LED operation. 
-Moreover, temperature sensors are installed within the sphere to monitor the 
-climate controlled environment of the \CLS. 
+of each \LED flash. The \PD is not calibrated precisely, but accurate enough for
+monitoring the nominal \LED operation. Moreover, temperature sensors are 
+installed within the sphere to surveil the climate controlled environment of the
+\CLS. Both sensors can be used to verify the stable operation of the \CLS \LED.
 
 \subsubsection{Temperature}
 \label{sssec:xy-qa-temperature}
@@ -351,7 +351,7 @@ respectively, clearly marked as outliers in this analysis.
 
 The pulse-to-pulse stability of the \CLS during radiance measurements is 
 \SI{2}{\percent} \cite[p.~100]{schaferXYScannerVersatileMethod2023}. We can 
-verify that this assumption holds during XY scans as well by examining the data
+verify that this assumption holds during XY-Scans as well by examining the data
 from the \PD mounted inside the integrating sphere. 
 
 Examining the same data as in \cref{sssec:xy-qa-temperature}, we identify 
@@ -380,32 +380,82 @@ correct choice.
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/sigma_pd.png}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{xy-scanner/sigma_pd.png}
   \label{fig:sigma-pd}
   }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/pd_drift.png}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{xy-scanner/pd_drift.png}
   \label{fig:pd-drift}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{xy-scanner/pd_interruptions.png}
+  \label{fig:pd-interruptions}
   }
   \caption[]{\subref{fig:sigma-pd} Noise level of the \CLS \PD, normalized to
-  the respective $L_\mathrm{CLS}$. \subref{fig:pd-drift} Difference in signal 
-  strength between the first and last flash extrapolated from a linear fit. The 
-  red histogram marks runs that have already been rejected in \cref{sssec:xy-qa-temperature}.}
-  \label{fig:pd-noise-level-and-drift}
+  the respective $L_\mathrm{CLS}$. \subref{fig:pd-drift} Difference in \PD 
+  signal strength between the first and last flash extrapolated from a linear 
+  fit. The red histogram marks runs that have already been rejected in 
+  \cref{sssec:xy-qa-temperature}. \subref{fig:pd-interruptions} Difference in 
+  mean \PD signal strength immediately before and after \DAQ interruptions.}
+  \label{fig:pd-noise-level-drift-interruptions}
 \end{figure}
 
 \subsubsection{Interruptions}
 
 Next, we estimate the influence of \DAQ interruptions on the \CLS stability.
-These interruptions may occur if the XY scanner encounters hardware/software
+These interruptions may occur if the XY-Scanner encounters hardware/software
 problems during a measurement, and were especially frequent prior to November 
 2023 \cite{filipFixfilespy2023}.
 
 For the sake of this discussion, an interruption is classified as the scenario
-in which more than $\SI{20}{\second}$ pass between consecutive flashes (Ref.)
+in which more than $\SI{20}{\second}$ pass between consecutive flashes. 
+Analyzing the relevant data, and taking $\langle S^{<}_\mathrm{PD}\rangle$ 
+($\langle S^{>}_\mathrm{PD}\rangle$) as the signal immediately before (after) 
+the \DAQ interruption averaged over 20 flashes, we reject an XY run if it had an
+interruption, and if $\left| \langle S^{<}_\mathrm{PD}\rangle - \langle 
+S^{>}_\mathrm{PD}\rangle\right| \geq \SI{2}{\percent}$. The distribution of this
+test statistic is shown in \cref{fig:pd-interruptions}. Interruptions, even over
+a longer period ($>\SI{10}{\minute}$), do not seem to influence \DAQ, and all
+runs pass this quality criterion.
 
 \subsection{Measurement Setup}
 
+The XY-Scanner as setup in \cref{fig:xy-flash-pattern} is a temporary 
+installment before the \FD aperture. Before each absolute calibration, the 
+Scanner X-axis as well as the \CLS must be installed carefully in front of the
+telescopes \UV-filter. With every new installation there is the possibility of 
+e.g.~misaligning the \CLS with respect to the \FD, which needs to be checked 
+for.
 
+\subsubsection{Positional alignment}
+
+We first check that the coordinate system of the XY-Scanner is correctly set,
+meaning that $(0, 0)$ coincides with the center of the \FD aperture. Flasher 
+positions are defined relative to this origin, implying that a misalignment 
+between the two reference points will result in an improperly illuminated 
+aperture, and bias calibration results.
+
+adada
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=0.50\textwidth]{xy-scanner/filter_structure.png}
+  \label{fig:filter-structure-estimated}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=0.44\textwidth]{xy-scanner/filter_structure_real.png}
+  \label{fig:filter-structure-real}
+  }
+  \caption[]{\subref{fig:filter-structure-estimated}  \subref{fig:filter-structure-real} }
+  \label{fig:filter-alignment}
+\end{figure}
+
+
+\subsubsection{Directional alignment}
+
+We first check that the \CLS faces the \FD camera as intended. That is to say
+the plexiglass surface of the spheres exit port is parallel to the \UV-filter. 
+
+Given the Lambertian emission characteristic of the \CLS, 
+
+\subsubsection{Aperture Occlusion}
 
 \subsection{Camera Stability}
 \subsection{Reproducibility}
