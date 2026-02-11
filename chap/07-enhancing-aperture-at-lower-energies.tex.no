@@ -1,0 +1,13 @@
+%! TEX root = ../main.tex
+
+\chapter{Improving the Aperture at Lower Energies}
+\label{chap:further-improvements}
+
+\section{SSD Online Calibration}
+
+\subsection{Integration Tests}
+\subsection{First Results}
+\subsection{...}
+
+\section{Estimation of Efficiency Gains}
+

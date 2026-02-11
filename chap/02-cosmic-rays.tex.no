@@ -1,6 +1,6 @@
 %! TEX root = ../main.tex
 
-\chapter{Cosmic rays and extensive air showers}
+\chapter{Cosmic Rays and Extensive Air Showers}
 \label{chap:cosmic-rays}
 
 \CRs are particles of extraterrestrial origin that travel very close to the 

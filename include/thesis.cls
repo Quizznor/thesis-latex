@@ -141,8 +141,9 @@
 	    sorting=none, 
 	    defernumbers=true]{biblatex}
 \addbibresource{bib/thesis.bib}
-\setcounter{biburllcpenalty}{10000}
-\setcounter{biburlucpenalty}{10000}
+\setcounter{biburllcpenalty}{1000000}
+\setcounter{biburlucpenalty}{1000000}
+\AtBeginBibliography{\small}
 
 % % Describe separation hints here:
 % \hyphenation{
@@ -263,7 +264,6 @@
       \centering\normalfont\huge #1
       \hrule\vspace{-1cm}
     \else
-      \titlerule\vspace{0.3cm}
       \begin{flushright}
 	\begin{minipage}[t][][b]{0.86\textwidth}
           \begin{flushright}
@@ -350,6 +350,7 @@
 }
 
 \renewcommand{\mainmatter}{%
+  \newpage
   \pagenumbering{arabic}
   \let\chapter=\tempchapter
   \addtocontents{toc}{\protect\contentsline {part}{Main Content}{}{}}

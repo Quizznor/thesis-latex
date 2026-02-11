@@ -1,0 +1,9 @@
+%! TEX root = ../main.tex
+
+\chapter{Photon Search}
+
+\section{Calculation of Upper Limits on Asimov Data}
+\subsection{...}
+
+\section{Unblinded Photon Search}
+\subsection{...}

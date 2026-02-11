@@ -1,4 +1,6 @@
-\chapter{A New Fluorescence Energy Scale}
+%! TEX root = ../main.tex
+
+\chapter{Determination of an Absolute Energy Scale}
 \label{chap:xy-scanner}
 
 The analysis in the subsequent chapters heavily relies on information measured 
@@ -277,8 +279,19 @@ between \FD signal strength (and thus accuracy) and long-term operation of the
 \end{itemize}
 \vspace{0.4cm}
 
+Four auxiliary Calibration A measurements are performed with each XY scan to 
+test the \FD camera stability (Ref.~\cref{sssec:xy-qa-camera-sensitivity}). The 
+order of operation goes
+
+\begin{itemize}
+\item \textbf{pre\DAQ}: Closed shutter, same
+\item \textbf{pre XY}: Open shutter, 
+\item \textbf{postXY}:
+\item \textbf{post\DAQ}:
+\end{itemize}
+
 All data shown in the upcoming quality assurance analysis has been preselected
-to adhere to these standards. A list of used measurements can be found in
+to adhere to these standards. A full list of runs can be found in
 \cref{tab:xy-runlist}.
 
 \halflift
@@ -351,7 +364,7 @@ respectively, clearly marked as outliers in this analysis.
 
 The pulse-to-pulse stability of the \CLS during radiance measurements is 
 \SI{2}{\percent} \cite[p.~100]{schaferXYScannerVersatileMethod2023}. We can 
-verify that this assumption holds during XY-Scans as well by examining the data
+verify that this assumption holds during XY-Scans as well by analyzing the data
 from the \PD mounted inside the integrating sphere. 
 
 Examining the same data as in \cref{sssec:xy-qa-temperature}, we identify 
@@ -507,9 +520,8 @@ closely in \cref{sssec:xy-qa-aperture-occlusion}.
   \caption[]{\subref{fig:cls-alignment} Location of the filter center (blue) and
   signal barycenter (red) for all considered XY runs. 
   \subref{fig:occluded-aperture} Radial distribution of camera signal for all 
-  XY runs. The vertical red line signifies the edge of the \FD aperture. Runs 
-  with flashes below the horizontal red line are rejected due to aperture 
-  occlusion.}
+  XY runs. The white dashed line signifies the edge of the \FD aperture. Runs 
+  with flashes within the red rectangle are rejected due to aperture occlusion.}
   \label{fig:measurement-setup-checks}
 \end{figure}
 
@@ -538,12 +550,12 @@ considered XY measurements. None of the examined runs fail this quality check.
 \subsubsection{Aperture Occlusion}
 \label{sssec:xy-qa-aperture-occlusion}
 
-Examining the run rejected in \cref{sssec:xy-qa-filter-estimation}, it becomes 
-apparent that the reason for rejection is the curtain being placed in the camera
-\FOV, and the filter finding algorithm mistaking the shadow left by the curtain
-as an additional filter structure. We can search for more instances of an 
-abnormally occluded aperture by examining outliers in the radial distribution of
-camera signals. 
+Looking more closely at the run rejected in 
+\cref{sssec:xy-qa-filter-estimation}, it becomes apparent that the reason for 
+rejection is the curtain being placed inside the camera \FOV, and the filter 
+finding algorithm mistaking the shadow left by the curtain as an additional 
+filter structure. We can search for more instances of an abnormally occluded 
+aperture by examining outliers in the radial distribution of camera signals. 
 
 For every XY run, we normalize the camera signal of each flash to the maximum 
 camera signal recorded throughout the measurement, and bin them according to the
@@ -551,16 +563,36 @@ radial position of the XY-Scanner at the time of recording.
 \cref{fig:occluded-aperture} shows the histogram of this data over all 
 considered XY runs.
 
-Almost no light is received from flashing positions beyond the aperture. 
+Outside of the region $r<\SI{500}{\milli\meter}$, where the mirror is partially
+occluded by the camera, the signal recorded by the \FD reaches its maximum 
+value, whereas almost no light is received at $r>\SI{1100}{\milli\meter}$, 
+outside the \FD aperture.
+
 Notably, there also exists a small fraction of flashes that are emitted within 
-view of the camera where $<\SI{10}{\percent}$ of light ends up in the \FD. In 
-these cases, we reject the run.
+view of the camera where $<\SI{10}{\percent}$ of light ends up in the \FD. If
+this occurs within a radial distance 
+$\SI{500}{\milli\meter}<r\leq\SI{1100}{\milli\meter}$ we reject the run.
 
 Apart from the XY measurement with the curtain in view, an additional run is 
-identified as problematic due to the obstruction of a single flash, which the
-\FD camera did not register.
+identified as problematic due to the obstruction of a single flash for which the
+\FD camera did not register any signal. Both are shown in \todo{appendix filter bad runs.}
 
 \subsection{Camera Stability}
+
+\subsubsection{Camera Sensitivity}
+\label{sssec:xy-qa-camera-sensitivity}
+
+The (assumed constant) sensitivity of the \FD camera is checked by comparing the
+open shutter Cal A measurements before and after the XY scan. If the camera 
+response to both exposures is the same, it is reasonable to assume that the 
+sensitivity of the pixel-\PMTs remains constant throughout the XY scan. 
+
+For a given XY run, we take the 
+
+\subsubsection{Catch All Sanity Check}
+
+Finally, 
+
 \subsection{Reproducibility}
 
 \section{Telescope Ageing}
@@ -575,5 +607,4 @@ identified as problematic due to the obstruction of a single flash, which the
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
 
-
-\section{Summary}
+\section{Absolute Energy Scale}
