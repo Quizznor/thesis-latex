@@ -638,19 +638,54 @@ system (e.g.~Run $\#15672$ in Oct.~2022 at \LL4).
 The number of photons emitted by the \CLS per flash is of the order 
 $\mathcal{O}(10^9)$ and constant throughout the XY-Scan. With calibration 
 constants below $\SI{10}{\upgamma\per\ADC}$ the camera response should be of 
-comparable magnitude, dependant, of course, on the \CLS position in front of the
-aperture.
+comparable magnitude, albeit dependant, of course, on the \CLS position in front
+of the aperture.
 
-We partially eliminate the dependence of the camera signal, $S$, on 
-$L_\mathrm{src}$ by subtracting $\langle S \rangle$ and observe that the 
-resulting distribution is reasonably described by a Gaussian (Ref.~\todo{plot}).
+Binning the camera response over all considered runs, we see an approximately
+Gaussian distribution with variance $\sigma^2 = \SI{53.73}{\mega\ADC\squared}$ 
+(Ref.~\cref{fig:fd-event-sum}). We reject a run if any flash has an associated 
+camera signal $|S-\langle S\rangle| > \SI{100}{\mega\ADC}$, corresponding to a 
+significance of $|S-\langle S\rangle|\,/\,\sigma = 13.64$. The probability of 
+rejecting a nominal run (i.e.~assuming the camera signal follows the above 
+distribution) based on this selection criterion is approximately 
+$\SI{1.7}{\percent}$.
 
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/fd_event_sum.png}
+  \label{fig:fd-event-sum}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/calib_constant_distribution.png}
+  \label{fig:calib-distribution}
+  }
+  \caption[]{\subref{fig:fd-event-sum} The distribution of camera signal 
+  recorded over all runs. \subref{fig:calib-distribution} Distribution of 
+  measured XY pixel calibration constants for accepted and rejected scans.}
+  \label{fig:xy-qa-results}
+\end{figure}
 
+\subsection{First Production Dataset}
 
+We have presented an extensive list of quality checks by which the quality of XY
+measurement data can be tested. In conclusion, eight runs out of a total of 66 
+runs (\SI{12}{\percent}) are rejected. Analyzing the distribution of 
+accepted/rejected calibration constants, also shown in 
+\cref{fig:calib-distribution}, we find 
 
+\begin{equation}
+\label{eq:xy-qa-results}
+\sigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{rej.} = 2.1131\,\frac{\upgamma}{\ADC},\qquad
+\sigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{acc.} = 0.4992\,\frac{\upgamma}{\ADC}.
+\end{equation}
 
+Notably, this decrease in the standard deviation of measured calibration 
+constants is achieved without analyzing the calibration constants themselves. 
+This implies that the quality cuts are able to correctly identify sub-optimal 
+measurement conditions, which are in turn correlated to outlier calibration 
+constants.
 
-\subsection{Reproducibility}
+With almost all XY-Scans conducted in Nov.~2024 passing all quality checks 
+(Ref.~\cref{tab:xy-runlist}), we choose the 
 
 \section{Telescope Ageing}
 \label{sec:telescope-aging}
