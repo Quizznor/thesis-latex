@@ -244,6 +244,7 @@ defined based on outlier identification and cross-correlation of available XY
 data.
 
 \subsection{Preselection of XY Runs}
+\label{ssec:xy-qa-run-selection}
 
 To date, six measurement campaigns have been conducted that have probed the
 calibration constants in all 27 telescopes at least once. With the XY-Scanner 
@@ -280,21 +281,23 @@ between \FD signal strength (and thus accuracy) and long-term operation of the
 \vspace{0.4cm}
 
 Four auxiliary Calibration A measurements are performed with each XY scan to 
-test the \FD camera stability (Ref.~\cref{sssec:xy-qa-camera-sensitivity}). The 
+test the \FD-camera stability (Ref.~\cref{sssec:xy-qa-camera-sensitivity}). The 
 order of operation goes
 
-\begin{itemize}
-\item \textbf{pre\DAQ}: Closed shutter, same
-\item \textbf{pre XY}: Open shutter, 
-\item \textbf{postXY}:
-\item \textbf{post\DAQ}:
-\end{itemize}
+\begin{equation*}
+	\mathrm{Cal\,A}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter})\,
+	\rightarrow\,\mathrm{XY}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter)}
+	\,\rightarrow\,\mathrm{Cal\,A}
+\end{equation*}
 
 All data shown in the upcoming quality assurance analysis has been preselected
 to adhere to these standards. A full list of runs can be found in
-\cref{tab:xy-runlist}.
+\cref{tab:xy-runlist}. In all measurements the \FD-cameras are exposed to 
+calibration light pulses of known intensity. To ease readibility, we loosely 
+refer to the camera response\footnote{Equal to the integral of the baseline
+subtracted trace for a single pixel-\PMT.} to these pulses as the pixel- or 
+(summed over all pixels of a camera) camera-signal.
 
-\halflift
 \subsection{Light Source Stability}
 
 The XY \LED is located inside the \CLS alongside a \PD that logs the intensity 
@@ -313,31 +316,29 @@ factors such as wind gusts can cause temporary deviations from the nominal
 temperature, in an extreme case, this influences the total emitted signal, and
 pixel calibration constants as a consequence.
 
-In the following, we estimate the influence of temperature on the emissivity. We
-do this by examining both the signal seen by the \PD, as well as the much more 
-accurate \ADC integral recorded by the \FD camera, normalized to the source
-radiance at the time of measurement.
+We estimate the influence of temperature on the emissivity by examining both the
+camera signal, as well as the (less precise) pulse response of the internal \PD.
+Both must be normalized to the source radiance at the time of measurement.
 
-The \PD signal measures the \LED intensity directly and can be taken as is. For 
-the \FD signal, to isolate effects of temperature, only flashes at the center of
-the aperture are compared to one another. Moreover, to account for varying \FD 
-camera efficiency the integral signal is normalized by the mean camera signal 
-during the open shutter Cal A measurements before and after the corresponding 
-run.
+After this, the \PD signal can be taken as is. For the \FD signal, to isolate 
+effects of temperature, only flashes at the center of the aperture are compared 
+to one another. Moreover, to account for varying \FD camera efficiency the 
+integral signal is normalized by the mean camera signal during the open shutter 
+Cal A measurements before and after the corresponding run.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=1.0\textwidth]{xy-scanner/led_temperature_stability.png}
   \caption{The influence of the \LED temperature on the flash intensity as seen
-  by the \FD camera (blue) and the internal \PD (red). The dashed lines give 
+  by the \FD-camera (blue) and the internal \PD (red). The dashed lines give 
   linear fits to the mean signal per temperature for temperatures with $>10$ 
   recorded flashes.}
   \label{fig:temperature-stability}
 \end{figure}
 
 \cref{fig:temperature-stability} shows the distribution of recorded signals for
-the \FD and the \PD. No clear trend is identifiable in both the \PD response, as
-well as the \FD camera signal.
+the \FD and the \PD. No clear trend is identifiable in the \PD response or the 
+\FD-camera signal.
 
 Expecting in theory a positive correlation between temperature and \LED 
 emissivity in the considered temperature ranges 
@@ -347,7 +348,7 @@ outside the temperature range from $\SIrange{29}{31}{\celsius}$ deviate from the
 mean signal by $\approx\SI{5}{\percent}$. 
 
 With $n_\mathrm{pos} \gg 1000$ flashes per run, a single flash outside of this
-2-degree range impacts the total signal by less $1\permil$. Limiting the 
+2-degree range impacts the total signal by less than $1\permil$. Limiting the 
 allowed magnitude of the temperature dependency on the emitted signal to 
 $<\SI{0.2}{\percent}$ (Ref.~\cref{tab:xy-systematics}), we accept an XY run if 
 it has $\leq4$ flashes where 
@@ -357,7 +358,7 @@ While the aforementioned assumption of a $\SI{5}{\percent}$ bias is very
 conservative, the effect on data is marginal. Most runs have all data points 
 within $\SIrange{29}{31}{\celsius}$. There exists one run with a single flash at
 $\SI{28.5}{\celsius}$, and two (rejected) runs with 11 and 19 bad temperatures 
-respectively, clearly marked as outliers in this analysis.
+respectively. Both are clear outliers in this analysis.
 
 \subsubsection{Temporal Drifts}
 \label{sssec:xy-qa-led-drift}
@@ -367,24 +368,20 @@ The pulse-to-pulse stability of the \CLS during radiance measurements is
 verify that this assumption holds during XY-Scans as well by analyzing the data
 from the \PD mounted inside the integrating sphere. 
 
-Examining the same data as in \cref{sssec:xy-qa-temperature}, we identify 
-possible drifts in the source radiance by fitting a first order polynomial to 
-the \PD signal for each run. In doing this, we need to account for the inherent 
-variance in the \PD signal, which is far greater than the systematic uncertainty
-of the remaining components. Examining all runs thus far, $\sigma_\mathrm{PD}$ 
-seems to be well described by a normal distribution 
-$\mathcal{N}(\mu = \SI{0.583}{\ADC\per\giga\photon},\, 
+Focusing on the \PD signal, we identify possible drifts in the source radiance 
+by fitting a first order polynomial to it for each run, assuming a systematic 
+uncertainty of the form $\mathcal{N}(\mu = \SI{0.583}{\ADC\per\giga\photon},\, 
 \sigma^2=\SI{0.009}{\square\ADC\per\giga\square\photon})$ 
 (Ref.~\cref{fig:sigma-pd}).
 
 With the resulting linear model $\hat{S}_\mathrm{PD}$ that approximates the 
-measured signal $S_\mathrm{PD}$, it becomes trivial to check the minimum 
-pulse-to-pulse stability by calculating the percentual difference in $\hat{S}$ 
-between the first and last emitted flash of the XY run.
+measured signal $S_\mathrm{PD}$ for each flash, it becomes trivial to check the 
+minimum pulse-to-pulse stability by calculating the difference in 
+$\hat{S}_\mathrm{PD}$ between the first and last flash of the XY run.
 
-\cref{fig:pd-drift} shows the distribution of this percentual difference. The
-\PD, and by extension the \CLS \LED operate stable during \DAQ. All runs pass 
-this quality test. 
+\cref{fig:pd-drift} shows the average extrapolated pulse-to-pulse stability is 
+well below \SI{1}{\percent}. The \CLS \LED operates stable during \DAQ. No runs 
+are rejected. 
 
 In practice, we are unable to distinguish a drift in the \LED from a drift in 
 the \PD, meaning there exists the possibility to discard "good" data due to a 
@@ -419,52 +416,49 @@ problems during a measurement, and were especially frequent prior to November
 2023 \cite{filipFixfilespy2023}.
 
 For the sake of this discussion, an interruption is classified as the scenario
-in which more than $\SI{20}{\second}$ pass between consecutive flashes. 
+in which more than $\SI{20}{\second}$ pass between consecutive 
+flashes.\footnote{The average time between flashes is \SI{1.7}{\second}.}
 Analyzing the relevant data, and taking $\langle S^{<}_\mathrm{PD}\rangle$ 
 ($\langle S^{>}_\mathrm{PD}\rangle$) as the signal immediately before (after) 
 the \DAQ interruption averaged over 20 flashes, we reject an XY run if it had an
 interruption, and if $\left| \langle S^{<}_\mathrm{PD}\rangle - \langle 
 S^{>}_\mathrm{PD}\rangle\right| \geq \SI{2}{\percent}$. The distribution of this
 test statistic is shown in \cref{fig:pd-interruptions}. Interruptions, even over
-a longer period ($>\SI{10}{\minute}$), do not seem to influence \DAQ, and all
-runs pass this quality criterion.
+a longer period ($>\SI{5}{\minute}$), do not seem to influence \DAQ, and all
+runs pass this selection criterion 
 
 \subsection{Measurement Setup}
 
-The XY-Scanner as setup in \cref{fig:xy-flash-pattern} is a temporary 
-installment before the \FD aperture. Before each absolute calibration, the 
-Scanner X-axis as well as the \CLS must be installed carefully in front of the
-telescopes \UV-filter. With every new installation there is the possibility of 
-e.g.~misaligning the \CLS with respect to the \FD, which needs to be checked 
-for.
+The XY-Scanner is a temporary installment before the \FD aperture. An improper 
+setup, e.g.~a misaligned \CLS is a possibility with every new measurement.
 
 \subsubsection{Positional alignment}
 \label{sssec:xy-qa-filter-estimation}
 
 We first check that the coordinate system of the XY-Scanner is correctly set,
-meaning that $(0, 0)$ coincides with the center of the \FD aperture. Flasher 
-positions are defined relative to this origin, implying that a misalignment 
-between the two reference points will result in an improperly illuminated 
-aperture, and bias calibration results.
+meaning that the point $(0, 0)$ coincides with the center of the \FD aperture. 
+Flasher positions are defined relative to this origin, implying that a 
+misalignment between the two reference points will result in an improperly 
+illuminated aperture.
 
 Examining \cref{fig:filter-structure-real}, we note that the \UV filter of every
-\FD telescope is segmented by a symmetric (around the center of the aperture) 
-support structure. This support structure blocks a measureable quantity of light
-during XY-Scans, and can be used to estimate the position of the XY-Scanner 
-relative to the \FD filter.
+\FD telescope is segmented by a (around the center of the aperture) 
+reflectionally symmetric support structure. This support structure blocks a 
+measureable quantity of light during XY-Scans, and can be used to estimate the 
+position of the XY-Scanner relative to the \FD filter.
 
 We identify the shadow of the filter structure by first grouping the flasher 
 positions into rows and columns. We restrict our analysis to flasher positions 
-where $\SI{500}{\milli\meter} < r < \SI{1100}{\milli\meter}$, which is the 
-region of the aperture where the \FD mirror is only occluded by the filter 
-structure (and not by the \FD camera or aperture).
+where $\SI{500}{\milli\meter} < r < \SI{1100}{\milli\meter}$. This is the region
+of the aperture where the \FD mirror is only occluded by the filter structure 
+(and not by e.g.~the \FD-camera).
 
 Next, the average signal $\langle S \rangle$ recorded by the \FD is calculated 
 for every row and column. A first estimate of the filter arm positions follow 
 from this by searching for peaks in the negative average signal, we require the 
 peaks to have a prominence of $>\SI{7}{\percent}$ and a peak-to-peak distance of
 $>\SI{480}{\milli\meter}$.\footnote{This corresponds to passing 
-\lstinline[language=python]|\{prominence=0.07*max(-cols), distance=14\}| or 
+\lstinline[language=python]|\{prominence=0.07*max(-cols), distance=14\}| and
 \lstinline[language=python]|\{prominence=0.07*max(-rows), distance=8\}| to 
 pythons \lstinline[language=python]|scipy.signal.find_peaks|
 \cite{virtanenSciPy10Fundamental2020}.} As evident in 
@@ -498,16 +492,15 @@ Y = \sum\limits_{i = p-1}^{p+1} \frac{\langle S \rangle_i}{\langle S \rangle_p} 
 \end{equation}
 
 The uncertainty on the filter position is at most of the order of the XY 
-stepsize (\SI{6}{\centi\meter}). In practice, the filter center, calculated as
-the mean position of all found filter structures, is grouped much tighter, as 
-shown in \cref{fig:cls-alignment}, and lines up with the origin of the 
-XY-Scanner coordinate system. 
+stepsize. In practice, the filter center, calculated as the mean position of all
+found filter structures, is grouped much tighter and offers a sub-cm precision, 
+as shown in \cref{fig:cls-alignment}. The XY-Scanner coordinate system is well
+aligned with the \FD aperture. 
 
 In order for an XY calibration to pass the positional alignment check, we 
 require the calculated filter center to lie within \SI{20}{\milli\meter} of the 
-XY origin. All but one run pass this quality check. The rejected run fails this
-quality check due to an occluded aperture, which will be investigated more
-closely in \cref{sssec:xy-qa-aperture-occlusion}.
+XY origin. Only one run is rejected by this requirement. Further details are 
+found in \cref{sssec:xy-qa-aperture-occlusion}.
 
 \begin{figure}[t]
   \centering
@@ -527,7 +520,7 @@ closely in \cref{sssec:xy-qa-aperture-occlusion}.
 
 \subsubsection{Directional alignment}
 
-Next we ensure that the \CLS faces the \FD camera as intended. That is to say
+Next we ensure that the \CLS faces the \FD-camera as intended. That is to say
 the plexiglass surface of the spheres exit port is parallel to the \UV-filter. 
 
 Given the Lambertian emission characteristic of the \CLS, a misaligned light
@@ -552,46 +545,88 @@ considered XY measurements. None of the examined runs fail this quality check.
 
 Looking more closely at the run rejected in 
 \cref{sssec:xy-qa-filter-estimation}, it becomes apparent that the reason for 
-rejection is the curtain being placed inside the camera \FOV, and the filter 
-finding algorithm mistaking the shadow left by the curtain as an additional 
-filter structure. We can search for more instances of an abnormally occluded 
-aperture by examining outliers in the radial distribution of camera signals. 
+rejection is the curtain being placed inside the camera \FOV, and the filter-
+finding-algorithm misidentifying the shadow left by the curtain as an additional
+filter structure. 
 
-For every XY run, we normalize the camera signal of each flash to the maximum 
-camera signal recorded throughout the measurement, and bin them according to the
-radial position of the XY-Scanner at the time of recording. 
-\cref{fig:occluded-aperture} shows the histogram of this data over all 
-considered XY runs.
+We can search for more instances of an abnormally occluded aperture by examining
+outliers in the radial distribution of camera signals. For every XY run, we 
+normalize the camera signal of each flash to the maximum camera signal recorded 
+throughout the measurement, and bin them according to the radial position of the
+XY-Scanner at the time of recording. \cref{fig:occluded-aperture} shows the 
+histogram this data.
 
-Outside of the region $r<\SI{500}{\milli\meter}$, where the mirror is partially
-occluded by the camera, the signal recorded by the \FD reaches its maximum 
-value, whereas almost no light is received at $r>\SI{1100}{\milli\meter}$, 
-outside the \FD aperture.
+Outside of the camera shadow ($r>\SI{500}{\milli\meter}$), the signal recorded 
+by the \FD reaches its maximum (and approximately constant) value, whereas 
+almost no light is received at $r>\SI{1100}{\milli\meter}$, outside the \FD 
+aperture.
 
-Notably, there also exists a small fraction of flashes that are emitted within 
-view of the camera where $<\SI{10}{\percent}$ of light ends up in the \FD. If
-this occurs within a radial distance 
+Notably, there also exists a small fraction of flashes that are emitted within
+full view of the camera where $<\SI{10}{\percent}$ of light ends up in the \FD.
+If this occurs within the aforementioned radial distance 
 $\SI{500}{\milli\meter}<r\leq\SI{1100}{\milli\meter}$ we reject the run.
 
 Apart from the XY measurement with the curtain in view, an additional run is 
 identified as problematic due to the obstruction of a single flash for which the
-\FD camera did not register any signal. Both are shown in \todo{appendix filter bad runs.}
+\FD-camera did not register any signal. Both are displayed in
+\cref{fig:failed-runs}.
 
 \subsection{Camera Stability}
+
+The last remaining component in the \DAQ chain is the \FD-camera. It is crucial
+that the camera operates in a stable fashion throughout the duration of the XY
+scan, this can be ensured via the following selection cuts.
+
 
 \subsubsection{Camera Sensitivity}
 \label{sssec:xy-qa-camera-sensitivity}
 
-The (assumed constant) sensitivity of the \FD camera is checked by comparing the
+The (assumed constant) sensitivity of the \FD-camera is checked by comparing the
 open shutter Cal A measurements before and after the XY scan. If the camera 
 response to both exposures is the same, it is reasonable to assume that the 
 sensitivity of the pixel-\PMTs remains constant throughout the XY scan. 
 
-For a given XY run, we take the 
+In the case of a nonzero drift, the total uncertainty on the pixel signal will 
+depend on the magnitude of a drift in the \FD-camera sensitivity, to first order
+expressed as 
+$\langle S^\mathrm{CalA}_\mathrm{max}\,/\,S^\mathrm{CalA}_\mathrm{min}\rangle$, 
+where $S^\mathrm{CalA}_\mathrm{max}$ ($S^\mathrm{CalA}_\mathrm{min}$) give the
+pixel-wise maximum (minimum) between the pre- and post-XY Calibration A 
+measurements. 
+
+Assuming further that the drift in \FD-camera sensitivity is approximately 
+linear over the approx.~$\SI{40}{\minute}$ \DAQ period, the signal uncertainty 
+in the $i$th pixel signal is at most 
+$\sigma_{\mathrm{max},\,i}=(S^\mathrm{CalA}_{\mathrm{max},\,i}\, / 
+\,S^\mathrm{CalA}_{\mathrm{min},\,i} - 1)\,/\,2$, implying that on average
+
+\begin{equation}
+\label{eq:total-error-cal-a}
+\langle \sigma_\mathrm{max} \rangle = \sum\limits_{i=1}^{n_\mathrm{pixel}} \frac{\sigma_{\mathrm{max},\,i}}{440} 
+\end{equation}
+
+over the entire camera. Capping $\langle\sigma_\mathrm{max}\rangle$ to
+\SI{0.2}{\percent}, we arrive at two runs that have an unacceptable drift in the
+camera sensitivity (Ref.~\cref{fig:cal-a-errors}). The corresponding ratios of 
+the Calibration A signal are shown in \cref{fig:cal-a-ratio}, clearly, the
+rejected runs do not follow the underlaying distribution visible in all runs,
+and are outliers.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/cal_a_stability.png}
+  \label{fig:cal-a-ratio}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/cal_a_total_error.png}
+  \label{fig:cal-a-errors}
+  }
+  \caption[]{\subref{fig:cal-a-ratio}  \subref{fig:cal-a-errors} }
+  \label{fig:cal-a-stability}
+\end{figure}
 
 \subsubsection{Catch All Sanity Check}
 
-Finally, 
+Finally, we impose a restriction on the 
 
 \subsection{Reproducibility}
 
