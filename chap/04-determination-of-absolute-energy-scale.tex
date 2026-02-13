@@ -605,12 +605,11 @@ $\sigma_{\mathrm{max},\,i}=(S^\mathrm{CalA}_{\mathrm{max},\,i}\, /
 \langle \sigma_\mathrm{max} \rangle = \sum\limits_{i=1}^{n_\mathrm{pixel}} \frac{\sigma_{\mathrm{max},\,i}}{440} 
 \end{equation}
 
-over the entire camera. Capping $\langle\sigma_\mathrm{max}\rangle$ to
-\SI{0.2}{\percent}, we arrive at two runs that have an unacceptable drift in the
-camera sensitivity (Ref.~\cref{fig:cal-a-errors}). The corresponding ratios of 
-the Calibration A signal are shown in \cref{fig:cal-a-ratio}, clearly, the
-rejected runs do not follow the underlaying distribution visible in all runs,
-and are outliers.
+over the entire camera. Capping $\langle\sigma_\mathrm{max}\rangle$ to a maximum
+of \SI{0.2}{\percent}, we arrive at two runs that have an unacceptable drift in 
+the camera sensitivity (Ref.~\cref{fig:cal-a-errors}). The corresponding ratios 
+of the Calibration A signal are shown in \cref{fig:cal-a-ratio}, clearly, the
+rejected runs do not follow the underlaying distribution visible in all runs.
 
 \begin{figure}[t]
   \centering
@@ -620,13 +619,36 @@ and are outliers.
   \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/cal_a_total_error.png}
   \label{fig:cal-a-errors}
   }
-  \caption[]{\subref{fig:cal-a-ratio}  \subref{fig:cal-a-errors} }
+  \caption[]{\subref{fig:cal-a-ratio} Ratio of Calibration A pixel signals for 
+  all tested runs. The ratio distribution of rejected runs (red) differs notably
+  from the underlying (black) distribution and dominates its tail. 
+  \subref{fig:cal-a-errors} Distribution of the average error in the camera 
+	signal extrapolated from a linear drift in the Calibration A signal.}
   \label{fig:cal-a-stability}
 \end{figure}
 
 \subsubsection{Catch All Sanity Check}
 
-Finally, we impose a restriction on the 
+Finally, we impose a restriction on the \FD-camera signal per flash. This 
+restriction is not (strictly) based on physics, but rather meant as a catch-all 
+sanity check meant to identify anything from trigger issues (e.g.~Run 
+$\#05616\mathrm{x}$ in Oct.~2022 at \HEAT1) to failures in the \DAQ readout 
+system (e.g.~Run $\#15672$ in Oct.~2022 at \LL4).
+
+The number of photons emitted by the \CLS per flash is of the order 
+$\mathcal{O}(10^9)$ and constant throughout the XY-Scan. With calibration 
+constants below $\SI{10}{\upgamma\per\ADC}$ the camera response should be of 
+comparable magnitude, dependant, of course, on the \CLS position in front of the
+aperture.
+
+We partially eliminate the dependence of the camera signal, $S$, on 
+$L_\mathrm{src}$ by subtracting $\langle S \rangle$ and observe that the 
+resulting distribution is reasonably described by a Gaussian (Ref.~\todo{plot}).
+
+
+
+
+
 
 \subsection{Reproducibility}
 
