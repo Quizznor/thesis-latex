@@ -704,19 +704,20 @@ measurements.
 
 With more than a decade lying between both absolute calibrations, differences in
 the telescope operation (and $C^\mathrm{pixel}_\mathrm{abs.}$) are expected. Not
-only is the XY-Scanner valuable in and of itself due to its measurement data,
-but also serves as an important tool to understand and check the relative 
+only is the XY-Scanner thus valuable in and of itself due to its measurement 
+data, but also serves as an important tool to understand and check the relative 
 calibration tracking algorithms.
 
 \subsection{Comparison of Drum and XY}
 
 As mentioned before, differences in the comparison of the absolute calibration
-constants are expected, primarily due to the presence of telescope ageing 
-effects. More interesting is the comparison of the relative calibration 
-constants (calculated from the Calibration A) propagated to the same time as the
-XY-Scan.
+constants are expected, primarily due to the calibration sets having been 
+measured at different times, and the \FD telescopes ageing in between.
 
-% address \cref{tab:xy-systematics} unaccounted uncertainty budget and why
+Therefore, a more interesting comparison is that of the  relative calibration 
+constants, calculated from tracking the drum over time with the Calibration A, 
+with the XY-Scanner. These datasets represent our (theoretical) knowledge of the
+detector at the same point in time. \cref{fig:xy-vs-drum} shows this comparison.
 
 \begin{figure}[t]
   \centering
@@ -724,11 +725,42 @@ XY-Scan.
   \caption{Comparison of the drum calibration constants versus the XY 
   calibration constants. The drum calibration is propagated to the time of the
   XY-Scan via the relative tracking of the Calibration A signal. The XY dataset
-  is defined in \cref{ssec:xy-production-dataset}.}
+  in use defined in \cref{ssec:xy-production-dataset}.}
   \label{fig:xy-vs-drum}
 \end{figure}
 
+Large discrepancies of up to \SI{40}{\percent} are evident in the telescope 
+mean. While the exact magnitude differs from site to site and telescope to 
+telescope, the general trend is 
+$C^\mathrm{XY}_\mathrm{abs.} > C^\mathrm{Drum}_\mathrm{abs.}$ for almost all 
+pixels in the \FD. Clearly, the pixel calibration constants measured by the two
+different methods are not in agreement.
 
+This discrepancy is not completely unexpected, albeit the amplitude certainly
+is. Evidences of a sub-optimal understanding of the \FD telescope ageing have
+been collected over time, but were partially attibuted to e.g.~software bugs 
+\cite{dawsonCommentDriftFD2013}, or variations in the solar cycle 
+\cite{newmannNightSkyBrightness2014}. In an attempt to address these puzzles, a
+systematic uncertainty of approximately \SI{9}{\percent} has been added to the 
+pixel calibration constants measured by the drum in the past 
+(Ref.~\cref{tab:xy-systematics}).
+
+A closer look at calibration constants of a single telescope, as shown in 
+\cref{fig:xy-drum-cala} shed more light on the nature of the discrepancy.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/CO4_comparison.png}
+  \label{fig:xy-drum-cala}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{}
+  \label{fig:LABEL}
+  }
+  \caption[]{\subref{fig:xy-drum-cala} The comparison of calibration constants 
+  for \CO4. Shown are the distributions for the drum measured in 2010 (red), XY 
+  measured in 2024 (black), and drum tracked to 2024 (blue dashed) \subref{fig:LABEL} }
+  \label{fig:closer-look}
+\end{figure}
 
 \subsection{The Night Sky Background}
 \subsection{Effects Of Mirror Cleaning}
