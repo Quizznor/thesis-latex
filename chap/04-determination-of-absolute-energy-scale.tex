@@ -665,6 +665,7 @@ $\SI{1.7}{\percent}$.
 \end{figure}
 
 \subsection{First Production Dataset}
+\label{ssec:xy-production-dataset}
 
 We have presented an extensive list of quality checks by which the quality of XY
 measurement data can be tested. In conclusion, eight runs out of a total of 66 
@@ -685,14 +686,50 @@ measurement conditions, which are in turn correlated to outlier calibration
 constants.
 
 With almost all XY-Scans conducted in Nov.~2024 passing all quality checks 
-(Ref.~\cref{tab:xy-runlist}), we choose the 
+(Ref.~\cref{tab:xy-runlist}), we choose this campaign as the first official set
+of calibration constants to be used for \FD reconstruction. The two runs that do
+not pass the quality assurance ($\#16461$, and $\#6522$) are replaced with 
+$\#15675$ (\LL3, Oct.~2022) and $\#6070$ (\HEAT1, Nov.~2023) respectively. The 
+entire database, consisting of 11880 XY pixel calibration constants over all 27
+\FD telescopes is accessible under 
+\cite{filipAugerobservatorySandBoxesPaulfilip2026}.
 
 \section{Telescope Ageing}
 \label{sec:telescope-aging}
 
-% address \cref{tab:xy-systematics} unaccounted uncertainty budget and why
+The selection criteria defined in \cref{sec:quality-assurance} ensure that the
+XY-Scanner delivers high-quality pixel calibration constants. The most urgent 
+follow-up question is how do the recent XY measurements compare to the drum
+measurements.
+
+With more than a decade lying between both absolute calibrations, differences in
+the telescope operation (and $C^\mathrm{pixel}_\mathrm{abs.}$) are expected. Not
+only is the XY-Scanner valuable in and of itself due to its measurement data,
+but also serves as an important tool to understand and check the relative 
+calibration tracking algorithms.
 
 \subsection{Comparison of Drum and XY}
+
+As mentioned before, differences in the comparison of the absolute calibration
+constants are expected, primarily due to the presence of telescope ageing 
+effects. More interesting is the comparison of the relative calibration 
+constants (calculated from the Calibration A) propagated to the same time as the
+XY-Scan.
+
+% address \cref{tab:xy-systematics} unaccounted uncertainty budget and why
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/drum_vs_xy.png}
+  \caption{Comparison of the drum calibration constants versus the XY 
+  calibration constants. The drum calibration is propagated to the time of the
+  XY-Scan via the relative tracking of the Calibration A signal. The XY dataset
+  is defined in \cref{ssec:xy-production-dataset}.}
+  \label{fig:xy-vs-drum}
+\end{figure}
+
+
+
 \subsection{The Night Sky Background}
 \subsection{Effects Of Mirror Cleaning}
 
