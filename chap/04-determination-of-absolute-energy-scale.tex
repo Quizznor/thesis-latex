@@ -745,25 +745,82 @@ systematic uncertainty of approximately \SI{9}{\percent} has been added to the
 pixel calibration constants measured by the drum in the past 
 (Ref.~\cref{tab:xy-systematics}).
 
-A closer look at calibration constants of a single telescope, as shown in 
-\cref{fig:xy-drum-cala} shed more light on the nature of the discrepancy.
+A closer look at the calibration constants of individual telescopes, as shown in
+\cref{fig:closer-look} sheds more light on the nature of the discrepancy. The 
+values $C^\mathrm{Drum}_\mathrm{abs.}$ show a narrow distribution, with the 
+pixel-\PMTs having been flat-fielded just before the Drum measurement 
+\cite{dorofeevFDAbsoluteCalibration}. 14 years later, the XY measurements
+indicate that both the mean and standard deviation of the distribution has 
+increased. This is consistent with the assumption that as the telescope ages it 
+becomes less sensitive to light. Different pixels in the camera seem to age at 
+different rates.
 
 \begin{figure}[t]
   \centering
   \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/CO4_comparison.png}
-  \label{fig:xy-drum-cala}
+  \label{fig:xy-drum-cala-1}
   }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[height=0.38\textwidth]{}
-  \label{fig:LABEL}
+  \subfloat[]{\includegraphics[height=0.38\textwidth]{xy-scanner/LL2_comparison.png}
+  \label{fig:xy-drum-cala-2}
   }
-  \caption[]{\subref{fig:xy-drum-cala} The comparison of calibration constants 
-  for \CO4. Shown are the distributions for the drum measured in 2010 (red), XY 
-  measured in 2024 (black), and drum tracked to 2024 (blue dashed) \subref{fig:LABEL} }
+  \caption[]{The comparison of calibration constants for 
+  \subref{fig:xy-drum-cala-1} \CO4 and \subref{fig:xy-drum-cala-2} \LL2. Shown 
+  are the distributions for the drum measured in 2010 (red), XY measured in 2024  (black), and drum tracked to 2024 (blue).}
   \label{fig:closer-look}
 \end{figure}
 
-\subsection{The Night Sky Background}
+The Calibration A tracks the increase in standard deviation accurately, but 
+fails to recognize the shift in the mean of the distribution. As a result, the 
+Calibration A sees a decrease in the value of some calibration constants,
+seemingly implying that some pixels in the camera become more sensitive as time 
+goes on. This shortcoming is the reason for the discrepancies visible in 
+\cref{fig:xy-vs-drum}. 
+
+With the Calibration A only tracking the sensitivity of the pixel-\PMTs 
+(Ref.~\cref{sssec:relative-calibration}) the shift in the distribution mean must
+originate from a telescope component that is not the camera. It has become 
+evident that the evolution of the entire optical path in the detector must be 
+considered in order to accurately extrapolate the \FD sensitivity from one 
+moment in time to another.
+
 \subsection{Effects Of Mirror Cleaning}
+
+The \FD is located in a semi-arid environment with strong winds (called the
+Zonda \cite{municipalidadmalargueVientoZondaSitio}) driven by the Andes.
+Consequentially, dust steadily contaminates the \FD buildings and settles on
+mirrors and filters, negatively affecting their performance.
+
+The telescope filters are regularly cleaned since 2014, and mirror cleaning 
+operations are carried out to combat this. Notably, two interventions have been 
+accompanied by XY-Scans before and after the cleaning. The comparison of these
+measurements provide valuable information in the identification of how and why 
+the detector is ageing in a way that is invisible to the Calibration A.
+
+\subsubsection{Los Morados 1-6, 2025}
+
+All mirrors in \LM have been cleaned in November of 2025, following almost ten 
+years of uninterrupted pollution by dust. All other \FD sites have been cleaned
+(semi-) regularly with a higher frequency \cite{MergedListOfCleaningsAugerWiki},
+meaning that \LM likely presents the most extreme case of dust contamination, 
+and we anticipate the most drastic changes in telescope operation before and 
+after cleaning.
+
+These changes, visible in the signal response recorded in the XY-Scans before 
+and after the intervention, 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/mirror_cleaning_lm1.png}
+  \caption{}
+  \label{fig:lm1-cleaning}
+\end{figure}
+
+
+\subsubsection{HEAT 1+3, 2023}
+
+\subsubsection{HEAT 2, 2023}
+
+\subsection{The Night Sky Background}
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
