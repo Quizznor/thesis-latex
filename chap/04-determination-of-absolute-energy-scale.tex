@@ -809,17 +809,29 @@ With only days passing between the XY-Scans, these changes must, of course,
 originate largely from the altered reflectivity of the mirror segments. We
 normalize the XY signals to the respective camera sensitivity, which is 
 given by the signal response to the Calibration A measurement before and after 
-the scan. This is analog to the normalizations applied in 
+the scan. This is analog to the normalizations applied on quality cuts in 
 \cref{sec:quality-assurance}.
-
-
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=1.0\textwidth]{xy-scanner/mirror_cleaning_lm1.png}
-  \caption{}
+  \caption{Comparison of XY signal strength before and after mirror cleaning,
+  normalized to the respective Calibration A signal. The left subplot shows the
+  aperture view, and the center subplot gives the camera view.}
   \label{fig:lm1-cleaning}
 \end{figure}
+
+\cref{fig:lm1-cleaning} shows the comparison of the camera efficiency corrected 
+XY signal before and after mirror cleaning, both per flash position (averaged
+over the entire camera) and per pixel (averaged over all flashes). Several 
+facts are evident:
+
+\begin{itemize}
+\item The camera receives more light after mirror cleaning.
+\item The gain in light collection efficiency is elevation dependent.
+\item 
+\end{itemize}
+
 
 
 \subsubsection{HEAT 1+3, 2023}
