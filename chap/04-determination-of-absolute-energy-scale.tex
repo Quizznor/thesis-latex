@@ -797,6 +797,7 @@ measurements provide valuable information in the identification of how and why
 the detector is ageing in a way that is invisible to the Calibration A.
 
 \subsubsection{Los Morados 1-6, 2025}
+\label{sssec:lm-cleaning}
 
 All mirrors in \LM have been cleaned in November of 2025, following almost ten 
 years of uninterrupted pollution by dust. All other \FD sites have been cleaned
@@ -815,30 +816,116 @@ the scan. This is analog to the normalizations applied on quality cuts in
 \begin{figure}[t]
   \centering
   \includegraphics[width=1.0\textwidth]{xy-scanner/mirror_cleaning_lm1.png}
-  \caption{Comparison of XY signal strength before and after mirror cleaning,
-  normalized to the respective Calibration A signal. The left subplot shows the
-  aperture view, and the center subplot gives the camera view.}
+  \caption{Comparison of XY signal strength before and after mirror cleaning for
+  \LM1, normalized to the respective Calibration A signal. The left subplot 
+  shows the aperture view, and the center subplot gives the camera view.}
   \label{fig:lm1-cleaning}
 \end{figure}
 
-\cref{fig:lm1-cleaning} shows the comparison of the camera efficiency corrected 
-XY signal before and after mirror cleaning, both per flash position (averaged
-over the entire camera) and per pixel (averaged over all flashes). Several 
-facts are evident:
+\cref{fig:lm1-cleaning} shows the comparison of the corrected XY signal, 
+labelled $S^*$, before and after mirror cleaning, both per flash position 
+(averaged over the entire camera) and per pixel (averaged over all flashes). 
+Several facts are evident:
 
 \begin{itemize}
 \item The camera receives more light after mirror cleaning.
 \item The gain in light collection efficiency is elevation dependent.
-\item 
+\item Light collection from beyond the aperture sharply decreases.
 \end{itemize}
+\vspace{0.2cm}
 
+All these findings can be completely understood by analyzing changes in the
+mirror reflectivity post cleaning. First, and most obvious, clean(er) mirrors 
+reflect more light. This results in more light reaching the \FD-camera, and a 
+larger signal recorded in the pixel-\PMTs. The calibration constants increase.
 
+Specifically, the specular reflectivity of the mirrors drastically increases,
+whereas the diffuse reflection (stemming primarily from light scattering off of
+dust particles on the surface) diminishes. This can be seen most prevalently by 
+comparing the light signal received from flasher positions outside of the
+aperture in \cref{fig:lm1-cleaning}. There exists no geometric 
+path\footnote{Ignoring trajectories involving multiple scattering.} for which 
+light reaches the \FD-camera by specularly reflecting from the mirror. Light 
+emitted from beyond the aperture must thus be reflected diffusely into the 
+camera. With $S^*_\mathrm{after}/S^*_\mathrm{before} < 1$, this implies the 
+diffuse reflectivity of the mirror was higher before mirror cleaning. This is 
+verified by independent measurements of the mirror segment reflectivity 
+\cite{filipJumpsXYCalibration2024, GAP2026_001DescriptionResults}.
+
+Finally, the gain in light collection efficiency is not uniform over the
+camera. Gradients in the positive $y$-direction are visible in 
+\cref{fig:lm1-cleaning}. The average gain per row (Ref.~\cref{fig:lm-gradient}) 
+grows steadily from $\approx\SI{5}{\percent}$ at the top of the camera to 
+$\approx\SI{15}{\percent}$ near the bottom of the camera. This results from the
+inclination of the \FD mirrors (Ref.~\cref{fig:fd-schematic}). The bottom 
+segments are more inclined and offer a better surface for dust to cling on to.
+In contrast, the top of the mirror is less contaminated.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/lm_gradient.png}
+  \caption{The gain in light collection efficiency, averaged over all pixels in
+  a row. Low row numbers are located at the top of the camera, and look at the 
+  top of the mirrors.}
+  \label{fig:lm-gradient}
+\end{figure}
 
 \subsubsection{HEAT 1+3, 2023}
 
+The mirrors of the \HEAT are located in an enclosure that differs from the 
+standard \FD-building. The altered design makes the mirrors more susceptible to
+dust accumulation. Despite this difference, the gain in light collection
+efficiency in \HEAT 1+2 after a mirror cleaning operation in November 2023 
+(Ref.~\cref{fig:he1-cleaning}) is on average $\SI{15}{\percent}$, and very 
+similar to the jump visible in \cref{sssec:lm-cleaning}.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.42\textwidth, valign=t]{xy-scanner/mirror_cleaning_he3.png}
+  \label{fig:he1-cleaning}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.34\textwidth, valign=t]{xy-scanner/malargue_wind_rose_cropped.png}
+  \label{fig:he2-location}
+  }
+  \caption[]{\subref{fig:he1-cleaning} Comparison of XY signal strength before
+  and after mirror cleaning for \HEAT1, normalized to the respective Calibration
+  A signal. \subref{fig:he2-location} Sattelite image of the \HEATs with wind
+  occurence and strength overlayed. \HEAT2 (center, red) is shielded from the 
+  main wind directions. Sattelite image from \cite{GoogleMaps}, weather data 
+  from \cite{akrherzIowaEnvironmentalMesonet}.}
+  \label{fig:heat-cleaning}
+\end{figure}
+
 \subsubsection{HEAT 2, 2023}
+\label{sssec:he2-problem}
+
+\HEAT 2 was cleaned during the same November 2023 campaign, but showed a jump in
+calibration constants and light collection efficiency of just \SI{8}{\percent}, 
+much smaller than \HEAT1 and \HEAT2. Auxiliary measurements of the mirror 
+reflectivity have turned up similar findings \cite{filipJumpsXYCalibration2024}.
+The simplest explanation for this abnormal behaviour is the fact that \HEAT2 was
+not as dirty as \HEAT1+3. This is supported by an analysis of the pixel-\PMT
+variance in the telescopes, shown in \cref{fig:he-nsb}.
+
+All telescopes show an increase in the trace variance after the cleaning of the
+mirrors, meaning that $\sigma^2_\mathrm{ADC}$ must be a proxy for the \FD
+camera sensitivity. Expanding from this logic, we find that the variance in 
+\HEAT2 is higher (than \HEAT1+3) prior to the cleaning, meaning that the \HEAT2
+camera was more sensitive.
+
+A look at the conditions at \HEAT also yields one possible reason as to why 
+\HEAT2 is less susceptible to dust contamination than \HEAT1+3. 
+\cref{fig:he2-location} shows that the other telescopes shield \HEAT2 from the 
+most prevalent wind directions.
 
 \subsection{The Night Sky Background}
+\label{ssec:night-sky-background}
+
+The previous section has shown that the \FD trace variances,
+$\sigma^2_\mathrm{ADC}$, can be used as a first-order estimate of the pixel-\PMT
+sensitivity.
+
+% on top of this nsb is end-to-end, bla bla cal a, we shall try to derive an alternative tracking algorithm for pixel calibration constants.
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
