@@ -709,6 +709,7 @@ data, but also serves as an important tool to understand and check the relative
 calibration tracking algorithms.
 
 \subsection{Comparison of Drum and XY}
+\label{ssec:drum-xy-comparison}
 
 As mentioned before, differences in the comparison of the absolute calibration
 constants are expected, primarily due to the calibration sets having been 
@@ -923,9 +924,74 @@ most prevalent wind directions.
 
 The previous section has shown that the \FD trace variances,
 $\sigma^2_\mathrm{ADC}$, can be used as a first-order estimate of the pixel-\PMT
-sensitivity.
+sensitivity, and has been used to verify the calibration parameters of the drum
+in the past \cite{GAP2016_005CrossCheck}. The trace variance is monitored with
+minute accuracy (Ref.~\cref{ssec:fd-triggers}) while the \PMT \HV is turned on. 
+Meanwhile, the Calibration A, being the standard relative tracking algorithm for
+the time being, is measured only twice per night.
 
-% on top of this nsb is end-to-end, bla bla cal a, we shall try to derive an alternative tracking algorithm for pixel calibration constants.
+On top of this, the Calibration A is only sensitive to changes in the 
+pixel-\PMTs, offering an incomplete view of the telescope response function.
+This has caused for a divergence of the calibration constants that are in use
+versus those that have been measured (Ref.~\cref{ssec:drum-xy-comparison}). The 
+trace variances, on the other hand, depend on the entire optical path and signal
+readout chain, they are an end-to-end estimator of the complete telescope 
+sensitivity, involving e.g.~changes in the mirror reflectivity.
+
+In the following, we aim to derive an alternative relative tracking algorithm to
+the (incomplete) Calibration A method using this extensive dataset.
+
+\subsubsection{Preprocessing of Data}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/nsb_shift_example.png}
+  \caption{Evolution of the trace variance for pixel $\#210$ in \CO4 in October 
+  2020. The right subplot gives a \KDE of all data points during the shift.}
+  \label{fig:nsb-shift-example}
+\end{figure}
+
+\cref{fig:nsb-shift-example} shows the evolution of the trace variance for one 
+pixel over one \FD measurement shift (also called moon cycle), typically 
+consisting of 14 to 21 nights of \DAQ. The moon cycle starts with a waning 
+crescent moon and ends after waxing crescent. The residual moonlight can cause a
+strong evolution of $\sigma^2_\mathrm{ADC}$ in the first and last measurement 
+nights, whereas an almost constant variance is being recorded in the middle of 
+the \FD shift during new moon.
+
+Several other aspects influence the value of the trace variance. Most 
+importantly, $\sigma^2_\mathrm{ADC}\neq0$ even during supposed total darkness at
+the beginning and end of each \DAQ night, when the \FD shutters are closed. This
+is due to electronic noise, $\sigma^2_\mathrm{elec.}$, in the \PMTs, averaging 
+roughly \SI{4}{\mathrm{ADC}\squared}, and visible as a large spike in the 
+\acf{KDE} visible on the right in \cref{fig:nsb-shift-example}.
+
+We estimate $\sigma^2_\mathrm{elec.}$ as the maximum of the month-wise \KDE of 
+$\sigma^2_\mathrm{ADC}$ per pixel, and calculate the \NSB by subtracting
+
+\begin{equation}
+\label{eq:night-sky-background}
+\sigma^2_\mathrm{NSB} = \sigma^2_\mathrm{ADC} - \sigma^2_\mathrm{elec.}.
+\end{equation}
+
+This \NSB is thus a minute accurate estimate of the fluctuations in light 
+entering the pixel-\PMTs. The light in question stems not only from \EASs, but
+airglow, stars, zodiacal light, as well as galactic glow 
+\cite{GAP2016_005CrossCheck}. All these phenomena are heavily dependent on the 
+terrestrial as well as solar weather conditions, their evolution for a given 
+night is rather chaotic. To mitigate the influence of (short-scale) weather 
+phenomena, as well as compromise between temporal resolution and data volume, we
+only use the hourly mean of the \NSB to conduct our subsequent analysis. 
+
+The resulting dataset spans 15 years from $2010/01/01$ (shortly before the 
+absolute calibration with the drum) until $2025/12/31$, covering almost 
+$22\,000$ hours of \DAQ for the $11880$ individuals pixels in all $27$ 
+\FD-telescopes. 
+
+\subsubsection{Large Scale Patterns}
+
+The temporal evolution of $\sigma^2_\mathrm{NSB}$ for a single pixel over the
+past 15 years is shown in \todo{figure}.
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
