@@ -16,13 +16,13 @@ relative calibration (Ref.~\cref{sssec:relative-calibration}) it is crucial to
 verify the integrity of the relative tracking and the employed energy 
 calibration.
 
-The XY-Scanner is a novel end-to-end calibration system that is used to estimate
-the \FD pixel calibration constants with an accuracy of \todo{uncertainty}. It 
-provides an excellent method of verifying the validity of the currently employed
-pixel calibration constants, and the \FD energy scale by extension. The 
-measurement system as well as underlying analysis is presented in detail in 
-\cite{schaferXYScannerVersatileMethod2023}, and summarized in 
-\cref{sec:xy-scanner}.
+The XY-Scanner is a novel end-to-end calibration system that is used to 
+estimate the \FD pixel calibration constants with an accuracy of 
+\todo{uncertainty}. It provides an excellent method of verifying the validity 
+of the currently employed pixel calibration constants, and the \FD energy scale
+by extension. The measurement system as well as underlying analysis is 
+presented in detail in \cite{schaferXYScannerVersatileMethod2023}, and 
+summarized in \cref{sec:xy-scanner}.
 
 \cref{sec:quality-assurance} details extensive quality checks that have been
 developed in this work, and that are used to assure the reproducibility of XY 
@@ -961,11 +961,11 @@ nights, whereas an almost constant variance is being recorded in the middle of
 the \FD shift during new moon.
 
 Several other aspects influence the value of the trace variance. Most 
-importantly, $\sigma^2_\mathrm{ADC}\neq0$ even during supposed total darkness at
-the beginning and end of each \DAQ night, when the \FD shutters are closed. This
-is due to electronic noise, $\sigma^2_\mathrm{elec.}$, in the \PMTs, averaging 
-roughly \SI{4}{\mathrm{ADC}\squared}, and visible as a large spike in the 
-\acf{KDE} visible on the right in \cref{fig:nsb-shift-example}.
+importantly, $\sigma^2_\mathrm{ADC}\neq0$ even during supposed total darkness 
+at the beginning and end of each \DAQ night, when the \FD shutters are closed. 
+This is due to electronic noise, $\sigma^2_\mathrm{elec.}$, in the \PMTs, 
+averaging roughly $\SI{4}{\mathrm{ADC}\squared}$, and visible as a large spike 
+in the \acf{KDE} visible on the right in \cref{fig:nsb-shift-example}.
 
 We estimate $\sigma^2_\mathrm{elec.}$ as the maximum of the month-wise \KDE of 
 $\sigma^2_\mathrm{ADC}$ per pixel, and calculate the \NSB by subtracting
@@ -979,10 +979,11 @@ This \NSB is thus a minute accurate estimate of the fluctuations in light
 entering the pixel-\PMTs. The light in question stems not only from \EASs, but
 airglow, stars, zodiacal light, as well as galactic glow 
 \cite{GAP2016_005CrossCheck}. All these phenomena are heavily dependent on the 
-terrestrial as well as solar weather conditions, their evolution for a given 
-night is rather chaotic. To mitigate the influence of (short-scale) weather 
-phenomena, as well as compromise between temporal resolution and data volume, we
-only use the hourly mean of the \NSB to conduct our subsequent analysis. 
+terrestrial as well as solar weather conditions, and their evolution for a 
+given night is thus difficult to model. To mitigate the influence of 
+(short-scale) weather phenomena and compromise temporal resolution and data 
+volume, we only use the hourly median of the \NSB to conduct our subsequent 
+analysis. 
 
 The resulting dataset spans 15 years from $2010/01/01$ (shortly before the 
 absolute calibration with the drum) until $2025/12/31$, covering almost 
@@ -991,8 +992,42 @@ $22\,000$ hours of \DAQ for the $11880$ individuals pixels in all $27$
 
 \subsubsection{Large Scale Patterns}
 
+\todo[inline]{fix sigmas and upsigmas (need consistent use)}
+
 The temporal evolution of $\sigma^2_\mathrm{NSB}$ for a single pixel over the
-past 15 years is shown in \todo{figure}.
+past 15 years is shown in \cref{fig:one-pixel-nsb}. The \NSB dataset remains 
+noisy ($\frac{\upsigma_\mathrm{NSB}}{\upmu_\mathrm{NSB}}=\frac{8.8}{20.4}
+\approx\SI{43}{\percent}$), even at an hourly resolution. Calculating a rolling
+average over data over a month yields a clearer image and reveals seasonal 
+trends.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/one_pixel.png}
+  \label{fig:one-pixel-nsb}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/one_pixel_psd.png}
+  \label{fig:one-pixel-psd}
+  }
+  \caption[]{\subref{fig:one-pixel-nsb} \NSB data spanning 15 years for pixel 
+  $\#210$ at the center of the camera in \CO4. \subref{fig:one-pixel-psd} 
+  Lomb-Scargle periodogram of the data in \subref{fig:one-pixel-nsb}. Several 
+  peaks are marked.}
+  \label{fig:one-pixel-view}
+\end{figure}
+
+These seasonal trends and other large scale patterns become even more evident 
+when calculating a Lomb-Scargle periodogram \cite{lomb, scargle} from the 
+irregularly sampled \NSB. \cref{fig:one-pixel-psd} shows the \PSD, it is
+evident that several effects contribute to the erratic \NSB patterns:
+
+\begin{itemize}
+\item \textbf{22 days to approx.~1 month}
+\item \textbf{6 months}
+\item \textbf{1 year}
+\item \textbf{$>10$ years}
+\end{itemize}
+
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}

@@ -61,6 +61,7 @@ PAO        Pierre Auger Observatory
 PCB        Printed Circuit Board
 PD         Photodiode
 PMT        Photomultiplier Tube
+PSD        Power Spectral Density
 PSF        Point Spread Function
 QFT        Quantum Field Theory
 RD         Radio Detector
@@ -101,3 +102,4 @@ WCD        Water Cherenkov Detector
 WLS        Wavelength Shifting Fiber
 XLF        Extreme Laser Facility
 XML        Extensible Markup Language
+aDC        Analog Digital Count
