@@ -168,7 +168,7 @@ pixel $i$ is calculated as
 
 The different systematic and statistical contributions intrinsic to this process
 are listed in \cref{tab:xy-systematics}. The total uncertainty, given as 
-$\sqrt{\sum\sigma_i^2}$, amounts to \todo{uncertainty}.
+$\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
 
 \begingroup
 \renewcommand{\arraystretch}{1.3}
@@ -182,7 +182,7 @@ $\sqrt{\sum\sigma_i^2}$, amounts to \todo{uncertainty}.
   	\toprule
 	 & & XY & Drum \\
 	\hline
-	Contribution & details & \multicolumn{2}{c}{$\sigma_i$} \\
+	Contribution & details & \multicolumn{2}{c}{$\upsigma_i$} \\
 	\hline
 	Radiance of light source & & & \SI{2.1}{\percent} \\
 	Aperture coverage factor & 
@@ -372,7 +372,7 @@ Focusing on the \PD signal normalized to the respective light source radiance,
 we identify possible drifts in the \CLS brightness during the scan by fitting
 a first order polynomial to it for each run, assuming a systematic uncertainty 
 of the form $\mathcal{N}(\mu = \SI{0.583}{\ADC\per\giga\photon},\, 
-\sigma^2=\SI{0.009}{\square\ADC\per\giga\square\photon})$ 
+\upsigma^2=\SI{0.009}{\square\ADC\per\giga\square\photon})$ 
 (Ref.~\cref{fig:sigma-pd}).
 
 With the resulting linear model $\hat{S}_\mathrm{PD}$ that approximates the 
@@ -598,15 +598,15 @@ measurements.
 Assuming further that the drift in \FD-camera sensitivity is approximately 
 linear over the approx.~$\SI{40}{\minute}$ \DAQ period, the signal uncertainty 
 in the $i$th pixel signal is at most 
-$\sigma_{\mathrm{max},\,i}=(S^\mathrm{CalA}_{\mathrm{max},\,i}\, / 
+$\upsigma_{\mathrm{max},\,i}=(S^\mathrm{CalA}_{\mathrm{max},\,i}\, / 
 \,S^\mathrm{CalA}_{\mathrm{min},\,i} - 1)\,/\,2$, implying that on average
 
 \begin{equation}
 \label{eq:total-error-cal-a}
-\langle \sigma_\mathrm{max} \rangle = \sum\limits_{i=1}^{n_\mathrm{pixel}} \frac{\sigma_{\mathrm{max},\,i}}{440} 
+\langle \upsigma_\mathrm{max} \rangle = \sum\limits_{i=1}^{n_\mathrm{pixel}} \frac{\upsigma_{\mathrm{max},\,i}}{440} 
 \end{equation}
 
-over the entire camera. Capping $\langle\sigma_\mathrm{max}\rangle$ to a maximum
+over the entire camera. Capping $\langle\upsigma_\mathrm{max}\rangle$ to a maximum
 of \SI{0.2}{\percent}, we arrive at two runs that have an unacceptable drift in 
 the camera sensitivity (Ref.~\cref{fig:cal-a-errors}). The corresponding ratios 
 of the Calibration A signal are shown in \cref{fig:cal-a-ratio}, clearly, the
@@ -643,10 +643,10 @@ comparable magnitude, albeit dependant, of course, on the \CLS position in front
 of the aperture.
 
 Binning the camera response over all considered runs, we see an approximately
-Gaussian distribution with variance $\sigma^2 = \SI{53.73}{\mega\ADC\squared}$ 
+Gaussian distribution with variance $\upsigma^2 = \SI{53.73}{\mega\ADC\squared}$ 
 (Ref.~\cref{fig:fd-event-sum}). We reject a run if any flash has an associated 
 camera signal $|S-\langle S\rangle| > \SI{100}{\mega\ADC}$, corresponding to a 
-significance of $|S-\langle S\rangle|\,/\,\sigma = 13.64$. The probability of 
+significance of $|S-\langle S\rangle|\,/\,\upsigma = 13.64$. The probability of 
 rejecting a nominal run (i.e.~assuming the camera signal follows the above 
 distribution) based on this selection criterion is approximately 
 $\SI{1.7}{\percent}$.
@@ -676,8 +676,8 @@ accepted/rejected calibration constants, also shown in
 
 \begin{equation}
 \label{eq:xy-qa-results}
-\sigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{rej.} = 2.1131\,\frac{\upgamma}{\ADC},\qquad
-\sigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{acc.} = 0.4992\,\frac{\upgamma}{\ADC}.
+\upsigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{rej.} = 2.1131\,\frac{\upgamma}{\ADC},\qquad
+\upsigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{acc.} = 0.4992\,\frac{\upgamma}{\ADC}.
 \end{equation}
 
 Notably, this decrease in the standard deviation of measured calibration 
@@ -910,7 +910,7 @@ not as dirty as \HEAT1+3. This is supported by an analysis of the pixel-\PMT
 variance in the telescopes, shown in \cref{fig:he-nsb}.
 
 All telescopes show an increase in the trace variance after the cleaning of the
-mirrors, meaning that $\sigma^2_\mathrm{ADC}$ must be a proxy for the \FD
+mirrors, meaning that $\upsigma^2_\mathrm{ADC}$ must be a proxy for the \FD
 camera sensitivity. Expanding from this logic, we find that the variance in 
 \HEAT2 is higher (than \HEAT1+3) prior to the cleaning, meaning that the \HEAT2
 camera was more sensitive.
@@ -920,34 +920,35 @@ A look at the conditions at \HEAT also yields one possible reason as to why
 \cref{fig:he2-location} shows that the other telescopes shield \HEAT2 from the 
 most prevalent wind directions.
 
-\subsection{The Night Sky Background}
-\label{ssec:night-sky-background}
+\section{The Night Sky Background}
+\label{sec:night-sky-background}
 
 The previous section has shown that the \FD trace variances,
-$\sigma^2_\mathrm{ADC}$, can be used as a first-order estimate of the pixel-\PMT
-sensitivity, and has been used to verify the calibration parameters of the drum
-in the past \cite{GAP2016_005CrossCheck}. The trace variance is monitored with
-minute accuracy (Ref.~\cref{ssec:fd-triggers}) while the \PMT \HV is turned on. 
-Meanwhile, the Calibration A, being the standard relative tracking algorithm for
-the time being, is measured only twice per night.
+$\upsigma^2_\mathrm{ADC}$, can be used as a first-order estimate of the 
+pixel-\PMT sensitivity, and has been used to verify the calibration parameters 
+of the drum in the past \cite{GAP2016_005CrossCheck}. The trace variance is 
+monitored with minute accuracy (Ref.~\cref{ssec:fd-triggers}) while the \PMT 
+\HV is turned on. Meanwhile, the Calibration A, being the standard relative 
+tracking algorithm for the time being, is measured only twice per night.
 
 On top of this, the Calibration A is only sensitive to changes in the 
 pixel-\PMTs, offering an incomplete view of the telescope response function.
 This has caused for a divergence of the calibration constants that are in use
 versus those that have been measured (Ref.~\cref{ssec:drum-xy-comparison}). The 
-trace variances, on the other hand, depend on the entire optical path and signal
-readout chain, they are an end-to-end estimator of the complete telescope 
-sensitivity, involving e.g.~changes in the mirror reflectivity.
+trace variances, on the other hand, depend on the entire optical path and 
+signal readout chain, they are an end-to-end estimator of the complete 
+telescope sensitivity, involving e.g.~changes in the mirror reflectivity.
 
-In the following, we aim to derive an alternative relative tracking algorithm to
-the (incomplete) Calibration A method using this extensive dataset.
+In the following, we aim to derive an alternative relative tracking algorithm 
+to the (insufficient) Calibration A method using this extensive dataset.
 
-\subsubsection{Preprocessing of Data}
+\subsection{Preprocessing of Data}
+\label{ssec:preprocessing-of-data}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=1.0\textwidth]{xy-scanner/nsb_shift_example.png}
-  \caption{Evolution of the trace variance for pixel $\#210$ in \CO4 in October 
+  \caption{Evolution of the trace variance for pixel $\#210$ in \CO4 in October
   2020. The right subplot gives a \KDE of all data points during the shift.}
   \label{fig:nsb-shift-example}
 \end{figure}
@@ -955,24 +956,24 @@ the (incomplete) Calibration A method using this extensive dataset.
 \cref{fig:nsb-shift-example} shows the evolution of the trace variance for one 
 pixel over one \FD measurement shift (also called moon cycle), typically 
 consisting of 14 to 21 nights of \DAQ. The moon cycle starts with a waning 
-crescent moon and ends after waxing crescent. The residual moonlight can cause a
-strong evolution of $\sigma^2_\mathrm{ADC}$ in the first and last measurement 
+crescent moon and ends after waxing crescent. The residual moonlight can cause 
+a strong evolution of $\upsigma^2_\mathrm{ADC}$ in the first and last measuremen 
 nights, whereas an almost constant variance is being recorded in the middle of 
 the \FD shift during new moon.
 
 Several other aspects influence the value of the trace variance. Most 
-importantly, $\sigma^2_\mathrm{ADC}\neq0$ even during supposed total darkness 
+importantly, $\upsigma^2_\mathrm{ADC}\neq0$ even during supposed total darkness 
 at the beginning and end of each \DAQ night, when the \FD shutters are closed. 
-This is due to electronic noise, $\sigma^2_\mathrm{elec.}$, in the \PMTs, 
+This is due to electronic noise, $\upsigma^2_\mathrm{elec.}$, in the \PMTs, 
 averaging roughly $\SI{4}{\mathrm{ADC}\squared}$, and visible as a large spike 
 in the \acf{KDE} visible on the right in \cref{fig:nsb-shift-example}.
 
-We estimate $\sigma^2_\mathrm{elec.}$ as the maximum of the month-wise \KDE of 
-$\sigma^2_\mathrm{ADC}$ per pixel, and calculate the \NSB by subtracting
+We estimate $\upsigma^2_\mathrm{elec.}$ as the maximum of the month-wise \KDE of 
+$\upsigma^2_\mathrm{ADC}$ per pixel, and calculate the \NSB by subtracting
 
 \begin{equation}
 \label{eq:night-sky-background}
-\sigma^2_\mathrm{NSB} = \sigma^2_\mathrm{ADC} - \sigma^2_\mathrm{elec.}.
+\upsigma^2_\mathrm{NSB} = \upsigma^2_\mathrm{ADC} - \upsigma^2_\mathrm{elec.}.
 \end{equation}
 
 This \NSB is thus a minute accurate estimate of the fluctuations in light 
@@ -990,11 +991,11 @@ absolute calibration with the drum) until $2025/12/31$, covering almost
 $22\,000$ hours of \DAQ for the $11880$ individuals pixels in all $27$ 
 \FD-telescopes. 
 
-\subsubsection{Large Scale Patterns}
+\subsection{Large Scale Patterns}
 
 \todo[inline]{fix sigmas and upsigmas (need consistent use)}
 
-The temporal evolution of $\sigma^2_\mathrm{NSB}$ for a single pixel over the
+The temporal evolution of $\upsigma^2_\mathrm{NSB}$ for a single pixel over the
 past 15 years is shown in \cref{fig:one-pixel-nsb}. The \NSB dataset remains 
 noisy ($\frac{\upsigma_\mathrm{NSB}}{\upmu_\mathrm{NSB}}=\frac{8.8}{20.4}
 \approx\SI{43}{\percent}$), even at an hourly resolution. Calculating a rolling
@@ -1019,7 +1020,42 @@ trends.
 These seasonal trends and other large scale patterns become even more evident 
 when calculating a Lomb-Scargle periodogram \cite{lomb, scargle} from the 
 irregularly sampled \NSB. \cref{fig:one-pixel-psd} shows the \PSD, it is
-evident that several effects contribute to the erratic \NSB patterns:
+evident that several effects contribute to the erratic \NSB patterns
+
+\subsubsection{Nightly Variations}
+
+The strongest influence over the minute-value of $\upsigma_\mathrm{NSB}$ hold
+short-scale effects with period durations of $\leq\SI{1}{\mathrm{day}}$. These
+effects are weather phenomena (cloud occlusion, lightning, etc.) and the
+nightly evolution of the telescope sensitivity driven by changes in the 
+electronic gain of the pixel-\PMTs.
+
+With the former especially being dependent on (to the \FD) external variables, 
+the nightly variations in the \NSB are difficult to predict, and the amplitude
+of the aforementioned effects is indicative of the accuracy with which we can 
+model the temporal evolution of $\upsigma_\mathrm{NSB}$ for a given moment.
+
+\subsubsection{Moon Cycles}
+
+Several modulations with period lengths of $\SIrange{25}{32}{\mathrm{days}}$ 
+are visible in \cref{fig:one-pixel-psd}. These stem from the \FD duty cycle, 
+which is synchronized to the lunar phases such that \DAQ always occurs between 
+waning and waxing crescent (Ref.~\cref{ssec:preprocessing-of-data}).
+
+This change from crescent to new moon and back influences the ambient 
+brightness of the night sky, and is left imprinted on $\upsigma_\mathrm{NSB}$ 
+as monthly modulations.
+
+\subsubsection{Seasonal Patterns}
+
+The night side of the Earth is exposed to different parts of the night sky as
+it revolves around the sun. This results in a strong yearly modulation
+
+\subsubsection{Sinusoidal Model}
+
+\subsection{Non-Reversible Component}
+
+
 
 \begin{itemize}
 \item \textbf{22 days to approx.~1 month}
