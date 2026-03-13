@@ -182,7 +182,7 @@ $\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
   	\toprule
 	 & & XY & Drum \\
 	\hline
-	Contribution & details & \multicolumn{2}{c}{$\upsigma_i$} \\
+	Contribution & details & \upmulticolumn{2}{c}{$\upsigma_i$} \\
 	\hline
 	Radiance of light source & & & \SI{2.1}{\percent} \\
 	Aperture coverage factor & 
@@ -371,7 +371,7 @@ from the \PD mounted inside the integrating sphere.
 Focusing on the \PD signal normalized to the respective light source radiance, 
 we identify possible drifts in the \CLS brightness during the scan by fitting
 a first order polynomial to it for each run, assuming a systematic uncertainty 
-of the form $\mathcal{N}(\mu = \SI{0.583}{\ADC\per\giga\photon},\, 
+of the form $\mathcal{N}(\upmu = \SI{0.583}{\ADC\per\giga\photon},\, 
 \upsigma^2=\SI{0.009}{\square\ADC\per\giga\square\photon})$ 
 (Ref.~\cref{fig:sigma-pd}).
 
@@ -993,14 +993,12 @@ $22\,000$ hours of \DAQ for the $11880$ individuals pixels in all $27$
 
 \subsection{Large Scale Patterns}
 
-\todo[inline]{fix sigmas and upsigmas (need consistent use)}
-
-The temporal evolution of $\upsigma^2_\mathrm{NSB}$ for a single pixel over the
-past 15 years is shown in \cref{fig:one-pixel-nsb}. The \NSB dataset remains 
-noisy ($\frac{\upsigma_\mathrm{NSB}}{\upmu_\mathrm{NSB}}=\frac{8.8}{20.4}
-\approx\SI{43}{\percent}$), even at an hourly resolution. Calculating a rolling
-average over data over a month yields a clearer image and reveals seasonal 
-trends.
+The temporal evolution of $\upsigma^2_\mathrm{NSB}$ for individual pixels over 
+the past 15 years is shown in \cref{fig:one-pixel-nsb}. The \NSB dataset 
+remains noisy ($\frac{\upsigma_\mathrm{NSB}}{\upmu_\mathrm{NSB}} = 
+\frac{8.8}{20.4}\approx\SI{43}{\percent}$), even at an hourly resolution. 
+Calculating a rolling average over data over a month yields a clearer image and
+reveals seasonal trends.
 
 \begin{figure}[t]
   \centering
@@ -1010,10 +1008,12 @@ trends.
   \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/one_pixel_psd.png}
   \label{fig:one-pixel-psd}
   }
-  \caption[]{\subref{fig:one-pixel-nsb} \NSB data spanning 15 years for pixel 
-  $\#210$ at the center of the camera in \CO4. \subref{fig:one-pixel-psd} 
-  Lomb-Scargle periodogram of the data in \subref{fig:one-pixel-nsb}. Several 
-  peaks are marked.}
+  \caption[]{\subref{fig:one-pixel-nsb} \NSB data spanning 15 years for 
+  different pixels in the \CO4 camera. \subref{fig:one-pixel-psd} Lomb-Scargle
+  periodogram of the data in \subref{fig:one-pixel-nsb}. The difference in
+  pulse amplitudes among pixels stems from the difference in the mean 
+  $\upmu_\mathrm{NSB}$. When accounting for this difference the magnitude of
+  the \FD ageing is the same for all pixels.}
   \label{fig:one-pixel-view}
 \end{figure}
 
@@ -1026,14 +1026,14 @@ evident that several effects contribute to the erratic \NSB patterns
 
 The strongest influence over the minute-value of $\upsigma_\mathrm{NSB}$ hold
 short-scale effects with period durations of $\leq\SI{1}{\mathrm{day}}$. These
-effects are weather phenomena (cloud occlusion, lightning, etc.) and the
-nightly evolution of the telescope sensitivity driven by changes in the 
-electronic gain of the pixel-\PMTs.
+effects are weather phenomena (cloud occlusion, lightning, star transitions, 
+etc.) and the nightly evolution of the telescope sensitivity driven by changes 
+in the electronic gain of the pixel-\PMTs.
 
 With the former especially being dependent on (to the \FD) external variables, 
-the nightly variations in the \NSB are difficult to predict, and the amplitude
-of the aforementioned effects is indicative of the accuracy with which we can 
-model the temporal evolution of $\upsigma_\mathrm{NSB}$ for a given moment.
+the aforementioned effects are difficult to model. Their amplitude is 
+indicative of the accuracy with which one can predict the temporal evolution of
+$\upsigma_\mathrm{NSB}$.
 
 \subsubsection{Moon Cycles}
 
@@ -1049,21 +1049,29 @@ as monthly modulations.
 \subsubsection{Seasonal Patterns}
 
 The night side of the Earth is exposed to different parts of the night sky as
-it revolves around the sun. This results in a strong yearly modulation
+it revolves around the sun. This results in a strong yearly modulation of
+$\upsigma_\mathrm{NSB}$. The fluctuations are amplified by seasonally recurring
+atmospheric conditions.
+
+The second harmonic of this modulation is also well visible at a period length
+of six months, and possibly reinforced by the half-wave symmetry of the
+terrestrial orbit creating similar conditions for air glow and zodiacal light 
+bi-annually. Higher order harmonics are not (clearly) visible in the \PSD, most
+likely due to the strongly decorrelating effects of nightly variations.
 
 \subsubsection{Sinusoidal Model}
+
+An empirical model of the temporal evolution can be derived from the 
+periodically effects discussed above. 
+
+\subsubsection{Model Performance}
+
 
 \subsection{Non-Reversible Component}
 
 
-
-\begin{itemize}
-\item \textbf{22 days to approx.~1 month}
-\item \textbf{6 months}
-\item \textbf{1 year}
-\item \textbf{$>10$ years}
-\end{itemize}
-
+\subsubsection{Continuous Drift}
+\subsubsection{Discrete Jump}
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}

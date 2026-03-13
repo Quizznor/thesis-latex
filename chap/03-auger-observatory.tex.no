@@ -1261,7 +1261,7 @@ reference for all following information.
 	 \cline{2-5}
 	 \ldelim\{{6.2}{*}[\parbox{4mm}{\rotatebox[origin=c]{90}{\UMD 
 	 Reconstruction}}]
-	 & $S_\mu(r_\mathrm{ref})$ & XXX & \UMD shower size, $\upmu$LDF value
+	 & $S_\upmu(r_\mathrm{ref})$ & XXX & \UMD shower size, $\upmu$LDF value
 	 at \SD-750 reference $r_\mathrm{ref.} = \SI{450}{\meter}$ & 
 	 \cref{sssec:umd-reconstruction-ldf} &
  	 \rdelim\}{2.4}{*}[\parbox{4mm}{\rotatebox[origin=c]{270}{Evt. lvl.}}] 
@@ -1274,7 +1274,7 @@ reference for all following information.
 	\\
 	& $P_\mathrm{CC}$ & XXX & Muon corner clipping probability & 
 	\cref{sssec:umd-reconstruction-corrections} \\
-	& $\hat{N}^\mathrm{PU}_\mu$ & XXX & Count of observed muons, pileup and
+	& $\hat{N}^\mathrm{PU}_\upmu$ & XXX & Count of observed muons, pileup and
 	corner clipping corrected & \cref{sssec:umd-reconstruction-patterns} \\
 	\bottomrule
 	\end{tabular*}
@@ -1329,23 +1329,23 @@ sections of the trace that have a \FLT flag (Ref.\ \cref{ssec:fd-triggers}).
 From this initial guess, an iterative process begins to estimate the signal 
 window.
 
-Using the \RMS $\sigma_f$, of the uncalibrated trace $f^\mathrm{ADC}$, the 
+Using the \RMS $\upsigma_f$, of the uncalibrated trace $f^\mathrm{ADC}$, the 
 \SN of the signal window, starting at bin $i$, and ending at bin $j$ is 
 calculated. The 1- and 3-bin \SN of the start and stop region are determined as
 
 \begin{equation}
 \label{eq:pulse-finder-snr}
-\SN^{\{i/j\}}_\mathrm{1-bin} = \frac{f^\mathrm{ADC}_{\{i/j\}}}{\sigma_f},
-\qquad\SN^{\{i/j\}}_\mathrm{3-bin} = \sum\limits_{n=-1}^{n=1} \frac{f^\mathrm{ADC}_{\{i/j\} + n}}{\sigma_f} 
-\qquad\SN = \sum\limits_{n=i}^{j} \frac{f^\mathrm{ADC}_n}{\sigma_f}.
+\SN^{\{i/j\}}_\mathrm{1-bin} = \frac{f^\mathrm{ADC}_{\{i/j\}}}{\upsigma_f},
+\qquad\SN^{\{i/j\}}_\mathrm{3-bin} = \sum\limits_{n=-1}^{n=1} \frac{f^\mathrm{ADC}_{\{i/j\} + n}}{\upsigma_f} 
+\qquad\SN = \sum\limits_{n=i}^{j} \frac{f^\mathrm{ADC}_n}{\upsigma_f}.
 \end{equation}
 
 A new signal window is determined by extending the window by one bin to the
 left ($i_\mathrm{new} \rightarrow i-1$) if $s_i > s_j$, or to the right 
 ($j_\mathrm{new} \rightarrow j+1$) if $s_j > s_i$. The process halts and 
-returns the current signal window under the condition that $\SN< 5\,\sigma_f$,
-or $\SN^{\{i/f\}}_\mathrm{3-bin} < \sqrt{3}\,\sigma_f$ and 
-$\SN^{\{i/f\}}_\mathrm{1-bin} < \sigma_f$. The number of photons $n_\gamma$ 
+returns the current signal window under the condition that $\SN< 5\,\upsigma_f$,
+or $\SN^{\{i/f\}}_\mathrm{3-bin} < \sqrt{3}\,\upsigma_f$ and 
+$\SN^{\{i/f\}}_\mathrm{1-bin} < \upsigma_f$. The number of photons $n_\gamma$ 
 per \PMT is then calculated as the integral of the calibrated trace from 
 $i\rightarrow j$, and has an associated uncertainty of approximately 
 \SI{9}{\percent} \cite{abrahamFluorescenceDetectorPierre2010}.
@@ -1371,7 +1371,7 @@ $\vec{P}\times\vec{n}$. The orientation of the \SDP is thus fully described by
 the mean pointing direction of all candidate pixels.
 
 Once the \SDP is determined (with an uncertainty of 
-$\sigma_{\theta_\mathrm{SDP}} < \SI{0.5}{\degree}$ 
+$\upsigma_{\theta_\mathrm{SDP}} < \SI{0.5}{\degree}$ 
 \cite{abrahamFluorescenceDetectorPierre2010}), the orientation of the shower 
 axis within the \SDP, $\chi_0$, as well as its minimum separation $R_p$, is 
 calculated from trigger timing information.
@@ -1726,7 +1726,7 @@ energy scale matches the \FD energy scale and spectrum as closely as possible.
 The numerical values of $A$ and $B$ are given in 
 \cref{tab:energy-cross-calibration}. The intermediate step of the 
 cross-calibration introduces an additional factor in the energy uncertainty 
-budget, which grows to $\sigma_{E_\mathrm{SD}}=\SI{14}{\percent}$. 
+budget, which grows to $\upsigma_{E_\mathrm{SD}}=\SI{14}{\percent}$. 
 
 \subsection{UMD Reconstruction}
 \label{ssec:umd-reconstruction}
@@ -1747,37 +1747,37 @@ a bar. Namely, runs of 4 or more consecutive ones in the binary trace are
 considered to be caused by a muon. An inhibition window of 12 samples after the
 pattern start ensures that large single-muon signals are not overcounted as 
 distinct pattern matches. This results in an estimated per-bar number of muons 
-$n_{\mu,\,i}$.
+$n_{\upmu,\,i}$.
 
 An infinite window strategy \cite{hayashidaMuons1GeV1995, 
 gesualdiMuonContentAtmospheric2023} is used in which the number of bars with
 pattern matches, $k$, out of all $n_b$ bars per module is tied to the binomial 
-probability $P(k\,|\,N_\mu)$ of observing $k$ active bars in the module given 
-$N_\mu$ impinging muons. The maximum likelihood estimator for $N_\mu$ becomes 
+probability $P(k\,|\,N_\upmu)$ of observing $k$ active bars in the module given 
+$N_\upmu$ impinging muons. The maximum likelihood estimator for $N_\upmu$ becomes 
 \cite{supanitskyEstimationNumberMuons2021}
 
 \begin{equation}
 	\label{eq:muon-number}
-	\hat{N}_\mu = \left(1 - \frac{k}{n_s}\right)\,/\,\left(1 - \frac{1}{n_s}\right).
+	\hat{N}_\upmu = \left(1 - \frac{k}{n_s}\right)\,/\,\left(1 - \frac{1}{n_s}\right).
 \end{equation}
 
 \subsubsection{Pileup and Corner Cliping Correction*}
 \label{sssec:umd-reconstruction-corrections}
 
 
-Two effects can skew the value of $\hat{N}_\mu$ away from the true number of 
+Two effects can skew the value of $\hat{N}_\upmu$ away from the true number of 
 impinging muons per module. First, the nature of the binary trace makes it 
 impossible to recognize two muons entering the same bar at the same time. This
-pileup happens especially for $N_\mu \gg 1$ and results in an underestimation 
+pileup happens especially for $N_\upmu \gg 1$ and results in an underestimation 
 of the \UMD signal. The muon count taking pileup into account can be recovered 
 as detailed in \cite{scornavaccheMuonContentExtensive2025}:
 
 \begin{equation}
 	\label{eq:pileup-correction}
-	\hat{N}^\mathrm{PU}_\mu = -n_s\,\ln\left(1-\frac{1}{n_s}\right)\,\hat{N}_\mu.
+	\hat{N}^\mathrm{PU}_\upmu = -n_s\,\ln\left(1-\frac{1}{n_s}\right)\,\hat{N}_\upmu.
 \end{equation}
 
-Second, there exists a non-zero probability that the trajectory of an inclined muon crosses more than one bar, resulting in a count of $N_\mu\geq2$ stemming 
+Second, there exists a non-zero probability that the trajectory of an inclined muon crosses more than one bar, resulting in a count of $N_\upmu\geq2$ stemming 
 from a single muon. The corner-clipping probability as determined in 
 \cite{jesusStudyMassComposition2025} reads
 
@@ -1794,7 +1794,7 @@ The corrected muon count becomes
 
 \begin{equation}
 	\label{eq:corner-clipping-correction}
-	\hat{N}^\mathrm{CC}_\mu = \frac{\hat{N}^\mathrm{PU}_\mu}{1 + P^\mathrm{CC}(\theta_\mathrm{rec.}, \Delta\phi)}.
+	\hat{N}^\mathrm{CC}_\upmu = \frac{\hat{N}^\mathrm{PU}_\upmu}{1 + P^\mathrm{CC}(\theta_\mathrm{rec.}, \Delta\phi)}.
 \end{equation}
 
 The uncertainty on the final estimator of the muon count per module is 
@@ -1803,7 +1803,7 @@ The uncertainty on the final estimator of the muon count per module is
 \subsubsection{MdLDFFinderAG}
 \label{sssec:umd-reconstruction-ldf}
 
-If the sample of well reconstructed $\hat{N}^\mathrm{PU}_\mu$ is big enough and
+If the sample of well reconstructed $\hat{N}^\mathrm{PU}_\upmu$ is big enough and
 sufficiently spread out over a range of \SPDs,\footnote{As determined by the
 module \texttt{MdEventSelectorAG}.} the muonic \LDF (referenced as the 
 $\upmu\LDF$) of the air shower can be estimated with sufficient precision. It
@@ -1812,7 +1812,7 @@ desouzaDirectMeasurementMuon2009}
 
 \begin{equation}
 \label{eq:muon-ldf}
-S_\mu(r) = S_\mu(r_\mathrm{ref.}) \left(\frac{r}{r_\mathrm{ref.}}\right)^\alpha \left(\frac{r_0 + r_\mathrm{ref.}}{r_0 + r}\right)^\beta \left(\frac{(10\,r_0)^2 + r_\mathrm{ref.}^2}{(10\,r_0)^2 + r^2}\right)^\gamma
+S_\upmu(r) = S_\upmu(r_\mathrm{ref.}) \left(\frac{r}{r_\mathrm{ref.}}\right)^\alpha \left(\frac{r_0 + r_\mathrm{ref.}}{r_0 + r}\right)^\beta \left(\frac{(10\,r_0)^2 + r_\mathrm{ref.}^2}{(10\,r_0)^2 + r^2}\right)^\gamma
 \end{equation}
 
 The values $r_0$ and $r_\mathrm{ref}$ are defined as \SI{320}{\meter} (Ref.\ 
