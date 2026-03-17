@@ -182,7 +182,7 @@ $\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
   	\toprule
 	 & & XY & Drum \\
 	\hline
-	Contribution & details & \upmulticolumn{2}{c}{$\upsigma_i$} \\
+	Contribution & details & \multicolumn{2}{c}{$\upsigma_i$} \\
 	\hline
 	Radiance of light source & & & \SI{2.1}{\percent} \\
 	Aperture coverage factor & 
@@ -992,6 +992,7 @@ $22\,000$ hours of \DAQ for the $11880$ individuals pixels in all $27$
 \FD-telescopes. 
 
 \subsection{Large Scale Patterns}
+\label{ssec:large-scale-patterns}
 
 The temporal evolution of $\upsigma^2_\mathrm{NSB}$ for individual pixels over 
 the past 15 years is shown in \cref{fig:one-pixel-nsb}. The \NSB dataset 
@@ -1061,8 +1062,57 @@ likely due to the strongly decorrelating effects of nightly variations.
 
 \subsubsection{Sinusoidal Model}
 
-An empirical model of the temporal evolution can be derived from the 
-periodically effects discussed above. 
+An empirical model of the \NSB temporal evolution can be derived from the 
+periodically recurrent effects discussed above. Beginning with the mean value 
+$\langle \upsigma_\mathrm{NSB}\rangle$ per pixel, averaged over the entire time
+range, an approximate value of the \NSB at $t$ days after 2010-01-01 can be 
+approximated as a Fourier-like series like:
+
+\begin{equation}
+\label{eq:fourier-components}
+f(t) = \langle \upsigma_\mathrm{NSB} \rangle + \sum\limits_{\{k\}}\,a_{k}\sin\left(\frac{2\pi}{T_k} t\right) + b_{k}\cos\left(\frac{2\pi}{T_k} t\right).
+\end{equation}
+
+This is done for pixel \#210 in \CO4, where 
+$\langle\upsigma_\mathrm{NSB}\rangle = \SI{20.3959}{\ADC}$. The resulting model
+is displayed in \cref{fig:sinusoidal-model}, and the coefficients of $f(t)$ are
+listed in \cref{tab:sinusoidal-model}.
+
+It is important to note that this model is valid for pixel \#210 only. Since
+other pixels have different pointing directions they monitor different areas of
+the night sky, which will evolve differently throughout the seasons. $a_k$ and
+$b_k$ in \cref{tab:sinusoidal-model}, as a result, do not generalize over all 
+pixels in a camera, let alone over different telescopes. Similar resonances at
+the natural frequencies (Ref.~\cref{ssec:large-scale-patterns}) are expected, 
+however.
+
+\begin{wraptable}{r}{0.5\textwidth}
+\label{tab:sinusoidal-model}
+\caption{Coefficients for the sinusoidal model in \cref{fig:sinusoidal-model}.}
+	\begin{tabular}{cccc}
+  	\toprule
+	\hline
+	& $T\,/\,\mathrm{days}$ & $a_k\,/\,\ADC$ & $b_k\,/\,\ADC$ \\
+	\hline
+	$k = 1$ & $362.26$ & $3.3648$ & $1.3141$ \\
+	$k = 2$ & $182.95$ & $-0.8216$ & $-2.6550$ \\
+	$k = 3$ & $32.14$ & $0.9096$ & $2.0422$ \\
+	$k = 4$ & $29.62$ & $3.3568$ & $0.5773$ \\
+	$k = 5$ & $27.31$ & $1.2418$ & $-1.6838$ \\
+	$k = 6$ & $25.42$ & $-2.1036$ & $0.9739$ \\
+  	\bottomrule
+	\end{tabular}
+\end{wraptable}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/sinusoidal_model.png}
+  \caption{Construction of an empirical model (red line) of the \NSB for 
+  pixel \#210 in \CO4 (black dots). The top two subplots show the seasonal 
+  fluctuations of $\upsigma_\mathrm{NSB}$, and the bottom subplot adds the 
+  modulations from moon cycles.}
+  \label{fig:sinusoidal-model}
+\end{figure}
 
 \subsubsection{Model Performance}
 
