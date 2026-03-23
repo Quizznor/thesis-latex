@@ -786,6 +786,7 @@ considered in order to accurately extrapolate the \FD sensitivity from one
 moment in time to another.
 
 \subsection{Effects Of Mirror Cleaning}
+\label{ssec:effects-of-mirror-cleaning}
 
 The \FD is located in a semi-arid environment with strong winds (called the
 Zonda \cite{municipalidadmalargueVientoZondaSitio}) driven by the Andes.
@@ -1155,23 +1156,20 @@ from non-recurrent patterns are questionable.
 
 \subsection{Non-Recurrent Evolution}
 
-\halflift
-
-\subsubsection{Continuous Drift}
-
 The simplest parametrization to model the non-recurrent contribution to the 
 long-term evolution of the \NSB is that of a constant drift. Physically, this
 might correspond to the continuous accumulation of dirt on the \FD mirror and 
 filter. 
 
-We estimate the magnitude of this drift by fitting a first-order polynomial to
-the time-dependent $\upsigma_\mathrm{NSB}$, hoping that all (recurrent or 
-short-scale) modulations discussed in \cref{ssec:large-scale-patterns} balance
-out when analyzing the entire 15 years of data.
+We estimate the magnitude of this possible drift by fitting a first-order 
+polynomial to the time-dependent $\upsigma_\mathrm{NSB}$, hoping that all 
+(recurrent or short-scale) modulations discussed in 
+\cref{ssec:large-scale-patterns} balance out when analyzing the entire dataset.
 
 In order to be as agnostic as possible to other forms of ageing, we estimate 
-the telescope drift on a per-month level by aggregating four years of data and 
-performing the linear fit on this sub-sample. Examples of this are shown in 
+the telescope drift on a per-month level by aggregating two years of \NSB data
+before and after a given month (comprising four years in total) and performing 
+the linear fit on this sub-sample. Examples of this are shown in 
 \cref{fig:rolling-window-drift}.
 
 \begin{figure}[t]
@@ -1195,8 +1193,7 @@ inherent to $\upsigma^2_\mathrm{NSB}$, the rate of ageing cannot be constant.
 
 Worse still, the temporal evolution in \cref{fig:rolling-window-drift-co4} and 
 \cref{fig:rolling-window-drift-lm1} look similar, but in detail are site- and 
-pixel-dependent. A correct treatment of the telescope ageing thus requires an
-in-depth analysis, and shall lay outside of the scope of this work.
+pixel-dependent. 
 
 Using instead a \FIR Savitzky-Golay filter with window length 24 months and 
 polynomial order of one, we can coarsely subdivide the datasets into epochs 
@@ -1213,22 +1210,53 @@ refineries in the vicinity of Malargüe \cite{mineroSeguroFlagshipProject2026}.
 Their light imprint at night is visible from the \FD sites, and cause for a 
 step increase in the median $\upsigma^2_\mathrm{NSB}$ over time.
 
-\item \textbf{Mirror contamination}: 
+\item \textbf{Mirror/filter contamination}: The mirror reflectivity and 
+\UV-filter transmissivity is directly anti-correlated to the amount of dust, 
+dirt and aerosols on the respective surface. As both components become more 
+contaminated less light from outside of the aperture reaches the \FD-camera, 
+and $\upsigma^2_\mathrm{NSB}$ decreases.
 
-\item \textbf{Mirror/filter cleaning}: 
+\item \textbf{Mirror/filter cleaning}: As shown in 
+\cref{ssec:effects-of-mirror-cleaning} the above trend can be counteracted by
+cleaning the \FD mirrors and filters. This results in an instantaneous increase
+of $\upsigma^2_\mathrm{NSB}$ of the order $\mathcal{O}(\SI{10}{\percent})$, 
+possibly followed by a longer period of larger decrease as the mirrors quickly 
+become contaminated again. Only the instantaneous rise has been investigated in
+the scope of this thesis.
 
-\item \textbf{PMT ageing}:
+\item \textbf{PMT ageing}: The performance of the pixel-\PMTs is not constant 
+with time. Tracking the measured signal of Calibration A runs over the years
+reveals that the quantum efficiency of the \PMTs decreases. This directly leads
+to a decrease of $\upsigma^2_\mathrm{NSB}$ over time.
 
-\item \textbf{Electronic response}: 
+\item \textbf{Electronic response}: \todo[inline]{ask gaetano about this?}
 
 \end{itemize}
 \vspace{0.2cm}
 \endgroup
 
+\subsubsection{Global Model}
+
+Though common patterns like a leveling of the \NSB drift around the beginning
+of 2015 is visible in many telescopes, and may be connected to the beginning of
+regular filter cleaning campaigns, the identification of not only different 
+trends but also their cause in all \FD pixels is a tremendous task.
+
+Moreover, given the large daily fluctuations 
+
+lays far outside of the scope of 
+this thesis. 
 
 
-\subsubsection{Discrete Jumps}
-\subsubsection{Discussion}
+Instead, we opt for a pragmatic 
+
+
+A correct treatment of the telescope ageing thus requires an
+in-depth analysis, and shall lay outside of the scope of this work.
+
+
+
+
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
