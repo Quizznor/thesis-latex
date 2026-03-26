@@ -1242,24 +1242,76 @@ of 2015 is visible in many telescopes, and may be connected to the beginning of
 regular filter cleaning campaigns, the identification of not only different 
 trends but also their cause in all \FD pixels is a tremendous task.
 
-Moreover, given the large daily fluctuations 
+Moreover, given the large daily fluctuations present in the \NSB it is 
+questionable whether this identification is even possible on the full dataset
+as it is presented here. Quality cuts that remove cloud occlusion 
+\cite{tairliCloudDetectionUsing2025}, or limit the \NSB samples to transitions
+of stars with well-known brightness \todo{cite} allow for a more detailed 
+analysis of each pixel-\PMT. This shall lay outside of the scope of this work 
+though.
 
-lays far outside of the scope of 
-this thesis. 
+Instead, we assume that the \FD ageing is well described by the simple model 
+mentioned above, namely, a drift with (negative) constant slope in 
+$\upsigma_\mathrm{NSB}$ over the entire dataset. 
 
+\todo[inline]{standardize calibration constants}
 
-Instead, we opt for a pragmatic 
+\begin{equation}
+\label{eq:backtracking-constants}
+\upsigma^2_\mathrm{NSB}(t) = m_\mathrm{NSB}(t-t_\mathrm{ref}) \cdot \upsigma^2_\mathrm{NSB}(t_\mathrm{ref}) 
+\end{equation}
 
+The magnitude of this drift is shown in detail for one pixel, across two 
+cameras, and the entire \FD dataset in \cref{fig:camera-drift}. Moving forward,
+we assume that $m_\mathrm{NSB}$ is equal for all pixels, and is given by the 
+mean of a Gaussian fit made over the entire dataset of pixel drifts. It 
+measures
 
-A correct treatment of the telescope ageing thus requires an
-in-depth analysis, and shall lay outside of the scope of this work.
+\begin{equation}
+	\label{eq:drift-size}
+	m_\mathrm{NSB} = \SI{-1.97}{\percent\per\year}.
+\end{equation}
 
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/pixel_210.png}
+  \label{fig:co4-210-pixel-drift}
+  }\hfill
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/Coihueco4_camera_drift.png}
+  \label{fig:co4-camera-drift}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/LosMorados1_camera_drift.png}
+  \label{fig:lm1-camera-dri}
+  }\hfill
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/all_drift.png}
+  \label{fig:all-drift}
+  }
+  \caption[]{The magnitude of $m_\mathrm{NSB}$ (measured in percent per year) 
+  shown in detail for \subref{fig:co4-210-pixel-drift} one pixel, across two
+  \FD cameras in \subref{fig:co4-camera-drift} and \subref{fig:lm1-camera-dri},
+  and for all \FD detectors in \subref{fig:all-drift}. No significant elevation
+  dependence (i.e.~dependence on camera row number) is visible in the bottom 
+  three figures. The color gradient in \subref{fig:all-drift} is built across 
+  all telescopes. Conclusions on and comparisons to the individual telescope 
+  histograms are erroneous.}
+  \label{fig:camera-drift}
+\end{figure}
 
-
-
+\newpage
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
+
+\todo[inline]{standardize calibration A}
+
+We established that the pixel calibration constants $C^i_\mathrm{abs}$
+currently in use in the standard \FD event reconstruction 
+(Ref.~\cref{ssec:fd-reconstruction}) disagree with recent measurements made by
+the XY-Scanner due to the relative tracking algorithm failing to account for
+the ageing of telescope components.\footnote{The only ageing being tracked by
+the calibration A is that of the pixel-\PMTs.}
+
+`
 
 \subsection{Alternative Tracking Algorithm}
 
