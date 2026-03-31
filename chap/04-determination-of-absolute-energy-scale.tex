@@ -1174,32 +1174,24 @@ the linear fit on this sub-sample. Examples of this are shown in
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/rolling_window_drift_co4.png}
-  \label{fig:rolling-window-drift-co4}
-  }\hspace{0.2cm}
-  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/rolling_window_drift_lm1.png}
-  \label{fig:rolling-window-drift-lm1}
-  }
-  \caption[]{Time dependency of the slope in the linear fit to the \NSB dataset
-  in \subref{fig:rolling-window-drift-co4} pixel \#210 in \CO4, and 
-  \subref{fig:rolling-window-drift-lm1} pixel \#199 in \LM1. The red line gives
+  \includegraphics[width=1.0\textwidth]{xy-scanner/rolling_window_drift.png}
+  \caption{Time dependency of the slope in the linear fit to the \NSB dataset
+  in pixel \#199 in \LM1 (black) and \#210 in \CO4 (red). The dashed lines give
   a smoothed trend.}
   \label{fig:rolling-window-drift}
-\end{figure}
+\end{figure}	
 
 The evident time-dependency of the fitted slope immediately call the assumption
 of a constant drift into question. While a (linear?) drift does seem to be 
 inherent to $\upsigma^2_\mathrm{NSB}$, the rate of ageing cannot be constant.
 
-Worse still, the temporal evolution in \cref{fig:rolling-window-drift-co4} and 
-\cref{fig:rolling-window-drift-lm1} look similar, but in detail are site- and 
-pixel-dependent. 
-
-Using instead a \FIR Savitzky-Golay filter with window length 24 months and 
-polynomial order of one, we can coarsely subdivide the datasets into epochs 
-where the drift magnitude is decreasing, stable, or increasing. The reasons for
-these trends may be multifaceted. A list of candidate causes (without any order
-of importance or significance) can be found below:
+Worse still, the temporal evolution in \cref{fig:rolling-window-drift} look 
+similar, but in detail are site- and pixel-dependent. Using a \FIR 
+Savitzky-Golay filter with window length 24 months and polynomial order of one,
+we can coarsely subdivide the datasets into epochs where the drift magnitude is
+decreasing, stable, or increasing. The reasons for these trends may be 
+multifaceted. A list of candidate causes (without any order of importance or 
+significance) can be found below:
 
 \begingroup
 \renewcommand\arraystretch{2}
@@ -1311,9 +1303,27 @@ the XY-Scanner due to the relative tracking algorithm failing to account for
 the ageing of telescope components.\footnote{The only ageing being tracked by
 the calibration A is that of the pixel-\PMTs.}
 
-`
+We quantify how this mismatch between measured and used calibration constants
+affects reconstructed quantities in the following section, and offer an 
+alternative tracking algorithm for the $C^i_\mathrm{abs}$. Finally, we analyze
+how shower quantities change when using the updated calibration constants 
+during event reconstruction.
 
 \subsection{Alternative Tracking Algorithm}
+
+The current \FD calibration tracking algorithm, which employs the signal 
+strength $S_\mathrm{LCU}$ of the calibration A light source, as well as the 
+detected signal $S_\mathrm{CalA}$ in the telescope camera is given in 
+\cref{eq:cal-a-propagation}. Naively, this algorithm can be amended to
+introduce an end-to-end tracker of the telescope sensitivity, namely the \NSB 
+introduced in \cref{sec:night-sky-background}.
+
+\begin{equation}
+\label{eq:nsb-tracking}
+C^i_\mathrm{abs} = C^i_\mathrm{ref}\,\cdot\,\frac{\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}}{\upsigma^2_{\mathrm{NSB}}} 
+\end{equation}
+
+
 
 \subsubsection{NSB Variance During XY Measurement}
 \label{sssec:nsb-during-xy-scans}
