@@ -25,6 +25,7 @@
 \usepackage{subfig}
 \usepackage{anyfontsize}
 \usepackage{mparhack}
+\usepackage{wrapfig}
 \usepackage{lipsum}
 \usepackage{enumitem}
 \usepackage{tablefootnote}

@@ -35,10 +35,12 @@ GRB        Gamma Ray Burst
 GZK        Greisen-Zatsepin-Kuzman
 HEAT       High Elevation Auger Telescope
 HG         High Gain
+HV         High Voltage
 ICRC       International Cosmic Ray Conference
 ICS        Inverse Compton Scattering
 IS         Integrating Sphere
 ISM        Interstellar Medium
+KDE        Kernel Density Estimate
 LA         Loma Amarilla
 LCU        LED Calibration Unit
 LDF        Lateral Distribution Function
@@ -54,10 +56,12 @@ MIP        Minimum Ionizing Particle
 MoPS       Multiplicity of Positive Steps
 NKG        Nishimura-Kamata-Greisen
 NLL        Negative Logarithmic Likelihood
+NSB        Night Sky Background
 PAO        Pierre Auger Observatory
 PCB        Printed Circuit Board
 PD         Photodiode
 PMT        Photomultiplier Tube
+PSD        Power Spectral Density
 PSF        Point Spread Function
 QFT        Quantum Field Theory
 RD         Radio Detector
@@ -98,3 +102,4 @@ WCD        Water Cherenkov Detector
 WLS        Wavelength Shifting Fiber
 XLF        Extreme Laser Facility
 XML        Extensible Markup Language
+aDC        Analog Digital Count

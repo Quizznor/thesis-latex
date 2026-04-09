@@ -747,8 +747,8 @@ matter. This predominantly produces light pions that decay into photons.
 	\begin{tikzpicture}
 		\node(initial_state){$p_\mathrm{CR} + \mathrm{gas}\,$};
 		\node(final_state1) [above right =-0.3em and 2em of initial_state]{$\,X + \pi^0 \, \longrightarrow X + \gamma\gamma$};
-		\node(final_state2) [right =2em of initial_state]{$\,X + \pi^+ \longrightarrow X + \mu^+ + \nu_\mu$};
-		\node(final_state3) [below right =-0.3em and 2em of initial_state]{$\,X + \pi^- \longrightarrow X + \mu^- + \bar{\nu}_\mu$};
+		\node(final_state2) [right =2em of initial_state]{$\,X + \pi^+ \longrightarrow X + \upmu^+ + \nu_\upmu$};
+		\node(final_state3) [below right =-0.3em and 2em of initial_state]{$\,X + \pi^- \longrightarrow X + \upmu^- + \bar{\nu}_\upmu$};
 		\draw [->] (initial_state.east) to [out=0, in=180] (final_state1.west);
 	    	\draw [->] (initial_state.east) to [out=0, in=180] (final_state2.west);
 		\draw [->] (initial_state.east) to [out=0, in=180] (final_state3.west);
@@ -762,7 +762,7 @@ this model.
 
 In a similar fashion, the production of charged pions result in neutrinos in 
 the final state. Their energy behaves like 
-$\langle E_\nu\rangle=E_{\pi^\pm}-E_{\mu\pm}\approx\frac{E_{\pi^\pm}}{1000}$. 
+$\langle E_\nu\rangle=E_{\pi^\pm}-E_{\upmu\pm}\approx\frac{E_{\pi^\pm}}{1000}$. 
 As before, for the right $|X\rangle$ this expression can approach the primary 
 particles energy $E_\mathrm{CR}$. Since the neutrinos are created as a 
 secondary during the propagation of primary \CRs they are called cosmogenic 
@@ -993,7 +993,7 @@ the $z$-axis. The parameters of interest are, following
 \cite{skillingDiffusionCosmicRays1970},
 
 \begin{equation}
-	Q(z, t) = \mathcal{N}_0 \, \delta(z)\delta(t), \qquad D_z = \frac{1}{3} \,\frac{\gamma|\vec{B}|L_{\vec{B}}}{\sqrt{\mu_0\rho_\mathrm{ISM}}},
+	Q(z, t) = \mathcal{N}_0 \, \delta(z)\delta(t), \qquad D_z = \frac{1}{3} \,\frac{\gamma|\vec{B}|L_{\vec{B}}}{\sqrt{\upmu_0\rho_\mathrm{ISM}}},
 \end{equation}
 
 and a particular solution to this initial value problem is given by

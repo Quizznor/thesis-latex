@@ -16,13 +16,13 @@ relative calibration (Ref.~\cref{sssec:relative-calibration}) it is crucial to
 verify the integrity of the relative tracking and the employed energy 
 calibration.
 
-The XY-Scanner is a novel end-to-end calibration system that is used to estimate
-the \FD pixel calibration constants with an accuracy of \todo{uncertainty}. It 
-provides an excellent method of verifying the validity of the currently employed
-pixel calibration constants, and the \FD energy scale by extension. The 
-measurement system as well as underlying analysis is presented in detail in 
-\cite{schaferXYScannerVersatileMethod2023}, and summarized in 
-\cref{sec:xy-scanner}.
+The XY-Scanner is a novel end-to-end calibration system that is used to 
+estimate the \FD pixel calibration constants with an accuracy of 
+\todo{uncertainty}. It provides an excellent method of verifying the validity 
+of the currently employed pixel calibration constants, and the \FD energy scale
+by extension. The measurement system as well as underlying analysis is 
+presented in detail in \cite{schaferXYScannerVersatileMethod2023}, and 
+summarized in \cref{sec:xy-scanner}.
 
 \cref{sec:quality-assurance} details extensive quality checks that have been
 developed in this work, and that are used to assure the reproducibility of XY 
@@ -168,7 +168,7 @@ pixel $i$ is calculated as
 
 The different systematic and statistical contributions intrinsic to this process
 are listed in \cref{tab:xy-systematics}. The total uncertainty, given as 
-$\sqrt{\sum\sigma_i^2}$, amounts to \todo{uncertainty}.
+$\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
 
 \begingroup
 \renewcommand{\arraystretch}{1.3}
@@ -182,7 +182,7 @@ $\sqrt{\sum\sigma_i^2}$, amounts to \todo{uncertainty}.
   	\toprule
 	 & & XY & Drum \\
 	\hline
-	Contribution & details & \multicolumn{2}{c}{$\sigma_i$} \\
+	Contribution & details & \multicolumn{2}{c}{$\upsigma_i$} \\
 	\hline
 	Radiance of light source & & & \SI{2.1}{\percent} \\
 	Aperture coverage factor & 
@@ -368,10 +368,11 @@ The pulse-to-pulse stability of the \CLS during radiance measurements is
 verify that this assumption holds during XY-Scans as well by analyzing the data
 from the \PD mounted inside the integrating sphere. 
 
-Focusing on the \PD signal, we identify possible drifts in the source radiance 
-by fitting a first order polynomial to it for each run, assuming a systematic 
-uncertainty of the form $\mathcal{N}(\mu = \SI{0.583}{\ADC\per\giga\photon},\, 
-\sigma^2=\SI{0.009}{\square\ADC\per\giga\square\photon})$ 
+Focusing on the \PD signal normalized to the respective light source radiance, 
+we identify possible drifts in the \CLS brightness during the scan by fitting
+a first order polynomial to it for each run, assuming a systematic uncertainty 
+of the form $\mathcal{N}(\upmu = \SI{0.583}{\ADC\per\giga\photon},\, 
+\upsigma^2=\SI{0.009}{\square\ADC\per\giga\square\photon})$ 
 (Ref.~\cref{fig:sigma-pd}).
 
 With the resulting linear model $\hat{S}_\mathrm{PD}$ that approximates the 
@@ -597,15 +598,15 @@ measurements.
 Assuming further that the drift in \FD-camera sensitivity is approximately 
 linear over the approx.~$\SI{40}{\minute}$ \DAQ period, the signal uncertainty 
 in the $i$th pixel signal is at most 
-$\sigma_{\mathrm{max},\,i}=(S^\mathrm{CalA}_{\mathrm{max},\,i}\, / 
+$\upsigma_{\mathrm{max},\,i}=(S^\mathrm{CalA}_{\mathrm{max},\,i}\, / 
 \,S^\mathrm{CalA}_{\mathrm{min},\,i} - 1)\,/\,2$, implying that on average
 
 \begin{equation}
 \label{eq:total-error-cal-a}
-\langle \sigma_\mathrm{max} \rangle = \sum\limits_{i=1}^{n_\mathrm{pixel}} \frac{\sigma_{\mathrm{max},\,i}}{440} 
+\langle \upsigma_\mathrm{max} \rangle = \sum\limits_{i=1}^{n_\mathrm{pixel}} \frac{\upsigma_{\mathrm{max},\,i}}{440} 
 \end{equation}
 
-over the entire camera. Capping $\langle\sigma_\mathrm{max}\rangle$ to a maximum
+over the entire camera. Capping $\langle\upsigma_\mathrm{max}\rangle$ to a maximum
 of \SI{0.2}{\percent}, we arrive at two runs that have an unacceptable drift in 
 the camera sensitivity (Ref.~\cref{fig:cal-a-errors}). The corresponding ratios 
 of the Calibration A signal are shown in \cref{fig:cal-a-ratio}, clearly, the
@@ -642,10 +643,10 @@ comparable magnitude, albeit dependant, of course, on the \CLS position in front
 of the aperture.
 
 Binning the camera response over all considered runs, we see an approximately
-Gaussian distribution with variance $\sigma^2 = \SI{53.73}{\mega\ADC\squared}$ 
+Gaussian distribution with variance $\upsigma^2 = \SI{53.73}{\mega\ADC\squared}$ 
 (Ref.~\cref{fig:fd-event-sum}). We reject a run if any flash has an associated 
 camera signal $|S-\langle S\rangle| > \SI{100}{\mega\ADC}$, corresponding to a 
-significance of $|S-\langle S\rangle|\,/\,\sigma = 13.64$. The probability of 
+significance of $|S-\langle S\rangle|\,/\,\upsigma = 13.64$. The probability of 
 rejecting a nominal run (i.e.~assuming the camera signal follows the above 
 distribution) based on this selection criterion is approximately 
 $\SI{1.7}{\percent}$.
@@ -675,8 +676,8 @@ accepted/rejected calibration constants, also shown in
 
 \begin{equation}
 \label{eq:xy-qa-results}
-\sigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{rej.} = 2.1131\,\frac{\upgamma}{\ADC},\qquad
-\sigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{acc.} = 0.4992\,\frac{\upgamma}{\ADC}.
+\upsigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{rej.} = 2.1131\,\frac{\upgamma}{\ADC},\qquad
+\upsigma\left(C^\mathrm{XY}_\mathrm{abs.}\right)\bigg|_\mathrm{acc.} = 0.4992\,\frac{\upgamma}{\ADC}.
 \end{equation}
 
 Notably, this decrease in the standard deviation of measured calibration 
@@ -709,6 +710,7 @@ data, but also serves as an important tool to understand and check the relative
 calibration tracking algorithms.
 
 \subsection{Comparison of Drum and XY}
+\label{ssec:drum-xy-comparison}
 
 As mentioned before, differences in the comparison of the absolute calibration
 constants are expected, primarily due to the calibration sets having been 
@@ -784,6 +786,7 @@ considered in order to accurately extrapolate the \FD sensitivity from one
 moment in time to another.
 
 \subsection{Effects Of Mirror Cleaning}
+\label{ssec:effects-of-mirror-cleaning}
 
 The \FD is located in a semi-arid environment with strong winds (called the
 Zonda \cite{municipalidadmalargueVientoZondaSitio}) driven by the Andes.
@@ -908,7 +911,7 @@ not as dirty as \HEAT1+3. This is supported by an analysis of the pixel-\PMT
 variance in the telescopes, shown in \cref{fig:he-nsb}.
 
 All telescopes show an increase in the trace variance after the cleaning of the
-mirrors, meaning that $\sigma^2_\mathrm{ADC}$ must be a proxy for the \FD
+mirrors, meaning that $\upsigma^2_\mathrm{ADC}$ must be a proxy for the \FD
 camera sensitivity. Expanding from this logic, we find that the variance in 
 \HEAT2 is higher (than \HEAT1+3) prior to the cleaning, meaning that the \HEAT2
 camera was more sensitive.
@@ -918,16 +921,413 @@ A look at the conditions at \HEAT also yields one possible reason as to why
 \cref{fig:he2-location} shows that the other telescopes shield \HEAT2 from the 
 most prevalent wind directions.
 
-\subsection{The Night Sky Background}
-\label{ssec:night-sky-background}
+\section{The Night Sky Background}
+\label{sec:night-sky-background}
 
 The previous section has shown that the \FD trace variances,
-$\sigma^2_\mathrm{ADC}$, can be used as a first-order estimate of the pixel-\PMT
-sensitivity.
+$\upsigma^2_\mathrm{ADC}$, can be used as a first-order estimate of the 
+pixel-\PMT sensitivity, and has been used to verify the calibration parameters 
+of the drum in the past \cite{GAP2016_005CrossCheck}. The trace variance is 
+monitored with minute accuracy (Ref.~\cref{ssec:fd-triggers}) while the \PMT 
+\HV is turned on. Meanwhile, the Calibration A, being the standard relative 
+tracking algorithm for the time being, is measured only twice per night.
 
-% on top of this nsb is end-to-end, bla bla cal a, we shall try to derive an alternative tracking algorithm for pixel calibration constants.
+On top of this, the Calibration A is only sensitive to changes in the 
+pixel-\PMTs, offering an incomplete view of the telescope response function.
+This has caused for a divergence of the calibration constants that are in use
+versus those that have been measured (Ref.~\cref{ssec:drum-xy-comparison}). The 
+trace variances, on the other hand, depend on the entire optical path and 
+signal readout chain, they are an end-to-end estimator of the complete 
+telescope sensitivity, involving e.g.~changes in the mirror reflectivity.
+
+In the following, we aim to derive an alternative relative tracking algorithm 
+to the (insufficient) Calibration A method using this extensive dataset.
+
+\subsection{Preprocessing of Data}
+\label{ssec:preprocessing-of-data}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/nsb_shift_example.png}
+  \caption{Evolution of the trace variance for pixel $\#210$ in \CO4 in October
+  2020. The right subplot gives a \KDE of all data points during the shift.}
+  \label{fig:nsb-shift-example}
+\end{figure}
+
+\cref{fig:nsb-shift-example} shows the evolution of the trace variance for one 
+pixel over one \FD measurement shift (also called moon cycle), typically 
+consisting of 14 to 21 nights of \DAQ. The moon cycle starts with a waning 
+crescent moon and ends after waxing crescent. The residual moonlight can cause 
+a strong evolution of $\upsigma^2_\mathrm{ADC}$ in the first and last measuremen 
+nights, whereas an almost constant variance is being recorded in the middle of 
+the \FD shift during new moon.
+
+Several other aspects influence the value of the trace variance. Most 
+importantly, $\upsigma^2_\mathrm{ADC}\neq0$ even during supposed total darkness 
+at the beginning and end of each \DAQ night, when the \FD shutters are closed. 
+This is due to electronic noise, $\upsigma^2_\mathrm{elec.}$, in the \PMTs, 
+averaging roughly $\SI{4}{\mathrm{ADC}\squared}$, and visible as a large spike 
+in the \acf{KDE} visible on the right in \cref{fig:nsb-shift-example}.
+
+We estimate $\upsigma^2_\mathrm{elec.}$ as the maximum of the month-wise \KDE of 
+$\upsigma^2_\mathrm{ADC}$ per pixel, and calculate the \NSB by subtracting
+
+\begin{equation}
+\label{eq:night-sky-background}
+\upsigma^2_\mathrm{NSB} = \upsigma^2_\mathrm{ADC} - \upsigma^2_\mathrm{elec.}.
+\end{equation}
+
+This \NSB is thus a minute accurate estimate of the fluctuations in light 
+entering the pixel-\PMTs. The light in question stems not only from \EASs, but
+airglow, stars, zodiacal light, as well as galactic glow 
+\cite{GAP2016_005CrossCheck}. All these phenomena are heavily dependent on the 
+terrestrial as well as solar weather conditions, and their evolution for a 
+given night is thus difficult to model. To mitigate the influence of 
+(short-scale) weather phenomena and compromise temporal resolution and data 
+volume, we only use the hourly median of the \NSB to conduct our subsequent 
+analysis. 
+
+The resulting dataset spans 15 years from $2010/01/01$ (shortly before the 
+absolute calibration with the drum) until $2025/12/31$, covering almost 
+$22\,000$ hours of \DAQ for the $11880$ individuals pixels in all $27$ 
+\FD-telescopes. 
+
+\subsection{Recurrent Large Scale Patterns}
+\label{ssec:large-scale-patterns}
+
+The temporal evolution of $\upsigma^2_\mathrm{NSB}$ for individual pixels over 
+the past 15 years is shown in \cref{fig:one-pixel-nsb}. The \NSB dataset 
+remains noisy ($\frac{\upsigma}{\upmu} = \frac{8.8}{20.4} \approx 
+\SI{43}{\percent}$), even at an hourly resolution. Calculating a rolling 
+average over data over a month yields a clearer image and reveals seasonal 
+trends.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/one_pixel.png}
+  \label{fig:one-pixel-nsb}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/one_pixel_psd.png}
+  \label{fig:one-pixel-psd}
+  }
+  \caption[]{\subref{fig:one-pixel-nsb} \NSB data spanning 15 years for 
+  different pixels in the \CO4 camera. \subref{fig:one-pixel-psd} Lomb-Scargle
+  periodogram of the data in \subref{fig:one-pixel-nsb}. The difference in
+  pulse amplitudes among pixels stems from the difference in the mean 
+  $\upmu_\mathrm{NSB}$. When accounting for this difference the magnitude of
+  the \FD ageing is the same for all pixels.}
+  \label{fig:one-pixel-view}
+\end{figure}
+
+These seasonal trends and other large scale patterns become even more evident 
+when calculating a Lomb-Scargle periodogram 
+\cite{lombLeastsquaresFrequencyAnalysis1976,scargleStudiesAstronomicalTime1982}
+from the irregularly sampled \NSB. \cref{fig:one-pixel-psd} shows the \PSD, it 
+is evident that several effects contribute to the erratic \NSB patterns
+
+\subsubsection{Nightly Variations}
+
+The strongest influence over the minute-value of $\upsigma^2_\mathrm{NSB}$ hold
+short-scale effects with period durations of $\leq\SI{1}{\mathrm{day}}$. These
+effects are weather phenomena (cloud occlusion, lightning, star transitions, 
+etc.) and the nightly evolution of the telescope sensitivity driven by changes 
+in the electronic gain of the pixel-\PMTs.
+
+With the former especially being dependent on (to the \FD) external variables, 
+the aforementioned effects are difficult to model. Their amplitude is 
+indicative of the accuracy with which one can predict the temporal evolution of
+$\upsigma^2_\mathrm{NSB}$.
+
+\subsubsection{Moon Cycles}
+
+Several modulations with period lengths of $\SIrange{25}{32}{\mathrm{days}}$ 
+are visible in \cref{fig:one-pixel-psd}. These stem from the \FD duty cycle, 
+which is synchronized to the lunar phases such that \DAQ always occurs between 
+waning and waxing crescent (Ref.~\cref{ssec:preprocessing-of-data}).
+
+This change from crescent to new moon and back influences the ambient 
+brightness of the night sky, and is left imprinted on $\upsigma^2_\mathrm{NSB}$ 
+as monthly modulations.
+
+\subsubsection{Seasonal Patterns}
+
+The night side of the Earth is exposed to different parts of the night sky as
+it revolves around the sun. This results in a strong yearly modulation of
+$\upsigma^2_\mathrm{NSB}$. The fluctuations are amplified by seasonally recurring
+atmospheric conditions.
+
+The second harmonic of this modulation is also well visible at a period length
+of six months, and possibly reinforced by the half-wave symmetry of the
+terrestrial orbit creating similar conditions for air glow and zodiacal light 
+bi-annually. Higher order harmonics are not (clearly) visible in the \PSD, most
+likely due to the strongly decorrelating effects of nightly variations.
+
+\subsubsection{Sinusoidal Model}
+\label{sssec:sinusoidal-model}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/sinusoidal_model.png}
+  \caption{Construction of an empirical model (red line) of the \NSB for 
+  pixel \#210 in \CO4 (black dots). The top two subplots show the seasonal 
+  fluctuations of $\upsigma^2_\mathrm{NSB}$, and the bottom subplot adds the 
+  modulations from moon cycles.}
+  \label{fig:sinusoidal-model}
+\end{figure}
+
+An empirical model of the \NSB temporal evolution can be derived from the 
+periodically recurrent effects discussed above. Beginning with the mean value 
+$\langle \upsigma^2_\mathrm{NSB}\rangle$ per pixel, averaged over the entire 
+time range, an approximate value of the \NSB at $t$ days after 2010-01-01 can 
+be derived from a Fourier-like series as
+
+\begin{equation}
+\label{eq:fourier-components}
+f(t) = \langle \upsigma^2_\mathrm{NSB} \rangle + \sum\limits_{\{k\}}\,a_{k}\sin\left(\frac{2\pi}{T_k} t\right) + b_{k}\cos\left(\frac{2\pi}{T_k} t\right).
+\end{equation}
+
+\begin{wraptable}{r}{0.46\textwidth}
+\begingroup
+\renewcommand{\arraystretch}{1.0}
+\caption{Coefficients for $f(t)$ in \cref{fig:sinusoidal-model}.}
+	\begin{tabular}{cccc}
+  	\toprule
+	\hline
+	$k$ & $T\,/\,\mathrm{days}$ & $a_k\,/\,\ADC^2$ & $b_k\,/\,\ADC^2$ \\
+	\hline
+	$1$ & $362.26$ & $3.3648$ & $1.3141$ \\
+	$2$ & $182.95$ & $-0.8216$ & $-2.6550$ \\
+	\hline
+	$3$ & $32.14$ & $0.9096$ & $2.0422$ \\
+	$4$ & $29.62$ & $3.3568$ & $0.5773$ \\
+	$5$ & $27.31$ & $1.2418$ & $-1.6838$ \\
+	$6$ & $25.42$ & $-2.1036$ & $0.9739$ \\
+  	\bottomrule
+	\end{tabular}
+	\label{tab:sinusoidal-model}
+\endgroup
+\end{wraptable}
+
+This is done for pixel \#210 in \CO4, where 
+$\langle\upsigma^2_\mathrm{NSB}\rangle = \SI{20.3959}{\square\ADC}$. The 
+resulting model is displayed in \cref{fig:sinusoidal-model}, and the 
+coefficients of $f(t)$ are listed in \cref{tab:sinusoidal-model}. 
+
+It is important to note that this model is valid for pixel \#210 only. Since 
+other pixels have different pointing directions they monitor different areas of
+the night sky, which will evolve differently throughout the seasons. $a_k$ and 
+$b_k$ in \cref{tab:sinusoidal-model}, as a result, do not generalize over all 
+pixels in a camera, let alone over different telescopes. Similar resonances at
+the natural frequencies of the \NSB are expected (and observed in 
+\cref{fig:one-pixel-psd}), however.
+
+\subsubsection{Model Performance}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/model_benchmark_Coihueco_4.png}
+  \caption{Comparison of the sinusoidal model derived in 
+  \cref{sssec:sinusoidal-model} to the \NSB data of different pixels in \CO4. 
+  The hollow points measured on Nov. 19th 2024 are extracted from XY scans. For
+  details refer to \cref{sssec:nsb-during-xy-scans}.}
+  \label{fig:nsb-model-comparison}
+\end{figure}
+
+We benchmark the sinusoidal parametrization derived in 
+\cref{sssec:sinusoidal-model} by comparing the model trend against measured 
+\NSB data. This is done in \cref{fig:one-pixel-nsb} for the entire dataset 
+spanning 15 years, and, to provide a more detailed look, in 
+\cref{fig:nsb-model-comparison} for one moon cycle close to an XY-Scanner 
+measurement. The latter plot especially displays the limits of the Fourier 
+expansion. The model estimates the variance level during the \DAQ period 
+accurately, but cannot predict $\upsigma_\mathrm{NSB}^2$ on a given night.
+
+Nightly variations are deliberately omitted during the construction of the 
+model, and could perhaps increase the predictive power. With their evolution 
+being heavily dependent on local weather conditions however (and thus chaotic 
+rather than recurrent), the insights gathered by building a Fourier expansion 
+from non-recurrent patterns are questionable.
+
+%Moving to longer timeframes, we see that the sinusoidal model in 
+%\cref{fig:sinusoidal-model} tends to overestimate $\upsigma^2_\mathrm{NSB}$ for
+%data after 2019. This is evidence to the telescope ageing discussed in  
+%\cref{sec:telescope-aging}, and also visible at the tail-end of the \PSD in 
+%\cref{fig:one-pixel-psd}.
+
+\subsection{Non-Recurrent Evolution}
+
+The simplest parametrization to model the non-recurrent contribution to the 
+long-term evolution of the \NSB is that of a constant drift. Physically, this
+might correspond to the continuous accumulation of dirt on the \FD mirror and 
+filter. 
+
+We estimate the magnitude of this possible drift by fitting a first-order 
+polynomial to the time-dependent $\upsigma_\mathrm{NSB}$, hoping that all 
+(recurrent or short-scale) modulations discussed in 
+\cref{ssec:large-scale-patterns} balance out when analyzing the entire dataset.
+
+In order to be as agnostic as possible to other forms of ageing, we estimate 
+the telescope drift on a per-month level by aggregating two years of \NSB data
+before and after a given month (comprising four years in total) and performing 
+the linear fit on this sub-sample. Examples of this are shown in 
+\cref{fig:rolling-window-drift}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/rolling_window_drift.png}
+  \caption{Time dependency of the slope in the linear fit to the \NSB dataset
+  in pixel \#199 in \LM1 (black) and \#210 in \CO4 (red). The dashed lines give
+  a smoothed trend.}
+  \label{fig:rolling-window-drift}
+\end{figure}	
+
+The evident time-dependency of the fitted slope immediately call the assumption
+of a constant drift into question. While a (linear?) drift does seem to be 
+inherent to $\upsigma^2_\mathrm{NSB}$, the rate of ageing cannot be constant.
+
+Worse still, the temporal evolution in \cref{fig:rolling-window-drift} look 
+similar, but in detail are site- and pixel-dependent. Using a \FIR 
+Savitzky-Golay filter with window length 24 months and polynomial order of one,
+we can coarsely subdivide the datasets into epochs where the drift magnitude is
+decreasing, stable, or increasing. The reasons for these trends may be 
+multifaceted. A list of candidate causes (without any order of importance or 
+significance) can be found below:
+
+\begingroup
+\renewcommand\arraystretch{2}
+\vspace{0.2cm}
+\begin{itemize}
+\item \textbf{Antrophic light pollution}: Oil companies are constructing 
+refineries in the vicinity of Malargüe \cite{mineroSeguroFlagshipProject2026}. 
+Their light imprint at night is visible from the \FD sites, and cause for a 
+step increase in the median $\upsigma^2_\mathrm{NSB}$ over time.
+
+\item \textbf{Mirror/filter contamination}: The mirror reflectivity and 
+\UV-filter transmissivity is directly anti-correlated to the amount of dust, 
+dirt and aerosols on the respective surface. As both components become more 
+contaminated less light from outside of the aperture reaches the \FD-camera, 
+and $\upsigma^2_\mathrm{NSB}$ decreases.
+
+\item \textbf{Mirror/filter cleaning}: As shown in 
+\cref{ssec:effects-of-mirror-cleaning} the above trend can be counteracted by
+cleaning the \FD mirrors and filters. This results in an instantaneous increase
+of $\upsigma^2_\mathrm{NSB}$ of the order $\mathcal{O}(\SI{10}{\percent})$, 
+possibly followed by a longer period of larger decrease as the mirrors quickly 
+become contaminated again. Only the instantaneous rise has been investigated in
+the scope of this thesis.
+
+\item \textbf{PMT ageing}: The performance of the pixel-\PMTs is not constant 
+with time. Tracking the measured signal of Calibration A runs over the years
+reveals that the quantum efficiency of the \PMTs decreases. This directly leads
+to a decrease of $\upsigma^2_\mathrm{NSB}$ over time.
+
+\item \textbf{Electronic response}: \todo[inline]{ask gaetano about this?}
+
+\end{itemize}
+\vspace{0.2cm}
+\endgroup
+
+\subsubsection{Global Model}
+
+Though common patterns like a leveling of the \NSB drift around the beginning
+of 2015 is visible in many telescopes, and may be connected to the beginning of
+regular filter cleaning campaigns, the identification of not only different 
+trends but also their cause in all \FD pixels is a tremendous task.
+
+Moreover, given the large daily fluctuations present in the \NSB it is 
+questionable whether this identification is even possible on the full dataset
+as it is presented here. Quality cuts that remove cloud occlusion 
+\cite{tairliCloudDetectionUsing2025}, or limit the \NSB samples to transitions
+of stars with well-known brightness \todo{cite} allow for a more detailed 
+analysis of each pixel-\PMT. This shall lay outside of the scope of this work 
+though.
+
+Instead, we assume that the \FD ageing is well described by the simple model 
+mentioned above, namely, a drift with (negative) constant slope in 
+$\upsigma_\mathrm{NSB}$ over the entire dataset. 
+
+\todo[inline]{standardize calibration constants}
+
+\begin{equation}
+\label{eq:backtracking-constants}
+\upsigma^2_\mathrm{NSB}(t) = m_\mathrm{NSB}(t-t_\mathrm{ref}) \cdot \upsigma^2_\mathrm{NSB}(t_\mathrm{ref}) 
+\end{equation}
+
+The magnitude of this drift is shown in detail for one pixel, across two 
+cameras, and the entire \FD dataset in \cref{fig:camera-drift}. Moving forward,
+we assume that $m_\mathrm{NSB}$ is equal for all pixels, and is given by the 
+mean of a Gaussian fit made over the entire dataset of pixel drifts. It 
+measures
+
+\begin{equation}
+	\label{eq:drift-size}
+	m_\mathrm{NSB} = \SI{-1.97}{\percent\per\year}.
+\end{equation}
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/pixel_210.png}
+  \label{fig:co4-210-pixel-drift}
+  }\hfill
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/Coihueco4_camera_drift.png}
+  \label{fig:co4-camera-drift}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/LosMorados1_camera_drift.png}
+  \label{fig:lm1-camera-dri}
+  }\hfill
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/all_drift.png}
+  \label{fig:all-drift}
+  }
+  \caption[]{The magnitude of $m_\mathrm{NSB}$ (measured in percent per year) 
+  shown in detail for \subref{fig:co4-210-pixel-drift} one pixel, across two
+  \FD cameras in \subref{fig:co4-camera-drift} and \subref{fig:lm1-camera-dri},
+  and for all \FD detectors in \subref{fig:all-drift}. No significant elevation
+  dependence (i.e.~dependence on camera row number) is visible in the bottom 
+  three figures. The color gradient in \subref{fig:all-drift} is built across 
+  all telescopes. Conclusions on and comparisons to the individual telescope 
+  histograms are erroneous.}
+  \label{fig:camera-drift}
+\end{figure}
+
+\newpage
 
 \section{FD Energy Scale}
 \label{sec:fd-energy-scale}
+
+\todo[inline]{standardize calibration A}
+
+We established that the pixel calibration constants $C^i_\mathrm{abs}$
+currently in use in the standard \FD event reconstruction 
+(Ref.~\cref{ssec:fd-reconstruction}) disagree with recent measurements made by
+the XY-Scanner due to the relative tracking algorithm failing to account for
+the ageing of telescope components.\footnote{The only ageing being tracked by
+the calibration A is that of the pixel-\PMTs.}
+
+We quantify how this mismatch between measured and used calibration constants
+affects reconstructed quantities in the following section, and offer an 
+alternative tracking algorithm for the $C^i_\mathrm{abs}$. Finally, we analyze
+how shower quantities change when using the updated calibration constants 
+during event reconstruction.
+
+\subsection{Alternative Tracking Algorithm}
+
+The current \FD calibration tracking algorithm, which employs the signal 
+strength $S_\mathrm{LCU}$ of the calibration A light source, as well as the 
+detected signal $S_\mathrm{CalA}$ in the telescope camera is given in 
+\cref{eq:cal-a-propagation}. Naively, this algorithm can be amended to
+introduce an end-to-end tracker of the telescope sensitivity, namely the \NSB 
+introduced in \cref{sec:night-sky-background}.
+
+\begin{equation}
+\label{eq:nsb-tracking}
+C^i_\mathrm{abs} = C^i_\mathrm{ref}\,\cdot\,\frac{\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}}{\upsigma^2_{\mathrm{NSB}}} 
+\end{equation}
+
+\subsubsection{Determination of reference variance level}
+\label{sssec:nsb-during-xy-scans}
+
+$\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}$ in \cref{eq:nsb-tracking} is the 
+reference \NSB signal at the time of the XY-Scanner measurements of 
+$C^i_\mathrm{ref}$, and takes the 
 
 \section{Absolute Energy Scale}
