@@ -1026,6 +1026,7 @@ from the irregularly sampled \NSB. \cref{fig:one-pixel-psd} shows the \PSD, it
 is evident that several effects contribute to the erratic \NSB patterns
 
 \subsubsection{Nightly Variations}
+\label{sssec:nightly-variations}
 
 The strongest influence over the minute-value of $\upsigma^2_\mathrm{NSB}$ hold
 short-scale effects with period durations of $\leq\SI{1}{\mathrm{day}}$. These
@@ -1313,7 +1314,7 @@ during event reconstruction.
 
 The current \FD calibration tracking algorithm, which employs the signal 
 strength $S_\mathrm{LCU}$ of the calibration A light source, as well as the 
-detected signal $S_\mathrm{CalA}$ in the telescope camera is given in 
+detected signal $S_\mathrm{CalA}$ in the telescope camera, is given in 
 \cref{eq:cal-a-propagation}. Naively, this algorithm can be amended to
 introduce an end-to-end tracker of the telescope sensitivity, namely the \NSB 
 introduced in \cref{sec:night-sky-background}.
@@ -1328,6 +1329,28 @@ C^i_\mathrm{abs} = C^i_\mathrm{ref}\,\cdot\,\frac{\upsigma^2_{\mathrm{NSB}\,\mat
 
 $\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}$ in \cref{eq:nsb-tracking} is the 
 reference \NSB signal at the time of the XY-Scanner measurements of 
-$C^i_\mathrm{ref}$, and takes the 
+$C^i_\mathrm{ref}$. It is not digitized during the altered \DAQ procedure. We
+must hence estimate the reference night sky background instead of relying on 
+preexisting database entries. One obvious method to do so is to analyze the 
+pixel-\PMT traces, and estimate the trace variance in the portion of the 
+digitized light flashes prior to the XY signal as a proxy for 
+$\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}$. Concretely, for every pixel we take 
+the first $n_\mathrm{start}-10$\todo{check} bins of the trace, where 
+$n_\mathrm{start}$ gives the start bin of the \CLS flash as estimated by the 
+pulse finder algorithm 
+(Ref.~\cite[Section 7.1.1]{schaferXYScannerVersatileMethod2023}), and calculate
+$\upsigma^2_\mathrm{start}$. A typical trace is shown in \todo{fig}. In doing this for all pixels and XY-Scans, we note strong temporal evolutions in $\upsigma_\mathrm{start}$ for some pixels, or even the entire camera in extreme cases, shown in \todo{fig}.
 
-\section{Absolute Energy Scale}
+These short-term effects ranging from star transitions to weather effects are 
+the nightly variations of the \NSB as introduced in 
+\cref{sssec:nightly-variations}, and which make it so difficult to build a 
+cohesive model of $\upsigma^2_\mathrm{NSB}$. We attempt to limit the effects of
+nightly variations by estimating $\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}} = 
+\langle \upsigma^2_{\mathrm{start}\,\mathrm{flat}}\rangle$ on a subportion of
+traces for which $\upsigma^2_\mathrm{start}$ is flat between consecutive \CLS 
+flashes. For details see \todo{appendix}.
+
+This trace level analysis yields an estimate of the reference variance level as
+shown in \todo{fig} for an example XY-Scanner measurement.
+
+\section{Summary}
