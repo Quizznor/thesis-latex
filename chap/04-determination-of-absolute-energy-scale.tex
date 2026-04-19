@@ -58,27 +58,39 @@ Finally, an update to the \FD energy scale is presented in
   \label{fig:xy-hardware}
 \end{figure}
 
-\fulllift
+There exist a plethora of calibration methods for the \PAO 
+(Ref.~\cref{ssec:fd-calibration}), though they all build upon the same 
+principle; Exposing the \FD-cameras to a known amount of light, typically in
+the form of short light pulses, allows one to tie the signal recorded in the 
+pixel-\PMTs to an incident count of photons, which, during normal \DAQ can be 
+used to estimate the energy of an \EAS
+(Ref.~\cref{sssec:fd-reconstruction-energy-estimator}.
+
+The \CLS in the case of the XY-Scanner calibration is a handball sized 
+integrating sphere (see \cref{fig:xy-light-source}), mounted on namesake XY 
+translation stages (\cref{fig:xy-flash-pattern}) that move the \CLS to 
+positions in a hexagonal coordinate system spanning the entire aperture. At 
+each point the \CLS emits a flash that is recorded by the \FD. An example
+detector response is shown in \todo{fig}.
+
 
 \subsection{Light Source Calibration}
 \label{ssec:xy-absolute-calibration}
 
-The spirit of the \FD calibration procedure relies on the \FD-camera being
-exposed to a light source of known radiance. This allows to tie the signal
-recorded in the pixel-\PMTs to an incident count of photons, which, during \DAQ 
-holds information about the energy of an \EAS (Ref.\ 
-\cref{sssec:fd-reconstruction-energy-estimator}).
+The precise determination of $C^{i}_\mathrm{abs}$ requires an accurate 
+measurement of the \CLS radiance $L_\mathrm{CLS}$. That is to say that the 
+calibration light source itself must be calibrated.
 
-Different facilities have been set up to measure the radiance of the XY \LED, 
-shown in \cref{fig:xy-light-source} and hereafter referred to as
-\CLS, independently \cite{heibgesPhotometricCharacterizationLight2020, 
+Different facilities have been set up to measure the radiance of the XY \LED 
+independently \cite{heibgesPhotometricCharacterizationLight2020, 
 schaferXYScannerVersatileMethod2023, vaculaVyvojKalibracnihoSvetelneho2024}. 
-While precise implementation details differ, all test banks rely on measuring a 
+While precise implementation details differ, all test banks rely on measuring a
 distance-dependent flux, $\Phi_\mathrm{PD}(r)$, of photons with wavelength 
 $\lambda$ on a \PD illuminated by the \CLS. This flux follows, to first order,
-an inverse-square law, supplemented by higher orders that consider the view 
-factor $F_{\mathrm{PD},\,\mathrm{CLS}}$ that depends on the aperture radii
-$R_\mathrm{PD}$, $R_\mathrm{CLS}$ of the \PD- and \CLS aperture respectively.
+an inverse-square law, supplemented by higher order corrections that consider 
+the view factor $F_{\mathrm{PD},\,\mathrm{CLS}}$ that depends on the aperture 
+radii $R_\mathrm{PD}$, $R_\mathrm{CLS}$ of the \PD- and \CLS aperture 
+respectively.
 
 \begin{equation}
 \label{eq:source-radiance}
@@ -91,10 +103,10 @@ The diode at distance $r-r_0$ from the \CLS consequently measures a flux
 \Phi_\mathrm{PD}(r) = \frac{hc}{\lambda}\,\tilde{S}_\mathrm{setup}\,L_\mathrm{CLS},
 \end{equation}
 
-where $\tilde{S}_\mathrm{setup}$ in \cref{eq:source-radiance} gives the response
-function of the \PD.\footnote{Which will in general depend on the entire test
-setup, not just the \PD.} By controlling the laboratory environment precisely, 
-the source radiance can be determined with an accuracy of 
+where $\tilde{S}_\mathrm{setup}$ in \cref{eq:source-radiance} gives the 
+response function of the \PD.\footnote{Which will in general depend on the 
+entire test setup, not just the \PD.} By controlling the laboratory environment
+precisely, the source radiance can be determined with an accuracy of 
 $\lessapprox\SI{3}{\percent}$. \cref{fig:abs-calib-measurements} and 
 \todo{abscalpaper} detail the agreement of the cross-calibration between 
 different measurement facilities.
@@ -117,58 +129,57 @@ different measurement facilities.
 \subsection{Telescope Calibration}
 \label{ssec:fd-xy-calibration}
 
-The precisely determined radiance of the \CLS is then used to connect the \FD 
-response after a \CLS light flash to a corresponding calibration constant.
+After the calibration of the \CLS the \FD pixel-\PMTs can be calibrated. For 
+this purpose the XY-Scanner iteratively illuminates the entire aperture in 
+$n_\mathrm{pos} > 1500$ unique flashes at different positions. The telescope 
+response is recorded for each flash. The measurement process takes on average
+$\mathcal{O}(\SI{1}{\hour})$, including setup, and auxiliary Calibration A 
+measurements to check camera stability. Operation order is 
 
-For this purpose the XY lightsource is installed in front of the \FD aperture on
-two motorized linear stages, as shown in \cref{fig:xy-flash-pattern}. Over the 
-course of a measurement the light source tracks a path consisting of 
-$n_\mathrm{pos}>1500$ unique positions distributed uniformly on a hexagonal grid
-that covers the entire telescope frame. At each position the \CLS emits a flash 
-of light directed at the \FD-camera. The detector response is recorded for each 
-position.
+\begin{equation*}
+	\mathrm{Cal\,A}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter})\,
+	\rightarrow\,\mathrm{XY}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter)}
+	\,\rightarrow\,\mathrm{Cal\,A}.
+\end{equation*}
 
-The measurement process takes on average \SI{40}{\minute} without interruptions.
-To check the stability of the \FD \DAQ readout chain, two Calibration A 
-measurements with an open \FD shutter are performed immediately before and after
-the XY run.
+The gathered measurement information can then be analyzed to calculate 
+$C^i_\mathrm{abs}$ as measured by the XY-Scanner via the following steps:
 
-A complete XY measurement thus consist of $n_\mathrm{pos}$ \FD events, each 
-containing the \ADC-traces digitized at the time of the \CLS flash for all 440 
-pixels of the \FD-camera. The calibration constant for a given pixel-\PMT is 
-then calculated from this information according to the steps listed below.
-
-\vspace{1cm}
+\vspace{0.4cm}
 \begin{enumerate}
-	\item The baseline $b_i$ is calculated per \PMT and subtracted from all 
+	\item The baseline $b_i$ is calculated per \PMT and subtracted from all
 	traces $t_i$.
 	\item A pulse finding algorithm 
 	(Ref.~\cite[][Section 7.1.1]{schaferXYScannerVersatileMethod2023}) 
-	determines the trace interval $[k_\mathrm{start}, k_\mathrm{stop}]$ that
-	contains the light pulse from the calibration light source.
-	\item The integral of the pulse is calculated, this value is summed for 
-	all events in each pixel to yield a total signal per pixel in units of 
-	\ADC.
+	determines the trace interval $[k_\mathrm{start}, k_\mathrm{stop}]$ 
+	that contains the light pulse from the calibration light source.
+\item The pulse integral\footnote{This quantity is loosely referred to as 
+	signal in the following.} is calculated. This value is summed for all 
+	$n_\mathrm{pos}$ per pixel to yield a total signal per pixel in units 
+	of \ADC.
 	\item The total number of photons received by each pixel-\PMT is 
 	estimated via the known source radiance. The non-uniform camera 
 	geometry and reflectivity are taken into account via simulation based 
 	correction factors $F_{i,\,\mathrm{CLS}}$.
 	\item The total signal in every \PMT is divided by the total count of 
-	incident photons to calculate the pixel calibration constant in units of
-	$\ADC/\gamma$.
+	incident photons to calculate the pixel calibration constant in units 
+	of $\ADC/\gamma$.
 \end{enumerate}
+\vspace{0.3cm}
 
-In summary, the calibration constant $C^{\mathrm{pixel},\,i}_\mathrm{abs.}$ for 
-pixel $i$ is calculated as 
+In summary, the calibration constant $C^i_\mathrm{abs}$ for pixel $i$ is 
+calculated as 
 
 \begin{equation}
-	\label{eq:xy-scanner-calib-calculation}
-	C^{\mathrm{pixel},\,i}_\mathrm{abs.} = \sum\limits_{j=1}^{n_\mathrm{pos}} \left[ \sum\limits_{k = k_\mathrm{start}}^{k_\mathrm{stop}} t_{i,\,k} - b_i \right]\,\bigg/\,n_\mathrm{pos}L_\mathrm{CLS}\,F_{i,\,\mathrm{CLS}}.
+\label{eq:xy-scanner-calib-calculation}
+C^i_\mathrm{abs} = \sum\limits_{j=1}^{n_\mathrm{pos}} \left[ \sum\limits_{k = k_\mathrm{start}}^{k_\mathrm{stop}} t_{i,\,k} - b_i \right]\,\bigg/\,n_\mathrm{pos}L_\mathrm{CLS}\,F^i_\mathrm{CLS}.
 \end{equation}
 
-The different systematic and statistical contributions intrinsic to this process
-are listed in \cref{tab:xy-systematics}. The total uncertainty, given as 
-$\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
+The different systematic and statistical contributions intrinsic to this 
+process are listed in \cref{tab:xy-systematics}, where a comparison to the drum
+(Ref.~\cref{sssec:drum-calib}) is also offered. The total uncertainty amounts 
+to \todo{uncertainty}, which represents an improvement over the drum 
+calibration by \todo{} percentage points.
 
 \begingroup
 \renewcommand{\arraystretch}{1.3}
@@ -217,9 +228,8 @@ $\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
 \label{sec:quality-assurance}
 
 By calculating \FD pixel calibration constants as a sum over many individual 
-light flashes according to \cref{eq:xy-scanner-calib-calculation} in 
-\cref{ssec:fd-xy-calibration}, one implicitly requires several assumptions to be
-true, namely,
+light flashes according to \cref{eq:xy-scanner-calib-calculation}, one 
+implicitly requires several assumptions to be true;
 
 \vspace{0.4cm}
 \begingroup
@@ -229,15 +239,16 @@ true, namely,
 measurement.
 \item the \CLS flashes cover the complete filter, and the aperture is 
 unoccluded.
-\item the sensitivity of the \FD pixel-\PMTs is constant during the measurement.
+\item the sensitivity of the \FD pixel-\PMTs is constant during the 
+measurement.
 \end{itemize}
 \endgroup
 \vspace{0.4cm}
 
-Thus, in order to ensure that the XY-Scanner delivers accurate and precise pixel
-calibration constants one must verify that these assumptions hold. This can be
-done by establishing a checklist of tests that must be executed and that have to
-pass before accepting the results of XY measurement runs.
+Thus, in order to ensure that the XY-Scanner delivers accurate and precise 
+pixel calibration constants we must verify that these assumptions hold. This 
+can be done most easily by establishing a checklist of tests that are executed 
+and that must to pass before accepting the results of XY measurement runs.
 
 The following sections detail what these tests are, and how failure states are 
 defined based on outlier identification and cross-correlation of available XY
@@ -280,51 +291,40 @@ between \FD signal strength (and thus accuracy) and long-term operation of the
 \end{itemize}
 \vspace{0.4cm}
 
-Four auxiliary Calibration A measurements are performed with each XY scan to 
-test the \FD-camera stability (Ref.~\cref{sssec:xy-qa-camera-sensitivity}). The 
-order of operation goes
-
-\begin{equation*}
-	\mathrm{Cal\,A}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter})\,
-	\rightarrow\,\mathrm{XY}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter)}
-	\,\rightarrow\,\mathrm{Cal\,A}
-\end{equation*}
-
 All data shown in the upcoming quality assurance analysis has been preselected
 to adhere to these standards. A full list of runs can be found in
-\cref{tab:xy-runlist}. In all measurements the \FD-cameras are exposed to 
-calibration light pulses of known intensity. To ease readibility, we loosely 
-refer to the camera response\footnote{Equal to the integral of the baseline
-subtracted trace for a single pixel-\PMT.} to these pulses as the pixel- or 
-(summed over all pixels of a camera) camera-signal.
+\cref{tab:xy-runlist}. 
 
 \subsection{Light Source Stability}
 
 The XY \LED is located inside the \CLS alongside a \PD that logs the intensity 
-of each \LED flash. The \PD is not calibrated precisely, but accurate enough for
-monitoring the nominal \LED operation. Moreover, temperature sensors are 
-installed within the sphere to surveil the climate controlled environment of the
-\CLS. Both sensors can be used to verify the stable operation of the \CLS \LED.
+of each \LED flash. The \PD is not calibrated precisely, but accurate enough 
+for monitoring the nominal \LED operation. Moreover, temperature sensors are 
+installed within the sphere to surveil the climate controlled environment of 
+the \CLS. Both sensors can be used to verify the stable operation of the \CLS 
+\LED.
 
 \subsubsection{Temperature}
 \label{sssec:xy-qa-temperature}
 
 The emission characteristics of the \CLS \LED are temperature dependent 
 \cite{alldatasheet.comUVLED365110EDownload}. For this reason, the inside of the
-\IS is kept at a constant operating temperature of $\SI{30}{\celsius}$. External
-factors such as wind gusts can cause temporary deviations from the nominal 
-temperature, in an extreme case, this influences the total emitted signal, and
-pixel calibration constants as a consequence.
+integrating sphere is climate controlled and operates at a constant temperature
+of $\SI{30}{\celsius}$. External factors such as wind gusts can cause temporary
+deviations from the nominal. In an extreme case, this influences the total 
+emitted signal, and pixel calibration constants as a consequence.
 
-We estimate the influence of temperature on the emissivity by examining both the
-camera signal, as well as the (less precise) pulse response of the internal \PD.
-Both must be normalized to the source radiance at the time of measurement.
+We estimate the influence of temperature on the emissivity by examining both 
+the camera signal,\footnote{Being the sum of all pixel signals per flash.} as 
+well as the (less precise) pulse response of the internal \PD. Both must be 
+normalized to the source radiance at the time of measurement.
 
-After this, the \PD signal can be taken as is. For the \FD signal, to isolate 
-effects of temperature, only flashes at the center of the aperture are compared 
-to one another. Moreover, to account for varying \FD camera efficiency the 
-integral signal is normalized by the mean camera signal during the open shutter 
-Cal A measurements before and after the corresponding run.
+After this, the \PD signal can be taken as is, as the \PD is always at the same
+location w.r.t.~the XY \LED. For the \FD signal, to isolate effects of 
+temperature, only flashes at the exact center of the aperture are compared to 
+one another. Moreover, to account for varying \FD camera efficiency the 
+integral signal is normalized by the mean camera signal during the open shutter
+calibration A measurements before and after the corresponding run.
 
 \begin{figure}[t]
   \centering
@@ -337,8 +337,10 @@ Cal A measurements before and after the corresponding run.
 \end{figure}
 
 \cref{fig:temperature-stability} shows the distribution of recorded signals for
-the \FD and the \PD. No clear trend is identifiable in the \PD response or the 
-\FD-camera signal.
+the \FD and the \PD. No clear trend is identifiable in either the \PD response 
+or the \FD-camera signal.
+
+% --- STOPPED READING HERE Paul
 
 Expecting in theory a positive correlation between temperature and \LED 
 emissivity in the considered temperature ranges 

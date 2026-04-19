@@ -367,6 +367,8 @@ the \FD-mirrors, such as the \PSF \cite{ungerSimulationPointSpread2013}.
 
 \vspace*{5pt}
 \subsubsection{Drum Calibration}
+\label{sssec:drum-calibration}
+
 The absolute calibration method currently in use at the \PAO is the drum 
 calibration. The name derives from the shape of the light source, visible in 
 \cref{fig:drum-mounting}. It is a cylinder with a diameter of \SI{2.5}{\meter} 
