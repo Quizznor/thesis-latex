@@ -1460,15 +1460,16 @@ constants during an \FD reconstruction procedure and compare the change in
 estimated primary energy by switching from the standard energy scale 
 (i.e.~Drum \CLS and Calibration A) to the XY-Scanner energy scale. Of 
 particular interest is the quantity $E_\mathrm{SD} / E_\mathrm{FD}$ for hybrid
-events.
+events.\footnote{Hybrid events are events for which \SD and \FD information 
+exists.}
 
 Whereas a value of $\langle E_\mathrm{SD}/E_\mathrm{FD}\rangle\approx1$ is 
-observed for events recorded around 2010\footnote{Which makes sense given the 
-Drum measurements were taken in January 2010.} in \cref{fig:e-fd-drift-cala} 
-later dates are distinguished by a small positive bias that increases with time
-at a magnitude of \SI{1.01}{\percent}. This instability of the energy \SD/\FD
-energy estimators has been noted and investigated in the past 
-\cite{GAP2016_005CrossCheck, dawsonCommentDriftFD2013, 
+observed for events recorded around 2010\footnote{Which is expected given that
+the Drum measurements were taken in January 2010.} in 
+\cref{fig:e-fd-drift-cala} later dates are distinguished by a small positive 
+bias that increases with time at a magnitude of \SI{1.01}{\percent}. This 
+instability of the energy \SD/\FD energy estimators has been noted and 
+investigated in the past \cite{GAP2016_005CrossCheck, dawsonCommentDriftFD2013,
 newmannNightSkyBrightness2014}.
 
 Studies of the \SD event rate above fixed energies have indicated that the \SD 
@@ -1479,8 +1480,9 @@ explained by an evolution of $E_\mathrm{FD}$ over time.
 \cref{fig:e-fd-drift-nsb} shows the ratio of energies for events reconstructed 
 using $C^i_\mathrm{abs}$ from \cref{eq:calib-constant-tracking}. Not only is
 the trend in $E_\mathrm{SD}/E_\mathrm{FD}$ reversed, the magnitude of the trend
-is greatly reduced, and the reconstructed energy of \FD and \SD on average
-agree over the entire period, instead of just around 2010.
+is greatly reduced. By employing an, albeit rudimentary, end-to-end calibration
+tracking algorithm we can effectively address the drift of the \FD energy 
+estimator.
 
 \begin{figure}[t]
   \centering
@@ -1500,6 +1502,107 @@ agree over the entire period, instead of just around 2010.
   \label{fig:e-fd-drift}
 \end{figure}
 
-\todo{sd energy calibration}
+\subsubsection{SD Energy Calibration}
+
+One detail of \cref{fig:e-fd-drift-nsb} must be discussed; The \SD energy scale
+is cross-calibrated to match the \FD energy scale. Since the change in 
+$C^i_\mathrm{abs}$ manifests in a systematic positive bias in the \FD energy, 
+the parameters in \cref{eq:energy-cross-calibration} and 
+\cref{tab:energy-cross-calibration} must be revisited. We follow the procedure
+detailed in \cite{aabMeasurementCosmicrayEnergy2020} to optimize $A$, and $B$ 
+on a subset of hybrid events which pass extensive quality cuts 
+(Ref.~\cite{ravignaniMeasurementCosmicrayEnergy2025}). In doing this for both
+datasets of reconstructed showers in \cref{fig:e-fd-drift} we find
+
+\begin{align}
+\label{eq:drum-energy-scale}
+A^\mathrm{Drum} &= \SI{14.3\pm0.3}{\peta\eV},\qquad B^\mathrm{Drum} = 0.983\pm0.006, \\
+\label{eq:xy-energy-scale}
+A^\mathrm{XY} &= \SI{15.4\pm0.4}{\peta\eV},\qquad B^\mathrm{XY} = 0.995\pm0.006.
+\end{align}
+
+The respective calibration curves are shown in \cref{fig:e-cal}. The 
+$E_\mathrm{SD}$ in \cref{fig:e-fd-drift} have been calculated using the 
+respective best fit parameters.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{xy-scanner/PhaseI_standard.png}
+  \label{fig:e-cal-standard}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{xy-scanner/PhaseI_nsb_drift.png}
+  \label{fig:e-cal-nsb}
+  }\hfill
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/calib_comparison.png}
+  \label{fig:calib-comparison}
+  }
+  \caption[]{\SD energy cross calibration for events reconstructed with 
+  $C^i_\mathrm{abs}$ from \subref{fig:e-cal-standard} the drum and Calibration 
+  A, and \subref{fig:e-cal-nsb} the XY-Scanner
+  (Ref.~\cref{sssec:constant-drift-model}). \subref{fig:calib-comparison} Ratio
+  of \SD energies reconstructed from \cref{eq:drum-energy-scale} and 
+  \cref{eq:xy-energy-scale}.}
+  \label{fig:e-cal}
+\end{figure}
+
+\subsubsection{Difference in Energy Scale}
+
+The reconstructed \FD energy is different across both presented methods, as 
+evident in \cref{fig:e-fd-drift}. The parameters of the drum energy scale 
+(i.e.~\cref{eq:drum-energy-scale}) are in disagreement with the XY-Scanner 
+energy scale (i.e.~\cref{eq:xy-energy-scale}). \cref{fig:calib-comparison} 
+indicates that by using the proposed calibration tracking algorithm from 
+\cref{sssec:constant-drift-model} the reconstructed energies in the \SD and \FD
+increase by approximately \SIrange{10}{20}{\percent}.
 
 \section{Summary}
+
+In this chapter we have presented the XY-Scanner, a novel end-to-end 
+calibration system set to become the standard absolute calibration technique 
+for the \FD.
+
+By utilizing a movable integrating sphere to illuminate the telescope aperture,
+the XY-Scanner achieves an uncertainty on the pixel calibration constants 
+$C^i_\mathrm{abs}$ of \todo{uncertainty}, representing a significant improvement over the legacy drum calibration method.
+
+{\vspace{0.5cm}\noindent\large\sc{Quality assurance for the XY-Scanner}\vspace{0.2cm}} 
+
+We established a comprehensive quality assurance framework to validate the 
+measurement results of the XY-Scanner data. The proposed quality cuts reject 
+\SI{12}{\percent} of initial measurement runs due to factors such as 
+temperature instability, positional misalignment, and aperture occlusion. A
+comparison between rejected and non-rejected runs reveals that outliers in 
+$C^i_\mathrm{abs}$ are effectively removed, and the standard deviation 
+$\upsigma$ of the accepted dataset decreases more than fourfold.
+
+{\vspace{0.5cm}\noindent\large\sc{Evidence of Telescope Ageing}\vspace{0.2cm}} 
+
+The first XY-Scanner production dataset, comprising 11,880 calibration 
+constants across all 27 FD telescopes, reveals a substantial discrepancy with 
+the standard calibration constants that have been measured by the drum. The 
+XY-Scanner constants are systematically higher by up to \SI{40}{\percent}.
+
+Investigation into the causes of this aging identifies dust accumulation on 
+mirrors and filters as one possible mechanism. Analysis of mirror cleaning 
+campaigns demonstrate that cleaning restores light collection efficiency by 
+\SIrange{8}{15}{\percent}. Furthermore, an analysis of 15 years of \NSB 
+variance data confirms a long-term, non-recurrent drift in telescope 
+sensitivity of approximately \SI{-1.97}{\percent} per year, driven by the 
+combined effects of mirror contamination and PMT ageing, with only the latter 
+being tracked by the current calibration algorithm.
+
+{\vspace{0.5cm}\noindent\large\sc{Novel \SD/\FD Energy Scale}\vspace{0.2cm}} 
+
+To address these deficiencies, we propose an alternative calibration tracking 
+algorithm, utilizing the \NSB as an end-to-end proxy for total telescope 
+sensitivity. By applying a constant drift model to the XY-Scanner reference 
+constants, the long-term instability in the reconstructed energy of hybrid 
+events is effectively resolved. 
+
+We note a systematic increase of \SIrange{10}{20}{\percent} in reconstructed 
+shower energies from using this alternative tracking algorithm. While the 
+presented study is only preliminary, and the proposed tracking model very 
+rudimentary in nature, these findings help us understand the temporal evolution
+of the \FD hardware better, and underscore the necessity of updating the 
+relative calibration tracking algorithm to monitor the entire optical path 
+through the telescopes. 
