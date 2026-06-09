@@ -47,38 +47,53 @@ Finally, an update to the \FD energy scale is presented in
   }\hspace{0.2cm}
   \subfloat[]{\includegraphics[width=0.47\textwidth]{xy-scanner/xy_pattern.png}
   \label{fig:xy-flash-pattern}
-  }
+  }\hfill
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/xy_trace_example.png}
+  \label{fig:xy-example-trace}}
   \caption[]{\subref{fig:xy-light-source} The XY calibration light source 
   mounted in a test setup in Karlsruhe. Photo from 
   \cite{schaferXYScannerVersatileMethod2023} \subref{fig:xy-flash-pattern} The
-  XY-Scanner, consisting of light source, horizontal and vertical axles, as well
-  as the electronics box on the top right, mounted in front of an \FD telescope.
-  Photo from \cite{schaferXYScannerVersatileMethod2023}. Flasher positions are 
-  superimposed as grey hexagons.}
+  XY-Scanner, consisting of light source, horizontal and vertical axles, as 
+  well as the electronics box on the top right, mounted in front of an \FD 
+  telescope. Photo from \cite{schaferXYScannerVersatileMethod2023}. Flasher 
+  positions are superimposed as grey hexagons. \subref{fig:xy-example-trace} 
+  Response of a single pixel to the flash of the XY-Scanner. Signal start and 
+  end are marked.}
   \label{fig:xy-hardware}
 \end{figure}
 
-\fulllift
+There exist a plethora of calibration methods for the \PAO \FD telescopes
+(Ref.~\cref{ssec:fd-calibration}), though they all build upon the same 
+principle; Exposing the \FD-cameras to a known amount of light, typically in
+the form of short light pulses, allows one to tie the signal recorded in the 
+pixel-\PMTs to an incident count of photons, which, during normal \DAQ can be 
+used to estimate the energy of an \EAS
+(Ref.~\cref{sssec:fd-reconstruction-energy-estimator}).
+
+The \CLS in the case of the XY-Scanner calibration is a handball sized 
+integrating sphere (see \cref{fig:xy-light-source}), mounted on namesake XY 
+translation stages (\cref{fig:xy-flash-pattern}) that move the \CLS to 
+positions in a hexagonal coordinate system spanning the entire aperture. At 
+each point the \CLS emits a flash that is recorded by the \FD. An example
+response to a single flash is shown in \cref{fig:xy-example-trace}.
 
 \subsection{Light Source Calibration}
 \label{ssec:xy-absolute-calibration}
 
-The spirit of the \FD calibration procedure relies on the \FD-camera being
-exposed to a light source of known radiance. This allows to tie the signal
-recorded in the pixel-\PMTs to an incident count of photons, which, during \DAQ 
-holds information about the energy of an \EAS (Ref.\ 
-\cref{sssec:fd-reconstruction-energy-estimator}).
+The precise determination of $C^{i}_\mathrm{abs}$ requires an accurate 
+measurement of the \CLS radiance $L_\mathrm{CLS}$. That is to say that the 
+calibration light source itself must be calibrated.
 
-Different facilities have been set up to measure the radiance of the XY \LED, 
-shown in \cref{fig:xy-light-source} and hereafter referred to as
-\CLS, independently \cite{heibgesPhotometricCharacterizationLight2020, 
+Different facilities have been set up to measure the radiance of the XY \LED 
+independently \cite{heibgesPhotometricCharacterizationLight2020, 
 schaferXYScannerVersatileMethod2023, vaculaVyvojKalibracnihoSvetelneho2024}. 
-While precise implementation details differ, all test banks rely on measuring a 
+While precise implementation details differ, all test banks rely on measuring a
 distance-dependent flux, $\Phi_\mathrm{PD}(r)$, of photons with wavelength 
 $\lambda$ on a \PD illuminated by the \CLS. This flux follows, to first order,
-an inverse-square law, supplemented by higher orders that consider the view 
-factor $F_{\mathrm{PD},\,\mathrm{CLS}}$ that depends on the aperture radii
-$R_\mathrm{PD}$, $R_\mathrm{CLS}$ of the \PD- and \CLS aperture respectively.
+an inverse-square law, supplemented by higher order corrections that consider 
+the view factor $F_{\mathrm{PD},\,\mathrm{CLS}}$ that depends on the aperture 
+radii $R_\mathrm{PD}$, $R_\mathrm{CLS}$ of the \PD- and \CLS aperture 
+respectively.
 
 \begin{equation}
 \label{eq:source-radiance}
@@ -91,10 +106,10 @@ The diode at distance $r-r_0$ from the \CLS consequently measures a flux
 \Phi_\mathrm{PD}(r) = \frac{hc}{\lambda}\,\tilde{S}_\mathrm{setup}\,L_\mathrm{CLS},
 \end{equation}
 
-where $\tilde{S}_\mathrm{setup}$ in \cref{eq:source-radiance} gives the response
-function of the \PD.\footnote{Which will in general depend on the entire test
-setup, not just the \PD.} By controlling the laboratory environment precisely, 
-the source radiance can be determined with an accuracy of 
+where $\tilde{S}_\mathrm{setup}$ in \cref{eq:source-radiance} gives the 
+response function of the \PD.\footnote{Which will in general depend on the 
+entire test setup, not just the \PD.} By controlling the laboratory environment
+precisely, the source radiance can be determined with an accuracy of 
 $\lessapprox\SI{3}{\percent}$. \cref{fig:abs-calib-measurements} and 
 \todo{abscalpaper} detail the agreement of the cross-calibration between 
 different measurement facilities.
@@ -117,58 +132,58 @@ different measurement facilities.
 \subsection{Telescope Calibration}
 \label{ssec:fd-xy-calibration}
 
-The precisely determined radiance of the \CLS is then used to connect the \FD 
-response after a \CLS light flash to a corresponding calibration constant.
+After the calibration of the \CLS the \FD pixel-\PMTs can be calibrated. For 
+this purpose the XY-Scanner iteratively illuminates the entire aperture in 
+$n_\mathrm{pos} > 1500$ unique flashes at different positions. The telescope 
+response is recorded for each flash. The measurement process takes on average
+$\mathcal{O}(\SI{1}{\hour})$, including setup, and auxiliary Calibration A 
+measurements that check camera stability. The order of operation sees two 
+Calibration A measurements before and after each XY-Scan.
 
-For this purpose the XY lightsource is installed in front of the \FD aperture on
-two motorized linear stages, as shown in \cref{fig:xy-flash-pattern}. Over the 
-course of a measurement the light source tracks a path consisting of 
-$n_\mathrm{pos}>1500$ unique positions distributed uniformly on a hexagonal grid
-that covers the entire telescope frame. At each position the \CLS emits a flash 
-of light directed at the \FD-camera. The detector response is recorded for each 
-position.
+\begin{equation*}
+	\mathrm{Cal\,A}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter})\,
+	\rightarrow\,\mathrm{XY}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter)}
+	\,\rightarrow\,\mathrm{Cal\,A}.
+\end{equation*}
 
-The measurement process takes on average \SI{40}{\minute} without interruptions.
-To check the stability of the \FD \DAQ readout chain, two Calibration A 
-measurements with an open \FD shutter are performed immediately before and after
-the XY run.
+The gathered measurement information from each flash of the XY-Scan may then be 
+analyzed to calculate $C^i_\mathrm{abs}$ via the following steps:
 
-A complete XY measurement thus consist of $n_\mathrm{pos}$ \FD events, each 
-containing the \ADC-traces digitized at the time of the \CLS flash for all 440 
-pixels of the \FD-camera. The calibration constant for a given pixel-\PMT is 
-then calculated from this information according to the steps listed below.
-
-\vspace{1cm}
+\vspace{0.4cm}
 \begin{enumerate}
-	\item The baseline $b_i$ is calculated per \PMT and subtracted from all 
-	traces $t_i$.
+	\item The baseline $b_i$ is calculated per \PMT and subtracted from all
+	$n_\mathrm{pos}$ traces $t_i$.
 	\item A pulse finding algorithm 
 	(Ref.~\cite[][Section 7.1.1]{schaferXYScannerVersatileMethod2023}) 
-	determines the trace interval $[k_\mathrm{start}, k_\mathrm{stop}]$ that
-	contains the light pulse from the calibration light source.
-	\item The integral of the pulse is calculated, this value is summed for 
-	all events in each pixel to yield a total signal per pixel in units of 
-	\ADC.
+	determines the trace interval $[k_\mathrm{start}, k_\mathrm{stop}]$ 
+	that contains the light pulse from the calibration light source.
+\item The pulse integral (named signal in the following) is calculated per 
+	trace. The sum of all $n_\mathrm{pos}$ integrals yield a total signal 
+	per pixel in units of \ADC.
 	\item The total number of photons received by each pixel-\PMT is 
 	estimated via the known source radiance. The non-uniform camera 
 	geometry and reflectivity are taken into account via simulation based 
 	correction factors $F_{i,\,\mathrm{CLS}}$.
 	\item The total signal in every \PMT is divided by the total count of 
-	incident photons to calculate the pixel calibration constant in units of
-	$\ADC/\gamma$.
+	incident photons to calculate the pixel calibration constant in units 
+	of $\ADC/\gamma$.
 \end{enumerate}
+\vspace{0.3cm}
 
-In summary, the calibration constant $C^{\mathrm{pixel},\,i}_\mathrm{abs.}$ for 
-pixel $i$ is calculated as 
+In summary, the calibration constant $C^i_\mathrm{abs}$ for pixel $i$ is 
+calculated as 
 
 \begin{equation}
-	\label{eq:xy-scanner-calib-calculation}
-	C^{\mathrm{pixel},\,i}_\mathrm{abs.} = \sum\limits_{j=1}^{n_\mathrm{pos}} \left[ \sum\limits_{k = k_\mathrm{start}}^{k_\mathrm{stop}} t_{i,\,k} - b_i \right]\,\bigg/\,n_\mathrm{pos}L_\mathrm{CLS}\,F_{i,\,\mathrm{CLS}}.
+\label{eq:xy-scanner-calib-calculation}
+C^i_\mathrm{abs} = \sum\limits_{j=1}^{n_\mathrm{pos}} \left[ \sum\limits_{k = k_\mathrm{start}}^{k_\mathrm{stop}} t_{i,\,k} - b_i \right]\,\bigg/\,n_\mathrm{pos}L_\mathrm{CLS}\,F^i_\mathrm{CLS}.
 \end{equation}
 
-The different systematic and statistical contributions intrinsic to this process
-are listed in \cref{tab:xy-systematics}. The total uncertainty, given as 
-$\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
+The different systematic and statistical contributions intrinsic to this 
+process are listed in \cref{tab:xy-systematics}, where a comparison to the drum
+(Ref.~\cref{sssec:drum-calib}) is also offered. The total uncertainty on 
+$C^i_\mathrm{abs}$ estimated by the XY-Scanner amounts to \todo{uncertainty}, 
+which represents an improvement over the drum calibration by \todo{} percentage 
+points.
 
 \begingroup
 \renewcommand{\arraystretch}{1.3}
@@ -177,7 +192,9 @@ $\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
 	\caption{Uncertainties of pixel calibration constants measured by the 
 	XY-Scanner. Comparisons to the Drum calibration, where possible, are 
 	taken from \cite{brackAugerFluorescenceDetector2013, 
-	crissUpdateRecentAbsolute2010, dorofeevFDAbsoluteCalibration}.}
+	crissUpdateRecentAbsolute2010, dorofeevFDAbsoluteCalibration}. For 
+	details on the unaccounted uncertainty budget of the drum see 
+	\cref{sec:telescope-aging}.}
 	\begin{tabular*}{\textwidth}{w{l}{0.35\textwidth}w{r}{0.35\textwidth}|w{c}{0.1\textwidth}w{c}{0.1\textwidth}}
   	\toprule
 	 & & XY & Drum \\
@@ -212,32 +229,31 @@ $\sqrt{\sum\upsigma_i^2}$, amounts to \todo{uncertainty}.
 \end{table}
 \endgroup
 
-
 \section{Quality Assurance}
 \label{sec:quality-assurance}
 
 By calculating \FD pixel calibration constants as a sum over many individual 
-light flashes according to \cref{eq:xy-scanner-calib-calculation} in 
-\cref{ssec:fd-xy-calibration}, one implicitly requires several assumptions to be
-true, namely,
+light flashes according to \cref{eq:xy-scanner-calib-calculation}, several
+implicit assumptions are made, namely
 
-\vspace{0.4cm}
+\vspace{0.2cm}
 \begingroup
 \renewcommand\arraystretch{1.3}
 \begin{itemize}
-\item the source radiance $L_\mathrm{CLS}$ remains constant during the 
+\item that the source radiance $L_\mathrm{CLS}$ remains constant during the 
 measurement.
-\item the \CLS flashes cover the complete filter, and the aperture is 
+\item The \CLS flashes cover the complete filter, and the aperture is 
 unoccluded.
-\item the sensitivity of the \FD pixel-\PMTs is constant during the measurement.
+\item The sensitivity of the \FD pixel-\PMTs is constant during the 
+measurement.
 \end{itemize}
 \endgroup
-\vspace{0.4cm}
+\vspace{0.2cm}
 
-Thus, in order to ensure that the XY-Scanner delivers accurate and precise pixel
-calibration constants one must verify that these assumptions hold. This can be
-done by establishing a checklist of tests that must be executed and that have to
-pass before accepting the results of XY measurement runs.
+Thus, in order to ensure that the XY-Scanner delivers accurate and precise 
+pixel calibration constants we must verify that these assumptions hold. This 
+can be done most easily by establishing a checklist of tests that are executed 
+and that must to pass before accepting the results of XY measurement runs.
 
 The following sections detail what these tests are, and how failure states are 
 defined based on outlier identification and cross-correlation of available XY
@@ -254,7 +270,7 @@ run configurations have been tested throughout the different campaigns.
 A long-term strategy has emerged from the prototyping phase that compromises 
 between ease-of-use, long-term feasibility, and systematic uncertainty 
 \cite{filipQualityAssuranceXY2024}. The run configuration of the XY-Scanner 
-measurements are defined as:\footnote{Details on the nomenclature are found in 
+measurements are the following:\footnote{Details on the nomenclature are found in 
 \cite{schaferXYScannerVersatileMethod2023}.}
 
 \vspace{0.4cm}
@@ -263,10 +279,10 @@ measurements are defined as:\footnote{Details on the nomenclature are found in
 baffle to improve the Lambertian diffuse emission profile of the XY light 
 source.
 
-\item Install \textbf{Generation 2 LED head} in the \IS, which supports three
-\LEDs of type UVLED365-110E \cite{alldatasheet.comUVLED365110EDownload}. A thin 
-diffusive material that covers the \LEDs, as well as a shielding baffle improve
-the emission profile.
+\item Install \textbf{Generation 2 LED head} in the integrating sphere, which 
+supports three \LEDs of type UVLED365-110E 
+\cite{alldatasheet.comUVLED365110EDownload}. A thin diffusive material that 
+covers the \LEDs, as well as a shielding baffle improve the emission profile.
 
 \item Employ a \textbf{stepsize of 6 cm}. The step size between individual 
 flasher positions directly influences the coverage factor of the telescope 
@@ -280,72 +296,68 @@ between \FD signal strength (and thus accuracy) and long-term operation of the
 \end{itemize}
 \vspace{0.4cm}
 
-Four auxiliary Calibration A measurements are performed with each XY scan to 
-test the \FD-camera stability (Ref.~\cref{sssec:xy-qa-camera-sensitivity}). The 
-order of operation goes
-
-\begin{equation*}
-	\mathrm{Cal\,A}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter})\,
-	\rightarrow\,\mathrm{XY}\,\rightarrow\,\mathrm{Cal\,A\,(open\,shutter)}
-	\,\rightarrow\,\mathrm{Cal\,A}
-\end{equation*}
-
 All data shown in the upcoming quality assurance analysis has been preselected
-to adhere to these standards. A full list of runs can be found in
-\cref{tab:xy-runlist}. In all measurements the \FD-cameras are exposed to 
-calibration light pulses of known intensity. To ease readibility, we loosely 
-refer to the camera response\footnote{Equal to the integral of the baseline
-subtracted trace for a single pixel-\PMT.} to these pulses as the pixel- or 
-(summed over all pixels of a camera) camera-signal.
+to adhere to these standards. A full list of run numbers can be found in
+\cref{tab:xy-runlist}. 
 
 \subsection{Light Source Stability}
 
-The XY \LED is located inside the \CLS alongside a \PD that logs the intensity 
-of each \LED flash. The \PD is not calibrated precisely, but accurate enough for
-monitoring the nominal \LED operation. Moreover, temperature sensors are 
-installed within the sphere to surveil the climate controlled environment of the
-\CLS. Both sensors can be used to verify the stable operation of the \CLS \LED.
+The XY \LED is located inside the \CLS together with a \PD that logs the 
+intensity of each \LED flash. The \PD is not calibrated precisely, but accurate
+enough in order to monitor the nominal \LED operation. Moreover, temperature 
+sensors are installed within the sphere to survey measurement conditions. Both 
+sensors can be used to verify the stable operation of the \CLS \LED.
+
+
 
 \subsubsection{Temperature}
 \label{sssec:xy-qa-temperature}
 
 The emission characteristics of the \CLS \LED are temperature dependent 
 \cite{alldatasheet.comUVLED365110EDownload}. For this reason, the inside of the
-\IS is kept at a constant operating temperature of $\SI{30}{\celsius}$. External
-factors such as wind gusts can cause temporary deviations from the nominal 
-temperature, in an extreme case, this influences the total emitted signal, and
-pixel calibration constants as a consequence.
+integrating sphere is climate controlled and operates at a constant temperature
+of $\SI{30}{\celsius}$. External factors such as wind gusts can cause temporary
+deviations from the nominal. In an extreme case, this influences the total 
+emitted signal, and pixel calibration constants as a consequence.
 
-We estimate the influence of temperature on the emissivity by examining both the
-camera signal, as well as the (less precise) pulse response of the internal \PD.
-Both must be normalized to the source radiance at the time of measurement.
+We estimate the influence of temperature deviations on the emissivity by 
+examining both the camera signal,\footnote{Being the sum of all pixel signals 
+per single flash.} as well as the (less precise) pulse response of the internal
+\PD. Both are normalized to $L_\mathrm{CLS}$.
 
-After this, the \PD signal can be taken as is. For the \FD signal, to isolate 
-effects of temperature, only flashes at the center of the aperture are compared 
-to one another. Moreover, to account for varying \FD camera efficiency the 
-integral signal is normalized by the mean camera signal during the open shutter 
-Cal A measurements before and after the corresponding run.
+As the \PD is always at the same location w.r.t.~the XY \LED, it can be 
+examined as is. For the \FD signal, to isolate effects of temperature 
+fluctuations, only flashes at the exact center of the aperture are 
+compared to one another. To account for varying \FD camera efficiency the 
+integral signal is also normalized to the mean camera signal during the 
+corresponding open shutter calibration A measurements.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\textwidth]{xy-scanner/led_temperature_stability.png}
-  \caption{The influence of the \LED temperature on the flash intensity as seen
-  by the \FD-camera (blue) and the internal \PD (red). The dashed lines give 
-  linear fits to the mean signal per temperature for temperatures with $>10$ 
-  recorded flashes.}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{xy-scanner/fd_signal_temperature_dependence.png}
+  \label{fig:temperature-dependence-fd}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{xy-scanner/pd_signal_temperature_dependence.png}
+  \label{fig:temperature-dependence-pd}
+  }
+  \caption[]{ The influence of the \LED temperature on the flash intensity as seen by 
+  \subref{fig:temperature-dependence-fd} the \FD-camera and \subref{fig:temperature-dependence-pd} 
+  the less precise internal \PD. The red lines give linear fits to the mean signal per temperature 
+  for temperatures with $>10$ recorded flashes.}
   \label{fig:temperature-stability}
 \end{figure}
 
 \cref{fig:temperature-stability} shows the distribution of recorded signals for
-the \FD and the \PD. No clear trend is identifiable in the \PD response or the 
-\FD-camera signal.
+the \FD and the \PD. A linear fit of either detector observable yields a 
+vanishing correlation between signal strength and \LED temperature. No 
+significant trend is identifiable in both cases.
 
 Expecting in theory a positive correlation between temperature and \LED 
 emissivity in the considered temperature ranges 
 (Ref.~\cite[p.~2, lower left]{alldatasheet.comUVLED365110EDownload}), we 
 construct quality cuts by forming the very cautious assumption that flashes 
-outside the temperature range from $\SIrange{29}{31}{\celsius}$ deviate from the
-mean signal by $\approx\SI{5}{\percent}$. 
+outside the temperature range from $\SIrange{29}{31}{\celsius}$ deviate from 
+the mean signal by $\approx\SI{5}{\percent}$. 
 
 With $n_\mathrm{pos} \gg 1000$ flashes per run, a single flash outside of this
 2-degree range impacts the total signal by less than $1\permil$. Limiting the 
@@ -365,8 +377,8 @@ respectively. Both are clear outliers in this analysis.
 
 The pulse-to-pulse stability of the \CLS during radiance measurements is 
 \SI{2}{\percent} \cite[p.~100]{schaferXYScannerVersatileMethod2023}. We can 
-verify that this assumption holds during XY-Scans as well by analyzing the data
-from the \PD mounted inside the integrating sphere. 
+verify that this assumption holds during XY-Scans as well by analyzing the same
+data as in the previous \cref{sssec:xy-qa-temperature}.
 
 Focusing on the \PD signal normalized to the respective light source radiance, 
 we identify possible drifts in the \CLS brightness during the scan by fitting
@@ -386,7 +398,7 @@ are rejected.
 
 In practice, we are unable to distinguish a drift in the \LED from a drift in 
 the \PD, meaning there exists the possibility to discard "good" data due to a 
-"bad" \PD. This makes the above quality cut a cautious (but for the time being) 
+"bad" \PD. This makes the above quality cut a cautious, but for the time being,
 correct choice.
 
 \begin{figure}[t]
@@ -411,15 +423,16 @@ correct choice.
 
 \subsubsection{Interruptions}
 
-Next, we estimate the influence of \DAQ interruptions on the \CLS stability.
-These interruptions may occur if the XY-Scanner encounters hardware/software
-problems during a measurement, and were especially frequent prior to November 
-2023 \cite{filipFixfilespy2023}.
+If the XY-Scanner encounters hardware or software problems during a measurement
+the run must be stopped and the problem is addressed manually. The reason for 
+the interruption may lay in a communication timeout (especially frequent prior to
+November 2023 \cite{filipFixfilespy2023}), or the XY-Scanner path being blocked.
+We must estimate the influence of these \DAQ interruptions on the \CLS stability.
 
 For the sake of this discussion, an interruption is classified as the scenario
-in which more than $\SI{20}{\second}$ pass between consecutive 
+in which more than $\SI{20}{\second}$ pass between consecutive \CLS 
 flashes.\footnote{The average time between flashes is \SI{1.7}{\second}.}
-Analyzing the relevant data, and taking $\langle S^{<}_\mathrm{PD}\rangle$ 
+Analyzing the relevant data and taking $\langle S^{<}_\mathrm{PD}\rangle$ 
 ($\langle S^{>}_\mathrm{PD}\rangle$) as the signal immediately before (after) 
 the \DAQ interruption averaged over 20 flashes, we reject an XY run if it had an
 interruption, and if $\left| \langle S^{<}_\mathrm{PD}\rangle - \langle 
@@ -431,7 +444,11 @@ runs pass this selection criterion
 \subsection{Measurement Setup}
 
 The XY-Scanner is a temporary installment before the \FD aperture. An improper 
-setup, e.g.~a misaligned \CLS is a possibility with every new measurement.
+setup, e.g.~a misaligned \CLS is a possibility with every new measurement. In 
+such a scenario the XY-Scanner will not (uniformly) illuminate the entire \FD
+aperture. The correction factors and geometric calculations in 
+\cref{eq:xy-scanner-calib-calculation} are not valid anymore and the 
+$C^i_\mathrm{abs}$ calculated from a misaligned XY run will be inaccurate.
 
 \subsubsection{Positional alignment}
 \label{sssec:xy-qa-filter-estimation}
@@ -445,7 +462,8 @@ illuminated aperture.
 Examining \cref{fig:filter-structure-real}, we note that the \UV filter of every
 \FD telescope is segmented by a (around the center of the aperture) 
 reflectionally symmetric support structure. This support structure blocks a 
-measureable quantity of light during XY-Scans, and can be used to estimate the 
+measureable quantity of light during XY-Scans 
+(Ref.~\cref{fig:filter-structure-estimated}), and can be used to estimate the 
 position of the XY-Scanner relative to the \FD filter.
 
 We identify the shadow of the filter structure by first grouping the flasher 
@@ -500,8 +518,8 @@ aligned with the \FD aperture.
 
 In order for an XY calibration to pass the positional alignment check, we 
 require the calculated filter center to lie within \SI{20}{\milli\meter} of the 
-XY origin. Only one run is rejected by this requirement. Further details are 
-found in \cref{sssec:xy-qa-aperture-occlusion}.
+XY origin. Only one run is rejected by this requirement. For further details on 
+the rejected run see \cref{sssec:xy-qa-aperture-occlusion}.
 
 \begin{figure}[t]
   \centering
@@ -574,18 +592,17 @@ identified as problematic due to the obstruction of a single flash for which the
 
 \subsection{Camera Stability}
 
-The last remaining component in the \DAQ chain is the \FD-camera. It is crucial
-that the camera operates in a stable fashion throughout the duration of the XY
-scan, this can be ensured via the following selection cuts.
-
+The last remaining component in the XY-\DAQ chain that needs to be checked is the
+\FD-camera. It is crucial that the camera operates in a stable fashion throughout 
+the duration of the XY scan, this can be ensured via the following selection cuts.
 
 \subsubsection{Camera Sensitivity}
 \label{sssec:xy-qa-camera-sensitivity}
 
 The (assumed constant) sensitivity of the \FD-camera is checked by comparing the
-open shutter Cal A measurements before and after the XY scan. If the camera 
-response to both exposures is the same, it is reasonable to assume that the 
-sensitivity of the pixel-\PMTs remains constant throughout the XY scan. 
+open shutter Calibration A measurements before and after the XY scan. If the 
+camera response to both exposures is the same, it is reasonable to assume that 
+the sensitivity of the pixel-\PMTs remains constant throughout the XY scan. 
 
 In the case of a nonzero drift, the total uncertainty on the pixel signal will 
 depend on the magnitude of a drift in the \FD-camera sensitivity, to first order
@@ -596,8 +613,8 @@ pixel-wise maximum (minimum) between the pre- and post-XY Calibration A
 measurements. 
 
 Assuming further that the drift in \FD-camera sensitivity is approximately 
-linear over the approx.~$\SI{40}{\minute}$ \DAQ period, the signal uncertainty 
-in the $i$th pixel signal is at most 
+linear over the on average $\SI{40}{\minute}$ \DAQ period, the signal 
+uncertainty in the $i$th pixel signal is at most 
 $\upsigma_{\mathrm{max},\,i}=(S^\mathrm{CalA}_{\mathrm{max},\,i}\, / 
 \,S^\mathrm{CalA}_{\mathrm{min},\,i} - 1)\,/\,2$, implying that on average
 
@@ -607,10 +624,10 @@ $\upsigma_{\mathrm{max},\,i}=(S^\mathrm{CalA}_{\mathrm{max},\,i}\, /
 \end{equation}
 
 over the entire camera. Capping $\langle\upsigma_\mathrm{max}\rangle$ to a maximum
-of \SI{0.2}{\percent}, we arrive at two runs that have an unacceptable drift in 
-the camera sensitivity (Ref.~\cref{fig:cal-a-errors}). The corresponding ratios 
-of the Calibration A signal are shown in \cref{fig:cal-a-ratio}, clearly, the
-rejected runs do not follow the underlaying distribution visible in all runs.
+of \SI{0.2}{\percent}, we identify two runs that have a large drift in camera 
+sensitivity (Ref.~\cref{fig:cal-a-errors}). The corresponding ratios of the 
+Calibration A signal are shown in \cref{fig:cal-a-ratio}, clearly, the rejected 
+runs do not follow the underlaying distribution visible in all runs.
 
 \begin{figure}[t]
   \centering
@@ -704,7 +721,7 @@ follow-up question is how do the recent XY measurements compare to the drum
 measurements.
 
 With more than a decade lying between both absolute calibrations, differences in
-the telescope operation (and $C^\mathrm{pixel}_\mathrm{abs.}$) are expected. Not
+the telescope operation (and $C^i_\mathrm{abs}$) are expected. Not
 only is the XY-Scanner thus valuable in and of itself due to its measurement 
 data, but also serves as an important tool to understand and check the relative 
 calibration tracking algorithms.
@@ -718,7 +735,7 @@ measured at different times, and the \FD telescopes ageing in between.
 
 Therefore, a more interesting comparison is that of the  relative calibration 
 constants, calculated from tracking the drum over time with the Calibration A, 
-with the XY-Scanner. These datasets represent our (theoretical) knowledge of the
+with the XY-Scanner. These datasets represent a (theoretical) knowledge of the
 detector at the same point in time. \cref{fig:xy-vs-drum} shows this comparison.
 
 \begin{figure}[t]
@@ -734,7 +751,7 @@ detector at the same point in time. \cref{fig:xy-vs-drum} shows this comparison.
 Large discrepancies of up to \SI{40}{\percent} are evident in the telescope 
 mean. While the exact magnitude differs from site to site and telescope to 
 telescope, the general trend is 
-$C^\mathrm{XY}_\mathrm{abs.} > C^\mathrm{Drum}_\mathrm{abs.}$ for almost all 
+$C^\mathrm{XY}_\mathrm{abs} > C^\mathrm{Drum}_\mathrm{abs}$ for almost all 
 pixels in the \FD. Clearly, the pixel calibration constants measured by the two
 different methods are not in agreement.
 
@@ -749,7 +766,7 @@ pixel calibration constants measured by the drum in the past
 
 A closer look at the calibration constants of individual telescopes, as shown in
 \cref{fig:closer-look} sheds more light on the nature of the discrepancy. The 
-values $C^\mathrm{Drum}_\mathrm{abs.}$ show a narrow distribution, with the 
+values $C^\mathrm{Drum}_\mathrm{abs}$ show a narrow distribution, with the 
 pixel-\PMTs having been flat-fielded just before the Drum measurement 
 \cite{dorofeevFDAbsoluteCalibration}. 14 years later, the XY measurements
 indicate that both the mean and standard deviation of the distribution has 
@@ -780,18 +797,19 @@ goes on. This shortcoming is the reason for the discrepancies visible in
 
 With the Calibration A only tracking the sensitivity of the pixel-\PMTs 
 (Ref.~\cref{sssec:relative-calibration}) the shift in the distribution mean must
-originate from a telescope component that is not the camera. It has become 
-evident that the evolution of the entire optical path in the detector must be 
-considered in order to accurately extrapolate the \FD sensitivity from one 
-moment in time to another.
+originate from a telescope component that is not the camera. It is thus evident 
+that the evolution of the entire optical path in the detector must be considered 
+in order to accurately extrapolate the \FD sensitivity from one moment in time 
+to another.
 
 \subsection{Effects Of Mirror Cleaning}
 \label{ssec:effects-of-mirror-cleaning}
 
-The \FD is located in a semi-arid environment with strong winds (called the
-Zonda \cite{municipalidadmalargueVientoZondaSitio}) driven by the Andes.
-Consequentially, dust steadily contaminates the \FD buildings and settles on
-mirrors and filters, negatively affecting their performance.
+The \FD is located in a semi-arid environment that is at times dominated by 
+strong winds (called the Zonda \cite{municipalidadmalargueVientoZondaSitio}) 
+driven by the Andes. Consequentially, dust steadily contaminates the \FD 
+buildings and settles on mirrors and filters, negatively affecting their 
+performance.
 
 The telescope filters are regularly cleaned since 2014, and mirror cleaning 
 operations are carried out to combat this. Notably, two interventions have been 
@@ -809,12 +827,13 @@ meaning that \LM likely presents the most extreme case of dust contamination,
 and we anticipate the most drastic changes in telescope operation before and 
 after cleaning.
 
-With only days passing between the XY-Scans, these changes must, of course, 
-originate largely from the altered reflectivity of the mirror segments. We
-normalize the XY signals to the respective camera sensitivity, which is 
-given by the signal response to the Calibration A measurement before and after 
-the scan. This is analog to the normalizations applied on quality cuts in 
-\cref{sec:quality-assurance}.
+With only days passing between the initial XY-Scan, mirror cleaning, and final
+XY-Scan, the changes in $C^i_\mathrm{abs}$ predicted from both measurements 
+must, of course, originate largely from the altered reflectivity of the mirror 
+segments. We normalize the XY signals to the respective camera sensitivity, 
+which is given by the mean signal response to the Calibration A measurement 
+before and after the scan. This is analog to the normalizations applied on 
+quality cuts in \cref{sec:quality-assurance}.
 
 \begin{figure}[t]
   \centering
@@ -830,6 +849,7 @@ labelled $S^*$, before and after mirror cleaning, both per flash position
 (averaged over the entire camera) and per pixel (averaged over all flashes). 
 Several facts are evident:
 
+\vspace{0.2cm}
 \begin{itemize}
 \item The camera receives more light after mirror cleaning.
 \item The gain in light collection efficiency is elevation dependent.
@@ -844,9 +864,9 @@ larger signal recorded in the pixel-\PMTs. The calibration constants increase.
 
 Specifically, the specular reflectivity of the mirrors drastically increases,
 whereas the diffuse reflection (stemming primarily from light scattering off of
-dust particles on the surface) diminishes. This can be seen most prevalently by 
-comparing the light signal received from flasher positions outside of the
-aperture in \cref{fig:lm1-cleaning}. There exists no geometric 
+dust particles on the mirror surface) diminishes. This can be seen most 
+prevalently by comparing the light signal received from flasher positions 
+outside of the aperture in \cref{fig:lm1-cleaning}. There exists no geometric 
 path\footnote{Ignoring trajectories involving multiple scattering.} for which 
 light reaches the \FD-camera by specularly reflecting from the mirror. Light 
 emitted from beyond the aperture must thus be reflected diffusely into the 
@@ -874,6 +894,7 @@ In contrast, the top of the mirror is less contaminated.
 \end{figure}
 
 \subsubsection{HEAT 1+3, 2023}
+\label{sssec:heat-mirror-cleaning}
 
 The mirrors of the \HEAT are located in an enclosure that differs from the 
 standard \FD-building. The altered design makes the mirrors more susceptible to
@@ -913,24 +934,24 @@ variance in the telescopes, shown in \cref{fig:he-nsb}.
 All telescopes show an increase in the trace variance after the cleaning of the
 mirrors, meaning that $\upsigma^2_\mathrm{ADC}$ must be a proxy for the \FD
 camera sensitivity. Expanding from this logic, we find that the variance in 
-\HEAT2 is higher (than \HEAT1+3) prior to the cleaning, meaning that the \HEAT2
-camera was more sensitive.
+\HEAT2 is higher (than \HEAT1+3), meaning that the \HEAT2 camera must have been 
+more sensitive prior to mirror cleaning.
 
-A look at the conditions at \HEAT also yields one possible reason as to why 
-\HEAT2 is less susceptible to dust contamination than \HEAT1+3. 
-\cref{fig:he2-location} shows that the other telescopes shield \HEAT2 from the 
-most prevalent wind directions.
+A look at the geographic conditions at \HEAT also yields one possible 
+explanation for this observation. \cref{fig:he2-location} shows that the 
+\HEAT1+3 telescopes shield \HEAT2 from the most prevalent wind directions.
 
 \section{The Night Sky Background}
 \label{sec:night-sky-background}
 
 The previous section has shown that the \FD trace variances,
 $\upsigma^2_\mathrm{ADC}$, can be used as a first-order estimate of the 
-pixel-\PMT sensitivity, and has been used to verify the calibration parameters 
-of the drum in the past \cite{GAP2016_005CrossCheck}. The trace variance is 
-monitored with minute accuracy (Ref.~\cref{ssec:fd-triggers}) while the \PMT 
-\HV is turned on. Meanwhile, the Calibration A, being the standard relative 
-tracking algorithm for the time being, is measured only twice per night.
+pixel-\PMT sensitivity, and have been analyzed in the past to verify the 
+calibration parameters of the drum \cite{GAP2016_005CrossCheck}. The trace 
+variance is monitored with minute accuracy (Ref.~\cref{ssec:fd-triggers}) while 
+the \PMT \HV is turned on. Meanwhile, the Calibration A, being the standard 
+relative tracking algorithm for the time being, is measured only twice per 
+night.
 
 On top of this, the Calibration A is only sensitive to changes in the 
 pixel-\PMTs, offering an incomplete view of the telescope response function.
@@ -969,7 +990,7 @@ This is due to electronic noise, $\upsigma^2_\mathrm{elec.}$, in the \PMTs,
 averaging roughly $\SI{4}{\mathrm{ADC}\squared}$, and visible as a large spike 
 in the \acf{KDE} visible on the right in \cref{fig:nsb-shift-example}.
 
-We estimate $\upsigma^2_\mathrm{elec.}$ as the maximum of the month-wise \KDE of 
+We estimate $\upsigma^2_\mathrm{elec.}$ as the maximum of the shift-wise \KDE of 
 $\upsigma^2_\mathrm{ADC}$ per pixel, and calculate the \NSB by subtracting
 
 \begin{equation}
@@ -977,14 +998,14 @@ $\upsigma^2_\mathrm{ADC}$ per pixel, and calculate the \NSB by subtracting
 \upsigma^2_\mathrm{NSB} = \upsigma^2_\mathrm{ADC} - \upsigma^2_\mathrm{elec.}.
 \end{equation}
 
-This \NSB is thus a minute accurate estimate of the fluctuations in light 
-entering the pixel-\PMTs. The light in question stems not only from \EASs, but
+This \NSB is a minute accurate estimate of the fluctuations in light entering 
+the pixel-\PMTs. The light in question stems not only from \EASs, but
 airglow, stars, zodiacal light, as well as galactic glow 
 \cite{GAP2016_005CrossCheck}. All these phenomena are heavily dependent on the 
 terrestrial as well as solar weather conditions, and their evolution for a 
 given night is thus difficult to model. To mitigate the influence of 
 (short-scale) weather phenomena and compromise temporal resolution and data 
-volume, we only use the hourly median of the \NSB to conduct our subsequent 
+volume, we use the hourly median of the \NSB to conduct our subsequent 
 analysis. 
 
 The resulting dataset spans 15 years from $2010/01/01$ (shortly before the 
@@ -1026,6 +1047,7 @@ from the irregularly sampled \NSB. \cref{fig:one-pixel-psd} shows the \PSD, it
 is evident that several effects contribute to the erratic \NSB patterns
 
 \subsubsection{Nightly Variations}
+\label{sssec:nightly-variations}
 
 The strongest influence over the minute-value of $\upsigma^2_\mathrm{NSB}$ hold
 short-scale effects with period durations of $\leq\SI{1}{\mathrm{day}}$. These
@@ -1156,6 +1178,12 @@ from non-recurrent patterns are questionable.
 
 \subsection{Non-Recurrent Evolution}
 
+One final feature in \cref{fig:one-pixel-psd} remains undiscussed. The \PSD 
+shows a high amplitude for frequencies just barely measureable in the 15 year 
+window of available data. The spike persists after applying windowing 
+functions, and thus cannot (only) be a computational artifact. Instead, this 
+result points to an ageing of the \FD.
+
 The simplest parametrization to model the non-recurrent contribution to the 
 long-term evolution of the \NSB is that of a constant drift. Physically, this
 might correspond to the continuous accumulation of dirt on the \FD mirror and 
@@ -1227,7 +1255,7 @@ to a decrease of $\upsigma^2_\mathrm{NSB}$ over time.
 \vspace{0.2cm}
 \endgroup
 
-\subsubsection{Global Model}
+\subsubsection{Global NSB Model}
 
 Though common patterns like a leveling of the \NSB drift around the beginning
 of 2015 is visible in many telescopes, and may be connected to the beginning of
@@ -1261,7 +1289,7 @@ measures
 
 \begin{equation}
 	\label{eq:drift-size}
-	m_\mathrm{NSB} = \SI{-1.97}{\percent\per\year}.
+	m_\mathrm{NSB} = \SI{-1.97\pm0.01}{\percent\per\year}.
 \end{equation}
 
 \begin{figure}[t]
@@ -1297,30 +1325,26 @@ measures
 \todo[inline]{standardize calibration A}
 
 We established that the pixel calibration constants $C^i_\mathrm{abs}$
-currently in use in the standard \FD event reconstruction 
+in use in the current \FD event reconstruction software
 (Ref.~\cref{ssec:fd-reconstruction}) disagree with recent measurements made by
 the XY-Scanner due to the relative tracking algorithm failing to account for
-the ageing of telescope components.\footnote{The only ageing being tracked by
-the calibration A is that of the pixel-\PMTs.}
+the ageing of vital telescope components like the mirrors or \UV-filter.
 
-We quantify how this mismatch between measured and used calibration constants
-affects reconstructed quantities in the following section, and offer an 
-alternative tracking algorithm for the $C^i_\mathrm{abs}$. Finally, we analyze
-how shower quantities change when using the updated calibration constants 
-during event reconstruction.
+In this section we offer an alternative tracking algorithm for the 
+$C^i_\mathrm{abs}$, and analyze how reconstructed shower energies change when 
+employing the updated calibration constants in the event reconstruction.
 
-\subsection{Alternative Tracking Algorithm}
+\subsection{Alternative Calibration Tracking}
 
 The current \FD calibration tracking algorithm, which employs the signal 
 strength $S_\mathrm{LCU}$ of the calibration A light source, as well as the 
-detected signal $S_\mathrm{CalA}$ in the telescope camera is given in 
+detected signal $S_\mathrm{CalA}$ in the telescope camera, is given in 
 \cref{eq:cal-a-propagation}. Naively, this algorithm can be amended to
-introduce an end-to-end tracker of the telescope sensitivity, namely the \NSB 
-introduced in \cref{sec:night-sky-background}.
+introduce an end-to-end tracker such as the \NSB, heuristically
 
 \begin{equation}
 \label{eq:nsb-tracking}
-C^i_\mathrm{abs} = C^i_\mathrm{ref}\,\cdot\,\frac{\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}}{\upsigma^2_{\mathrm{NSB}}} 
+C^i_\mathrm{abs} = C^i_\mathrm{ref}\,\cdot\,\frac{\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}}{\upsigma^2_{\mathrm{NSB}}}.
 \end{equation}
 
 \subsubsection{Determination of reference variance level}
@@ -1328,6 +1352,257 @@ C^i_\mathrm{abs} = C^i_\mathrm{ref}\,\cdot\,\frac{\upsigma^2_{\mathrm{NSB}\,\mat
 
 $\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}$ in \cref{eq:nsb-tracking} is the 
 reference \NSB signal at the time of the XY-Scanner measurements of 
-$C^i_\mathrm{ref}$, and takes the 
+$C^i_\mathrm{ref}$, and is not digitized during the altered \DAQ procedure. 
 
-\section{Absolute Energy Scale}
+Rather than relying on preexisting database entries, we must hence estimate the
+reference night sky background. One method to do so is to analyze the 
+pixel-\PMT traces of the XY-Scan. The trace variance in the portion of the 
+digitized light flashes prior to the signal pulse serves as a proxy for 
+$\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}}$. 
+
+Concretely, for every pixel we take the first $n_\mathrm{start}-10$ bins of 
+each trace, where $n_\mathrm{start}$ gives the start bin of the \CLS flash as 
+estimated by the pulse finder algorithm 
+(Ref.~\cite[Section 7.1.1]{schaferXYScannerVersatileMethod2023}), and calculate
+$\upsigma^2_\mathrm{start}$. A typical trace showing
+$\upsigma^2_\mathrm{start}$ is shown in \cref{fig:xy-example-trace}. In doing 
+this for all pixels and XY-Scans, we note strong temporal evolutions in 
+$\upsigma_\mathrm{start}$ for some pixels as shown in \cref{fig:star-transit}, 
+or even the entire camera in extreme cases.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.44\textwidth]{xy-scanner/star_transition.png}
+  \label{fig:star-transit}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.44\textwidth]{xy-scanner/nsb_ref_level.png}
+  \label{fig:nsb-ref}
+  }
+  \caption[]{\subref{fig:star-transit} Temporal evolution of the trace variance
+  for an example XY-Scan. A star transits through the \FOV of the highlighted 
+  pixels during the measurement. \subref{fig:nsb-ref} 
+  $\langle \upsigma^2_\mathrm{start}\rangle$ for all pixels in
+  \subref{fig:star-transit}. Nightly variations are effectively filtered out.}
+  \label{fig:nsb-ref-plots}
+\end{figure}
+
+These short-term effects ranging from star transitions to weather effects are 
+the nightly variations of the \NSB as introduced in 
+\cref{sssec:nightly-variations}, and which make it so difficult to build a 
+cohesive model of $\upsigma^2_\mathrm{NSB}$. We attempt to limit the effects of
+nightly variations by estimating $\upsigma^2_{\mathrm{NSB}\,\mathrm{ref}} = 
+\langle \upsigma^2_{\mathrm{start}} \rangle$ on a subportion of
+traces for which $\upsigma^2_\mathrm{start}$ is approximately uniform between 
+\CLS flashes. For details see \todo{appendix}.
+
+This trace level analysis yields an estimate of the reference variance level as
+shown in \cref{fig:nsb-model-comparison} and \cref{fig:nsb-ref} for example 
+XY-Scanner measurements.
+
+With $\upsigma^2_{\mathrm{NSB},\,\mathrm{ref}}$ at hand it is trivial to 
+perform a (back) tracking of $C^i_\mathrm{ref}$, as done in for one pixel in
+\cref{fig:nsb-propagation}. Two key insights can be gathered from this
+exercise:
+
+\vspace{0.4cm}
+\begin{itemize}
+\item The noisyness of $\upsigma^2_\mathrm{NSB}$ renders \cref{eq:nsb-tracking}
+useless to precisely estimate $C^i_\mathrm{abs}$.
+\item Drum and XY-Scanner measurements are compatible when using an end-to-end tracking variable such as the pixel-\PMT variance.
+\end{itemize}
+\vspace{0.4cm}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/nsb_propagation.png}
+  \caption{Comparison of Calibration A tracked drum calibration constants and 
+  $C^\mathrm{XY}_\mathrm{abs}$ from \CO4 pixel \#210, tracked according to 
+  \cref{eq:nsb-tracking}. The reference XY-Scan is marked as a red dot. The
+  lines help visualize the long-term-trend in the calibration bias.}
+  \label{fig:nsb-propagation}
+\end{figure}
+
+\subsubsection{Constant drift model}
+\label{sssec:constant-drift-model}
+
+We propose a model that mitigates the influence of nightly variations in 
+$\upsigma^2_\mathrm{ref}$ via assuming a constant drift of $C^i_\mathrm{abs}$ 
+analog to \cref{eq:backtracking-constants}, namely
+
+\begin{equation}
+\label{eq:calib-constant-tracking}
+C^i_\mathrm{abs}(t) = m_\mathrm{NSB}(t-t_\mathrm{ref}) \cdot C^i_\mathrm{ref}.
+\end{equation}
+
+Using \cref{eq:calib-constant-tracking}, we can calculate a set of calibration
+constants that are completely independent of any measurement information
+involved in the standard tracking algorithm employing the Drum \CLS and the 
+Calibration A. A comparison between both models is shown in 
+\cref{fig:constant-drift-tracking}. Importantly, the measured 
+$C^i_\mathrm{abs}$ from Drum \CLS and XY-Scanner are compatible using this 
+tracking algorithm as well, while the noise introduced from nightly variations
+in the \NSB is eliminated.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{xy-scanner/constant_drift_tracking.png}
+  \caption{Comparison of the (standard) tracking algorithm using the Drum \CLS 
+  and Calibration A versus backpropagation with the XY-Scanner measurements and
+  a constant drift measured from the \NSB according to 
+  \cref{eq:calib-constant-tracking}.}
+  \label{fig:constant-drift-tracking}
+\end{figure}
+
+\subsection{Effects on Reconstructed Energy}
+
+Lastly, we use \cref{eq:calib-constant-tracking} to update the calibration
+constants during an \FD reconstruction procedure and compare the change in 
+estimated primary energy by switching from the standard energy scale 
+(i.e.~Drum \CLS and Calibration A) to the XY-Scanner energy scale. Of 
+particular interest is the quantity $E_\mathrm{SD} / E_\mathrm{FD}$ for hybrid
+events.\footnote{Hybrid events are events for which \SD and \FD information 
+exists.}
+
+Whereas a value of $\langle E_\mathrm{SD}/E_\mathrm{FD}\rangle\approx1$ is 
+observed for events recorded around 2010\footnote{Which is expected given that
+the Drum measurements were taken in January 2010.} in 
+\cref{fig:e-fd-drift-cala} later dates are distinguished by a small positive 
+bias that increases with time at a magnitude of \SI{1.01}{\percent}. This 
+instability of the energy \SD/\FD energy estimators has been noted and 
+investigated in the past \cite{GAP2016_005CrossCheck, dawsonCommentDriftFD2013,
+newmannNightSkyBrightness2014}.
+
+Studies of the \SD event rate above fixed energies have indicated that the \SD 
+reconstruction delivers an approximately stable energy estimator 
+\cite{schmidtSDRateEnergy2026}. As a consequence, the observed drift must be 
+explained by an evolution of $E_\mathrm{FD}$ over time. 
+
+\cref{fig:e-fd-drift-nsb} shows the ratio of energies for events reconstructed 
+using $C^i_\mathrm{abs}$ from \cref{eq:calib-constant-tracking}. Not only is
+the trend in $E_\mathrm{SD}/E_\mathrm{FD}$ reversed, the magnitude of the trend
+is greatly reduced. By employing an, albeit rudimentary, end-to-end calibration
+tracking algorithm we can effectively address the drift of the \FD energy 
+estimator.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/e_ratio_std_calib.png}
+  \label{fig:e-fd-drift-cala}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/e_ratio_nsb.png}
+  \label{fig:e-fd-drift-nsb}
+  }
+  \caption[]{\subref{fig:e-fd-drift-cala} $E_\mathrm{SD}/E_\mathrm{FD}$ for 
+  reconstructed hybrid events from 2008 to 2025. The decreases in the ratio 
+  around 2015 and 2024 stem from mirror cleaning campaigns at \CO and \HEAT 
+  (Ref.~\cref{ssec:heat-mirror-cleaning}). \subref{fig:e-fd-drift-nsb} 
+  $E_\mathrm{SD}/E_\mathrm{FD}$ for the same set of observed shower events, but
+  reconstructed using $C^i_\mathrm{abs}$ from 
+  \cref{eq:calib-constant-tracking}.}
+  \label{fig:e-fd-drift}
+\end{figure}
+
+\subsubsection{SD Energy Calibration}
+
+One detail of \cref{fig:e-fd-drift-nsb} must be discussed; The \SD energy scale
+is cross-calibrated to match the \FD energy scale. Since the change in 
+$C^i_\mathrm{abs}$ manifests in a systematic positive bias in the \FD energy, 
+the parameters in \cref{eq:energy-cross-calibration} and 
+\cref{tab:energy-cross-calibration} must be revisited. We follow the procedure
+detailed in \cite{aabMeasurementCosmicrayEnergy2020} to optimize $A$, and $B$ 
+on a subset of hybrid events which pass extensive quality cuts 
+(Ref.~\cite{ravignaniMeasurementCosmicrayEnergy2025}). In doing this for both
+datasets of reconstructed showers in \cref{fig:e-fd-drift} we find
+
+\begin{align}
+\label{eq:drum-energy-scale}
+A^\mathrm{Drum} &= \SI{14.3\pm0.3}{\peta\eV},\qquad B^\mathrm{Drum} = 0.983\pm0.006, \\
+\label{eq:xy-energy-scale}
+A^\mathrm{XY} &= \SI{15.4\pm0.4}{\peta\eV},\qquad B^\mathrm{XY} = 0.995\pm0.006.
+\end{align}
+
+The respective calibration curves are shown in \cref{fig:e-cal}. The 
+$E_\mathrm{SD}$ in \cref{fig:e-fd-drift} have been calculated using the 
+respective best fit parameters.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{xy-scanner/PhaseI_standard.png}
+  \label{fig:e-cal-standard}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{xy-scanner/PhaseI_nsb_drift.png}
+  \label{fig:e-cal-nsb}
+  }\hfill
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{xy-scanner/calib_comparison.png}
+  \label{fig:calib-comparison}
+  }
+  \caption[]{\SD energy cross calibration for events reconstructed with 
+  $C^i_\mathrm{abs}$ from \subref{fig:e-cal-standard} the drum and Calibration 
+  A, and \subref{fig:e-cal-nsb} the XY-Scanner
+  (Ref.~\cref{sssec:constant-drift-model}). \subref{fig:calib-comparison} Ratio
+  of \SD energies reconstructed from \cref{eq:drum-energy-scale} and 
+  \cref{eq:xy-energy-scale}.}
+  \label{fig:e-cal}
+\end{figure}
+
+\subsubsection{Difference in Energy Scale}
+
+The reconstructed \FD energy is different across both presented methods, as 
+evident in \cref{fig:e-fd-drift}. The parameters of the drum energy scale 
+(i.e.~\cref{eq:drum-energy-scale}) are in disagreement with the XY-Scanner 
+energy scale (i.e.~\cref{eq:xy-energy-scale}). \cref{fig:calib-comparison} 
+indicates that by using the proposed calibration tracking algorithm from 
+\cref{sssec:constant-drift-model} the reconstructed energies in the \SD and \FD
+increase by approximately \SIrange{10}{20}{\percent}.
+
+\section{Summary}
+
+In this chapter we have presented the XY-Scanner, a novel end-to-end 
+calibration system set to become the standard absolute calibration technique 
+for the \FD.
+
+By utilizing a movable integrating sphere to illuminate the telescope aperture,
+the XY-Scanner achieves an uncertainty on the pixel calibration constants 
+$C^i_\mathrm{abs}$ of \todo{uncertainty}, representing a significant improvement over the legacy drum calibration method.
+
+{\vspace{0.5cm}\noindent\large\sc{Quality assurance for the XY-Scanner}\vspace{0.2cm}} 
+
+We established a comprehensive quality assurance framework to validate the 
+measurement results of the XY-Scanner data. The proposed quality cuts reject 
+\SI{12}{\percent} of initial measurement runs due to factors such as 
+temperature instability, positional misalignment, and aperture occlusion. A
+comparison between rejected and non-rejected runs reveals that outliers in 
+$C^i_\mathrm{abs}$ are effectively removed, and the standard deviation 
+$\upsigma$ of the accepted dataset decreases more than fourfold.
+
+{\vspace{0.5cm}\noindent\large\sc{Evidence of Telescope Ageing}\vspace{0.2cm}} 
+
+The first XY-Scanner production dataset, comprising 11,880 calibration 
+constants across all 27 FD telescopes, reveals a substantial discrepancy with 
+the standard calibration constants that have been measured by the drum. The 
+XY-Scanner constants are systematically higher by up to \SI{40}{\percent}.
+
+Investigation into the causes of this aging identifies dust accumulation on 
+mirrors and filters as one possible mechanism. Analysis of mirror cleaning 
+campaigns demonstrate that cleaning restores light collection efficiency by 
+\SIrange{8}{15}{\percent}. Furthermore, an analysis of 15 years of \NSB 
+variance data confirms a long-term, non-recurrent drift in telescope 
+sensitivity of approximately \SI{-1.97}{\percent} per year, driven by the 
+combined effects of mirror contamination and PMT ageing, with only the latter 
+being tracked by the current calibration algorithm.
+
+{\vspace{0.5cm}\noindent\large\sc{Novel \SD/\FD Energy Scale}\vspace{0.2cm}} 
+
+To address these deficiencies, we propose an alternative calibration tracking 
+algorithm, utilizing the \NSB as an end-to-end proxy for total telescope 
+sensitivity. By applying a constant drift model to the XY-Scanner reference 
+constants, the long-term instability in the reconstructed energy of hybrid 
+events is effectively resolved. 
+
+We note a systematic increase of \SIrange{10}{20}{\percent} in reconstructed 
+shower energies from using this alternative tracking algorithm. While the 
+presented study is only preliminary, and the proposed tracking model very 
+rudimentary in nature, these findings help us understand the temporal evolution
+of the \FD hardware better, and underscore the necessity of updating the 
+relative calibration tracking algorithm to monitor the entire optical path 
+through the telescopes. 

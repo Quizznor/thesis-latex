@@ -367,6 +367,8 @@ the \FD-mirrors, such as the \PSF \cite{ungerSimulationPointSpread2013}.
 
 \vspace*{5pt}
 \subsubsection{Drum Calibration}
+\label{sssec:drum-calibration}
+
 The absolute calibration method currently in use at the \PAO is the drum 
 calibration. The name derives from the shape of the light source, visible in 
 \cref{fig:drum-mounting}. It is a cylinder with a diameter of \SI{2.5}{\meter} 
@@ -1709,7 +1711,7 @@ S_{\theta_\mathrm{ref.}} = \frac{S(1000)}{f(\theta_\mathrm{rec.})} = \frac{S(100
 
 For the \SD-1500 $\theta_\mathrm{ref.} = \SI{38}{\degree}$, and in the \SD-750 
 $\theta_\mathrm{ref.} = \SI{35}{\degree}$. The values of $a$, $b$, and $c$ in 
-\cref{eq:cic} are given in \cref{tab:cic-parameters}. Finally, 
+\cref{eq:cic} are given in \cref{tab:cic-params}. Finally, 
 $S_{\theta_\mathrm{ref.}}$ is used to estimate the primary energy of the \EAS 
 as
 
@@ -1717,6 +1719,40 @@ as
 \label{eq:energy-cross-calibration}
 E_\mathrm{SD} = A\,S_{38}^B,
 \end{equation}
+
+\begin{wraptable}{r}{0.55\textwidth}
+\begingroup
+\renewcommand{\arraystretch}{1.0}
+\caption{Att. function parameters. From 
+\cite{aabMeasurementCosmicrayEnergy2020}.}
+	\begin{tabularx}{\linewidth}{@{\extracolsep{\fill}} cccc}
+  	\toprule
+	\hline
+	& $a$ & $b$ & $c$ \\
+	\hline
+	$I_1$ & $-0.9$ & $-1.64$ & $0.952$ \\
+	$I_2$ & $-0.04$ & $-0.42$ & $0.06$ \\
+	$I_3$ & $1.3$ & $0.09$ & $-0.37$ \\
+  	\bottomrule
+	\end{tabularx}
+	\label{tab:cic-params}
+\vspace{0.4cm}
+
+\caption{\SD-1500 energy calibration parameters for different bins in 
+	inclination. From \cite{aabMeasurementCosmicrayEnergy2020}.}
+	\begin{tabularx}{\linewidth}{@{\extracolsep{\fill}} ccc}
+  	\toprule
+	\hline
+	& $A\,/\,10^{17}\,\mathrm{eV}$ & $B$ \\
+	\hline
+	$\SI{0}{\degree} < \theta \leq \SI{30}{\degree}$ & $1.89(8)$ & $1.03(1)$ \\
+	$\SI{30}{\degree} < \theta \leq \SI{45}{\degree}$ & $1.86(4)$ & $1.030(6)$ \\
+	$\SI{45}{\degree} < \theta \leq \SI{60}{\degree}$ & $1.83(4)$ & $1.034(6)$ \\
+  	\bottomrule
+	\end{tabularx}
+	\label{tab:energy-cross-calibration}
+\endgroup
+\end{wraptable}
 
 where the power law relation with parameters $A$ and $B$ in 
 \cref{eq:energy-cross-calibration} is obtained from a subset of observed \EAS 
