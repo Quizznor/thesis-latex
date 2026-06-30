@@ -7,7 +7,8 @@ The attempt to identify the primary particle type from a (possibly incomplete)
 \EAS shower footprint detected by the \SD is a difficult task, as layed out in 
 \cref{ssec:different-primaries}. While shower-to-shower fluctuations complicate 
 predictions based on simplified cascade models, a general trend holds true when
-comparing the \EASs from different primaries.
+comparing the \EASs initiated from different primaries; The muonic fraction of
+the \EAS grows with the 
 
 muonic fraction grows with log A
 
@@ -24,14 +25,115 @@ simulations of \EASs. The following sections detail how these simulations are
 performed, and present the datasets of simulated air showers used throughout 
 \cref{chap:chapter-4}.
 
-The code used to generate the datasets are available at \todo{ref}
+The code used in generating the simulation datasets are available at 
+Ref.~\cite{AugerobservatorySandBoxesPaulfilip2026}.
 
 \subsection{Air Shower Simulation}
 
 \texttt{CORSIKA v7.8010} \cite{engelNextGenerationCORSIKA2018} is used to 
-simulate air showers for both photon and proton primaries. 
+simulate air showers for both photon and proton primaries. In either case, 
+primary particles with a true energy $E_\mathrm{MC}$ are injected with a 
+heading $(\phi_\mathrm{MC},\,\theta_\mathrm{MC})$ into the upper atmosphere,
+and the resulting particle cascade is simulated using \texttt{EPOS\_LHC} 
+(Ref.~\cref{sssec:hadronic-interaction-models}, 
+\cite{pierogEPOSLHCTest2015}), with \texttt{FLUKA  2011.2c} 
+\cite{theflukacollaborationFLUKACodeOverview2024} handling particle 
+interactions below a center-of-mass energy of \SI{80}{\giga\eV}.
+
+\subsubsection{Particle Distribution}
+
+Particles are injected at an atmospheric depth of 
+\SI{0}{\gram\per\centi\meter\squared}, with the parametrized air density 
+profile emulating typically measured atmospheric conditions in Malargüe in 
+September, as described in further detail in 
+Ref.~\cite{abreuDescriptionAtmosphericConditions2012}. 
+
+The heading of the primary particle is randomized with the distribution of 
+$(\phi_\mathrm{MC},\,\theta_\mathrm{MC})$ mimicking a uniform flux over 
+the sky as observed by a flat detector. Specifically,
+$\phi_\mathrm{MC}\sim\mathcal{U}(\SI{-180}{\degree},\,\SI{180}{\degree})$,
+and $\sin(2\,\theta_\mathrm{MC})\sim\mathcal{U}(0,\,0.766)$. The upper 
+bound on the latter parameter corresponds to a maximum simulated zenith 
+angle of $\SI{65}{\degree}$. The distribution of simulated primary zenith 
+angles is shown in \cref{fig:zenith-mc-distribution}.
+
+The primary energy of injected particles is 
+$\log_{10}\left(E_\mathrm{MC}\,/\,\mathrm{eV}\right)\in[16.5, 19.0]$, 
+covering a broad range from full inefficiency,\footnote{Meaning no \EAS 
+below this energy is ever observed in the \SD-750.} to an upper energy
+where the size of the array becomes a bottleneck in detecting the faint
+\CR fluxes. For an individual \texttt{CORSIKA} run the energy range of the 
+particle is fixed to one tenth of a decade in logarithmic energy. Within 
+this bin, the energy is randomized such that 
+$E^\mathrm{bin}_\mathrm{MC}\sim E$, meaning that higher values are picked 
+more likely than lower values. In order to obtain sufficient sample sizes 
+across all energy bins lower energy showers are simulated more frequently 
+than higher energy showers. Both considerations influence the distribution 
+of simulated primary energies, as shown in 
+\cref{fig:energy-mc-distribution}.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{discrimination/zenith_mc_distribution.png}
+  \label{fig:zenith-mc-distribution}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.36\textwidth]{discrimination/energy_mc_distribution.png}
+  \label{fig:energy-mc-distribution}
+  }
+  \caption[]{\subref{fig:zenith-mc-distribution}  \subref{fig:energy-mc-distribution} }
+  \label{fig:mc-distributions}
+\end{figure}
+
+
+\todo{simulate wider range of energies? Update plots}
+
+In order to be computationally efficient the simulation framework employs 
+\emph{thinning} \cite{saffiAnalysisSimulationReconstruction2020}, which 
+assigns weights to individual particles in the shower cascade. A particle 
+with weight $W > 1$ consequently approximates $W$ copies of itself, 
+reducing the number of actually simulated particles, and cutting down on 
+processing time. The threshold for the thinning algorithm to group 
+particles together is energy dependent. This threshold is set dynamically 
+to an optimal value of $10^{-6}\,E_\mathrm{MC}$ 
+\cite{billoirSamplingProcedureRegenerate2008}.
+
+\subsubsection{Detector Signal}
+
+The simulation of the shower cascade halts at an atmospheric depth 
+corresponding to an altitude of $\SI{1400}{\meter}\,\mathrm{a.s.l.}$, 
+the height of the \PAOs detectors. At this point, the properties of the 
+remaining particles in the simulated shower front are handed to an
+\Offline simulation that generates (\SD) detector signals from the 
+particle distribution on ground.
+
+First, the point of intersection between the shower axis (fixed by 
+$\phi_\mathrm{MC},\,\theta_\mathrm{MC}$) and the detector plane is
+determined. We pick a random point in a unit rectangle with a random 
+\SD-750 station at its' center to mirror the expected 
+uniform\footnote{Non-uniformities are caused by detector 
+inefficiencies, see e.g.~Ref.~\cref{TODO}} shower core distribution on
+the surface of the Earth. Once this point is picked, the entire geometry 
+of shower + detector is fixed. Particles (with weight $W$) that fall within
+a predefined volume around an \SD-station are \emph{dethinned} 
+\cite{saffiAnalysisSimulationReconstruction2020}, and particle trajectories
+through the \WCD, \SSD, and \UMD, as well as resulting material 
+interactions are simulated using \texttt{Geant4} 
+\cite{allisonRecentDevelopmentsGeant42016, 
+allisonGeant4DevelopmentsApplications2006, 
+agostinelliGeant4aSimulationToolkit2003}. The trajectory of light created 
+in the scintillating material of the \SSD and \UMD, as well as in the 
+Cherenkov cone of relativistic muons in the \WCD is propagated to the 
+different sensor components, eventually resulting a simulated detector 
+response to the virtual particle flux. On top of this, electronic noise 
+induced by the \DAQ readout chain, as well as low-energy atmospheric 
+background muons are injected into the detector simulation to increase 
+the degree of realism of the calculations.
 
 \subsection{Event Reconstruction}
+
+The simulated detector response from the \WCD, \SSD, and \UMD is 
+reconstructed according to the standard reconstruction procedure defined
+in \cref{ssec:sd-reconstruction} and \cref{ssec:umd-reconstruction}.
 
 \section{Reconstruction Efficiency}
 

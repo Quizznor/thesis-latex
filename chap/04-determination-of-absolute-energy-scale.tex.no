@@ -232,6 +232,9 @@ points.
 \section{Quality Assurance}
 \label{sec:quality-assurance}
 
+(Parts of) this analysis were first made available at 
+Ref.~\cite{filipQualityAssuranceXY2024}.
+
 By calculating \FD pixel calibration constants as a sum over many individual 
 light flashes according to \cref{eq:xy-scanner-calib-calculation}, several
 implicit assumptions are made, namely
@@ -804,6 +807,9 @@ to another.
 
 \subsection{Effects Of Mirror Cleaning}
 \label{ssec:effects-of-mirror-cleaning}
+
+(Parts of) this analysis were first made available in 
+Refs.~\cite{filipJumpsXYCalibration2024, GAP2026_001DescriptionResults}.
 
 The \FD is located in a semi-arid environment that is at times dominated by 
 strong winds (called the Zonda \cite{municipalidadmalargueVientoZondaSitio}) 
