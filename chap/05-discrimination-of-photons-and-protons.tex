@@ -17,12 +17,12 @@ muonic fraction grows with log A
 Confirmed photon \CRs, detected e.g.~by the \LHAASO have reconstructed primary 
 energies of $<\SI{10}{\peta\eV}$ 
 \cite{lhaasocollaborationUltrahighenergyRayBubble2024}, less than 
-\SI{10}{\percent} of the lower bound on the energy considered in this work. 
-No photon candidates have ever been measured in the search space studied here.
+\SI{10}{\percent} of the lower bound on the energy considered in this work. No 
+photon candidates have ever been measured in the search space studied here.
 
-With this lack of experimental evidence we must base our analysis on 
-simulations of \EASs. The following sections detail how these simulations are 
-performed, and present the datasets of simulated air showers used throughout 
+With this lack of experimental evidence we must base our analysis on simulations
+of \EASs. The following sections detail how these simulations are performed, and
+present the datasets of simulated air showers used throughout 
 \cref{chap:chapter-4}.
 
 The code used in generating the simulation datasets are available at 
@@ -32,45 +32,43 @@ Ref.~\cite{AugerobservatorySandBoxesPaulfilip2026}.
 
 \texttt{CORSIKA v7.8010} \cite{engelNextGenerationCORSIKA2018} is used to 
 simulate air showers for both photon and proton primaries. In either case, 
-primary particles with a true energy $E_\mathrm{MC}$ are injected with a 
-heading $(\phi_\mathrm{MC},\,\theta_\mathrm{MC})$ into the upper atmosphere,
-and the resulting particle cascade is simulated using \texttt{EPOS\_LHC} 
-(Ref.~\cref{sssec:hadronic-interaction-models}, 
-\cite{pierogEPOSLHCTest2015}), with \texttt{FLUKA  2011.2c} 
-\cite{theflukacollaborationFLUKACodeOverview2024} handling particle 
-interactions below a center-of-mass energy of \SI{80}{\giga\eV}.
+primary particles with a true energy $E_\mathrm{MC}$ are injected with a heading
+$(\phi_\mathrm{MC},\,\theta_\mathrm{MC})$ into the upper atmosphere, and the 
+resulting particle cascade is simulated using \texttt{EPOS\_LHC} 
+(Ref.~\cref{sssec:hadronic-interaction-models}, \cite{pierogEPOSLHCTest2015}), 
+with \texttt{FLUKA  2011.2c} \cite{theflukacollaborationFLUKACodeOverview2024} 
+handling particle interactions below a center-of-mass energy of 
+\SI{80}{\giga\eV}.
 
 \subsubsection{Particle Distribution}
 
 Particles are injected at an atmospheric depth of 
-\SI{0}{\gram\per\centi\meter\squared}, with the parametrized air density 
-profile emulating typically measured atmospheric conditions in Malargüe in 
-September, as described in further detail in 
+\SI{0}{\gram\per\centi\meter\squared}, with the parametrized air density profile
+emulating typically measured atmospheric conditions in Malargüe in September, as
+described in further detail in 
 Ref.~\cite{abreuDescriptionAtmosphericConditions2012}. 
 
 The heading of the primary particle is randomized with the distribution of 
-$(\phi_\mathrm{MC},\,\theta_\mathrm{MC})$ mimicking a uniform flux over 
-the sky as observed by a flat detector. Specifically,
-$\phi_\mathrm{MC}\sim\mathcal{U}(\SI{-180}{\degree},\,\SI{180}{\degree})$,
-and $\sin(2\,\theta_\mathrm{MC})\sim\mathcal{U}(0,\,0.766)$. The upper 
-bound on the latter parameter corresponds to a maximum simulated zenith 
-angle of $\SI{65}{\degree}$. The distribution of simulated primary zenith 
-angles is shown in \cref{fig:zenith-mc-distribution}.
+$(\phi_\mathrm{MC},\,\theta_\mathrm{MC})$ mimicking a uniform flux over the sky 
+as observed by a flat detector. Specifically,
+$\phi_\mathrm{MC}\sim\mathcal{U}(\SI{-180}{\degree},\,\SI{180}{\degree})$, and 
+$\sin(2\,\theta_\mathrm{MC})\sim\mathcal{U}(0,\,0.766)$. The upper bound on the 
+latter parameter corresponds to a maximum simulated zenith angle of 
+$\SI{65}{\degree}$. The distribution of simulated primary zenith angles is shown
+in \cref{fig:zenith-mc-distribution}.
 
 The primary energy of injected particles is 
-$\log_{10}\left(E_\mathrm{MC}\,/\,\mathrm{eV}\right)\in[16.5, 19.0]$, 
-covering a broad range from full inefficiency,\footnote{Meaning no \EAS 
-below this energy is ever observed in the \SD-750.} to an upper energy
-where the size of the array becomes a bottleneck in detecting the faint
-\CR fluxes. For an individual \texttt{CORSIKA} run the energy range of the 
-particle is fixed to one tenth of a decade in logarithmic energy. Within 
-this bin, the energy is randomized such that 
-$E^\mathrm{bin}_\mathrm{MC}\sim E$, meaning that higher values are picked 
-more likely than lower values. In order to obtain sufficient sample sizes 
-across all energy bins lower energy showers are simulated more frequently 
-than higher energy showers. Both considerations influence the distribution 
-of simulated primary energies, as shown in 
-\cref{fig:energy-mc-distribution}.
+$\log_{10}\left(E_\mathrm{MC}\,/\,\mathrm{eV}\right)\in[16.5, 19.0]$, covering a
+broad range from full inefficiency,\footnote{Meaning no \EAS below this energy 
+is ever observed in the \SD-750.} to an upper energy where the size of the array
+becomes a bottleneck in detecting the faint \CR fluxes. For an individual 
+\texttt{CORSIKA} run the energy range of the particle is fixed to one tenth of a
+decade in logarithmic energy. Within this bin, the energy is randomized such 
+that $E^\mathrm{bin}_\mathrm{MC}\sim E$, meaning that higher values are picked 
+more likely than lower values. In order to obtain sufficient sample sizes across
+all energy bins lower energy showers are simulated more frequently than higher 
+energy showers. Both considerations influence the distribution of simulated 
+primary energies, as shown in \cref{fig:energy-mc-distribution}.
 
 \begin{figure}[t]
   \centering
@@ -88,59 +86,119 @@ of simulated primary energies, as shown in
 \todo{simulate wider range of energies? Update plots}
 
 In order to be computationally efficient the simulation framework employs 
-\emph{thinning} \cite{saffiAnalysisSimulationReconstruction2020}, which 
-assigns weights to individual particles in the shower cascade. A particle 
-with weight $W > 1$ consequently approximates $W$ copies of itself, 
-reducing the number of actually simulated particles, and cutting down on 
-processing time. The threshold for the thinning algorithm to group 
-particles together is energy dependent. This threshold is set dynamically 
-to an optimal value of $10^{-6}\,E_\mathrm{MC}$ 
+\emph{thinning} \cite{saffiAnalysisSimulationReconstruction2020}, which assigns
+weights to individual particles in the shower cascade. A particle with weight 
+$W > 1$ consequently approximates $W$ copies of itself, reducing the number of 
+tracked particles, and cutting down on processing time. The threshold for the 
+thinning algorithm to group particles together is energy dependent. This 
+threshold is set dynamically to an optimal value of $10^{-6}\,E_\mathrm{MC}$ 
 \cite{billoirSamplingProcedureRegenerate2008}.
+
+The simulation of the shower cascade halts at an atmospheric depth corresponding
+to an altitude of $\SI{1400}{\meter}\,\mathrm{a.s.l.}$, the height of the \PAOs 
+detectors. At this point, the properties of the remaining particles in the 
+simulated shower front are handed to an \Offline simulation that generates (\SD)
+detector signals from the particle distribution on ground. In order to further 
+optimize computational usage, we repeat this process multiple times per shower, 
+varying the position of the \SD detector relative to the \EAS every time. Each 
+\texttt{CORSIKA} simulation is passed to \Offline at most $50$ times, or until 
+the \EAS has been reconstructed successfully $n_\mathrm{success} = 10$ times. 
 
 \subsubsection{Detector Signal}
 
-The simulation of the shower cascade halts at an atmospheric depth 
-corresponding to an altitude of $\SI{1400}{\meter}\,\mathrm{a.s.l.}$, 
-the height of the \PAOs detectors. At this point, the properties of the 
-remaining particles in the simulated shower front are handed to an
-\Offline simulation that generates (\SD) detector signals from the 
-particle distribution on ground.
+For a single reconstruction run, the shower core, referring to the intersection 
+between the shower axis (fixed by $\phi_\mathrm{MC},\,\theta_\mathrm{MC}$) and 
+the detector plane is picked at random. An arbitrary \SD-750 station is chosen, 
+and the shower core is picked as a random point from a unit rectangle centered 
+around this station. In this fashion, the distribution of simulated shower cores
+mimics the uniform\footnote{Non-uniformities are caused by detector 
+inefficiencies, see e.g.~Ref.~\cref{TODO}} distribution of \EASs core 
+distributions the surface of the Earth. 
 
-First, the point of intersection between the shower axis (fixed by 
-$\phi_\mathrm{MC},\,\theta_\mathrm{MC}$) and the detector plane is
-determined. We pick a random point in a unit rectangle with a random 
-\SD-750 station at its' center to mirror the expected 
-uniform\footnote{Non-uniformities are caused by detector 
-inefficiencies, see e.g.~Ref.~\cref{TODO}} shower core distribution on
-the surface of the Earth. Once this point is picked, the entire geometry 
-of shower + detector is fixed. Particles (with weight $W$) that fall within
-a predefined volume around an \SD-station are \emph{dethinned} 
+Once the shower core is picked, the entire geometry of shower and detector is 
+fixed. Particles (with weight $W$) that fall within a predefined volume around 
+an \SD-station are \emph{dethinned} 
 \cite{saffiAnalysisSimulationReconstruction2020}, and particle trajectories
-through the \WCD, \SSD, and \UMD, as well as resulting material 
-interactions are simulated using \texttt{Geant4} 
-\cite{allisonRecentDevelopmentsGeant42016, 
+through the \WCD, \SSD, and \UMD, as well as resulting material interactions are
+simulated using \texttt{Geant4} \cite{allisonRecentDevelopmentsGeant42016, 
 allisonGeant4DevelopmentsApplications2006, 
-agostinelliGeant4aSimulationToolkit2003}. The trajectory of light created 
-in the scintillating material of the \SSD and \UMD, as well as in the 
-Cherenkov cone of relativistic muons in the \WCD is propagated to the 
-different sensor components, eventually resulting a simulated detector 
-response to the virtual particle flux. On top of this, electronic noise 
-induced by the \DAQ readout chain, as well as low-energy atmospheric 
-background muons are injected into the detector simulation to increase 
-the degree of realism of the calculations.
+agostinelliGeant4aSimulationToolkit2003}. The trajectory of light created in the
+scintillating material of the \SSD and \UMD, as well as in the Cherenkov cone of
+relativistic muons in the \WCD is propagated to the different sensor components,
+eventually resulting a simulated detector response to the virtual particle flux.
+
+On top of this, electronic noise induced by the \DAQ readout chain, as well as 
+low-energy atmospheric background muons are injected into the detector 
+simulation to increase the degree of realism of the calculations.
 
 \subsection{Event Reconstruction}
 
-The simulated detector response from the \WCD, \SSD, and \UMD is 
-reconstructed according to the standard reconstruction procedure defined
-in \cref{ssec:sd-reconstruction} and \cref{ssec:umd-reconstruction}. The
-configuration settings 
+The simulated detector response from the \WCD, \SSD, and \UMD is reconstructed 
+according to the standard reconstruction procedure defined in 
+\cref{ssec:sd-reconstruction} and \cref{ssec:umd-reconstruction}. The module 
+configuration settings used for the bulk of the analysis are the default values 
+used in the \texttt{icrc2025-test7} release of \Offline 
+\cite{Icrc2025test7Release2025}. Influences due to changes in the configuration 
+files will be examined in \todo{hyperparameter optimization chapter}.
 
-\section{Reconstruction Efficiency}
+\subsection{Reconstruction Efficiency}
 
-\section{Energy Assignment}
-\subsection{Simulated Protons}
-\subsection{Simulated Photons}
+An important characteristic in the subsequent analysis is the reconstruction 
+efficiency of the \SD(-750) array. Together with the distribution of a priori 
+present \CR particles (i.e. the \CR spectrum), it determines the energy-, and 
+zenith distribution of \CR observations. In particular, 
+$P_\mathrm{rec}(E_\mathrm{MC}, \theta_\mathrm{MC})$\footnote{We assume 
+$P_\mathrm{rec}(E_\mathrm{MC}, \theta_\mathrm{MC}, \phi_\mathrm{MC}) = 
+P_\mathrm{rec}(E_\mathrm{MC}, \theta_\mathrm{MC})\,\,\,\forall\,\phi_\mathrm{MC}
+\in [-180\,^\circ,\,180\,^\circ]$} gives the probability that a \CR event with 
+true energy $E_\mathrm{MC}$ and inclination $\theta_\mathrm{MC}$ is successfully
+reconstructed. This is to say that the \texttt{LDFFinderKG} 
+(Ref.~\cref{sssec:reconstruction-ldf-finder}) runs without emitting errors, and 
+the event can be assigned a reconstructed energy $E_\mathrm{rec}$. 
+
+Importantly, this probability differs from the often quoted array trigger 
+efficiency $P_\mathrm{T3}$ 
+(e.g.~\cite[Fig.~7]{abrahamTriggerApertureSurface2010}). The detection of an 
+event does not guarantee its successful reconstruction, on which the problem at 
+hand, the identification of exotic events in reconstructed data, relies on. 
+$P_\mathrm{rec}$ is thus the appropriate choice for normalizing different 
+detector characteristics in this analysis.
+
+We employ a parametrization of $P_\mathrm{T3}$/$P_\mathrm{rec}$ from \todo{cite}, namely
+
+\begin{equation}
+\label{eq:rec-efficiency-parametrization}
+P_\mathrm{rec}(E_\mathrm{MC}, \theta_\mathrm{MC};\,\alpha(\theta_\mathrm{MC}), \beta) = \frac{1 + \erf\left(E_\mathrm{MC} - \alpha(\theta))\,/\,\beta\right)}{2}, 
+\end{equation}
+
+where
+
+\begin{equation}
+\label{eq:efficiency-theta-dependence}
+\alpha(\theta_\mathrm{MC};\,a_0,\,a_1,\,a_2,\,a_3) = a_0 + a_1\,x + a_2\,x^2 + a_3\,x^3,\qquad x = \cos^2\,\theta_\mathrm{MC}\,.
+\end{equation}
+
+The shape parameters $a_i$ and $\beta$ are determined from an unbinned maximum 
+likelihood optimization tailoring \cref{eq:rec-efficiency-parametrization} to 
+the reconstruction efficiencies calculated during the simulation procedure. 
+These follow (for a single simulation with energy $E_\mathrm{MC}$ and zenith 
+$\theta_\mathrm{MC}$) by building the ratio of number of successful 
+reconstruction $n_\mathrm{success}$ versus number of total attempted 
+reconstructions. The results of the optimization, both for $p$ and $\gamma$ 
+primaries is displayed in \todo{table}. The visual correspondence between the
+simulated reconstruction efficiency and the parametrized reconstruction 
+efficiency is shown in \todo{figure}.
+
+\subsubsection{Full Efficiency Transition}
+
+
+
+% important to not overestimate reconstruction efficiency
+% cross check from full efficiency transition w/ arrival direction?
+
+\subsection{Energy Assignment}
+\subsubsection{Simulated Protons}
+\subsubsection{Simulated Photons}
 \subsection{Unified Energy Scale}
 
 \section{Validation with Past Studies}
