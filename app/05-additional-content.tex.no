@@ -1,0 +1,19 @@
+%! TEX root = ../main.tex
+
+\chapter{Additional Content}
+\label{app:other}
+
+\section{Background Dataset}
+\label{sec:phase1-data}
+
+The analysis in this thesis focuses exclusively on the analysis of Phase-II data
+that is measured with AugerPrime electronics. In some instances, a verification,
+especially of \UUB-reconstructed simulated air showers, is needed.
+
+Prior validation studies have shown that there exist no systematic differences 
+between Phase-I and Phase-II data, both in reconstructed station-level 
+observables (Ref.~\todo{ref}), as well as event-level observables (Ref.~\todo{ref}). The Phase-I dataset, representing a large catalog of observed \CR events 
+measured with \UB electronics is thus an excellent candidate to verify some 
+simulation driven variables using measured data.
+
+

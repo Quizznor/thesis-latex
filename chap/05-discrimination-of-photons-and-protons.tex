@@ -112,8 +112,8 @@ the detector plane is picked at random. An arbitrary \SD-750 station is chosen,
 and the shower core is picked as a random point from a unit rectangle centered 
 around this station. In this fashion, the distribution of simulated shower cores
 mimics the uniform\footnote{Non-uniformities are caused by detector 
-inefficiencies, see e.g.~Ref.~\cref{TODO}} distribution of \EASs core 
-distributions the surface of the Earth. 
+inefficiencies, see e.g.~Ref.~\cref{sssec:full-efficiency-validation}} 
+distribution of \EASs core distributions the surface of the Earth. 
 
 Once the shower core is picked, the entire geometry of shower and detector is 
 fixed. Particles (with weight $W$) that fall within a predefined volume around 
@@ -159,51 +159,230 @@ the event can be assigned a reconstructed energy $E_\mathrm{rec}$.
 Importantly, this probability differs from the often quoted array trigger 
 efficiency $P_\mathrm{T3}$ 
 (e.g.~\cite[Fig.~7]{abrahamTriggerApertureSurface2010}). The detection of an 
-event does not guarantee its successful reconstruction, on which the problem at 
+event does not guarantee its successful reconstruction, which the problem at 
 hand, the identification of exotic events in reconstructed data, relies on. 
 $P_\mathrm{rec}$ is thus the appropriate choice for normalizing different 
 detector characteristics in this analysis.
 
-We employ a parametrization of $P_\mathrm{T3}$/$P_\mathrm{rec}$ from \todo{cite}, namely
+We employ a simulation-driven parametrization of $P_\mathrm{rec}$ from 
+Ref.~\cite{schulzMeasurementEnergySpectrum}. Namely,
 
-\begin{equation}
+\begin{align}
 \label{eq:rec-efficiency-parametrization}
-P_\mathrm{rec}(E_\mathrm{MC}, \theta_\mathrm{MC};\,\alpha(\theta_\mathrm{MC}), \beta) = \frac{1 + \erf\left(E_\mathrm{MC} - \alpha(\theta))\,/\,\beta\right)}{2}, 
-\end{equation}
+P_\mathrm{rec}(E_\mathrm{MC},\,\theta_\mathrm{MC};\,\alpha(\theta_\mathrm{MC}), \beta) &= \frac{1}{2}\left( 1+\erf(\frac{\log_{10}(E_\mathrm{MC}\,/\,\mathrm{eV}) - \alpha(\theta_\mathrm{MC})}{b}) \right), \\
+\label{eq:efficiency-theta-dependence}
+\alpha(\theta_\mathrm{MC};\,a_0,\,a_1,\,a_2,\,a_3) &= a_0 + a_1\,x + a_2\,x^2 + a_3\,x^3,\qquad x = \cos^2\,\theta_\mathrm{MC}\,.
+\end{align}
 
-where
+$a_0$ roughly marks the energy at which the reconstruction algorithm becomes
+efficient, with $P(a_0,\,\frac{\pi}{2}) = 0.5$. The other shape parameters $a_i$
+represent higher order correction terms to the zenith dependence of the energy
+scale set by $a_0$.
+
+All parameters are determined from an unbinned maximum likelihood optimization 
+tailoring \cref{eq:rec-efficiency-parametrization} to the reconstruction 
+efficiencies calculated during the simulation procedure. These follow for a 
+single simulation with energy $E_\mathrm{MC}$ and zenith $\theta_\mathrm{MC}$ by
+building the ratio of number of successful reconstructions, 
+$n_\mathrm{success}$, versus number of total attempted reconstructions. The 
+results of the optimization, both for $p$ and $\gamma$ primaries is displayed in
+\cref{tab:efficiency-fit-parameters}. The visual correspondence between the 
+simulated reconstruction efficiency and the parametrized reconstruction 
+efficiency for both primaries is shown in \cref{fig:efficiency-fits}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.2}
+\begin{table}
+	\begin{center}
+	\caption{Best fit shape parameters to model $P_\mathrm{rec}(E_\mathrm{MC},\,\theta_\mathrm{MC})$ for proton ($p$) and photon ($\gamma$) primaries. The number of \texttt{CORSIKA} showers used $47\,265$ ($p$), and $49\,753$ ($\gamma$).}
+	\begin{tabular*}{1.0\textwidth}{@{\extracolsep{\fill}} c|ccccc}
+  \toprule
+	\hline
+	 & $a_0$ & $a_1$ & $a_2$ & $a_3$ & $\beta$ \\
+	\hline
+	$p$ & $18.63\pm0.01$ & $-5.66\pm0.03$ & $5.7\pm0.05$ &
+	$-1.91\pm0.04$ & $0.25\pm0.003$ \\
+	$\gamma$ & $20.22\pm0.01$ & $-11.51\pm0.03$ & $13.09\pm0.07$ & $-4.99\pm0.06$ & $0.248\pm0.003$ \\ 
+  \bottomrule
+	\end{tabular*}
+	\label{tab:efficiency-fit-parameters}
+	\end{center}
+\end{table}
+\endgroup
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{discrimination/proton_sim_data.png}
+  \label{fig:efficiency-sim-proton}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{discrimination/proton_parametrized.png}
+  \label{fig:efficiency-fit-proton}
+  }\hfill
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{discrimination/photon_sim_data.png}
+  \label{fig:efficiency-sim-photon}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{discrimination/photon_parametrized.png}
+  \label{fig:efficiency-fit-photon}
+  }\hfill
+  \caption[]{\subref{fig:efficiency-sim-proton} The calculated reconstruction efficiency during simulations for proton primaries. \subref{fig:efficiency-fit-proton} Parametrized reconstruction efficiency for proton primaries. \subref{fig:efficiency-sim-photon} Calculated reconstruction efficiency during simulations for photon primaries. \subref{fig:efficiency-fit-photon} Parametrized reconstruction efficiency for photon primaries. The black lines in \subref{fig:efficiency-fit-proton} and \subref{fig:efficiency-fit-photon} give the full efficiency transition as a function of $E_\mathrm{MC}$ and $\theta_\mathrm{MC}$}
+  \label{fig:efficiency-fits}
+\end{figure}
+
+Several things are noteworthy. First, it is $a_0^\gamma > a_0^p$, meaning that 
+the reconstruction of proton primaries becomes possible at lower energies than 
+that of photon primaries. Moreover, $|a_i^\gamma| > |a_i^p|$, implying that 
+there exists a stronger zenith dependence of the reconstruction efficiency for 
+photons.
+
+This confirms prior expectations informed by air shower physics theory. The 
+higher muon content of $p$ initiated \EASs results in a larger detector signal 
+on ground, resulting in a higher chance for an event trigger and augmenting the 
+probability for a successful event reconstruction. On the other hand, the 
+non-muonic component of \EASs is more heavily attenuated while traversing the 
+atmosphere. This disproportionately affects \EM-dominated photon showers, 
+driving up the primary energy necessary to raise an event trigger as the 
+inclination of the primary particle increases. Both effects can be seen in 
+\cref{fig:efficiency-fits}.
+
+\subsubsection{Validation of Full Efficiency Transition}
+\label{sssec:full-efficiency-validation}
+
+In order to verify the validity of this simulation-inferred reconstruction 
+efficiency, we compare the proton reconstruction efficiency to estimations 
+stemming from measured data. However, several caveats complicate the comparison. 
+
+For one, the composition of \CR primaries at the considered energies is not
+dominated by protons, as evidenced by prior analysis 
+\cite{birdEvidenceCorrelatedChanges1993, yushkovMassCompositionCosmic2021,
+mayotteMeasurementInterpretationUHECR2025}. Moreover, the true energy and 
+arrival direction of the primary particle is not known for observational data.
+
+
+%We attempt to address this by assigning the energy $E^p_\mathrm{rec}$ 
+%(introduced in \cref{sssec:proton-energy-scale})
+
+
+%We must thus reduce the complexity of the task will focus on comparing the 
+%transition to full efficiency between simulation and data.
+
+Assuming an isotropic flux of \CR primaries, the inclination of the primary 
+particle is distributed such that 
+$\sin^2\,\theta_\mathrm{MC} \sim\mathcal{U}(0, \sin^2\,\theta_\mathrm{max})$.
+If a \CR observatory detects all events above an energy $E_\mathrm{MC}$ and 
+inclination $\theta_\mathrm{MC}$, the distribution of reconstructed arrival
+directions should mirror this dispersion. Fewer observations, especially at high
+inclinations are thus indicative of a reconstruction inefficiency.
+
+The above logic can be formalized with an Anderson-Darling test
+\cite{andersonAsymptoticTheoryCertain1952}, which we use to calculate the
+probability of observing a given zenithal distribution assuming the null 
+hypothesis ($H_0$) of an isotropic flux.
+
+To conduct this test, we take observations $O_i$ measured during Phase-I of the
+\PAO (Ref.~\cref{sec:phase1-event-level-observables}). For a set of events 
+$Y = \{ O\,|\,E_O > E_\mathrm{cut}\,\wedge\,\theta_O < \theta_\mathrm{cut}\}$ 
+above energy $E_\mathrm{cut}$ and below an inclination $\theta_\mathrm{cut}$,
+and ordered by ascending $\theta_\mathrm{rec}$, we calculate the 
+Anderson-Darling test statistic
 
 \begin{equation}
-\label{eq:efficiency-theta-dependence}
-\alpha(\theta_\mathrm{MC};\,a_0,\,a_1,\,a_2,\,a_3) = a_0 + a_1\,x + a_2\,x^2 + a_3\,x^3,\qquad x = \cos^2\,\theta_\mathrm{MC}\,.
+\label{eq:anderson-darling-test-statistic}
+A^2 = -|Y| - \sum\limits_{i=1}^{|Y|} \frac{2i-1}{|Y|} \left(\log(F(O_i)) - \log(1 - F(O_{|Y|+1-i}))\right),
 \end{equation}
 
-The shape parameters $a_i$ and $\beta$ are determined from an unbinned maximum 
-likelihood optimization tailoring \cref{eq:rec-efficiency-parametrization} to 
-the reconstruction efficiencies calculated during the simulation procedure. 
-These follow (for a single simulation with energy $E_\mathrm{MC}$ and zenith 
-$\theta_\mathrm{MC}$) by building the ratio of number of successful 
-reconstruction $n_\mathrm{success}$ versus number of total attempted 
-reconstructions. The results of the optimization, both for $p$ and $\gamma$ 
-primaries is displayed in \todo{table}. The visual correspondence between the
-simulated reconstruction efficiency and the parametrized reconstruction 
-efficiency is shown in \todo{figure}.
+where $F(O_i)$ gives the \CDF of observation $O_i$ in $Y$. Since we test for 
+uniformity in $\sin^2\,\theta_\mathrm{rec}$, the sum in 
+\cref{eq:anderson-darling-test-statistic} simplifies to
 
-\subsubsection{Full Efficiency Transition}
+\begin{equation}
+\label{eq:anderson-darling-sum}
+S = \sum\limits_{i=1}^{|Y|} \frac{2i-1}{|Y|} \left[\log\frac{\sin^2\,\theta_{\mathrm{rec},\,i}}{\sin^2\,\theta_\mathrm{cut}} - \log\left(1-\frac{\sin^2\,\theta_{\mathrm{rec},\,|Y|+1-i}}{\sin^2\,\theta_\mathrm{cut}}\right)\right].
+\end{equation}
 
+After calculating $A^2$ for a given $E_\mathrm{cut}$ and $\theta_\mathrm{cut}$,
+we build its' p-value by comparison to $10,000$ bootstrapped datasets
+$N\subset H_0$, with $|N| = |Y|$.
 
-
-% important to not overestimate reconstruction efficiency
-% cross check from full efficiency transition w/ arrival direction?
+\todo{continue}
 
 \subsection{Energy Assignment}
+
+The previous section hints towards an important caveat in the analysis. The true
+energy of observed \CRs is unknown, and can only be approximately reconstructed 
+from a detector signal. The energy reconstruction presented in 
+\cref{sssec:sd-reconstruction-energy-estimator} is tuned such that the 
+reconstructed \SD energy matches the reconstructed \FD energy for all detected
+hybrid events. Relying on the fact that \EASs have a higher muon fraction with 
+increasing mass of the primary particle, this leads to systematic 
+underestimation of the energy of $p$ and $\gamma$ events.
+
+There are thus a set of energy scales that stand in disagreement with each 
+other. The true \CR energy $E_\mathrm{MC}$ is different from the reconstructed
+energy $E_\mathrm{rec}$. Moreover, each primary group (with the same 
+$E_\mathrm{MC}$ and $\theta_\mathrm{MC}$) has a different bias in reconstructed
+energy. To ensure a fair comparison, we must thus build an unbiased energy 
+estimator that approximates $E_\mathrm{MC}$ from reconstructed observables for 
+the two considered primaries.
+
 \subsubsection{Simulated Protons}
+\label{sssec:proton-energy-scale}
+
+We use the approach in Ref.~\cite{ellwangerAttenuationModelsExtensive2025}, 
+connecting the true primary energy to the reconstructed shower size $S(450)$
+using a physically motivated attenuation function.
+
+\begin{equation}
+\label{eq:proton-energy-scale}
+\mathrm{log}_{10}\left(E_\mathrm{MC}\,/\,\mathrm{eV}\right) = A + B\,\mathrm{log}_{10}\left(\frac{S(450)\,/\,\mathrm{VEM}}{f(\theta_\mathrm{rec};\,q_\mathrm{EM}, \gamma, \delta)}\right),
+\end{equation}
+
+where $f$ treats the \EM component of the particle cascade different from the 
+(quasi-unattenuated) muonic component, namely
+
+\begin{align}
+\label{eq:physically-motivated-attenuation-function}
+f(\theta_\mathrm{rec};\,q_\mathrm{EM}, \gamma, \delta) &= q_\mathrm{EM}\,f_\mathrm{EM}(\theta_\mathrm{rec};\,\gamma, \delta) + (1-q_\mathrm{EM}) f_\mu, \\ 
+\label{eq:electromagnetic-attenuation-function}
+f_\mathrm{EM} &= \exp\left(\gamma\,x + (\gamma - \delta)\,y\right), \\
+f_\mu &= 1,
+\end{align}
+
+and $x = \sec\,\theta_\mathrm{rec} - \sec\,\theta_\mathrm{ref}$, 
+$y = \log\sec\,\theta_\mathrm{rec} - \log\sec\,\theta_\mathrm{ref}$ in 
+\cref{eq:electromagnetic-attenuation-function}. The shape parameters $A$, $B$,
+$q_\mathrm{EM}$, $\gamma$, $\delta$ are again determined via an unbinned 
+likelihood optimization in which the reference angle 
+$\theta_\mathrm{ref} = \SI{35.84}{\degree}$ 
+($\theta_\mathrm{ref} = \SI{33.97}{\degree}$) is chosen as the median angle of 
+the simulated proton (photon) dataset to ensure an accurate representation. The 
+results of the numerical optimization are listed in 
+\cref{tab:energy-scale-parameters}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.2}
+\begin{table}
+	\begin{center}
+	\caption{Best fit parameters of \cref{eq:proton-energy-scale} for 
+	simulated proton and photon showers.}
+	\begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}} c|ccccc}
+  \toprule
+  \hline
+   & $A$ & $B$ & $q_\mathrm{EM}$ & $\gamma$ & $\delta$ \\
+   \hline
+   $p$ & 
+$16.17\pm0.08$ & $1.04\pm0.06$ & $0.87\pm0.16$ & $6^{+8}_{-5}$ & $0.6^{+1.3}_{-1.9}$ \\
+$\gamma$ & $16.39\pm0.08$ & $0.99\pm0.06$ & $0.95\pm0.05$ & $13^{+7}_{-5}$ & $-1^{+1.6}_{-1.8}$ \\
+  \bottomrule
+	\end{tabular*}
+	\label{tab:energy-scale-parameters}
+	\end{center}
+\end{table}
+\endgroup
+
+\todo{interpretation}
+
 \subsubsection{Simulated Photons}
 \subsection{Unified Energy Scale}
-
-\section{Validation with Past Studies}
-
-\subsection{Reconstruction Efficiency}
 
 \section{μLDF-based Discrimination}
 % trigger, zenith, station selection, muLDF dependence
@@ -212,6 +391,7 @@ efficiency is shown in \todo{figure}.
 \subsection{Selection Dependence}
 \subsection{Trigger Dependence}
 \subsection{Zenith Dependence}
+\subsection{Validation with Past Studies}
 
 \section{Validation on Burnt Sample}
 
