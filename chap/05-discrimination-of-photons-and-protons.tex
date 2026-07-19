@@ -274,7 +274,7 @@ directions should mirror this dispersion. Fewer observations, especially at high
 inclinations are thus indicative of a reconstruction inefficiency.
 
 The above logic can be formalized with an Anderson-Darling test
-\cite{andersonAsymptoticTheoryCertain1952}, which we use to calculate the
+\cite{andersonAsymptoticTheoryCertain1952}, which we use to calculate the 
 probability of observing a given zenithal distribution assuming the null 
 hypothesis ($H_0$) of an isotropic flux.
 
@@ -336,27 +336,87 @@ using a physically motivated attenuation function.
 \mathrm{log}_{10}\left(E_\mathrm{MC}\,/\,\mathrm{eV}\right) = A + B\,\mathrm{log}_{10}\left(\frac{S(450)\,/\,\mathrm{VEM}}{f(\theta_\mathrm{rec};\,q_\mathrm{EM}, \gamma, \delta)}\right),
 \end{equation}
 
-where $f$ treats the \EM component of the particle cascade different from the 
-(quasi-unattenuated) muonic component, namely
+where $f$ treats the effective \EM component of the particle cascade different 
+from the (quasi-unattenuated) muonic component; namely
 
 \begin{align}
 \label{eq:physically-motivated-attenuation-function}
 f(\theta_\mathrm{rec};\,q_\mathrm{EM}, \gamma, \delta) &= q_\mathrm{EM}\,f_\mathrm{EM}(\theta_\mathrm{rec};\,\gamma, \delta) + (1-q_\mathrm{EM}) f_\mu, \\ 
 \label{eq:electromagnetic-attenuation-function}
 f_\mathrm{EM} &= \exp\left(\gamma\,x + (\gamma - \delta)\,y\right), \\
-f_\mu &= 1,
+f_\mu &= 1.
 \end{align}
 
-and $x = \sec\,\theta_\mathrm{rec} - \sec\,\theta_\mathrm{ref}$, 
-$y = \log\sec\,\theta_\mathrm{rec} - \log\sec\,\theta_\mathrm{ref}$ in 
-\cref{eq:electromagnetic-attenuation-function}. The shape parameters $A$, $B$,
-$q_\mathrm{EM}$, $\gamma$, $\delta$ are again determined via an unbinned 
-likelihood optimization in which the reference angle 
-$\theta_\mathrm{ref} = \SI{35.84}{\degree}$ 
-($\theta_\mathrm{ref} = \SI{33.97}{\degree}$) is chosen as the median angle of 
-the simulated proton (photon) dataset to ensure an accurate representation. The 
-results of the numerical optimization are listed in 
+with the substitutions
+
+\begin{align}
+\label{eq:attenuation-function-substitution}
+x &= \sec\,\theta_\mathrm{rec} - \sec\,\theta_\mathrm{ref}, \\
+y &= \log\sec\,\theta_\mathrm{rec} - \log\sec\,\theta_\mathrm{ref}, 
+\end{align}
+
+are in use in \cref{eq:electromagnetic-attenuation-function}. The direct energy
+calibration parameters $A$ and $B$, the effective \EM fraction $q_\mathrm{EM}$, as well as the attenuation function parameters $\gamma$ and $\delta$ are again 
+determined via an unbinned likelihood optimization where the reference angle 
+$\theta_\mathrm{ref} = \SI{35.84}{\degree}$ is chosen as the median angle of 
+the $340,806$ reconstructed simulated proton showers to ensure an accurate 
+representation. The results of the numerical optimization are listed in 
 \cref{tab:energy-scale-parameters}.
+
+The obtained energy scale $E^p_\mathrm{rec}$ approximates the true primary 
+energy of proton showers from reconstructed values with high accuracy over the
+entire range of simulated parameters. The largest mean bias are well below 
+$\SI{10}{\percent}$ and recorded at low primary energies and high zenith angles,
+as shown in \cref{fig:proton-scale-energy} and \cref{fig:proton-scale-zenith}.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{discrimination/proton_energy_scale_energy.png}
+  \label{fig:proton-scale-energy}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{discrimination/photon_energy_scale_energy.png}
+  \label{fig:photon-scale-energy}
+  }\hfill
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{discrimination/proton_energy_scale_zenith.png}
+  \label{fig:proton-scale-zenith}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=0.47\textwidth]{discrimination/photon_energy_scale_zenith.png}
+  \label{fig:photon-scale-zenith}
+  }\hfill
+  \caption[]{Bias of the reconstructed proton energy compared to the true 
+  primary energy with respect to the true primary energy for 
+  \subref{fig:proton-scale-energy} proton primaries, 
+  \subref{fig:photon-scale-energy} photon primaries, and with respect to the 
+  reconstructed zenith angle for \subref{fig:proton-scale-zenith} for proton
+  primaries and \subref{fig:photon-scale-zenith} for photon primaries. The white
+  errorbars give the profile plot of the data in the underlaying histograms.}
+  \label{fig:simulation-energy-scale}
+\end{figure}
+
+\subsubsection{Simulated Photons}
+
+We employ the same optimization as in \cref{sssec:proton-energy-scale}, 
+estimating the fit parameters for the $318,465$ simulated photon showers with 
+$\theta_\mathrm{ref} = \SI{33.97}{\degree}$. The found parameters are listed in 
+\cref{tab:energy-scale-parameters}, whereas the correspondence between the 
+reconstructed photon energy $E^\gamma_\mathrm{rec}$ and the true energy is shown
+in \cref{fig:photon-scale-energy} and \cref{fig:photon-scale-zenith}.
+
+The accuracy of this photon energy scale is, on average, comparable to the 
+proton energy scale in \cref{sssec:proton-energy-scale}. Slightly larger biases
+of $\approx\SI{10}{\percent}$ at lower true primary energies and higher 
+inclinations are indicative of an imperfect approximation of the \EM attenuation
+function \cref{eq:electromagnetic-attenuation-function}, which is poorly
+constrained in both optimization procedures.
+
+We note qualitatively that $B^p > B^\gamma$, implying that the reconstructed
+shower size of photon-induced \EASs grows slower than those of proton-induced
+\EASs. This confirms expectations that the muonic component of the particle 
+cascade leaves a larger detector trace than the \EM component, which, given 
+$q_\mathrm{EM}^\gamma > q_\mathrm{EM}^p$ must be the dominating component for 
+photon showers.
+
+\subsection{Unified Energy Scale}
 
 \begingroup
 \renewcommand{\arraystretch}{1.2}
@@ -379,10 +439,23 @@ $\gamma$ & $16.39\pm0.08$ & $0.99\pm0.06$ & $0.95\pm0.05$ & $13^{+7}_{-5}$ & $-1
 \end{table}
 \endgroup
 
-\todo{interpretation}
+With the optimized parameters in \cref{tab:energy-scale-parameters} we have 
+obtained two frameworks with which we can accurately approximate the primary
+energy of simulated proton and photon primaries. However, the primary particle 
+type of an observed \EAS is unknown, we do not know whether the "correct" energy
+to assign to an event is $E^p_\mathrm{rec}$ or 
+$E^\gamma_\mathrm{rec}$.\footnote{Or the energy scale set by simulations of 
+other \CR types.} This calls for the creation of a novel, unified energy scale
+that treats all \CR observations equally, independent of their (unknown) primary
+type. Two considerations are especially important in creating the unified energy
+scale.
 
-\subsubsection{Simulated Photons}
-\subsection{Unified Energy Scale}
+\begin{itemize}
+\item Small bias in the reconstructed energy for photon primaries.
+\item 
+\end{itemize}
+
+
 
 \section{μLDF-based Discrimination}
 % trigger, zenith, station selection, muLDF dependence
