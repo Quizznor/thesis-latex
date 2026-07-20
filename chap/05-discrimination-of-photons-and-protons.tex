@@ -11,6 +11,7 @@ comparing the \EASs initiated from different primaries; The muonic fraction of
 the \EAS grows with the 
 
 muonic fraction grows with log A
+\todo{continue}
 
 \section{Monte Carlo Datasets}
 
@@ -333,7 +334,7 @@ using a physically motivated attenuation function.
 
 \begin{equation}
 \label{eq:proton-energy-scale}
-\mathrm{log}_{10}\left(E_\mathrm{MC}\,/\,\mathrm{eV}\right) = A + B\,\mathrm{log}_{10}\left(\frac{S(450)\,/\,\mathrm{VEM}}{f(\theta_\mathrm{rec};\,q_\mathrm{EM}, \gamma, \delta)}\right),
+\mathrm{log}_{10}\left(E_\mathrm{MC}\,/\,\mathrm{eV}\right) \approx A + B\,\mathrm{log}_{10}\left(\frac{S(450)\,/\,\mathrm{VEM}}{f(\theta_\mathrm{rec};\,q_\mathrm{EM}, \gamma, \delta)}\right),
 \end{equation}
 
 where $f$ treats the effective \EM component of the particle cascade different 
@@ -413,8 +414,8 @@ We note qualitatively that $B^p > B^\gamma$, implying that the reconstructed
 shower size of photon-induced \EASs grows slower than those of proton-induced
 \EASs. This confirms expectations that the muonic component of the particle 
 cascade leaves a larger detector trace than the \EM component, which, given 
-$q_\mathrm{EM}^\gamma > q_\mathrm{EM}^p$ must be the dominating component for 
-photon showers.
+$q_\mathrm{EM}^\gamma > q_\mathrm{EM}^p$ must be bigger for photon showers
+compared to proton showers.
 
 \subsection{Unified Energy Scale}
 
@@ -447,18 +448,62 @@ to assign to an event is $E^p_\mathrm{rec}$ or
 $E^\gamma_\mathrm{rec}$.\footnote{Or the energy scale set by simulations of 
 other \CR types.} This calls for the creation of a novel, unified energy scale
 that treats all \CR observations equally, independent of their (unknown) primary
-type. Two considerations are especially important in creating the unified energy
-scale.
+type. Of particular importance is a small bias of the reconstructed energy for
+photon primaries, as it defines the accuracy of the flux limits set in 
+\cref{chap:photon-search}.
 
-\begin{itemize}
-\item Small bias in the reconstructed energy for photon primaries.
-\item 
-\end{itemize}
+We construct a unified energy scale $E^\mathrm{mix}_\mathrm{rec}$ by mixing both
+photon and proton best-fit parameters in \cref{tab:energy-scale-parameters} into
+\cref{eq:proton-energy-scale}. In particular, we choose $A^\gamma$ to ensure an
+accurate correspondence of $E^\mathrm{mix}_\mathrm{rec}$ to $E_\mathrm{MC}$ for
+photon-induced \EASs. In order to model the atmospheric attenuation of the 
+dominating hadronic background we choose $B^p$, $q^p_\mathrm{EM}$, $\gamma^p$, 
+and $\delta^p$ in order to fix the unified energy scale.
 
+This choice of parameters leads to an almost unbiased approximation of the true
+energy of photon primaries from the full efficiency threshold to 
+$E_\mathrm{MC} \approx 10^{18}\,\mathrm{eV}$ for showers with 
+$\theta_\mathrm{rec}\in[\SI{0}{\degree},\,\SI{44}{\degree}]$, as shown in
+\cref{fig:unified-energy-scale-vertical}. At higher inclinations 
+(Ref.~\cref{fig:unified-energy-scale-horizontal}), the imperfect approximation 
+of the attenuation function becomes evident and $E^\mathrm{mix}_\mathrm{rec}$ 
+becomes biased for photon-induced \EASs.
 
+The energy of proton-induced \EASs is overestimated. Therefore, upon comparison 
+of particle cascades with the the same energy $E^\mathrm{mix}_\mathrm{rec}$, 
+lower energy proton showers (with smaller muonic component) are mixed with 
+higher energy photon showers. This is crucial in ensuring the extrapolated 
+background contaminations for a given photon candidate cut in 
+\cref{sec:ldf-based-discrimination} will be pessimistic, enforcing our 
+confidence in gathered results.
+
+Importantly, the proton energy bias, especially with respect to the photon bias,
+remains constant for the considered primary energies, ensuring that this 
+pessimism is applied for the entire parameter space investigated here.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{discrimination/unified_energy_scale_vertical.png}
+  \label{fig:unified-energy-scale-vertical}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[width=1.0\textwidth]{discrimination/unified_energy_scale_horizontal.png}
+  \label{fig:unified-energy-scale-horizontal}
+  }
+  \caption[]{Bias of $E^\mathrm{mix}_\mathrm{rec}$ with respect to the true 
+  primary energy of photons and protons, for \EASs with 
+  \subref{fig:unified-energy-scale-vertical}  
+  $\theta_\mathrm{rec}\in[\SI{0}{\degree},\SI{44}{\degree}]$, and 
+  \subref{fig:unified-energy-scale-horizontal} 
+  $\theta_\mathrm{rec}\in[\SI{44}{\degree},\SI{65}{\degree}]$.}
+  \label{fig:unified-energy-scale}
+\end{figure}
 
 \section{μLDF-based Discrimination}
+\label{sec:ldf-based-discrimination}
+
+
 % trigger, zenith, station selection, muLDF dependence
+
 
 \subsection{Parametric Dependence}
 \subsection{Selection Dependence}
