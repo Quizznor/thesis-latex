@@ -250,21 +250,7 @@ inclination of the primary particle increases. Both effects can be seen in
 
 In order to verify the validity of this simulation-inferred reconstruction 
 efficiency, we compare the proton reconstruction efficiency to estimations 
-stemming from measured data. However, several caveats complicate the comparison. 
-
-For one, the composition of \CR primaries at the considered energies is not
-dominated by protons, as evidenced by prior analysis 
-\cite{birdEvidenceCorrelatedChanges1993, yushkovMassCompositionCosmic2021,
-mayotteMeasurementInterpretationUHECR2025}. Moreover, the true energy and 
-arrival direction of the primary particle is not known for observational data.
-
-
-%We attempt to address this by assigning the energy $E^p_\mathrm{rec}$ 
-%(introduced in \cref{sssec:proton-energy-scale})
-
-
-%We must thus reduce the complexity of the task will focus on comparing the 
-%transition to full efficiency between simulation and data.
+stemming from measured data.
 
 Assuming an isotropic flux of \CR primaries, the inclination of the primary 
 particle is distributed such that 
@@ -301,8 +287,54 @@ S = \sum\limits_{i=1}^{|Y|} \frac{2i-1}{|Y|} \left[\log\frac{\sin^2\,\theta_{\ma
 \end{equation}
 
 After calculating $A^2$ for a given $E_\mathrm{cut}$ and $\theta_\mathrm{cut}$,
-we build its' p-value by comparison to $10,000$ bootstrapped datasets
-$N\subset H_0$, with $|N| = |Y|$.
+we build a p-value for $Y\subset H_0$ by comparison to $n=10,000$ bootstrapped 
+datasets $N_i$ randomly drawn from $H_0$ with $|N| = |Y|$. We accept the null 
+hypothesis if $p = |\{N_i\,|\,A_{N_i}^2 > A_Y^2\}|\,/\,n  > 0.005$.
+
+The distribution of calculated p-values for a set of adaptively sampled 
+\cite{nijholtPythonadaptiveAdaptiveVersion2026} observation thresholds 
+$(E_\mathrm{cut},\,\theta_\mathrm{cut})$ is shown in 
+\cref{fig:full-efficiency-validation}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{discrimination/efficiency_validation.png}
+  \caption{Comparison between arrival direction uniformity observed in Phase-I
+  data at $\mathrm{p}=0.005$ and full reconstruction efficiency transition  
+  ($\langle P(E_\mathrm{rec},\,\theta_\mathrm{rec})\rangle = 0.97$) for proton
+  simulations. The dashed lines mark the \SI{14}{\percent} uncertainty on 
+  $E_\mathrm{rec}$.}
+  \label{fig:full-efficiency-validation}
+\end{figure}
+
+
+
+Several caveats complicate the direct comparison to the average efficiency
+calculated from simulations (Ref.~\cref{eq:rec-efficiency-parametrization}, 
+\cref{tab:efficiency-fit-parameters}),
+
+\begin{equation}
+\label{eq:average-efficiency-integral}
+\langle P_\mathrm{rec}\rangle = \int\limits_{E_\mathrm{cut}}^\infty \int\limits_0^{\theta_\mathrm{cut}} P_\mathrm{rec}(E,\theta)\mathcal{J}(E,\theta)\,\mathrm{d}\theta\,\mathrm{d}E\,\bigg/\, \int\limits_{E_\mathrm{cut}}^\infty \int\limits_0^{\theta_\mathrm{cut}}\mathcal{J}(E,\theta)\,\mathrm{d}\theta\,\mathrm{d}E
+\end{equation}
+
+ %J(E)\,\sin(2\theta)\
+
+
+For one, the composition of \CR primaries at the considered energies is not
+dominated by protons, as evidenced by prior analysis 
+\cite{birdEvidenceCorrelatedChanges1993, yushkovMassCompositionCosmic2021,
+mayotteMeasurementInterpretationUHECR2025}. Moreover, the true energy and 
+arrival direction of \CRs is not known for observational data.
+
+%We attempt to address this by assigning the energy $E^p_\mathrm{rec}$ 
+%(introduced in \cref{sssec:proton-energy-scale})
+
+
+%We must thus reduce the complexity of the task will focus on comparing the 
+%transition to full efficiency between simulation and data.
+
+
 
 \todo{continue}
 
