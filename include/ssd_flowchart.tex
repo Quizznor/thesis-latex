@@ -1,0 +1,151 @@
+
+\vspace{0.5cm}
+\begin{tikzpicture}[font=\footnotesize]
+
+% Start block
+\node[draw,
+    rounded corners,
+    rectangle,
+    align=center,
+    text width=2.1cm,
+    minimum width=2.2cm,
+    minimum height=1cm] (block0) 
+    {
+    Adjust by \\
+    $t_\mathrm{cal.}+\SI{5}{\second}$ \\
+    $\delta-0.01\,\mathrm{ADC}$
+    };
+
+\node[draw,
+    align=center,
+    text width=4.2cm,
+    above=of block0,
+    minimum width=3cm,
+    minimum height=1cm
+    ] (block1) {
+    $\Delta r > 0:\,T_{70}^\mathrm{new} = T_{70}^\mathrm{old} + \delta$
+    $\Delta r < 0:\,T_{70}^\mathrm{new} = T_{70}^\mathrm{old} - \delta$
+    };
+
+\node[draw,
+    shape=diamond,
+    left=0.6cm of block1,
+    minimum height=1cm
+    ] (block3) { 
+    Wait $t_\mathrm{cal.}$
+    };
+
+\node[draw,
+    align=center,
+    minimum height=1cm,
+    below=of block0
+    ] (block4) {
+    $\Delta r < \sigma_r$
+    };
+
+\node[draw,
+    align=center,
+    left=1.54cm of block4,
+    minimum width=3cm,
+    minimum height=1cm
+] (block5) {
+	$\Delta r = \left|f_{70} - \SI{70}{\hertz}\right|$ \\ $\sigma_{r} = \sqrt{n\,/\,t_\mathrm{cal.}}$
+    };
+
+\node[draw,
+    rounded corners,
+    rectangle,
+    right=0.4cm of block0,
+    text width=2.1cm,
+    align=center,
+    minimum width=2.2cm,
+    minimum height=1cm] (block6) 
+    {
+    Set increment\\
+$\delta = 0.1\,\mathrm{ADC}.$
+    };
+
+\node[draw,
+    align=center,
+    minimum height=1cm,
+    below=1.017cm of block6
+    ] (block7) {
+    $\Delta r < \SI{5}{\hertz}$
+    };
+
+\node[draw,
+    rounded corners,
+    rectangle,
+    right=0.4cm of block6,
+    text width=2.1cm,
+    align=center,
+    minimum height=1cm] (block8) 
+    {
+    Leave $t_\mathrm{cal.}$ and $\delta$ invariant
+    };
+
+\node[draw,
+    align=center,
+    minimum height=1cm,
+    below=0.968cm of block8
+    ] (block9) {
+    $\Delta r < \SI{20}{\hertz}$
+    };
+
+\node[draw,
+    rounded corners,
+    rectangle,
+    right=0.4cm of block8,
+    text width=2.1cm,
+    align=center,
+    minimum height=1cm] (block10) 
+    {
+    Set values \\
+    $t_\mathrm{cal.} = \SI{10}{\second}$, \\
+    $\delta = 1.0\,\mathrm{ADC}$.
+    };
+
+\node[draw,
+    rounded rectangle,
+    above=3.55cm of block8,
+    align=center,
+    minimum width=2.2cm,
+    minimum height=1cm] (block13) 
+    {START};
+
+\node[draw,
+    rounded rectangle,
+    left=1.9cm of block13,
+    align=center,
+    minimum width=2.2cm,
+    minimum height=1cm] (block2) 
+    {
+    Initialize $T_{70} = 50\,\mathrm{ADC}$, $t_\mathrm{cal.} = \SI{10}{\second}$, and $\delta = 0.2\,\mathrm{ADC}.$
+    };
+
+\node[coordinate,right=0.54cm of block1] (block11) {};
+\node[coordinate,right=2.764cm of block11] (block12) {};
+
+% Arrows
+\draw[-latex] (block2) edge (block3);
+\draw[-latex] (block3) edge (block5);
+\draw[-latex] (block5) edge (block4);
+\draw[-latex] (block13) edge (block2);
+
+\draw[-latex] (block4) edge node[pos=0.45,fill=white,inner sep=2pt]{Yes}(block0);
+\draw[-latex] (block4) edge node[pos=0.45,fill=white,inner sep=2pt]{x}(block7);
+\draw[-latex] (block7) edge node[pos=0.4,fill=white,inner sep=2pt]{Yes}(block6);
+\draw[-latex] (block7) edge node[pos=0.45,fill=white,inner sep=2pt]{x}(block9);
+\draw[-latex] (block9) edge node[pos=0.4,fill=white,inner sep=2pt]{Yes}(block8);
+    
+\draw[-latex] (block9) -| (block10)
+    node[pos=0.15,fill=white,inner sep=1]{No};
+
+\draw[-latex] (block1) edge (block3);
+\draw[-latex] (block0) edge (block1);
+\draw (block8) edge (block12);
+\draw (block6) -- (block11);
+\draw[-latex] (block10) |- (block1);
+
+\end{tikzpicture}
+\vspace{0.5cm}

@@ -1,0 +1,75 @@
+%! TEX root = ../main.tex
+
+\chapter{SSD Online Calibration}
+\label{chap:further-improvements}
+
+The previous sections in this work have demonstrated the excellent capabilities
+of the \UMD to predict the primary type of a \CR by accessing the muonic 
+component of \EASs directly. The presented discrimination framework is able to 
+identify \todo{SE} of all photon simulations without falsely tagging any 
+proton simulations as candidates at energies \todo{energy}. 
+
+With these performance figures in mind, the metric to be optimized next becomes 
+the size of the search sample. This can be increased in two main ways. First, 
+the trigger efficiency of the \SD can be improved, resulting in more observed 
+\EASs, especially at lower energies. Second, the detector area can be increased
+via extending the analysis e.g.~to the \SD-1500 by virtue of performing primary 
+discrimination using a joint analysis of the \WCD and \SSD signal in an event.
+
+The foundation needed for both cases is the implementation of the AugerPrime 
+detectors in the event detection chain. For the \SSD in particular, this
+requires an algorithm that puts measured signals into a physical context. Such
+an algorithm has been presented in \cref{sssec:ssd}, but has some shortcomings.
+Notably, it is not a in-situ algorithm, limiting its' temporal resolution to an
+order of hours. This impedes an accurate calculation of the exposure of the 
+\SSD-array, and constrains the effectiveness of standalone event triggers 
+relying on \SSD data, both critical in extending the photon search to the 
+\SD-1500 array.
+
+In the following, we address these issues by implementing an 
+online\footnote{Meaning in-situ, as opposed to histogram-fitting, which happens
+offline (ex-situ).} calibration algorithm for the \SSD-array. We present the 
+working procedure of the routine in \cref{sec:ssd-online-calibration-algorithm},
+and state the preliminary performance in 
+\cref{sec:ssd-online-calibration-performance}. Finally, we present a 
+minute-accurate monitoring framework of the \SSD-array in 
+\cref{sec:ssd-online-calibration-monitoring}, which relies on the data produced
+by the online calibration alogrithm.
+
+disclaimer, citing gap notes, yada yada
+
+\section{Calibration Algorithm}
+\label{sec:ssd-online-calibration-algorithm}
+
+\subsection{Algorithm Routine}
+
+We adopt the idea of a rate-based algorithm from the already implemented \WCD
+online calibration (Ref.~\cref{sssec:wcd}). In this spirit, we implement a 
+single-bin calibration trigger with a trigger threshold $T_{70}$ whose trigger
+rate is monitored for an integration window $t_\mathrm{cal.}$. After 
+$t_\mathrm{cal.}$ has passed, the trigger threshold is adjusted by a value of
+$\delta$ such that the observed trigger rate, $f_{70}$ converges to a target 
+rate $f_{70}^\mathrm{target}$. For compatibility reasons, we chose 
+$f_{70}^\mathrm{target} = \SI{70}{\hertz}$. In order to increase convergence 
+speed, we also adjust the magnitude of $\delta$ based on the measured difference
+$\Delta r = \left|f_{70} - f^\mathrm{target}_{70}\right|$. The control diagram
+for the process is shown in \cref{fig:control-diagram}.
+
+\begin{figure}
+    \centering
+    \input{include/ssd_flowchart}
+    \caption{Control diagram for the rate-based SSD online calibration algorithm}
+    \label{fig:control-diagram}
+\end{figure}
+
+% mention limits on delta, tcal
+
+
+\subsection{Feasibility Tests}
+\subsection{Integration Tests}
+
+\section{Performance}
+\label{sec:ssd-online-calibration-performance}
+
+\section{Monitoring}
+\label{sec:ssd-online-calibration-monitoring}
