@@ -62,10 +62,160 @@ for the process is shown in \cref{fig:control-diagram}.
     \label{fig:control-diagram}
 \end{figure}
 
-% mention limits on delta, tcal
 
+For example, if $730$ triggered events are registered in the first 
+$t_\mathrm{cal.} = \SI{10}{\second}$ after initialization, we calculate 
+$\Delta f$ to be \SI{3}{\hertz}. This exceeds $\sigma_r\approx\SI{2.7}{\hertz}$,
+but not \SI{5}{\hertz}. We therefore set $\delta=\SI{0.1}{ADC}$, and, because 
+$\Delta f > 0$, increase $T_{70}$ by $\delta$. We then collect the number of 
+events that satisfy the updated trigger threshold $T_{70} = \SI{50.1}{ADC}$ for
+the following integration window ($t_\mathrm{cal.}=\SI{10}{\second}$), and 
+repeat the above procedure.   
+
+In this way, the trigger threshold $T_{70}$ is adjusted until a \SI{70}{\hertz} 
+event rate of the single-bin trigger is reached. Once this is the case, the 
+integration interval $t_\mathrm{cal.}$ is increased in 
+\SI{5}{\second}-increments to minimize the influence of Poissonian fluctuations 
+on the end result. In order for the algorithm to run stable under varying
+conditions we clip the calibration parameters 
+$\delta / \mathrm{ADC} \in [0.01, 1.00]$ and 
+$t_\mathrm{cal.} / \mathrm{s} \in [10, 61]$ respectively. Whenever the algorithm
+completes a maximum integration interval of $\SI{61}{\second}$, the current 
+value of $T_{70}$ is exported to other processes of the \UUB.
 
 \subsection{Feasibility Tests}
+
+Assuming constant electronic gain and atmospheric conditions, this algorithm is 
+guaranteed to produce a stable value of $T_{70}$, which will in turn relate
+to the value of \Imip by a constant factor
+
+\begin{equation}
+\label{eq:mip-online-calibration-factor}
+\Imip\approx \MipOnline = T_{70}\,\big/\,C.
+\end{equation}
+
+However, temperature and pressure changes in the air complicate this picture. 
+The attenuation of the \EM component of \EASs varies with a denser atmosphere, 
+and the rate of electrons impinging on the \SSD changes. This results in a 
+complicated dependency of $C$ in \cref{eq:mip-online-calibration-factor} on 
+temperature, pressure, humidity, and air composition, none of which are 
+monitored on a station-level. 
+
+This imperfect knowledge decreases the resolution of the rate-based estimator 
+\MipOnline, and may limit the ability of the \SSD to participate in the event 
+detection chain. To ensure a stable operation, we desire an estimator that is 
+precise. It need not be very accurate, as biases can be corrected 
+for.\footnote{As is done e.g.~when converting from omnidirectional to 
+vertical muon peak (\cref{sssec:reconstruction-histogram-fitter}).}
+This is to say that the minute-to-minute fluctuation in \MipOnline should be 
+minimal, whereas the bias of \MipOnline is not too important as long as it is 
+consistent across stations.
+
+Three main factors drive $\upsigma(\MipOnline)$; (a) the aforementioned 
+non-constancy of $C$ due to changing atmospheric conditions; (b) intra- and 
+inter-station fluctuations; and (c) the Poissonian sampling error on the number 
+of calibration triggers. 
+
+In order to verify whether these systematics can be controlled to a suitable 
+degree, we perform feasibility tests using $870,\!000$ \SSD muon histograms 
+(\cref{sssec:muon-histograms}) acquired from \TTHREE-events of $1,\!311$ 
+distinct \SD-stations in the months June and December 2023. 
+
+\subsubsection{Determination of the ``True'' MIP Peak}
+
+On an event basis, we first draw sample muon events from the original SSD 
+histogram to obtain a finer binning. Doing this, we neglect events from the 
+first 12 bins ($\leq24$\,ADC). We assume a uniform distribution of events per 
+original SSD bin and conserve counts (and thus rates) of the original histogram.
+Next, we fit a parabola from $-6$\,ADC to $+15$\,ADC relative to the peak 
+location of the resampled histogram and calculate the ordinate of the maximum of
+the recovered parabola. This is qualitatively equivalent to the \Offline 
+strategy (\cref{sssec:reconstruction-histogram-fitter}) to obtain the value of 
+\MipOffline. Technically, resampling is not yet required, since fitting the 
+original histogram must, on average, result in the same value for \MipOffline. 
+Nevertheless, we perform the resampling anyways, as it will allow for a finer 
+resolution in rate determination later on. In any case, resampling only changes 
+the y-scale of the histogram, and does not introduce a bias on \MipOffline. An 
+example event with the corresponding fits of \MipOffline are shown in 
+\cref{fig:ssd-histograms}.
+
+\begin{figure}
+  \centering
+  \def\w{0.48}
+  \subfloat{\includegraphics[width=\w\textwidth]{ssd-calibration/true_mip.png}
+  \label{fig:ssd-histograms}
+  }\hfill
+  \subfloat{\includegraphics[width=\w\textwidth]{ssd-calibration/rates.png}
+  \label{fig:array-rates}
+  }
+  \caption[]{\subref{fig:ssd-histograms} An example \SSD \TTHREE histogram 
+  (black) and its resampled equivalent (red). Fitting the histogram peak (dashed
+  lines) of either histogram yields compatible results. \subref{fig:array-rates}
+  The expected rate $r^+$ of events with maximum pulse height above a given 
+  threshold. The statistical error from sampling fluctuations is Poissonian and 
+  given as $\sqrt{r^+}$. The systematic error is the standard deviation of $r^+$
+  over the entire dataset. It originates from minute-to-minute fluctuations in 
+  $\Imip$ per station.}
+  \label{fig:histograms-and-rate}
+\end{figure}
+
+\subsubsection{SSD-Rate/Threshold Relationship}
+
+After determining the value of \MipOffline, we calculate the number of 
+calibration events in the resampled SSD histogram that satisfy a threshold of 
+$C = \{1.00, 1.05, \ldots, 5.00\}$ in units of $\MipOffline$. Dividing this by 
+the acquisition time of \SI{61}{\second} yields an estimate of the calibration 
+trigger rate $r^+$ at the time of the \TTHREE.
+
+With this, we calculate the average rate $\langle r^+_i\rangle$ across all 
+events for station $i$, and $\langle r^+\rangle$ across the entire array after
+pruning events $j$ where 
+$|\langle r^+_i\rangle-r^+_{i,j}| > 3\,\upsigma(r^+_i)$. The resulting 
+rate/threshold relationship is shown in \cref{fig:array-rates}.
+
+Next, we investigate the performance of the estimator \MipOnline gained from 
+inverting the rate/threshold relationship above. In particular, we compare the
+fitted value \MipOffline with the threshold read off from 
+\cref{fig:array-rates} and converted via 
+\cref{eq:mip-online-calibration-factor}.
+
+We observe a positive correlation for all considered thresholds. The degree of 
+correlation increases from $\rho\approx0.5$ to $\rho\approx0.75$ when increasing
+the $C$ from $1$ to $3$ (or decreasing the rate from \SI{200}{\hertz} to 
+\SI{10}{\hertz}). This is due to the smaller influence of low-energy processes 
+skewing the histogram distribution at higher ADC counts. By selecting events 
+with higher ionization power we mitigate effects of readout noise and physical
+fluctuations. The fact that one can in principle estimate \MipOffline by 
+building an integral rate is clear from this result.
+
+We aim to quantize the smearing in the rate/threshold relationship by splitting 
+the set of histograms into two distinct subsamples with maximum difference in 
+temperature range. The first sample consists of \TTHREE events recorded between
+10:00 to 14:00 local time in June 2023, whereas the second sample comprises 
+events recorded between 22:00 to 02:00 during december nights.
+
+\begin{figure}
+  \centering
+  \def\w{0.48}
+  \subfloat{\includegraphics[width=\w\textwidth]{ssd-calibration/summer_days.png}
+  \label{fig:summer-days}
+  }\hfill
+  \subfloat{\includegraphics[width=\w\textwidth]{ssd-calibration/winter_nights.png}
+  \label{fig:winter-nights}
+  }
+  \caption[]{Bias and resolution of \MipOnline with respect to \MipOffline shown
+  for events during \subref{fig:summer-days} summer days or 
+\subref{fig:winter-nights} for a varying rate/threshold relationship.}
+  \label{fig:drift-plots}
+\end{figure}
+
+The bias and resolution for both data sets are shown and \cref{fig:drift-plots}.
+In either case, the 
+
+% continue rewrite here
+
+From \cref{fig:correlations} and \cref{fig:drift-plots}, it follows that (a) is smaller at higher calibration trigger thresholds and reads about 5 to 8\% at values above $\sim2\,\MipOffline$, (b) increases due to diminishing rates, contributing an error of ${>}10\%$ at $5\,\Imip$. At intermediate cuts of 1.5 to $3\,\Imip$ the combined error is calculated to be ${\sim}6\%$, which is sufficient for stable operation in the SD-1500 array. The behaviour of $\sigma_{\Delta\MipOnline}$ (which is the expected error on \MipOnline for all events of a single station) across all considered thresholds is shown alongside the systematic difference between \MipOffline and \MipOnline averaged over all stations in \autoref{fig:performance-plot}
+
 \subsection{Integration Tests}
 
 \section{Performance}
@@ -86,5 +236,4 @@ for the process is shown in \cref{fig:control-diagram}.
 % put all the different shit like sunrise/sunset noise here
 
 \section{Summary}
-
 

@@ -23,8 +23,8 @@
     minimum width=3cm,
     minimum height=1cm
     ] (block1) {
-    $\Delta r > 0:\,T_{70}^\mathrm{new} = T_{70}^\mathrm{old} + \delta$
-    $\Delta r < 0:\,T_{70}^\mathrm{new} = T_{70}^\mathrm{old} - \delta$
+    $\Delta f > 0:\,T_{70}^\mathrm{new} = T_{70}^\mathrm{old} + \delta$
+    $\Delta f < 0:\,T_{70}^\mathrm{new} = T_{70}^\mathrm{old} - \delta$
     };
 
 \node[draw,
@@ -40,7 +40,7 @@
     minimum height=1cm,
     below=of block0
     ] (block4) {
-    $\Delta r < \sigma_r$
+    $|\Delta f| < \sigma_r$
     };
 
 \node[draw,
@@ -49,7 +49,7 @@
     minimum width=3cm,
     minimum height=1cm
 ] (block5) {
-	$\Delta r = \left|f_{70} - \SI{70}{\hertz}\right|$ \\ $\sigma_{r} = \sqrt{n\,/\,t_\mathrm{cal.}}$
+	$\Delta f = f_{70} - \SI{70}{\hertz}$ \\ $\sigma_{r} = \sqrt{f_{70}}$
     };
 
 \node[draw,
@@ -70,7 +70,7 @@ $\delta = 0.1\,\mathrm{ADC}.$
     minimum height=1cm,
     below=1.017cm of block6
     ] (block7) {
-    $\Delta r < \SI{5}{\hertz}$
+    $|\Delta f| < \SI{5}{\hertz}$
     };
 
 \node[draw,
@@ -89,7 +89,7 @@ $\delta = 0.1\,\mathrm{ADC}.$
     minimum height=1cm,
     below=0.968cm of block8
     ] (block9) {
-    $\Delta r < \SI{20}{\hertz}$
+    $|\Delta f| < \SI{20}{\hertz}$
     };
 
 \node[draw,
@@ -105,22 +105,23 @@ $\delta = 0.1\,\mathrm{ADC}.$
     $\delta = 1.0\,\mathrm{ADC}$.
     };
 
-\node[draw,
-    rounded rectangle,
-    above=3.55cm of block8,
-    align=center,
-    minimum width=2.2cm,
-    minimum height=1cm] (block13) 
-    {START};
+%\node[draw,
+%    rounded rectangle,
+%    above=3.55cm of block8,
+%    align=center,
+%    minimum width=2.2cm,
+%    minimum height=1cm] (block13) 
+%    {START};
 
 \node[draw,
     rounded rectangle,
-    left=1.9cm of block13,
-    align=center,
+    above=6.5cm of block5,
+    align=left,
     minimum width=2.2cm,
-    minimum height=1cm] (block2) 
+    minimum height=1cm,
+    xshift=6cm] (block2) 
     {
-    Initialize $T_{70} = 50\,\mathrm{ADC}$, $t_\mathrm{cal.} = \SI{10}{\second}$, and $\delta = 0.2\,\mathrm{ADC}.$
+    Initialize starting values: $T_{70} = 50\,\mathrm{ADC}$, $t_\mathrm{cal.} = \SI{10}{\second}$, and $\delta = 0.2\,\mathrm{ADC}.$
     };
 
 \node[coordinate,right=0.54cm of block1] (block11) {};
@@ -130,7 +131,7 @@ $\delta = 0.1\,\mathrm{ADC}.$
 \draw[-latex] (block2) edge (block3);
 \draw[-latex] (block3) edge (block5);
 \draw[-latex] (block5) edge (block4);
-\draw[-latex] (block13) edge (block2);
+%\draw[-latex] (block13) edge (block2);
 
 \draw[-latex] (block4) edge node[pos=0.45,fill=white,inner sep=2pt]{Yes}(block0);
 \draw[-latex] (block4) edge node[pos=0.45,fill=white,inner sep=2pt]{x}(block7);
