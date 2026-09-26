@@ -84,6 +84,7 @@ completes a maximum integration interval of $\SI{61}{\second}$, the current
 value of $T_{70}$ is exported to other processes of the \UUB.
 
 \subsection{Feasibility Tests}
+\label{ssec:feasibility-tests}
 
 Assuming constant electronic gain and atmospheric conditions, this algorithm is 
 guaranteed to produce a stable value of $T_{70}$, which will in turn relate
@@ -160,6 +161,7 @@ example event with the corresponding fits of \MipOffline are shown in
 \end{figure}
 
 \subsubsection{SSD-Rate/Threshold Relationship}
+\label{sssec:wcd-dependent-rate-threshold-relationship}
 
 After determining the value of \MipOffline, we calculate the number of 
 calibration events in the resampled SSD histogram that satisfy a threshold of 
@@ -181,7 +183,7 @@ fitted value \MipOffline with the threshold read off from
 
 We observe a positive correlation for all considered thresholds. The degree of 
 correlation increases from $\rho\approx0.5$ to $\rho\approx0.75$ when increasing
-the $C$ from $1$ to $3$ (or decreasing the rate from \SI{200}{\hertz} to 
+$C$ from $1$ to $3$ (or decreasing the rate from \SI{200}{\hertz} to 
 \SI{10}{\hertz}). This is due to the smaller influence of low-energy processes 
 skewing the histogram distribution at higher ADC counts. By selecting events 
 with higher ionization power we mitigate effects of readout noise and physical
@@ -210,13 +212,234 @@ events recorded between 22:00 to 02:00 during december nights.
 \end{figure}
 
 The bias and resolution for both data sets are shown and \cref{fig:drift-plots}.
-In either case, the 
+In either case, the calibration algorithm converges to similar values for bias
+and resolution, implying that atmospheric changes are not an issue for the 
+rate-based algorithm.
 
-% continue rewrite here
+\subsubsection{T1 Preselection Caveat}
 
-From \cref{fig:correlations} and \cref{fig:drift-plots}, it follows that (a) is smaller at higher calibration trigger thresholds and reads about 5 to 8\% at values above $\sim2\,\MipOffline$, (b) increases due to diminishing rates, contributing an error of ${>}10\%$ at $5\,\Imip$. At intermediate cuts of 1.5 to $3\,\Imip$ the combined error is calculated to be ${\sim}6\%$, which is sufficient for stable operation in the SD-1500 array. The behaviour of $\sigma_{\Delta\MipOnline}$ (which is the expected error on \MipOnline for all events of a single station) across all considered thresholds is shown alongside the systematic difference between \MipOffline and \MipOnline averaged over all stations in \autoref{fig:performance-plot}
+Before quantifying the expected total resolution we must discuss possible
+implementation strategies of \cref{sec:ssd-online-calibration-algorithm}. In
+particular, the choice of host process in the \UUB-\DAQ 
+\cite{satoUUBDAQV128r0b0p292024} influences the preselection of calibration 
+events and thus results. Two options are available:
+
+\begin{itemize}
+\item \textbf{Implementation in the \texttt{Trigger2} process}; This process 
+	handles the online calibration of the \WCD observables and represents a
+	minimally invasive implementation. The \texttt{Trigger2} process 
+	monitors the shower buffers, which consist of detector data that satisfy
+	a \TONE ($\approx\SI{100}{\hertz}$)
+\item \textbf{Implementation in the \texttt{muonfill} process}; This process 
+	is responsible for filling muon histograms, and not designed for online 
+	calibration purposes, and would need to be refactored. The 
+	\texttt{muonfill} process accesses detector data from the muon buffer, 
+	which consists of events with $>\SI{30}{ADC}$ above baseline in any of 
+	the \SSD/\WCD-\PMTs ($\approx\SI{3}{\kilo\hertz}$).
+\end{itemize}
+
+An implementation with the least amount of code change/refactoring is preferred,
+but comes at the cost of having to rely on \WCD-\TONE preselected data. This
+diminishes the amount of data available for calibration, and exposes the \SSD
+online calibration to \WCD systematics.
+
+We estimate the total resolution of an \SSD online calibration algorithm 
+operating in the \texttt{Trigger2} process by turning to randomly sampled \UUB 
+traces from four different \SD-stations. For the most part, this data set 
+contain electronic noise, with a small fraction of muonic/shower events which we
+use for calibration. The values of \VemOnline which are used to determine 
+\TONE-triggers are listed in \cref{tab:wcd-online_calibration-values}.
+
+\begin{wraptable}{l}{0.5\textwidth}
+    \centering
+    \begin{tabular}{c|ccc}
+         \toprule
+         ID (date) & PMT1 & PMT2 & PMT3 \\
+         \midrule
+        $56$ (22/11) & 156.50 & 163.65 & 162.70 \\
+        $1733$ (22/11) & 163.8 & 177.14 & 157.1 \\
+        $1723$ (23/05) & 148.90 & 162.20 & 151.75 \\
+        $734$ (23/05) & 145.32 & 161.37 & 48.9 \\
+        
+        \bottomrule
+    \end{tabular}
+    \caption{Average value of \VemOnline (ADC) before and 
+    after the \DAQ of random traces.}
+    \label{tab:wcd-online_calibration-values}
+\end{wraptable}
+
+To build a T1 preselected histogram of $I$ in the \SSD, we iterate over all \WCD
+traces that satisfy the \TONE criterion and add the peak of the corresponding 
+\SSD trace to the histogram if the location of the peak lays at most 20 (49) 
+bins before (after) the \TONE latch bin, i.e.~if there is an \SSD signal 
+in this way, normalized to the standard $\SI{61}{\second}$ acquisition time are 
+shown in \cref{fig:uub-randoms-histogram}. From a first examination, \TONE 
+preselection decreases counts (compared to \texttt{muonBuffer} \SSD muon 
+histograms by two orders of magnitude. The associated Poissonian error becomes 
+5\% to 12\% for a threshold of $1.5\,\Imip$ to $3\,\Imip$. Importantly, the 
+rate/threshold relationship in the case of \TONE-preselected events is much
+flatter due to lower overall trigger rates. This drives the systematic error up
+to $>\SI{10}{\percent}$, dominating the total error, which becomes
+$\approx\SIrange{10}{15}{\percent}$. On the other hand, the rate/threshold 
+relationship for events in the muon buffer (\cref{fig:array-rates}) falls of 
+much steeper, mitigating effects of e.g.~station-to-station fluctuations and 
+improving the resolution of the \SSD online calibration in this case. From 
+\cref{fig:muonfill-resolution} it seems a precision 
+$\mathcal{O}(\SI{5}{\percent})$ is possible.
+
+\begin{figure}
+  \centering
+  \def\h{0.36}
+  \subfloat{\includegraphics[height=\h\textwidth]{ssd-calibration/uub_randoms_histogram.png}
+  \label{fig:uub-randoms-histogram}
+  }\hfill
+  \subfloat{\includegraphics[height=\h\textwidth]{ssd-calibration/std.png}
+  \label{fig:muonfill-resolution}
+  }\hfill
+  \caption[]{\subref{fig:uub-randoms-histogram} \TONE preselected \SSD muon 
+  histograms for the stations Nadia (1723), Nuria (56), Constanza (734) and 
+  Svenja (1733). \subref{fig:muonfill-resolution} The standard deviation of 
+  the difference $\MipOnline - \MipOffline$, detailing the characteristic 
+  spread in \MipOnline per station. The contribution from Poissonian sampling 
+  error is marked in grey.}
+  \label{fig:resolution-plots}
+\end{figure}
+
+We observe that the implicit dependency on \WCD-triggers will degrade the 
+expected performance of the \SSD online calibration. A resolution of 
+\SIrange{10}{15}{\percent} in \MipOnline is large enough to result in 
+\TTWO bursts during unstable atmospheric conditions, which must be critically
+avoided. The implementation in the \texttt{muonfill} process is thus deemed
+the only viable option. Besides the logical correspondence of offline and 
+online calibration running in the same process, the implementation in the
+\texttt{muonfill} process has an additional advantage; The \texttt{Trigger2}
+process scans \FDS traces, which on average have a slightly lower amplitude
+than \FBW traces (see \cref{eq:filter-and-downsample} and 
+\cref{fig:filter-and-downsample}). This lowers the observed calibration 
+trigger rates above a threshold value, and thus biases the calculated value
+of \MipOnline upwards. By running on the \texttt{muonfill} process and 
+accessing \FBW traces directly, this issue is avoided.
 
 \subsection{Integration Tests}
+
+After deciding on an implementation design based on the insights from
+\cref{ssec:feasibility-tests}, we must now develop a software prototype
+that (a) runs in the \texttt{muonfill} process and (b) is independent of the
+\WCD triggers, as this drastically decreases $\upsigma(\MipOnline)$. 
+
+In order to achieve (b) in particular, the \SSD-\PMT must be included in the 
+muon trigger logic. Prior to this work, only events which surpass 
+$\SI{30}{ADC}$ above baseline in at least one bin in any of the \WCD-\LPMTs 
+were written to the muon buffers (\cref{sssec:fpga-buffers}). Thus, the 
+participation of the \SSD-\PMT with a \SB-trigger operating at a threshold of 
+\SI{70}{ADC} represents the first and most important change required for a 
+functioning \SSD online calibration.
+
+\subsubsection{WCD-less Rate/Threshold Relationship}
+
+Importantly, this change also gives rise to a new rate/threshold 
+relationship,\footnote{As the one shown in \cref{fig:array-rates} relies on 
+\WCD triggers.} whose temperature stability must be studied. For this, we 
+perform a specialized \DAQ in which we reroute the detector data of eight
+\SD-750 stations to a local instance of \CDAS. The main goal of the dedicated 
+tests are then twofold. We need a distribution of \SSD pulse height in order 
+to calculate an integral rate above a trigger threshold, as well as an 
+accurate estunate of \Imip in order to put trigger threshold into a physical
+context. The procedure for the specialized \DAQ is thus as follows:
+
+\begin{enumerate}
+\item Redirect all stations to a local instance of CDAS.
+\item Broadcast several T3 requests to all participating stations.
+\item Stop standard acquisition (i.e. do not send T2s/monitoring data to CDAS).
+\item Repeatedly collect \SSD pulse height spectra.
+\item Restart standard acquisition (i.e. send T2s/monitoring data to CDAS).
+\item Broadcast several T3 requests to all participating stations.
+\item Return all stations to main CDAS instance running in Malargüe.
+\end{enumerate}
+
+\noindent The whole process is performed twice overall, once after noon 
+on 2024-04-24 ($\SI{27}{\celsius}$), and again on 2024-04-25 before sunrise 
+($\SI{9}{\celsius}$) in order to cover a wide range of external 
+temperatures. Downlink communication was severely limited during the second 
+test iteration and only a few repetitions of step (4) could be executed.
+
+\begin{wraptable}[15]{l}{0.5\textwidth}
+    \centering
+    \begin{tabular}{c|cc|cc}
+	 \toprule
+	 \multirow{2}{*}{Station (ID)} & \multicolumn{4}{c}{PMT mask} \\
+	 & \multicolumn{2}{c}{day} & \multicolumn{2}{c}{night} \\
+	 \midrule
+	Borbaran (643) & 5 & 101 & 5 & 101 \\
+	El Mataco (659) & 5 & 101 & 5 & 101 \\
+	El Cenizo (660) & 7 & 111 & - \\
+	Redondo Jr (1823) & 7 & 111 & 7 & 111 \\
+	Cz. Republic (1839) & 3 & 011 & 3 & 011 \\
+	Italy Jr (1840) & 7 & 111 & 5 & 101 \\
+	Ruso Jr (1844) & 5 & 101 & 5 & 101 \\
+	Louisana (1845) & 7 & 111 & 7 & 111 \\
+	\bottomrule
+    \end{tabular}
+    \caption{Stations and their corresponding (\WCD) \PMT mask for both acquisition runs.}
+    \label{tab:muonAcquisition-station-list}
+\end{wraptable}
+
+\noindent The eight stations participating in the integration test are 
+listed together with their (\WCD) \PMT status in 
+\cref{tab:muonAcquisition-station-list}.
+
+We establish a rate/threshold relationship in a fashion similar to
+\cref{sssec:wcd-independent-rate-threshold-relationship} by first
+fitting the parabola vertex to the muon histogram, and using the 
+obtained information to calculate the trigger rate for a trigger
+thresholds in units of \MipOffline. An example relation between
+trigger pedestal and rate for one station in one temperature setting
+is shown in \cref{fig:example-rate-threshold-relationship}. 
+Unsurprisingly, the observed relation for distinct measurements of
+the \SSD pulse distribution is stable over a timescale of one hour,
+as atmospheric conditions are constant during the interval.
+
+Next, we combine the rate/threshold relationships of all stations 
+across both \DAQ runs in order to check the stability with respect
+to atmospheric and station-to-station fluctuations. The measured
+rate/threshold relationship averaged over all stations is shown in
+\cref{fig:ssd-only-rate-threshold-relationship}, and does not 
+differ greatly between the two different \DAQ runs. Based on this 
+result we infer that an eventual \SSD online calibration algorithm
+can be run stably in the \texttt{muonfill} process without relying
+on additional information provided by the \WCD. We further read off 
+the normalization constant in \cref{eq:mip-online-calibration-factor} 
+from \cref{fig:ssd-only-rate-threshold-relationship} as $C=2.64$
+which will be revisted in the following section.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.32\textwidth]{ssd-calibration/example_daq.png}
+  \label{fig:example-rate-threshold-relationship}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.32\textwidth]{ssd-calibration/rate_threshold_relationship.png}
+  \label{fig:ssd-only-rate-threshold-relationship}
+  }
+  \caption[]{\subref{fig:example-rate-threshold-relationship} The 
+  rate/threshold relationship for the station El Mataco during the 
+  \DAQ run at noon. The physical context of the trigger rate above 
+  a threshold on the bottom is given by the location of the peak of 
+  the muon histogram at $I\overset{!}{=} 1\,\MipOffline$ in the top 
+  plot. \subref{fig:ssd-only-rate-threshold-relationship} 
+  Rate/threshold relationship averaged across stations and \DAQ 
+  runs.}
+  \label{fig:integration-test-results}
+\end{figure}
+
+\subsubsection{Prototype Field Tests}
+
+With the feasibility of a \WCD-independent \SSD online calibration demonstrated
+in the last section, we deploy a prototype version of the 
+
+\subsubsection{Backwards Compatibility Checks}
+
+
+%een carried out in 2024/04.
 
 \section{Performance}
 \label{sec:ssd-online-calibration-performance}
@@ -235,5 +458,6 @@ From \cref{fig:correlations} and \cref{fig:drift-plots}, it follows that (a) is 
 \subsection{Calibration Issues}
 % put all the different shit like sunrise/sunset noise here
 
+\section{Increase in Photon Sensitivity}
 \section{Summary}
 

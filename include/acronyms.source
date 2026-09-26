@@ -86,7 +86,8 @@ SPMT       Small PMT
 SRAM       Static Random Access Memory
 SSD        Surface Scintillator Detector
 SiPM       Silicon Photomultiplier
-T2         Station Level Trigger
+T1         First Level Station Trigger
+T2         Second Level Station Trigger
 T3         Event Level Trigger
 TLE        Transient Luminous Event
 TLT        Third Level Trigger
