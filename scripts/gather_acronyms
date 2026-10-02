@@ -55,6 +55,7 @@ while read line; do
 
   echo -e \\\\"acro{$SHORT}{$LONG}" >> "$BASE/acronyms.tex"
   
+  if [ "$SHORT" = "T1" ]; then continue; fi
   if [ "$SHORT" = "T2" ]; then continue; fi
   if [ "$SHORT" = "T3" ]; then continue; fi
 

@@ -140,16 +140,15 @@ the y-scale of the histogram, and does not introduce a bias on \MipOffline. An
 example event with the corresponding fits of \MipOffline are shown in 
 \cref{fig:ssd-histograms}.
 
-\begin{figure}
+\begin{figure}[t]
   \centering
-  \def\w{0.48}
-  \subfloat{\includegraphics[width=\w\textwidth]{ssd-calibration/true_mip.png}
-  \label{fig:ssd-histograms}
-  }\hfill
-  \subfloat{\includegraphics[width=\w\textwidth]{ssd-calibration/rates.png}
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{ssd-calibration/true_mip.png}
+  \label{fig:ssd-histogram}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{ssd-calibration/rates.png}
   \label{fig:array-rates}
   }
-  \caption[]{\subref{fig:ssd-histograms} An example \SSD \TTHREE histogram 
+  \caption[]{\subref{fig:ssd-histogram} An example \SSD \TTHREE histogram 
   (black) and its resampled equivalent (red). Fitting the histogram peak (dashed
   lines) of either histogram yields compatible results. \subref{fig:array-rates}
   The expected rate $r^+$ of events with maximum pulse height above a given 
@@ -157,7 +156,7 @@ example event with the corresponding fits of \MipOffline are shown in
   given as $\sqrt{r^+}$. The systematic error is the standard deviation of $r^+$
   over the entire dataset. It originates from minute-to-minute fluctuations in 
   $\Imip$ per station.}
-  \label{fig:histograms-and-rate}
+  \label{fig:histograms-and-rates}
 \end{figure}
 
 \subsubsection{SSD-Rate/Threshold Relationship}
@@ -196,18 +195,17 @@ temperature range. The first sample consists of \TTHREE events recorded between
 10:00 to 14:00 local time in June 2023, whereas the second sample comprises 
 events recorded between 22:00 to 02:00 during december nights.
 
-\begin{figure}
+\begin{figure}[t]
   \centering
-  \def\w{0.48}
-  \subfloat{\includegraphics[width=\w\textwidth]{ssd-calibration/summer_days.png}
+  \subfloat[]{\includegraphics[height=0.37\textwidth]{ssd-calibration/summer_days.png}
   \label{fig:summer-days}
-  }\hfill
-  \subfloat{\includegraphics[width=\w\textwidth]{ssd-calibration/winter_nights.png}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.37\textwidth]{ssd-calibration/winter_nights.png}
   \label{fig:winter-nights}
   }
-  \caption[]{Bias and resolution of \MipOnline with respect to \MipOffline shown
+\caption[]{Bias and resolution of \MipOnline with respect to \MipOffline shown
   for events during \subref{fig:summer-days} summer days or 
-\subref{fig:winter-nights} for a varying rate/threshold relationship.}
+  \subref{fig:winter-nights} for a varying rate/threshold relationship.}
   \label{fig:drift-plots}
 \end{figure}
 
@@ -260,7 +258,6 @@ use for calibration. The values of \VemOnline which are used to determine
         $1733$ (22/11) & 163.8 & 177.14 & 157.1 \\
         $1723$ (23/05) & 148.90 & 162.20 & 151.75 \\
         $734$ (23/05) & 145.32 & 161.37 & 48.9 \\
-        
         \bottomrule
     \end{tabular}
     \caption{Average value of \VemOnline (ADC) before and 
@@ -287,16 +284,15 @@ improving the resolution of the \SSD online calibration in this case. From
 \cref{fig:muonfill-resolution} it seems a precision 
 $\mathcal{O}(\SI{5}{\percent})$ is possible.
 
-\begin{figure}
+\begin{figure}[t]
   \centering
-  \def\h{0.36}
-  \subfloat{\includegraphics[height=\h\textwidth]{ssd-calibration/uub_randoms_histogram.png}
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{ssd-calibration/uub_randoms_histogram.png}
   \label{fig:uub-randoms-histogram}
-  }\hfill
-  \subfloat{\includegraphics[height=\h\textwidth]{ssd-calibration/std.png}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.35\textwidth]{ssd-calibration/std.png}
   \label{fig:muonfill-resolution}
-  }\hfill
-  \caption[]{\subref{fig:uub-randoms-histogram} \TONE preselected \SSD muon 
+}
+\caption[]{\subref{fig:uub-randoms-histogram} \TONE preselected \SSD muon 
   histograms for the stations Nadia (1723), Nuria (56), Constanza (734) and 
   Svenja (1733). \subref{fig:muonfill-resolution} The standard deviation of 
   the difference $\MipOnline - \MipOffline$, detailing the characteristic 
@@ -321,6 +317,7 @@ of \MipOnline upwards. By running on the \texttt{muonfill} process and
 accessing \FBW traces directly, this issue is avoided.
 
 \subsection{Integration Tests}
+\label{ssec:integration-tests}
 
 After deciding on an implementation design based on the insights from
 \cref{ssec:feasibility-tests}, we must now develop a software prototype
@@ -420,7 +417,7 @@ which will be revisted in the following section.
   \subfloat[]{\includegraphics[height=0.32\textwidth]{ssd-calibration/rate_threshold_relationship.png}
   \label{fig:ssd-only-rate-threshold-relationship}
   }
-  \caption[]{\subref{fig:example-rate-threshold-relationship} The 
+\caption[]{\subref{fig:example-rate-threshold-relationship} The 
   rate/threshold relationship for the station El Mataco during the 
   \DAQ run at noon. The physical context of the trigger rate above 
   a threshold on the bottom is given by the location of the peak of 
@@ -428,22 +425,73 @@ which will be revisted in the following section.
   plot. \subref{fig:ssd-only-rate-threshold-relationship} 
   Rate/threshold relationship averaged across stations and \DAQ 
   runs.}
-  \label{fig:integration-test-results}
+\label{fig:integration-test-results}
 \end{figure}
-
-\subsubsection{Prototype Field Tests}
-
-With the feasibility of a \WCD-independent \SSD online calibration demonstrated
-in the last section, we deploy a prototype version of the calibration algorithm
-presented in \cref{sec:ssd-online-calibration-algorithm}
 
 \subsubsection{Backwards Compatibility Checks}
 
+With the feasibility of a \WCD-independent \SSD online calibration demonstrated
+in the last section, we deploy a prototype version of the calibration algorithm
+presented in \cref{sec:ssd-online-calibration-algorithm} to several 
+\SD-stations. Of utmost importance is a seamless integration of the new 
+calibration procedures into existing routines.
 
-%een carried out in 2024/04.
+As detailed in \cref{ssec:integration-tests}, the muon trigger logic must be 
+changed in order to provide a \WCD-independent \SSD online calibration. This
+influences the shape and normalization of both \WCD- and \SSD muon histograms,
+which in turn skews the distribution of \VemOffline and \MipOffline pre- and
+post-update. In order to mitigate this issue, a flag has been implemented
+that denotes the \FPGA-channels which have participated in a trigger, thus 
+informing the station software about \PMTs that observed a muon event. If at 
+least one of the \WCD-\PMTs has raised a muon trigger, the event is added to the
+muon buffers.
+
+While this logic is, formally, equivalent to the behaviour in previous software 
+versions, the inclusion of the \SSD-\PMT in the trigger procedure fundamentally
+changes the execution at the \FPGA-level. We verify that \VemOffline and 
+\MipOffline remain the same by comparing muon histograms collected in short 
+succession with different software versions. \cref{fig:histo-comparison} shows
+that the \WCD histograms are, on average, unaffected by this change. The \SSD
+histogram appears to have fewer counts, especially at large pulse heights. While
+the value of \MipOffline agrees between both measurements,\todo{footnote with values} this may be indicative of deadtimes due to high trigger rates in the \SSD
+channel.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{ssd-calibration/new_figs_pmt_0.png}
+  \label{fig:histo-comparison-0}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{ssd-calibration/new_figs_pmt_1.png}
+  \label{fig:histo-comparison-1}
+  }\hfill
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{ssd-calibration/new_figs_pmt_2.png}
+  \label{fig:histo-comparison-2}
+  }\hspace{0.2cm}
+  \subfloat[]{\includegraphics[height=0.34\textwidth]{ssd-calibration/new_figs_pmt_3.png}
+  \label{fig:histo-comparison-3}
+  }\hfill
+  \caption[]{Comparison of the muon histograms between different \SD-station 
+  software versions for the \WCD-\PMTs (\subref{fig:histo-comparison-0},
+  \subref{fig:histo-comparison-1}, and \subref{fig:histo-comparison-2}), as 
+  well as the \SSD-\PMT in \subref{fig:histo-comparison-3}. The bottom subplots
+  give the normalized difference of the binned counts, respectively.
+\label{fig:histo-comparison}}
+\end{figure}
+
+We check if this impinges on the overall \SD-station performance by analyzing
+the distribution of time differences $\Delta t$ between successive \TTWOs 
+across both software versions. Under nominal conditions, this is a simple 
+Poisson process with a mean trigger rate 
+$\tau=\SIrange[range-phrase=-]{20}{25}{\hertz}$, and 
+$\Delta t\sim\exp{-\Delta t/\tau}$. (Constant) deadtimes manifest as a deviation
+from this correspondence, or result in systematically different values of 
+$\tau$. \todo{figure} shows the distribution 
+
 
 \section{Performance}
 \label{sec:ssd-online-calibration-performance}
+
+% \MipOnline can be made bias free trivially, metric to optimize becomes sigma -> analyze fluctuations (resolution)
 
 \subsection{Preprocessing}
 \subsection{Station-to-Station Fluctuations}

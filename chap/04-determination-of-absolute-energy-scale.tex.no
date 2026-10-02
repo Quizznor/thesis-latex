@@ -1611,4 +1611,4 @@ presented study is only preliminary, and the proposed tracking model very
 rudimentary in nature, these findings help us understand the temporal evolution
 of the \FD hardware better, and underscore the necessity of updating the 
 relative calibration tracking algorithm to monitor the entire optical path 
-through the telescopes. 
+through the telescopes.
