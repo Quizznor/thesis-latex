@@ -424,7 +424,9 @@ which will be revisted in the following section.
   the muon histogram at $I\overset{!}{=} 1\,\MipOffline$ in the top 
   plot. \subref{fig:ssd-only-rate-threshold-relationship} 
   Rate/threshold relationship averaged across stations and \DAQ 
-  runs.}
+  runs. For the exact value of $C$ at a value of \SI{70}{\hertz} 
+  (indicated as $2.64$) here see 
+  \cref{ssec:ssd-online-calib-normalization-factor}.}
 \label{fig:integration-test-results}
 \end{figure}
 
@@ -478,26 +480,112 @@ channel.
 \label{fig:histo-comparison}}
 \end{figure}
 
-We check if this impinges on the overall \SD-station performance by analyzing
-the distribution of time differences $\Delta t$ between successive \TTWOs 
-across both software versions. Under nominal conditions, this is a simple 
-Poisson process with a mean trigger rate 
-$\tau=\SIrange[range-phrase=-]{20}{25}{\hertz}$, and 
-$\Delta t\sim\exp{-\Delta t/\tau}$. (Constant) deadtimes manifest as a deviation
-from this correspondence, or result in systematically different values of 
-$\tau$. \todo{figure} shows the distribution 
+We check if higher trigger rates in the \SSD channel impinge on the overall 
+\SD-station performance by analyzing the distribution of time differences 
+$\Delta t_\mathrm{T2}$ between successive \TTWOs across both software versions.
+Under nominal conditions, this is a simple Poisson process with 
+$\mu\approx\SIrange[range-phrase=-]{20}{25}{\hertz}$, and 
+$\Delta t_\mathrm{T2}\sim\exp{-\Delta t\,\mu}$. (Constant) deadtimes manifest as
+a deviation from this correspondence, or result in systematically different 
+values of $\mu$. \cref{fig:t2-deadtimes} shows the distribution of 
+$\Delta t_\mathrm{T2}$ across two stations pre- and post update. The observed
+trigger rates remain compatible.
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{ssd-calibration/t2_deadtimes.png}
+  \caption{Comparison of time between successive T2 triggers for different stations.}
+  \label{fig:t2-deadtimes}
+\end{figure}
 
 \section{Performance}
 \label{sec:ssd-online-calibration-performance}
 
-% \MipOnline can be made bias free trivially, metric to optimize becomes sigma -> analyze fluctuations (resolution)
+After integration tests have not revealed any issues in the operation of few
+\SD-stations, all \SD-stations have been updated to the new software version
+and the \SSD online calibration has been in operation in the \SD since 
+2026/04/01.
 
-\subsection{Preprocessing}
+The new software version introduces two new variables, $T_{70}$ (measured in 
+\ADCs) and $f_{70}$ (measured in $\mathrm{Hz}$) to monitoring packets (see 
+\cref{sec:ssd-online-calibration-monitoring}) sent to the \CDAS by every station
+approximately every 5 minutes and the \TTHREE messages downloaded for every 
+\TTHREE trigger. 
+
+In a next step, we will tie the value of \MipOnline (calculated from $T_{70}$ as
+per \cref{eq:mip-online-calibration-factor}) to \MipOffline, which we assume for
+the sake of the analysis to be a "true" measure of the characteristic pulse 
+height of a minimally ionizing particle traversing the \SSD.\footnote{(Constant)
+correction factors to convert from omni-directional to vertical MIP peak are 
+ignored.} The deviation and resolution with which \MipOnline approximates 
+\MipOffline can be used to quantify the performance of the calibration 
+algorithm.
+
+\subsection{Selection and Preprocessing}
+\label{ssec:ssd-online-calib-normalization-factor}
+
+The outer edge of \SD-stations, as well as some stations in the \SD-750 are not
+equipped with \SSDs. The newly implemented software however blindly analyzes 
+data from the \SSD-\PMT channel of the \UUB whether a scintillator panel is 
+installed or not. In the absence of physically meaningful signal the input data 
+to the online calibration algorithm consists solely of electronic noise, 
+$\upsigma_\mathrm{readout}$. 
+
+Thus, the calibration trigger threshold is pulled to a value 
+$T_{70} \approx \upsigma_\mathrm{readout}$. The target trigger rate of 
+$f_{70} = \SI{70}{\hertz}$ is however never reached, as shown in \todo{figure}.
+With this monitoring information, we can quickly identify whether a given 
+\SD-station has an operational \SSD installed by searching for calibration data
+where $\mathcal{O}(T_{70}) = \SI{1}{ADC}$ and 
+$f_{70}\notin(\SI{65}{\hertz},\,\SI{75}{\hertz})$. The \SSD-less stations
+identified in this fashion are shown in \todo{fig} and is consistent with 
+official databases (e.g.~\cite{AugerMaps}).
+
+We restrict the further analysis of the \SSD online calibration performance to
+the disjunct set of stations defined above, i.e.~those that have an operational
+\SSD installed. To mitigate influences of e.g.~improperly set electronic gains
+we further require $\MipOffline\in[\SI{25}{ADC},\,\SI{55}{ADC}]$. Scenarios that
+are rejected by these quality cuts are further discussed in 
+\cref{ssec:calibration-issues}.
+ 
+The resulting dataset that passes all selections comprises XXX \TTHREE events 
+collected between 2026/04/01 and XXXX/XX/XX, with XXXX \SD-stations surveyed in 
+total.
+
+We pick a calibration factor $C$ to calculate $\MipOnline = T_{70} / C$ such 
+that the bias $\langle\MipOnline - \MipOffline\rangle = 0$ across the entire 
+dataset. Note that, due to the intermediate value theorem, such a factor always 
+exists. However, different environmental settings yield different values of $C$,
+as shown by the incombatibility of $C$ found during integration tests (see
+\cref{fig:ssd-only-rate-threshold-relationship}) and actual operation (see 
+\todo{figure}), which results from different calibration trigger settings 
+employed during first tests.
+
+In any case, the metric that defines the performance of the (by definition) bias
+free algorithm is then given as the resolution to the histogram based \MIP peak,
+$\upsigma(\MipOnline - \MipOffline)$. In the following, the main systematic
+contributions to the resolution are analyzed componentwise.
+
 \subsection{Station-to-Station Fluctuations}
-\subsection{Temperature Fluctuations}
+
+The electronic gain of the \SSD-\PMT is set dynamically on the \UUB. This yields
+a unique (albeit similar) value of \Imip, as well as a distinct rate/threshold 
+relationship per station. Importantly, the induced fluctuations in \MipOffline 
+and \MipOnline can differ in magnitude, since the former is also dependent on 
+\WCD-\PMT systematics. By assuming a fixed rate/threshold relationship over the 
+entire array a small station-level bias is introduced. The corresponding 
+contribution to $\upsigma(\MipOnline - \MipOffline)$ reads
+
+\begin{equation}
+	\label{eq:ssd-station-to-station-fluctuation}
+	\upsigma_\mathrm{LS} = 
+\end{equation}
+
+
+
+\subsection{Pressure Fluctuations}
 \subsection{Seasonal Fluctuations}
-\subsection{Bias and Resolution}
+\subsection{Absolute Resolution}
 
 \section{Monitoring}
 \label{sec:ssd-online-calibration-monitoring}
@@ -505,6 +593,7 @@ $\tau$. \todo{figure} shows the distribution
 \subsection{Data Set}
 \subsection{SSD-array Uptime}
 \subsection{Calibration Issues}
+\label{ssec:calibration-issues}
 % put all the different shit like sunrise/sunset noise here
 
 \section{Increase in Photon Sensitivity}
