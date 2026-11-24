@@ -12,6 +12,7 @@ CMB        Cosmic Microwave Background
 CO         Coihueco
 CPU        Central Processing Unit
 CR         Cosmic Ray
+CRS        Central Radio Station
 DAQ        Data Acquisition
 DSA        Diffusive Shock Acceleration
 EAS        Extensive Air Shower
@@ -52,6 +53,7 @@ LHC        Large Hadron Collider
 LL         Los Leones
 LM         Los Morados
 LPMT       Large PMT
+LS         Local Station
 LUT        Lookup Table
 MC         Monte Carlo
 MIP        Minimum Ionizing Particle
@@ -105,4 +107,3 @@ WCD        Water Cherenkov Detector
 WLS        Wavelength Shifting Fiber
 XLF        Extreme Laser Facility
 XML        Extensible Markup Language
-LS	Local Station

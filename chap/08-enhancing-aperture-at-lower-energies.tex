@@ -360,8 +360,9 @@ on 2024-04-24 ($\SI{27}{\celsius}$), and again on 2024-04-25 before sunrise
 temperatures. Downlink communication was severely limited during the second 
 test iteration and only a few repetitions of step (4) could be executed.
 
-\begin{wraptable}[15]{l}{0.5\textwidth}
+\begin{wraptable}[16]{l}{0.5\textwidth}
     \centering
+    \caption{Stations and their corresponding (\WCD) \PMT mask for both acquisition runs.}
     \begin{tabular}{c|cc|cc}
 	 \toprule
 	 \multirow{2}{*}{Station (ID)} & \multicolumn{4}{c}{PMT mask} \\
@@ -377,7 +378,6 @@ test iteration and only a few repetitions of step (4) could be executed.
 	Louisana (1845) & 7 & 111 & 7 & 111 \\
 	\bottomrule
     \end{tabular}
-    \caption{Stations and their corresponding (\WCD) \PMT mask for both acquisition runs.}
     \label{tab:muonAcquisition-station-list}
 \end{wraptable}
 
@@ -392,9 +392,10 @@ obtained information to calculate the trigger rate for a trigger
 thresholds in units of \MipOffline. An example relation between
 trigger pedestal and rate for one station in one temperature setting
 is shown in \cref{fig:example-rate-threshold-relationship}. 
-Unsurprisingly, the observed relation for distinct measurements of
-the \SSD pulse distribution is stable over a timescale of one hour,
-as atmospheric conditions are constant during the interval.
+Unsurprisingly, the observed rate/threshold relationship for distinct 
+measurements of the \SSD pulse distribution does not change over a 
+timescale of one hour, as atmospheric conditions are constant during 
+the short interval.
 
 Next, we combine the rate/threshold relationships of all stations 
 across both \DAQ runs in order to check the stability with respect
@@ -563,8 +564,20 @@ employed during first tests.
 
 In any case, the metric that defines the performance of the (by definition) bias
 free algorithm is then given as the resolution to the histogram based \MIP peak,
-$\upsigma(\MipOnline - \MipOffline)$. In the following, the main systematic
-contributions to the resolution are analyzed componentwise.
+$\upsigma(\MipOnline - \MipOffline)$. For the dataset at hand, this value reads
+
+\begin{equation}
+	\label{eq:total-resolution-online-calibration}
+	\upsigma_\mathrm{tot} = TODO,
+\end{equation}
+
+\noindent a visualization is shown in \todo{make plot}. In the following, 
+the main systematic contributions $\upsigma_i$ to the total resolution are 
+analyzed. Importantly, the contributions are picked didactically and serve to 
+inform about the average performance in different scenarios. As such, the 
+$\upsigma_i$ are highly correlated in some cases, and
+$\upsigma_\mathrm{tot}^2 \neq \sum \upsigma_i$.
+
 
 \subsection{Station-to-Station Fluctuations}
 
@@ -578,17 +591,81 @@ contribution to $\upsigma(\MipOnline - \MipOffline)$ reads
 
 \begin{equation}
 	\label{eq:ssd-station-to-station-fluctuation}
-	\upsigma_\mathrm{LS} = 
+	\upsigma_\mathrm{LS} = TODO
 \end{equation}
 
-
-
 \subsection{Pressure Fluctuations}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{ssd-calibration/height_dependence.png}
+  \caption{Mean station-level bias of the \SSD-online calibration versus 
+  elevation.}
+  \label{fig:ssd-height-dependence}
+\end{figure}
+
+The station-to-station fluctuations above are only partly caused by 
+e.g.~different gain settings. A smaller systematic contribution to 
+inter-station-differences results from pressure changes due to differing station
+altitude. \cref{fig:ssd-height-dependence} shows a slight dependence of the bias
+$\MipOffline - \MipOnline$ of approximately $\SI{-7}{\percent\per\kilo\meter}$, 
+with stations at higher altitude typically having a larget value of \MipOnline. 
+This can be explained by the atmospheric attenuation of low energy 
+\EM-particles. At higher altitudes (lower pressures), the attenuation is less 
+pronounced, resulting in a higher rate of calibration triggers, which is 
+compensated by a larger value of $T_{70}$.
+
+While the phenomenon is not a dominant factor in the station-to-station 
+fluctuations,\footnote{And the altitude-dependent systematic is in any case 
+contained by $\upsigma_\mathrm{LS}$.} we mention it here explicitly, as the 
+height-dependence of \SSD observables should be visible in shower data as well.
+To improve the correspondence between \EAS simulations and observed \SSD events,
+this calls for high precision frameworks such as \texttt{CORSIKA 8} 
+\cite{engelNextGenerationCORSIKA2019}, which models the particle distribution on
+ground rather than as a cross-section of the cascade at a fixed height.
+
+\subsection{Temperature Fluctuations}
+
+The air pressure does not only fluctuate with altitude as seen above, but also
+with atmospheric conditions. This yields a weather-dependent normalization
+factor $C$, which we (wrongfully) assume to be constant in 
+\cref{eq:mip-online-calibration-factor}. 
+
+We investigate the magnitude of the error this introduces by correlating the 
+air temperature\footnote{The temperature is monitored more accurately than air
+pressure, and $T\propto p$.} measured at the \CRS to the bias of the \SSD online
+calibration in \SD-750 stations located closeby. \todo{figure} 
+shows the results of this analysis. We note an approximately linear 
+relationship between air temperature and the online calibration, with the 
+former influencing the latter at \todo{calculate this}
+%$\SI{2}{\percent\per\celsius}$. With an average
+temperature range of \todo{calculate} per day, this results in the daily 
+modulation of the online \MIP peak bias, shown in \todo{plot}, of 
+
+\begin{equation}
+	\label{eq:ssd-temperature-fluctuation}
+	\upsigma_\mathrm{T} = \SI{2.4}{\percent}.
+\end{equation}
+
 \subsection{Seasonal Fluctuations}
-\subsection{Absolute Resolution}
+
+The same temperature-dependence discussed above also appears as a seasonal 
+effect influencing the calibration bias. \todo{seasonal fluctuations plot} 
+shows a sinusoidal modulation of 
+$\left(\MipOffline - \MipOnline\right)\,\big/\,\MipOffline$ for \TTHREE-events
+recorded between 4-6 UTC (16-18 UTC), corresponding roughly to noon (midnight) 
+for a given day. The amplitude of the modulation, averaged over midnight and 
+noon reads
+
+\begin{equation}
+	\label{eq:ssd-seasonal-fluctuation}
+	\upsigma_\mathrm{S} = TODO.
+\end{equation}
 
 \section{Monitoring}
 \label{sec:ssd-online-calibration-monitoring}
+
+
 
 \subsection{Data Set}
 \subsection{SSD-array Uptime}
